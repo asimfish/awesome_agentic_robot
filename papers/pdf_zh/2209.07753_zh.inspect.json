@@ -1,0 +1,23 @@
+{
+  "issue_count": 3,
+  "issues": [
+    {
+      "page": 10,
+      "code": "untranslated_block",
+      "severity": "error",
+      "message": "Page 10: paragraph still in English (28 words, 0 CJK chars) at x=313.8, y=292.0: TABLE V: Hierarchical code generation also performs bett"
+    },
+    {
+      "page": 11,
+      "code": "untranslated_block",
+      "severity": "error",
+      "message": "Page 11: paragraph still in English (32 words, 0 CJK chars) at x=313.7, y=699.1: The generated LMP expresses a controller that takes as i"
+    },
+    {
+      "page": 13,
+      "code": "untranslated_block",
+      "severity": "error",
+      "message": "Page 13: paragraph still in English (60 words, 0 CJK chars) at x=314.0, y=315.1: sky-colored block in between the red block and the secon"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+# working directories and caches
+_work/
+__pycache__/
+*.pyc
+.DS_Store
+# LaTeX build artefacts
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+# local secrets
+.env

@@ -1,0 +1,197 @@
+# -*- coding: utf-8 -*-
+"""Merge arXiv metadata (fetched by fetch_arxiv_meta.py) with hand-curated topic assignments into data/papers.csv."""
+import csv, json, os, sys
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+META = os.path.join(ROOT, "data", "paper_meta.json")
+meta = json.load(open(META, encoding="utf-8")) if os.path.exists(META) else {}
+
+# id: (short_name, topics, tier, note_zh, code_url)
+A = {
+# ---- T0 foundations (software-side agents / harness) ----
+"lilianweng-agent-2023": ("LLM Powered Autonomous Agents (Lil'Log)", "T0", "foundation", "Agent = LLM + Planning + Memory + Tool use 的经典分解，是后续所有 Agent+Robot 架构图的原型。", "https://lilianweng.github.io/posts/2023-06-23-agent/"),
+"lilianweng-harness-2026": ("Harness Engineering for Self-Improvement (Lil'Log)", "T0;T15", "foundation", "定义 Harness 三大模式（工作流自动化 / 文件系统即记忆 / 子代理），提出优化对象阶梯 prompt→context→workflow→harness code→optimizer code，列出 RSI 的 7 个未解挑战。", "https://lilianweng.github.io/posts/2026-07-04-harness/"),
+"2510.04618": ("ACE", "T0", "foundation", "把上下文当作可演化的 playbook：Generator/Reflector/Curator 三角色，增量条目式更新避免上下文塌缩。", ""),
+"2601.21557": ("Meta Context Engineering", "T0", "foundation", "双层优化：外层演化技能（上下文管理机制），内层优化任务上下文。", ""),
+"2603.28052": ("Meta-Harness", "T0", "foundation", "用 coding agent 优化 harness 代码本身，输出 Pareto 前沿上的 harness 候选。", ""),
+"2606.09498": ("Self-Harness", "T0", "foundation", "weakness mining → bounded harness proposal → held-in/held-out 双重回归验证的自改进循环。", ""),
+"2604.25850": ("Agentic Harness Engineering", "T0", "foundation", "以可观测性为核心：组件 / 经验 / 决策三层可观测，每次编辑都是可证伪的文件级声明。", ""),
+"2605.30621": ("Harness Updating Is Not Harness Benefit", "T0", "foundation", "9B 到 Opus 的模型写 harness 的能力相近，但利用 harness 的能力非单调；模型智能仍是核心。", ""),
+"2605.09998": ("Continual Harness", "T0", "foundation", "长程游戏中同时更新 harness 与蒸馏策略模型。", ""),
+"2605.24539": ("DemoEvolve", "T0", "foundation", "用人类示范补充稀疏反馈下的 harness 演化。", ""),
+"2605.27276": ("SIA", "T0", "foundation", "Feedback-Agent 决定本轮更新 harness 还是模型权重的早期尝试。", ""),
+"2505.22954": ("Darwin Gödel Machine", "T0", "foundation", "允许 coding agent 修改自身 harness 代码库并开放式演化，SWE-bench 20%→50%。", ""),
+"2603.19461": ("Hyperagents", "T0", "foundation", "引入元代理控制如何修改任务代理。", ""),
+"2506.13131": ("AlphaEvolve", "T0", "foundation", "冻结 LLM 生成程序 diff 的演化搜索，EVOLVE-BLOCK 标记可改区域。", ""),
+"2507.19457": ("GEPA", "T0", "foundation", "反思式 prompt 演化优于 RL 的实证。", ""),
+"2309.16797": ("Promptbreeder", "T0", "foundation", "自指式 prompt 演化，突变 prompt 本身也被演化。", ""),
+"2310.02304": ("STOP", "T0", "foundation", "自学优化器：优化 improver 而非解本身；弱模型下会退化。", ""),
+"2601.03315": ("Why LLMs Aren't Scientists Yet", "T0", "foundation", "四次自主研究尝试总结出的 6 类失败模式（训练数据默认偏置、实现漂移、记忆退化、过度乐观等）。", ""),
+# ---- core: named in the retrieval map / XHS post / PPTX ----
+"2209.07753": ("Code as Policies", "T2", "core", "首次系统提出 Code-as-Policy：LLM 生成处理感知、调用控制原语、可表达反应式与航点式策略的程序。", "https://code-as-policies.github.io"),
+"2603.22435": ("CaP-X", "T2;T9;T22", "core", "CaP-Gym / CaP-Bench / CaP-Agent0 / CaP-RL 四件套；抽象降低时性能下降，可用 agentic test-time compute 弥补；RL with verifiable reward 可 sim2real。", ""),
+"2606.16458": ("RHO", "T2;T15", "core", "Robotics Harness Optimization：coding agent 在训练时搜索多文件策略仓库（Repositories-as-Policies），部署时单轮执行，LIBERO-PRO 45% vs π0.5 12.8%。", "https://rho-robotics.github.io"),
+"2607.00272": ("ASPIRE", "T2;T6;T7;T8;T20", "core", "NVIDIA GEAR：执行引擎 + 技能库 + 演化搜索的持续学习系统，技能跨任务/仿真/真机/本体持久化，LIBERO-Pro Long 零样本 31% vs 4%。", "https://research.nvidia.com/labs/gear/aspire/"),
+"2605.23904": ("SkillOpt", "T7;T8;T0", "core", "把 skill.md 当冻结 agent 的外部可训练状态：有界编辑 + held-out 验证门 + 拒绝编辑缓冲 + epoch 慢更新；52/52 cells 最优或并列。", "https://aka.ms/skillopt"),
+"2606.19980": ("ENPIRE", "T2;T7;T9;T10;T21", "core", "coding agent 的真机 harness：EN（自动 reset+验证）/ PI / R（多机并行 rollout）/ E（读日志改算法与基础设施），自主训练策略至 99% 成功。", ""),
+"2602.01662": ("AgenticLab (PLanAR)", "T1;T6;T22;T23", "core", "Purdue 真机 agent 平台：以规划语言（谓词/动作 schema）定义 VLM 推理空间，逐步验证符号效果并重规划。", "https://agentic1ab.github.io/"),
+"2505.23450": ("Agentic Robot", "T1;T4;T23", "core", "脑启发框架：Standardized Action Procedure 协调推理模型 / VLA 执行器 / 时序验证器，LIBERO 79.6%。", "https://agentic-robot.github.io"),
+"2510.11660": ("ManiAgent", "T1", "core", "多 agent 感知-分解-动作生成，SimplerEnv 86.8%，可为 VLA 生成训练数据。", "https://yi-yang929.github.io/ManiAgent/"),
+"2603.26997": ("ROSClaw (OpenClaw ROS 2)", "T3;T17;T18", "core", "OpenClaw runtime + ROS 2 的模型无关执行层：能力发现、观测归一、安全包络内的预执行验证、审计日志；发现不同前沿模型越权动作率差 3.4-4.8 倍。", ""),
+"2604.04664": ("ROSClaw (Heterogeneous)", "T3;T20", "core", "同名工作：e-URDF 物理约束 + sim-real 拓扑映射，统一 VLM 控制器串起采集、训练与执行。", "https://www.rosclaw.io/"),
+"2602.13591": ("AgentRob", "T3;T18;T17", "core", "通过 MCP 把论坛 agent 与 Unitree Go2/G1 相连，展示论坛介导的多 agent 机器人编排（及被劫持风险）。", ""),
+"2603.11558": ("RoboClaw", "T4;T10;T7", "core", "统一采集-学习-部署的 VLM 控制器；Entangled Action Pairs 把正向技能与逆向恢复绑定实现自复位采数据，成功率 +25%，人工时间 -53.7%。", "https://github.com/RoboClaw-Robotics/RoboClaw"),
+"2602.11291": ("H-WM", "T4;T12", "core", "分层世界模型：高层逻辑世界模型 + 低层视觉世界模型联合预测，为 VLA 提供稳定中间引导。", ""),
+"2503.22122": ("REMAC", "T4;T6;T19;T23", "core", "多机器人长程规划：前置/后置条件检查的自反思 + 场景推理的自进化，成功率 +40%，效率 +52.7%。", ""),
+"2603.04639": ("RoboMME", "T5", "core", "ICML 2026。16 个任务覆盖时间/空间/物体/程序四类记忆，14 个 π0.5 记忆变体；记忆表示的有效性高度任务依赖。", "https://robomme.github.io"),
+"2606.22338": ("RoboMME-Interference", "T5", "core", "跨会话干扰基准：感知型记忆随无关会话累积而衰减，检索步骤可恢复。", "https://robotmemorybench.com"),
+"2608.24115": ("PonderPounce", "T5;T13", "core", "复用 MLLM 原生因果上下文作为 episode 记忆：Ponder(System2) 异步向 Pounce(System1 VLA) 发送最新认知 token；RoboMME 60.83% vs π0.5 17.93%。", "https://worv-ai.github.io/ponderpounce/"),
+"2509.24219": ("ViReSkill", "T5;T8;T6", "core", "失败时视觉接地重规划，成功后把计划存入技能记忆下次直接复用，无需再调 LLM。", ""),
+"2512.00076": ("Arcadia", "T7;T10;T11", "core", "全生命周期闭环：自进化探索 → 生成式场景重建 → 共享具身表征 → sim-from-real 评估与演化。", ""),
+"2607.16636": ("PhyAgentOS", "T7;T15;T16;T17;T23", "core", "会话为最小调度单元的运行时：State-as-a-File、SessionVerifier 区分执行终止与语义完成、epistemic memory、分层安全；19+ 本体验证。", ""),
+"2509.18597": ("Growing with Your Embodied Agent", "T7;T8;T2", "core", "人在环的终身代码生成：把纠正编码为可复用技能 + 外部记忆 RAG，解决 20+ 原语的超长程任务。", ""),
+"2405.15019": ("Agentic Skill Discovery", "T8", "core", "完全由 LLM 驱动的技能发现：LLM 提任务、采样奖励与成功判定函数、RL 学策略、VLM 独立验证，技能库从零生长。", "https://agentic-skill-discovery.github.io/"),
+"2501.15068": ("Atomic Skill Library", "T8", "core", "三轮数据驱动构建原子技能库：VLP 拆子任务 → 抽象技能定义 → VLA 微调。", ""),
+"2602.09023": ("TwinRL", "T9;T11", "core", "手机拍摄重建数字孪生，twin 内并行 RL 预热真机 RL 并定位易失败配置；20 分钟真机交互接近 100% 成功。", ""),
+"2605.00416": ("Learning While Deploying (LWD)", "T9;T10;T21", "core", "16 台双臂机器人 fleet-scale 离线到在线 RL 持续后训练通用 VLA（DIVL + QAM），8 个真实任务平均 95%。", ""),
+"2509.25756": ("SAC Flow", "T9", "core", "把 flow rollout 视为残差 RNN，用门控/解码速度网络稳定 off-policy RL 训练 flow 策略。", ""),
+"2601.06748": ("TT-VLA", "T9", "core", "测试时 RL：用逐步任务进度密集奖励在推理时在线适配 VLA。", ""),
+"2506.01953": ("Fast-in-Slow", "T13;T14", "core", "System 1 嵌入 System 2 共享参数的统一双系统 VLA，action chunk=8 时 117.7 Hz。", "https://fast-in-slow.github.io"),
+"2505.11917": ("OneTwoVLA", "T13", "core", "单一模型自适应切换推理与执行模式，关键时刻显式推理。", ""),
+"2602.01100": ("StreamVLA", "T13", "core", "Lock-and-Gated：仅在子任务切换时触发慢思考并想象完成态，72% 时间步跳过自回归解码，延迟 -48%。", ""),
+"2601.05248": ("LaST0", "T13", "core", "潜空间时空 CoT：未来视觉、3D 结构、本体状态进入 latent 推理，MoT 双专家异频运行。", "https://vla-last0.github.io/"),
+"2506.10826": ("RationalVLA", "T13;T17", "core", "RAMA 基准含 6 维缺陷指令；双系统通过可学习 latent 嵌入拒绝不可行指令。", "https://irpn-eai.github.io/RationalVLA"),
+"2606.09416": ("Harness Engineering for Physical AI", "T14;T15;T16", "core", "机器人中间件即 Harness 层：必须同时在控制、计算、通信三处介入；提出 Projection / Isolation / Transfer 三个缺失的强制功能与 ROS 2 Harness Profile。", ""),
+"2607.08448": ("Harness VLA", "T15;T6;T20;T23", "core", "把冻结 VLA 暴露为可重试的接触原语，与少量解析原语组合；从执行轨迹学习原语的适用范围而非扩张技能库；LIBERO-Pro +38.6pp。", "https://github.com/RLinf/RPent"),
+"2604.07833": ("Runtime Governance for Embodied Agents", "T16;T17", "core", "把治理外置为运行时层：策略检查、能力准入、执行监控、回滚、人工接管；96.2% 越权拦截。", ""),
+"2307.04738": ("RoCo", "T19", "core", "多机器人用 LLM 对话协商分工与航点，交给多臂运动规划器；RoCoBench。", "https://project-roco.github.io"),
+"2505.03673": ("RoboOS", "T19;T20;T21", "core", "Brain-Cerebellum 架构：Embodied Brain + Cerebellum Skill Library + Real-Time Shared Memory，边云通信。", "https://github.com/FlagOpen/RoboOS"),
+"2510.26536": ("RoboOS-NeXT", "T19;T21;T5", "core", "Spatio-Temporal-Embodiment Memory 统一多机器人终身协作的共享记忆。", "https://flagopen.github.io/RoboOS/"),
+"2411.17636": ("MALMM", "T19;T2", "core", "Planner / Coder / Supervisor 多 LLM agent 零样本操作，每步环境观测驱动重规划。", ""),
+"mhs-anthropic-2026": ("Model Hardware Standard (MHS)", "T18;T3", "core", "Anthropic 2026-08-27 研究预览：让 agent 通过统一规范发现、操作、排障真实设备（显微镜、液体处理器、机械臂），被称为硬件版 MCP。", "https://www.anthropic.com/news/model-hardware-standard-research-preview"),
+"openclawpi-agilex": ("OpenClawPi", "T3;T8", "core", "松灵机器人（AgileX）面向 OpenClaw 的模块化机器人技能库，覆盖机械臂控制、抓取等场景。", "https://discourse.openrobotics.org/t/rapid-deployment-of-openclaw-and-graspgen-crawling-system/53764"),
+# ---- extended 2026 works found in expansion ----
+"2606.08610": ("HARBOR", "T2;T15;T9", "extended", "把机器人 RL 自动化视为 harness 工程问题：从环境搭建到训练的分阶段 agent 流水线。", ""),
+"2608.18227": ("Revisiting Push-T with Agentic Robotics", "T2", "extended", "Goldberg 组：Claude Code 无示范写出 Push-T 算法解，100% 成功且比扩散策略少 46% 步数。", ""),
+"2606.19419": ("Playful Agentic Robot Learning (RATs)", "T2;T8;T7", "extended", "自主'玩耍'阶段发现技能并蒸馏进代码技能库，LIBERO-PRO 比 CaP-Agent0 +20.6pp。", "https://playful-rats.github.io/"),
+"2607.22832": ("MEMENTO", "T2;T7", "extended", "记忆引导的单精英模因式 code-as-policy 演化，先演化 rollout 评估器。", "https://github.com/sygkounas/MEMENTO"),
+"2608.21031": ("PhysCaP", "T2;T22", "extended", "物理信息驱动的主动探索层：从本体感知估计质量/刚度，Planner+Prioritizer 决定何时探索。", "https://physcap.github.io"),
+"2510.21302": ("Neuro-Symbolic Code-as-Policies", "T2;T23", "extended", "NeurIPS 2025 Spotlight：符号验证 + 交互式验证代码，成功率比 CaP +46.2%。", ""),
+"2608.07555": ("AgenticRobotics (You Don't Need To Stay in The Loop)", "T2;T10;T16", "extended", "策略改进的控制平面：证据分级技能库、commit 键控崩溃恢复、签名验证器。", ""),
+"2607.23784": ("ARCHITECT", "T2;T8", "extended", "把策略获取视为交互式程序合成，人类语言纠正蒸馏进持久技能库。", "https://robo-architect.github.io/"),
+"2605.11665": ("Nautilus", "T2;T15", "extended", "从一句 prompt 生成复现/评估/微调/部署工作流的开源研究 harness。", ""),
+"2607.12220": ("Contract-Grounded BT Synthesis", "T2;T3;T18", "extended", "coding agent 先向机器人侧 MCP server 拉取技能契约再合成行为树。", ""),
+"2602.13081": ("Agentic AI for Robot Control: Flexible but still Fragile", "T1;T6", "extended", "两台真机上的规划-执行循环：迁移只需改系统 prompt，但非确定性与 prompt 敏感性显著。", ""),
+"2604.01708": ("OpenGo", "T3;T8", "extended", "OpenClaw 驱动的 Go2 机器狗：技能库 + 调度器 + 基于反馈的自学习，飞书自然语言交互。", ""),
+"2511.03497": ("ROSBag MCP Server", "T3;T18", "extended", "用 MCP 让 LLM 分析 ROS/ROS 2 bag 数据。", "https://github.com/binabik-ai/mcp-rosbags"),
+"2604.14399": ("SpaceMind", "T3;T7", "extended", "MCP 工具 + 技能自演化的在轨服务 VLM agent，单次失败即恢复。", "https://github.com/wuaodi/SpaceMind"),
+"2608.16889": ("BATON", "T4;T5;T23", "extended", "以子任务为探索单元（成本 T·K 而非 T^K），转移感知记忆治理 VLA 的进入条件。", ""),
+"2606.07723": ("VoLo", "T4;T1", "extended", "NVIDIA Physical Orchestration：VLM 把 VLA/WAM 当作可中断工具中途干预。", "https://chicychen.github.io/VoLo/"),
+"2602.09430": ("AtomBridge", "T4;T2", "extended", "在原子技能边界由 LLM 生成过渡动作代码，8 步任务成功率 +10-25%。", ""),
+"2603.09513": ("VQ-Memory / RuleSafe", "T4;T5", "extended", "非马尔可夫保险箱基准 + VQ 离散本体历史记忆。", ""),
+"2607.05377": ("Cortex", "T4;T13;T15", "extended", "32 个规范技能原语的双向对齐规划接口，附推理期 harness engineering。", ""),
+"2606.23565": ("HoloAgent-0", "T1;T16;T5", "extended", "Embodied AgentOS + 3D 空间记忆 + 具身技能三层真机框架。", ""),
+"2509.24524": ("PhysiAgent", "T1;T6", "extended", "VLM 根据 VLA 实时熟练度反馈组织 monitor / memory / reflection 组件。", ""),
+"2608.29537": ("AGM", "T5;T23", "extended", "成就接地记忆：只有物理证据验证子目标后才推进进度指针；可靠记忆取决于状态更新纪律而非容量。", ""),
+"2608.09410": ("HyMeS (Skills in Weights, Memory in Code)", "T5;T2", "extended", "权重学技能、代码管记忆：coding agent 用启发式学习迭代记忆管理系统，RoboMemArena 任务成功 41.3%→60.1%。", ""),
+"2608.08749": ("OnEvoMemory", "T5;T9", "extended", "价值引导的记忆模块，用在线 rollout 结果学习该保留哪些经验。", ""),
+"2608.15269": ("Remember Smarter", "T5", "extended", "Mamba 视觉历史压缩 + 双曲经验空间，LIBERO-Plus 53.6%→70.6%。", ""),
+"2607.06678": ("NativeMEM", "T5", "extended", "复用 VLA 自身视觉编码器把每帧压成一个记忆 token，成功率 32.4%→84.0%。", ""),
+"2607.07608": ("LaMem-VLA", "T5", "extended", "短/长期记忆库在 VLA 原生潜空间中交织。", "https://github.com/quhongyu/LaMem-VLA"),
+"2606.29774": ("Analytic Concept-Centric Memory", "T5;T8", "extended", "以部件/模板/位姿/affordance 组织的结构化概念记忆，连接转移记忆与技能记忆。", ""),
+"2608.05970": ("SkillMemo", "T5;T8", "extended", "MoE 门控隐式切分技能原语并存入情景记忆库。", ""),
+"2604.15671": ("ChemBot (Long-Term Memory for VLA Agents)", "T5;T3", "extended", "化学实验室双层记忆 + MCP 子 agent 编排 + 异步推理。", ""),
+"2608.26545": ("Memory Anchors", "T5;T7", "extended", "持续学习中 10% 的关键锚点经验决定是否灾难性遗忘。", "https://robot-adaptation.github.io/MemoryAnchors"),
+"2607.18060": ("RoboHarness", "T15;T5;T4", "extended", "多模态执行记忆刻画异构策略能力边界，Memory Bridge 把机器人引导到下一策略的分布内区域。", ""),
+"2606.31200": ("Agentic RAG-VLM", "T6;T22", "extended", "affordance 感知检索 + 场景图约束 + 14 类失败分类的自反思抓取。", ""),
+"2606.27146": ("PhysReflect-VLA", "T6;T23", "extended", "可行性算子 + 动作解释算子 + LLM 反思模块的执行期可靠性框架。", ""),
+"2603.04029": ("Online Continual RL with World Model Feedback", "T6;T12;T7", "extended", "DreamerV3 预测残差检测 OOD 并自动触发微调。", ""),
+"2602.16444": ("RoboGene", "T6;T10", "extended", "多样性驱动 + 自反思物理约束的真实任务生成 agent，18k 轨迹。", ""),
+"2608.30760": ("PRACTICE", "T7;T8", "extended", "训练一个技能学习器对持久技能库做结构化批量编辑（增/改/合/删），执行器冻结。", "https://baai-agents.github.io/PRACTICE"),
+"2609.02217": ("SkillGLoW", "T7;T8;T0", "extended", "把复用单元定义为'过程族'，局部技能聚合为去实例化的全局先验，提交门保证不退化。", ""),
+"2608.16590": ("Zetta ζ", "T7;T15;T6", "extended", "三时间尺度闭环 harness：动作频率治理 / rollout 级 critic-recovery 提议 / 验证门控技能更新；LIBERO-Pro 90.8%，推理加速 11.1x。", ""),
+"2608.11350": ("SHAPER (Skill-Harness Evolution)", "T7;T15", "extended", "冻结模型同时充当规划器和优化器，演化技能与 context-code harness。", ""),
+"2608.11246": ("Thea (Towards the Harness of Embodied Agents)", "T15;T23", "extended", "继承 coding agent 组件，补上物理世界缺的两件事：Scene Graph as Context 与 Evaluation as Exit Codes。", "https://eit-hai.github.io/thea"),
+"2608.09857": ("Agentic Harnesses (Verification Layers)", "T15;T17;T23", "extended", "规划与执行之间的 LLM-as-a-Judge 集成验证层，接受/拒绝/升级人工，对抗攻击 97% 拦截。", ""),
+"2606.18363": ("Guava", "T15;T1", "extended", "系统探索 harness 设计空间：迭代感知-推理-动作循环、语义动作抽象、多模态观测三要素；蒸馏进 4B 模型。", ""),
+"2607.15524": ("Recursive Harness Self-Improvement", "T0;T15", "extended", "harness 作为 prompt 级 agent loop 规范，用配对反馈迭代精炼。", ""),
+"2607.03451": ("SkillOpt-Lite", "T7;T0", "extended", "零阶优化视角的最小技能优化流水线，推广到 HarnessOpt。", "https://github.com/EvolvingLMMs-Lab/SkillOpt-Lite"),
+"2608.30237": ("Motus2", "T7;T12", "extended", "单模型三接口（策略/模拟器/评估器）的自进化世界模型。", ""),
+"2608.21204": ("Q-Planning (Beyond Imitation)", "T7;T9;T10", "extended", "大 BC 策略 + 小 off-policy Q 函数，只微调 Q 即可从部署失败中自我改进。", "https://varungiridhar.github.io/qplanning/"),
+"2606.05395": ("VASO", "T7;T8;T17;T23", "extended", "形式化可验证的自进化技能契约：模型检查反例变成文本梯度，97.2% 规范符合。", ""),
+"2608.13026": ("Temporal GRPO", "T9", "extended", "按可检测任务阶段分配优势，解决轨迹级信用混叠。", ""),
+"2608.07314": ("TEMPO", "T9", "extended", "语义-动作解耦的双时间尺度 RL 后训练。", ""),
+"2607.29613": ("WCM", "T9;T12", "extended", "世界批评家模型：critic 同时预测未来 latent 与价值，149 任务 SOTA。", ""),
+"2606.31846": ("Z-1", "T9", "extended", "π0.5 上的任务级 GRPO 后训练，RoboCasa 24 任务 80.6%。", ""),
+"2606.29892": ("T²VLA (Trust Your Instincts)", "T9", "extended", "利用生成置信度作为内在奖励的测试时 RL。", ""),
+"2607.16506": ("Foresight Residual RL", "T9;T4", "extended", "用下游成功概率（foresight value）塑形子任务交接状态。", ""),
+"2608.23831": ("ARLI (Learning to Act While Waiting)", "T9;T14", "extended", "推理延迟下的异步 RL：状态增广恢复近马尔可夫性。", ""),
+"2607.26991": ("RL²-VLA", "T9", "extended", "仅在预测失败时激活的 latent 组合式推理期引导。", "https://rl2-vla.github.io"),
+"2607.06699": ("RoboSnap", "T11", "extended", "单张 RGB 图生成可交互仿真场景，DROID-Sim 564 场景。", "https://robosnap.github.io"),
+"2606.30268": ("ConCent", "T11", "extended", "以接触事件序列为学习目标的 real-to-sim-to-real RL。", ""),
+"2606.18646": ("BestMan", "T11;T20", "extended", "自动场景生成 + 硬件无关中间件的 real-to-sim-to-real 平台。", ""),
+"2607.19190": ("Agentic Real2Sim", "T11;T12", "extended", "VLM agent 把真实交互录像转为可仿真的 episodic twin。", "https://agentic-real2sim.github.io/"),
+"2601.08454": ("Real2Sim via Active Perception (BT)", "T11;T22", "extended", "VLM 生成行为树主动获取缺失物理参数。", ""),
+"2606.04226": ("PerceptTwin", "T11;T23", "extended", "ICRA 2026：从感知栈自动构建交互仿真以验证与精炼计划，成功率 +39%。", ""),
+"2608.13438": ("ContactGuard", "T12;T17;T23", "extended", "潜空间世界模型的接触前执行监控。", ""),
+"2606.20698": ("SafeDojo", "T12;T17;T9", "extended", "交互式视频世界模型上的安全 RL，Lagrangian 约束 GRPO。", ""),
+"2607.04927": ("DSWAM", "T13;T12", "extended", "System 1 WAM 执行器 + 可选 System 2 子任务规划器。", ""),
+"2606.22794": ("UniFS", "T13", "extended", "VLM 层按更新频率分层，延迟 36.5ms→17.8ms。", "https://github.com/linsun449/UniFS"),
+"2605.02739": ("Latent Bridge", "T13;T14", "extended", "预测 VLM 输出 delta，减少 50-75% VLM 调用。", ""),
+"2604.24921": ("Libra-VLA", "T13", "extended", "ACL 2026：异步粗到细双系统。", "https://libra-vla.github.io/"),
+"2505.03912": ("OpenHelix", "T13", "extended", "双系统 VLA 短综述 + 开源模型。", "https://openhelix-robot.github.io/"),
+"2410.08001": ("RoboDual", "T13", "extended", "通用-专家双系统，3.8x 控制频率。", "https://opendrivelab.com/RoboDual/"),
+"2605.30011": ("VisualThink-VLA", "T13;T14", "extended", "视觉中间推理替代文本 CoT，延迟 8.4s→0.37s。", ""),
+"2608.15502": ("EcoVLA", "T14", "extended", "端-边协同推理，20Hz 约束下能效 +236%。", ""),
+"2608.03682": ("PhyAI", "T14;T16", "extended", "统一 VLA/WAM 推理运行时，提出 control-time Roofline。", "https://github.com/mingti-org/phyai"),
+"2608.00569": ("CloudEdgeVLA", "T14", "extended", "把时间错位当表示学习问题的云-边 VLA，40 步延迟仍保持 63.8-78%。", ""),
+"2606.29350": ("ST-Merge (Fast Enough to Act)", "T14", "extended", "训练无关时空视觉 token 合并，π0.5 8.3x 加速。", ""),
+"2602.18813": ("Habilis-β", "T14", "extended", "端侧 VLA；提出 Tasks per Hour × Mean Time Between Intervention 的生产力-可靠性平面。", ""),
+"2603.21726": ("LSAI", "T14;T19", "extended", "大小模型协同设计的 agentic 机器人协作。", ""),
+"2604.11174": ("EmbodiedGovBench", "T16;T17", "extended", "七维治理评测：越权调用、运行时漂移、恢复、策略可移植、升级安全、人工接管、审计。", "https://github.com/s20sc/embodied-gov-bench"),
+"2605.28097": ("ICAN-Deploy", "T16;T17", "extended", "身份稳定的金丝雀部署，TLA+ 验证。", ""),
+"2604.11028": ("Federated Single-Agent Robotics", "T16;T19;T21", "extended", "多机器人协调不需要机器人内部多 agent 碎片化，联邦式 fleet runtime。", "https://github.com/s20sc/fsar-fleet-coordination"),
+"2606.03724": ("Same Weights, Different Robot", "T17", "extended", "动作反归一化元数据是可执行策略的一部分；替换元数据键使成功 28/28→2/28。", ""),
+"2605.30924": ("EMBGuard", "T17", "extended", "ICML 2026：与策略解耦的 MLLM 物理风险护栏，2B/4B 媲美闭源大模型。", "https://github.com/dongwxxkchoi/EMBGuard"),
+"2510.12985": ("SENTINEL", "T17;T23", "extended", "语义/计划/轨迹三层时序逻辑形式化安全评估。", ""),
+"2606.14882": ("DynaHMRC", "T19", "extended", "去中心化角色感知 LLM agent 的异构多机器人协作。", ""),
+"2603.08814": ("Scale-Plan", "T19", "extended", "LLM 引导的动作图搜索裁剪 PDDL 问题规模。", "https://github.com/honda-research-institute/Scale_Plan"),
+"2601.20577": ("MeCo", "T19;T5", "extended", "相似任务记忆化复用多机器人计划。", ""),
+"2605.12920": ("World-Model Alignment Through Dialogue", "T19;T12", "extended", "对话减少 40-83pp 动作冲突但降低任务成功；提出世界模型对齐度量。", ""),
+"2608.06830": ("Communication Attacks in LLM Multi-Robot", "T19;T17", "extended", "多机器人通信攻击可达 97.8% 不安全动作成功率，CPV Gate 缓解。", ""),
+"2511.21510": ("Tool-RoCo", "T19", "extended", "把其他 agent 当工具的自组织多机器人基准。", "https://github.com/ColaZhang22/Tool-Roco"),
+"2601.08325": ("ActiveVLA", "T22", "extended", "关键区域定位 + 主动视点选择与 3D 放大。", ""),
+"2607.05391": ("LLM-as-a-Verifier", "T23", "extended", "对评分 token logits 取期望得到连续分数，RoboRewardBench 87.4%，可作 RL 密集奖励。", "https://llm-as-a-verifier.com"),
+"2606.30686": ("Position: VLA Cannot Be Verified to Perform Physical Reasoning", "T23", "extended", "成功率无法区分语义匹配与物理泛化，需受控变量评测设计。", ""),
+"2608.09898": ("Consilience", "T23", "extended", "无验证器测试时扩展：置信度轨迹的时间不对称性。", ""),
+"2609.01679": ("Survey: Self-Improving Test-Time Intelligence", "T0;T7", "extended", "统一测试时适应/学习/扩展的反馈驱动 TTI 视角，覆盖机器人。", ""),
+}
+
+MANUAL_META = {
+ "lilianweng-agent-2023": {"title": "LLM Powered Autonomous Agents", "authors": ["Lilian Weng"], "published": "2023-06-23", "venue": "Lil'Log", "url": "https://lilianweng.github.io/posts/2023-06-23-agent/"},
+ "lilianweng-harness-2026": {"title": "Harness Engineering for Self-Improvement", "authors": ["Lilian Weng"], "published": "2026-07-04", "venue": "Lil'Log", "url": "https://lilianweng.github.io/posts/2026-07-04-harness/"},
+ "mhs-anthropic-2026": {"title": "Previewing the Model Hardware Standard (MHS)", "authors": ["Anthropic"], "published": "2026-08-27", "venue": "Anthropic Research Preview", "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"},
+ "openclawpi-agilex": {"title": "OpenClawPi: AgileX Robotics Skill Set Library for OpenClaw", "authors": ["AgileX Robotics"], "published": "2026-04", "venue": "Open Robotics Discourse / Hackster", "url": "https://discourse.openrobotics.org/t/rapid-deployment-of-openclaw-and-graspgen-crawling-system/53764"},
+ "2310.02304": {"title": "Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation", "authors": ["Eric Zelikman", "Eliana Lorch", "Lester Mackey", "Adam Tauman Kalai"], "published": "2023-10-03", "venue": "COLM 2024", "url": "https://arxiv.org/abs/2310.02304"},
+}
+VENUE_HINTS = {"2603.04639": "ICML 2026", "2605.30924": "ICML 2026", "2510.21302": "NeurIPS 2025 Spotlight", "2604.24921": "ACL 2026", "2606.04226": "ICRA 2026", "2607.16506": "IROS 2026", "2510.04618": "ICLR 2026", "2505.22954": "arXiv 2025", "2609.01679": "Machine Intelligence Research", "2608.08749": "ECCV 2026 Workshop", "2606.18646": "CCF TPCI", "2608.15502": "APPT 2026", "2606.09416": "ACM/IFIP Middleware 2026 (Big Ideas)"}
+
+def venue_for(pid, m):
+    if pid in VENUE_HINTS: return VENUE_HINTS[pid]
+    if m.get("journal_ref"): return m["journal_ref"][:60]
+    return "arXiv"
+
+rows = []
+for pid, (short, topics, tier, note, code) in A.items():
+    if pid in meta:
+        m = meta[pid]; title, authors, pub, venue, url = m["title"], m["authors"], m["published"], venue_for(pid, m), f"https://arxiv.org/abs/{pid}"
+    elif pid in MANUAL_META:
+        m = MANUAL_META[pid]; title, authors, pub, venue, url = m["title"], m["authors"], m["published"], m["venue"], m["url"]
+    else:
+        print("MISSING META", pid, file=sys.stderr); continue
+    rows.append({"id": pid, "short_name": short, "title": title, "authors": ", ".join(authors), "year": pub[:4], "date": pub, "venue": venue, "url": url, "code_url": code, "topics": topics, "tier": tier, "note_zh": note})
+rows.sort(key=lambda r: (r["tier"] != "core", r["tier"] != "extended", r["date"]), reverse=False)
+os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
+with open(os.path.join(ROOT, "data", "papers.csv"), "w", encoding="utf-8", newline="") as f:
+    w = csv.DictWriter(f, fieldnames=["id", "short_name", "title", "authors", "year", "date", "venue", "url", "code_url", "topics", "tier", "note_zh"])
+    w.writeheader(); w.writerows(rows)
+print(f"wrote {len(rows)} rows; tiers:", {t: sum(r['tier']==t for r in rows) for t in ('core','extended','foundation')})

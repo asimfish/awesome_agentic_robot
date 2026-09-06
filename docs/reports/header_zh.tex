@@ -1,0 +1,31 @@
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont={Songti SC Bold},ItalicFont={Kaiti SC}]{Songti SC}
+\setCJKsansfont{PingFang SC}
+\setCJKmonofont{PingFang SC}
+\xeCJKDeclareCharClass{CJK}{"2192,"2260,"2194,"21D2,"2248,"2264,"2265}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Helvetica Neue}
+\setmonofont[Scale=0.85]{Menlo}
+\usepackage{geometry}
+\geometry{a4paper,margin=2.2cm}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\sffamily\color[HTML]{1F3A5F}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color[HTML]{1F3A5F}}{\thesubsection}{0.6em}{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily awesome\_agentic\_robot}
+\fancyhead[R]{\small\sffamily Agent × Robot：从 Harness 到自进化物理智能体}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\usepackage{booktabs,longtable,array}
+\setlength{\LTleft}{0pt}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small}
+\providecommand{\tightlist}{\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}}

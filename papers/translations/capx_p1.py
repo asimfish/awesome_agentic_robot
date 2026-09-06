@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+T = {}
+T[0] = "CaP-X：面向机器人操作的 Coding Agent 评测与改进框架"
+T[2] = "摘要"
+T[3] = "Code-as-Policy（CaP）是一种由语言模型或视觉语言模型生成可执行机器人控制程序的范式，但它作为具身操作的自主控制器的有效性仍缺乏充分研究。先前的 CaP 系统往往依赖高层的人工设计原语，难以把 Agent 的能力与设计者提供的脚手架区分开来。我们提出 CaP-X，一个用于系统研究机器人操作中 Code-as-Policy Agent 的开放框架。CaP-X 包含四个组件。CaP-Gym 是一个交互式环境，coding agent 通过合成并执行组合感知与控制原语的程序来控制机器人。在此基础上，CaP-Bench 在不同抽象层级、交互程度和感知接地条件下评估前沿语言模型与视觉语言模型。在 12 个模型上，任务成功率随人工设计的抽象而提升，随这些先验被移除而下降，暴露出对设计者脚手架的依赖。与此同时，我们观察到通过多轮交互、结构化执行反馈、视觉差分、自动技能合成和集成推理来扩展测试时计算，即便 Agent 只在低层原语上操作也能显著提升鲁棒性。这些发现催生了 CaP-Agent0，一个无需训练的框架，在仿真和真实本体的若干操作任务上达到接近人类水平的可靠性。CaP-RL 探索使用可验证奖励的强化学习来提高成功率，并通过共享的“代码即动作空间”接口支持 sim-to-real ⟦0⟧同等贡献⟦1⟧同等指导 1NVIDIA 2UC Berkeley 3Stanford University 4Carnegie Mellon University。通讯作者：Letian Fu⟦2⟧max.fu.letian@berkeley.edu⟦3⟧。"
+T[4] = "迁移。总之，CaP-X 为推进具身 coding agent 提供了一个开放平台。项目主页：⟦0⟧"
+T[5] = "1. 引言"
+T[6] = "长期以来，机器人一直由结合感知、几何、规划与反馈的显式程序来控制（Fikes & Nilsson, 1971; Murray et al., 1994; Aeronautiques et al., 1998; Siciliano et al., 2008）。随着机器人进入连续的高维空间，这些表示与几何运动规划（Khatib, 1986）结合，演变为任务与运动规划（TAMP）（Kaelbling & Lozano-Pérez, 2011）。这些经典控制范式通过显式结构获得鲁棒性：人类工程师手工编写软件，把高层目标分解为子任务，组合感知与控制模块，并通过试错和显式逻辑处理失败与边界情况。这虽然能提供很强的可解释性和几何精度保证，却高度依赖人的技能与专业知识。这一手工过程可能非常耗时，且往往产出难以泛化到开放环境的任务专用方案。"
+T[7] = "在基础模型成功的推动下（Devlin et al., 2018; Radford et al., 2018; 2019; Brown et al., 2020; Chowdhery et al., 2023; Achiam et al., 2023; Radford et al., 2021; Li et al., 2023），另一种机器人控制范式以视觉-语言-动作（VLA）模型的形式出现（Brohan et al., 2023; Kim et al., 2024; Octo Model Team et al., 2024; Jang et al., 2022; Jiang et al., 2023; Reed et al., 2022; Open X-Embodiment Collaboration et al., 2024; Shah et al., 2023; Fu et al., 2024; Huang et al., 2025; Bjorck et al., 2025; TRI LBM Team et al., 2025; Physical Intelligence et al., 2025）。这些方法从大规模视觉运动数据集中学习，在叠衬衫、全身移动操作等接触密集任务上取得了令人印象深刻的表现。然而，VLA 继承了其训练数据与设计的局限：它们缺乏可解释性"
