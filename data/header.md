@@ -18,7 +18,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 | Detailed report (PDF) | [docs/reports/report_zh.pdf](docs/reports/report_zh.pdf) | [docs/reports/report_en.pdf](docs/reports/report_en.pdf) |
 | Summary slides, HTML deck (19 slides, bilingual) | [docs/slides/index.html](docs/slides/index.html) — open in a browser, arrow keys to navigate, `P` prints to PDF; a pre-rendered export is [docs/slides/index.pdf](docs/slides/index.pdf) | same file |
 | Summary slides, Beamer PDF (25 pages incl. backup) | [docs/slides/agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) ([source](docs/slides/agentic_robot_slides.tex)) | same file |
-| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives, 具身纪元 Robot RSI essay transcript | |
+| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript | |
 | Core papers, original + Chinese (SuperTranslate, layout-preserving) | [papers/pdf_zh/](papers/pdf_zh/) — see [papers/README.md](papers/README.md) for what is translated | originals in [papers/pdf/](papers/pdf/) |
 | Machine-readable data | [data/papers.csv](data/papers.csv), [data/topics.csv](data/topics.csv), [data/paper_meta.json](data/paper_meta.json) | regenerate README with `python3 src/build_papers_csv.py && python3 src/generator.py` |
 
@@ -40,7 +40,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 
 ```
 README.md                  this file (generated from data/*.csv by src/generator.py)
-data/                      topics.csv (25 lines), papers.csv (169 entries), paper_meta.json (arXiv metadata), header.md
+data/                      topics.csv (25 lines), papers.csv (207 entries), paper_meta.json (arXiv metadata), header.md
 docs/reports/              report_zh.md/.pdf, report_en.md/.pdf, LaTeX header + pandoc Lua filter + build scripts
 docs/slides/               index.html (HTML deck) + index.pdf, agentic_robot_slides.tex/.pdf (Beamer)
 papers/pdf/                original PDFs of the five core papers

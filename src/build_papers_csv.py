@@ -180,9 +180,51 @@ A = {
 "2310.12931": ("Eureka", "T24;T9", "core", "LLM 编写奖励函数、RL 学策略、结果反馈回 LLM 改奖励；83% 任务超过人工奖励；训练方法的自动搜索。", "https://eureka-research.github.io"),
 "2406.01967": ("DrEureka", "T24;T11", "core", "LLM 同时写奖励与域随机化参数范围（摩擦、质量、外力），四足机器人仿真学会站瑜伽球并迁移真机；自动研究推进到 sim-to-real。", "https://eureka-research.github.io/dr-eureka/"),
 "2307.15818": ("RT-2", "T1", "foundation", "VLA 的起点：把 VLM 的网络知识迁移到机器人动作；文章将其作为 2023-2024 年机器人吃到 VLM 红利的代表。", "https://robotics-transformer2.github.io"),
+# ---- full reference lists of the two Lil'Log posts (Harness Engineering 2026; LLM Powered Autonomous Agents 2023) ----
+"good-1965": ("Speculations Concerning the First Ultraintelligent Machine", "T24;T0", "foundation", "1965 年的“智能爆炸”设想：能设计出更强机器的机器会让新机器继续参与下一代设计；RSI 概念的源头。", ""),
+"yudkowsky-rsi-2008": ("Recursive Self-Improvement (LessWrong)", "T24;T0", "foundation", "2008 年对递归自我改进的系统论述，Lil'Log 与具身纪元文章均以其为概念参照。", ""),
+"2607.03523": ("Anchored Self-Play for Code Repair", "T0;T24", "foundation", "带锚点的自博弈代码修复：出题者与修复者共同演化，锚定避免漂移（ICML 2026）。", ""),
+"2505.03335": ("Absolute Zero", "T0;T24", "foundation", "零数据自博弈推理：模型自己提出可验证任务并求解，训练时自迭代的极端形式。", ""),
+"2401.10020": ("Self-Rewarding Language Models", "T0;T24;T23", "foundation", "模型用 LLM-as-a-Judge 给自己的回答打分并做 DPO，回答与评价能力同时迭代。", ""),
+"2401.01335": ("SPIN: Self-Play Fine-Tuning", "T0;T24", "foundation", "弱模型通过与自己历史版本博弈变强，无需额外人类数据。", ""),
+"nature-ai-research-automation-2026": ("Towards End-to-End Automation of AI Research (Nature)", "T0;T24", "foundation", "The AI Scientist 路线在 Nature 上的正式发表：从想法到论文与评审的端到端自动化。", ""),
+"2605.26340": ("ScientistOne", "T0;T24", "foundation", "以证据链（chain-of-evidence）组织自主研究，面向人类水平的科研自动化。", ""),
+"2606.25996": ("Autodata", "T0;T24", "foundation", "作为“数据科学家”的 agent，自动生成高质量合成数据。", ""),
+"2408.08435": ("ADAS: Automated Design of Agentic Systems", "T0", "foundation", "用 meta agent 在代码空间里搜索新的 agent 设计（ICLR 2025）。", ""),
+"2303.17651": ("Self-Refine", "T0;T6", "foundation", "同一模型生成 → 自我反馈 → 精炼的迭代，不训练；反思类方法的基线。", ""),
+"2410.10762": ("AFlow", "T0", "foundation", "用 MCTS 在代码表示的工作流空间中自动生成 agentic workflow（ICLR 2025）。", ""),
+"2509.19349": ("ShinkaEvolve", "T0;T24;T21", "foundation", "开放式、样本高效的程序演化：新颖性拒绝采样与多模型集成；本报告建议用其去重机制缓解机器人集群的假设重复。", ""),
+"2511.23473": ("ThetaEvolve", "T0;T24", "foundation", "面向开放问题的测试时学习：在演化搜索中同时更新模型。", ""),
+"2601.16175": ("Learning to Discover at Test Time", "T0;T24", "foundation", "测试时发现：让模型在推理时对开放问题持续搜索与学习。", ""),
+"2605.11328": ("Epistemic Uncertainty for Test-Time Discovery", "T0;T24", "foundation", "用认知不确定性引导测试时发现的搜索方向。", ""),
+"2511.16072": ("Early Science Acceleration Experiments with GPT-5", "T0;T24", "foundation", "前沿模型加速科研的早期实证案例集。", ""),
+"2504.01848": ("PaperBench", "T0;T24", "foundation", "评测 AI 复现 AI 研究论文的能力（ICML 2025）。", ""),
+"2411.15114": ("RE-Bench", "T0;T24", "foundation", "对比前沿 agent 与人类专家的 AI R&D 能力（ICML 2025）。", ""),
+"2410.07095": ("MLE-bench", "T0;T24", "foundation", "在 Kaggle 式机器学习工程任务上评测 agent。", ""),
+"2410.05080": ("ScienceAgentBench", "T0;T24", "foundation", "数据驱动科学发现任务上的语言 agent 严格评测（ICLR 2025）。", ""),
+"2409.11363": ("CORE-Bench", "T0;T24", "foundation", "计算可复现性 agent 基准（TMLR 2024）。", ""),
+"2502.10517": ("KernelBench", "T0;T24", "foundation", "LLM 能否写出高效 GPU kernel 的基准，harness 演化常用的可验证任务。", ""),
+"2201.11903": ("Chain-of-Thought Prompting", "T0", "foundation", "Lil'Log 2023 文中 Planning 组件的起点：让模型逐步推理。", ""),
+"2305.10601": ("Tree of Thoughts", "T0", "foundation", "把推理组织为树搜索，每步多候选并评估。", ""),
+"2302.02676": ("Chain of Hindsight", "T0", "foundation", "用带反馈标注的历史输出序列微调模型，自反思的训练时版本。", ""),
+"2304.11477": ("LLM+P", "T0;T1", "foundation", "LLM 把问题翻译成 PDDL，交给经典规划器求解；AgenticLab 等规划语言接口的先驱。", ""),
+"2210.03629": ("ReAct", "T0", "foundation", "推理与行动交织的 Thought / Action / Observation 循环，Agent 循环的标准形态。", ""),
+"2210.14215": ("Algorithm Distillation", "T0", "foundation", "用上下文内强化学习蒸馏学习算法本身，Lil'Log 2023 文中“上下文即记忆”的例证。", ""),
+"2205.00445": ("MRKL Systems", "T0", "foundation", "模块化神经符号架构：LLM 路由到专家模块（计算器、API、知识库）。", ""),
+"2112.09332": ("WebGPT", "T0", "foundation", "浏览器辅助问答与人类反馈，工具使用的早期实证。", ""),
+"2205.12255": ("TALM: Tool Augmented Language Models", "T0", "foundation", "用自博弈式迭代扩展工具调用数据。", ""),
+"2302.04761": ("Toolformer", "T0", "foundation", "模型自监督学会何时调用哪个 API。", ""),
+"2304.08244": ("API-Bank", "T0", "foundation", "工具增强 LLM 的评测基准。", ""),
+"2303.17580": ("HuggingGPT", "T0", "foundation", "ChatGPT 做任务规划与模型选择，调用 HuggingFace 上的专家模型执行。", ""),
+"2304.05376": ("ChemCrow", "T0", "foundation", "用 13 个化学工具增强 LLM 完成有机合成与材料设计。", ""),
+"2304.05332": ("Emergent Autonomous Scientific Research Capabilities of LLMs", "T0;T24", "foundation", "LLM 驾驭实验室自动化（含云实验室）做科学实验的早期案例。", ""),
+"2304.03442": ("Generative Agents", "T0;T5", "foundation", "记忆流 + 检索（新近性 / 重要性 / 相关性）+ 反思 + 规划的沙盒 agent，是 Robot Memory 主线常引的记忆架构。", ""),
 }
 
 MANUAL_META = {
+ "good-1965": {"title": "Speculations Concerning the First Ultraintelligent Machine", "authors": ["Irving John Good"], "published": "1965", "venue": "Advances in Computers 6:31-88", "url": "https://doi.org/10.1016/S0065-2458(08)60418-0"},
+ "yudkowsky-rsi-2008": {"title": "Recursive Self-Improvement", "authors": ["Eliezer Yudkowsky"], "published": "2008-12-01", "venue": "LessWrong", "url": "https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement"},
+ "nature-ai-research-automation-2026": {"title": "Towards end-to-end automation of AI research", "authors": ["Chris Lu", "Cong Lu", "Robert Tjarko Lange", "Jakob Foerster", "Jeff Clune", "David Ha"], "published": "2026", "venue": "Nature 651:914-919", "url": "https://www.nature.com/articles/s41586-026-10265-5"},
  "embodied-era-robotrsi-2026": {"title": "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI", "authors": ["Marilyn Liu (具身纪元)"], "published": "2026-09", "venue": "WeChat 公众号 具身纪元", "url": "https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA"},
  "anthropic-rsi-2026": {"title": "When AI builds itself: our progress toward recursive self-improvement, and its implications", "authors": ["Anthropic"], "published": "2026-06", "venue": "Anthropic Institute", "url": "https://www.anthropic.com/institute/recursive-self-improvement"},
  "godel-machine-2003": {"title": "Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements", "authors": ["Jürgen Schmidhuber"], "published": "2003-09-25", "venue": "arXiv", "url": "https://arxiv.org/abs/cs/0309048"},
@@ -193,7 +235,7 @@ MANUAL_META = {
  "openclawpi-agilex": {"title": "OpenClawPi: AgileX Robotics Skill Set Library for OpenClaw", "authors": ["AgileX Robotics"], "published": "2026-04", "venue": "Open Robotics Discourse / Hackster", "url": "https://discourse.openrobotics.org/t/rapid-deployment-of-openclaw-and-graspgen-crawling-system/53764"},
  "2310.02304": {"title": "Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation", "authors": ["Eric Zelikman", "Eliana Lorch", "Lester Mackey", "Adam Tauman Kalai"], "published": "2023-10-03", "venue": "COLM 2024", "url": "https://arxiv.org/abs/2310.02304"},
 }
-VENUE_HINTS = {"2303.11366": "NeurIPS 2023", "2305.20050": "ICLR 2024", "2310.12931": "ICLR 2024", "2406.01967": "RSS 2024", "2307.15818": "CoRL 2023", "2203.14465": "NeurIPS 2022", "2603.04639": "ICML 2026", "2605.30924": "ICML 2026", "2510.21302": "NeurIPS 2025 Spotlight", "2604.24921": "ACL 2026", "2606.04226": "ICRA 2026", "2607.16506": "IROS 2026", "2510.04618": "ICLR 2026", "2505.22954": "arXiv 2025", "2609.01679": "Machine Intelligence Research", "2608.08749": "ECCV 2026 Workshop", "2606.18646": "CCF TPCI", "2608.15502": "APPT 2026", "2606.09416": "ACM/IFIP Middleware 2026 (Big Ideas)"}
+VENUE_HINTS = {"2607.03523": "ICML 2026", "2401.01335": "ICML 2024", "2408.08435": "ICLR 2025", "2303.17651": "NeurIPS 2023", "2410.10762": "ICLR 2025", "2504.01848": "ICML 2025", "2411.15114": "ICML 2025", "2410.05080": "ICLR 2025", "2409.11363": "TMLR 2024", "2201.11903": "NeurIPS 2022", "2210.03629": "ICLR 2023", "2210.14215": "ICLR 2023", "2305.10601": "NeurIPS 2023", "2302.04761": "NeurIPS 2023", "2304.03442": "UIST 2023", "2303.17580": "NeurIPS 2023", "2303.11366": "NeurIPS 2023", "2305.20050": "ICLR 2024", "2310.12931": "ICLR 2024", "2406.01967": "RSS 2024", "2307.15818": "CoRL 2023", "2203.14465": "NeurIPS 2022", "2603.04639": "ICML 2026", "2605.30924": "ICML 2026", "2510.21302": "NeurIPS 2025 Spotlight", "2604.24921": "ACL 2026", "2606.04226": "ICRA 2026", "2607.16506": "IROS 2026", "2510.04618": "ICLR 2026", "2505.22954": "arXiv 2025", "2609.01679": "Machine Intelligence Research", "2608.08749": "ECCV 2026 Workshop", "2606.18646": "CCF TPCI", "2608.15502": "APPT 2026", "2606.09416": "ACM/IFIP Middleware 2026 (Big Ideas)"}
 
 def venue_for(pid, m):
     if pid in VENUE_HINTS: return VENUE_HINTS[pid]

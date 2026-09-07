@@ -1,6 +1,6 @@
 # Awesome Agentic Robot: Agent + Robot Papers, Reports and Slides
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/papers-169-blue) ![topics](https://img.shields.io/badge/topic%20lines-25-green) ![updated](https://img.shields.io/badge/updated-2026-09-07-lightgrey)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/papers-207-blue) ![topics](https://img.shields.io/badge/topic%20lines-25-green) ![updated](https://img.shields.io/badge/updated-2026-09-07-lightgrey)
 
 A curated reading map of **Agentic Robotics** (Agent × Robot): coding agents that write robot policies, harnesses and runtimes around frozen VLAs, robot memory, reflection and self-evolution, VLA + RL, digital twins, fleet learning, safety and hardware standards. The list follows the 23 topic lines of the "Agent + Robot 论文检索地图" and adds two lines: a foundation line (LLM agents and harness engineering) and a Robot RSI line (recursive self-improvement, from the 具身纪元 essay), so that the software-side theory and the robotics-side practice can be read together.
 
@@ -18,7 +18,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 | Detailed report (PDF) | [docs/reports/report_zh.pdf](docs/reports/report_zh.pdf) | [docs/reports/report_en.pdf](docs/reports/report_en.pdf) |
 | Summary slides, HTML deck (19 slides, bilingual) | [docs/slides/index.html](docs/slides/index.html) — open in a browser, arrow keys to navigate, `P` prints to PDF; a pre-rendered export is [docs/slides/index.pdf](docs/slides/index.pdf) | same file |
 | Summary slides, Beamer PDF (25 pages incl. backup) | [docs/slides/agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) ([source](docs/slides/agentic_robot_slides.tex)) | same file |
-| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives, 具身纪元 Robot RSI essay transcript | |
+| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript | |
 | Core papers, original + Chinese (SuperTranslate, layout-preserving) | [papers/pdf_zh/](papers/pdf_zh/) — see [papers/README.md](papers/README.md) for what is translated | originals in [papers/pdf/](papers/pdf/) |
 | Machine-readable data | [data/papers.csv](data/papers.csv), [data/topics.csv](data/topics.csv), [data/paper_meta.json](data/paper_meta.json) | regenerate README with `python3 src/build_papers_csv.py && python3 src/generator.py` |
 
@@ -40,7 +40,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 
 ```
 README.md                  this file (generated from data/*.csv by src/generator.py)
-data/                      topics.csv (25 lines), papers.csv (169 entries), paper_meta.json (arXiv metadata), header.md
+data/                      topics.csv (25 lines), papers.csv (207 entries), paper_meta.json (arXiv metadata), header.md
 docs/reports/              report_zh.md/.pdf, report_en.md/.pdf, LaTeX header + pandoc Lua filter + build scripts
 docs/slides/               index.html (HTML deck) + index.pdf, agentic_robot_slides.tex/.pdf (Beamer)
 papers/pdf/                original PDFs of the five core papers
@@ -114,201 +114,429 @@ Each topic line below lists the works in chronological order. The first line of 
 
 ### [Foundations: LLM Agents & Harness Engineering](#content)
 
-*基础：LLM Agent 与 Harness 工程* &nbsp;|&nbsp; keywords: `LLM agent / harness engineering / recursive self-improvement / context engineering / agentic workflow search` &nbsp;|&nbsp; representative: Lil'Log (LLM Powered Autonomous Agents; Harness Engineering for Self-Improvement), ACE, Meta-Harness, Self-Harness, DGM
+*基础：LLM Agent 与 Harness 工程* &nbsp;|&nbsp; keywords: `LLM agent / harness engineering / recursive self-improvement / context engineering / agentic workflow search` &nbsp;|&nbsp; representative: Lil'Log (LLM Powered Autonomous Agents; Harness Engineering for Self-Improvement) and the full reference lists of both posts: ReAct, Reflexion, Toolformer, Generative Agents, ACE, Meta-Harness, Self-Harness, DGM, AlphaEvolve, STOP, AI-R&D benchmarks
 
-1. **Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements.** arXiv, 2003. [paper](https://arxiv.org/abs/cs/0309048)
+1. **Speculations Concerning the First Ultraintelligent Machine.** Advances in Computers 6:31-88, 1965. [paper](https://doi.org/10.1016/S0065-2458(08)60418-0)
+
+    *Irving John Good*
+
+    > 1965 年的“智能爆炸”设想：能设计出更强机器的机器会让新机器继续参与下一代设计；RSI 概念的源头。
+
+2. **Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements.** arXiv, 2003. [paper](https://arxiv.org/abs/cs/0309048)
 
     *Jürgen Schmidhuber*
 
     > 自我改写的形式化起点：只有能证明某项修改会提高既定效用时才执行修改。
 
-2. **STaR: Bootstrapping Reasoning With Reasoning.** NeurIPS 2022, 2022. [paper](https://arxiv.org/abs/2203.14465)
+3. **Recursive Self-Improvement.** LessWrong, 2008. [paper](https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement)
+
+    *Eliezer Yudkowsky*
+
+    > 2008 年对递归自我改进的系统论述，Lil'Log 与具身纪元文章均以其为概念参照。
+
+4. **WebGPT: Browser-assisted question-answering with human feedback.** arXiv, 2021. [paper](https://arxiv.org/abs/2112.09332)
+
+    *Reiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, Xu Jiang, Karl Cobbe, Tyna Eloundou, Gretchen Krueger, Kevin Button, Matthew Knight, Benjamin Chess, John Schulman*
+
+    > 浏览器辅助问答与人类反馈，工具使用的早期实证。
+
+5. **Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.** NeurIPS 2022, 2022. [paper](https://arxiv.org/abs/2201.11903)
+
+    *Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou*
+
+    > Lil'Log 2023 文中 Planning 组件的起点：让模型逐步推理。
+
+6. **STaR: Bootstrapping Reasoning With Reasoning.** NeurIPS 2022, 2022. [paper](https://arxiv.org/abs/2203.14465)
 
     *Eric Zelikman, Yuhuai Wu, Jesse Mu, Noah D. Goodman*
 
     > 训练时自迭代：生成推理 → 答对保留、答错看答案重推 → 筛出的过程微调下一版模型。
 
-3. **Reflexion: Language Agents with Verbal Reinforcement Learning.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.11366) [code](https://github.com/noahshinn/reflexion)
+7. **MRKL Systems: A modular, neuro-symbolic architecture that combines large language models, external knowledge sources and discrete reasoning.** arXiv, 2022. [paper](https://arxiv.org/abs/2205.00445)
+
+    *Ehud Karpas, Omri Abend, Yonatan Belinkov, Barak Lenz, Opher Lieber, Nir Ratner, Yoav Shoham, Hofit Bata, Yoav Levine, Kevin Leyton-Brown, Dor Muhlgay, Noam Rozen, Erez Schwartz, Gal Shachaf, Shai Shalev-Shwartz, Amnon Shashua, Moshe Tenenholtz*
+
+    > 模块化神经符号架构：LLM 路由到专家模块（计算器、API、知识库）。
+
+8. **TALM: Tool Augmented Language Models.** arXiv, 2022. [paper](https://arxiv.org/abs/2205.12255)
+
+    *Aaron Parisi, Yao Zhao, Noah Fiedel*
+
+    > 用自博弈式迭代扩展工具调用数据。
+
+9. **ReAct: Synergizing Reasoning and Acting in Language Models.** ICLR 2023, 2022. [paper](https://arxiv.org/abs/2210.03629)
+
+    *Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, Yuan Cao*
+
+    > 推理与行动交织的 Thought / Action / Observation 循环，Agent 循环的标准形态。
+
+10. **In-context Reinforcement Learning with Algorithm Distillation.** ICLR 2023, 2022. [paper](https://arxiv.org/abs/2210.14215)
+
+    *Michael Laskin, Luyu Wang, Junhyuk Oh, Emilio Parisotto, Stephen Spencer, Richie Steigerwald, DJ Strouse, Steven Hansen, Angelos Filos, Ethan Brooks, Maxime Gazeau, Himanshu Sahni, Satinder Singh, Volodymyr Mnih*
+
+    > 用上下文内强化学习蒸馏学习算法本身，Lil'Log 2023 文中“上下文即记忆”的例证。
+
+11. **Chain of Hindsight Aligns Language Models with Feedback.** arXiv, 2023. [paper](https://arxiv.org/abs/2302.02676)
+
+    *Hao Liu, Carmelo Sferrazza, Pieter Abbeel*
+
+    > 用带反馈标注的历史输出序列微调模型，自反思的训练时版本。
+
+12. **Toolformer: Language Models Can Teach Themselves to Use Tools.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2302.04761)
+
+    *Timo Schick, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria Lomeli, Luke Zettlemoyer, Nicola Cancedda, Thomas Scialom*
+
+    > 模型自监督学会何时调用哪个 API。
+
+13. **Reflexion: Language Agents with Verbal Reinforcement Learning.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.11366) [code](https://github.com/noahshinn/reflexion)
 
     *Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao*
 
     > 部署时的记忆自改进：把测试 / 环境反馈写成反思存进记忆再重试，不更新权重；HumanEval 91%。
 
-4. **Let's Verify Step by Step.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2305.20050)
+14. **Self-Refine: Iterative Refinement with Self-Feedback.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.17651)
+
+    *Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, Shashank Gupta, Bodhisattwa Prasad Majumder, Katherine Hermann, Sean Welleck, Amir Yazdanbakhsh, Peter Clark*
+
+    > 同一模型生成 → 自我反馈 → 精炼的迭代，不训练；反思类方法的基线。
+
+15. **HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.17580)
+
+    *Yongliang Shen, Kaitao Song, Xu Tan, Dongsheng Li, Weiming Lu, Yueting Zhuang*
+
+    > ChatGPT 做任务规划与模型选择，调用 HuggingFace 上的专家模型执行。
+
+16. **Generative Agents: Interactive Simulacra of Human Behavior.** UIST 2023, 2023. [paper](https://arxiv.org/abs/2304.03442)
+
+    *Joon Sung Park, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, Michael S. Bernstein*
+
+    > 记忆流 + 检索（新近性 / 重要性 / 相关性）+ 反思 + 规划的沙盒 agent，是 Robot Memory 主线常引的记忆架构。
+
+17. **ChemCrow: Augmenting large-language models with chemistry tools.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.05376)
+
+    *Andres M Bran, Sam Cox, Oliver Schilter, Carlo Baldassari, Andrew D White, Philippe Schwaller*
+
+    > 用 13 个化学工具增强 LLM 完成有机合成与材料设计。
+
+18. **Emergent autonomous scientific research capabilities of large language models.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.05332)
+
+    *Daniil A. Boiko, Robert MacKnight, Gabe Gomes*
+
+    > LLM 驾驭实验室自动化（含云实验室）做科学实验的早期案例。
+
+19. **API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.08244)
+
+    *Minghao Li, Yingxiu Zhao, Bowen Yu, Feifan Song, Hangyu Li, Haiyang Yu, Zhoujun Li, Fei Huang, Yongbin Li*
+
+    > 工具增强 LLM 的评测基准。
+
+20. **LLM+P: Empowering Large Language Models with Optimal Planning Proficiency.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.11477)
+
+    *Bo Liu, Yuqian Jiang, Xiaohan Zhang, Qiang Liu, Shiqi Zhang, Joydeep Biswas, Peter Stone*
+
+    > LLM 把问题翻译成 PDDL，交给经典规划器求解；AgenticLab 等规划语言接口的先驱。
+
+21. **Tree of Thoughts: Deliberate Problem Solving with Large Language Models.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2305.10601)
+
+    *Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan*
+
+    > 把推理组织为树搜索，每步多候选并评估。
+
+22. **Let's Verify Step by Step.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2305.20050)
 
     *Hunter Lightman, Vineet Kosaraju, Yura Burda, Harri Edwards, Bowen Baker, Teddy Lee, Jan Leike, John Schulman, Ilya Sutskever, Karl Cobbe*
 
     > 过程奖励模型：逐步标出推理出错位置而非只看最终答案，为 RSI 提供细粒度评价信号。
 
-5. **LLM Powered Autonomous Agents.** Lil'Log, 2023. [paper](https://lilianweng.github.io/posts/2023-06-23-agent/) [code](https://lilianweng.github.io/posts/2023-06-23-agent/)
+23. **LLM Powered Autonomous Agents.** Lil'Log, 2023. [paper](https://lilianweng.github.io/posts/2023-06-23-agent/) [code](https://lilianweng.github.io/posts/2023-06-23-agent/)
 
     *Lilian Weng*
 
     > Agent = LLM + Planning + Memory + Tool use 的经典分解，是后续所有 Agent+Robot 架构图的原型。
 
-6. **Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution.** arXiv, 2023. [paper](https://arxiv.org/abs/2309.16797)
+24. **Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution.** arXiv, 2023. [paper](https://arxiv.org/abs/2309.16797)
 
     *Chrisantha Fernando, Dylan Banarse, Henryk Michalewski, Simon Osindero, Tim Rocktäschel*
 
     > 自指式 prompt 演化，突变 prompt 本身也被演化。
 
-7. **Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation.** arXiv, 2023. [paper](https://arxiv.org/abs/2310.02304)
+25. **Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation.** arXiv, 2023. [paper](https://arxiv.org/abs/2310.02304)
 
     *Eric Zelikman, Eliana Lorch, Lester Mackey, Adam Tauman Kalai*
 
     > 自学优化器：优化 improver 而非解本身；弱模型下会退化。
 
-8. **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge.** arXiv, 2024. [paper](https://arxiv.org/abs/2407.19594)
+26. **Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models.** ICML 2024, 2024. [paper](https://arxiv.org/abs/2401.01335)
+
+    *Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, Quanquan Gu*
+
+    > 弱模型通过与自己历史版本博弈变强，无需额外人类数据。
+
+27. **Self-Rewarding Language Models.** arXiv, 2024. [paper](https://arxiv.org/abs/2401.10020)
+
+    *Weizhe Yuan, Richard Yuanzhe Pang, Kyunghyun Cho, Xian Li, Sainbayar Sukhbaatar, Jing Xu, Jason Weston*
+
+    > 模型用 LLM-as-a-Judge 给自己的回答打分并做 DPO，回答与评价能力同时迭代。
+
+28. **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge.** arXiv, 2024. [paper](https://arxiv.org/abs/2407.19594)
 
     *Tianhao Wu, Weizhe Yuan, Olga Golovneva, Jing Xu, Yuandong Tian, Jiantao Jiao, Jason Weston, Sainbayar Sukhbaatar*
 
     > 同一模型既当回答者、评审者和“评审的评审”，评价能力本身自改进；四轮后 AlpacaEval 2 LC 胜率 22.9%→39.4%。
 
-9. **The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery.** arXiv, 2024. [paper](https://arxiv.org/abs/2408.06292) [code](https://github.com/SakanaAI/AI-Scientist)
+29. **The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery.** arXiv, 2024. [paper](https://arxiv.org/abs/2408.06292) [code](https://github.com/SakanaAI/AI-Scientist)
 
     *Chris Lu, Cong Lu, Robert Tjarko Lange, Jakob Foerster, Jeff Clune, David Ha*
 
     > 自动研究：从代码模板出发提想法、查新颖性、改代码、跑实验、写论文并接受自动评审。
 
-10. **Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents.** arXiv 2025, 2025. [paper](https://arxiv.org/abs/2505.22954)
+30. **Automated Design of Agentic Systems.** ICLR 2025, 2024. [paper](https://arxiv.org/abs/2408.08435)
+
+    *Shengran Hu, Cong Lu, Jeff Clune*
+
+    > 用 meta agent 在代码空间里搜索新的 agent 设计（ICLR 2025）。
+
+31. **CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark.** TMLR 2024, 2024. [paper](https://arxiv.org/abs/2409.11363)
+
+    *Zachary S. Siegel, Sayash Kapoor, Nitya Nadgir, Benedikt Stroebl, Arvind Narayanan*
+
+    > 计算可复现性 agent 基准（TMLR 2024）。
+
+32. **ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery.** ICLR 2025, 2024. [paper](https://arxiv.org/abs/2410.05080)
+
+    *Ziru Chen, Shijie Chen, Yuting Ning, Qianheng Zhang, Boshi Wang, Botao Yu, Yifei Li, Zeyi Liao, Chen Wei, Zitong Lu, Vishal Dey, Mingyi Xue, Frazier N. Baker, Benjamin Burns, Daniel Adu-Ampratwum, Xuhui Huang, Xia Ning, Song Gao, Yu Su, Huan Sun*
+
+    > 数据驱动科学发现任务上的语言 agent 严格评测（ICLR 2025）。
+
+33. **MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering.** arXiv, 2024. [paper](https://arxiv.org/abs/2410.07095)
+
+    *Jun Shern Chan, Neil Chowdhury, Oliver Jaffe, James Aung, Dane Sherburn, Evan Mays, Giulio Starace, Kevin Liu, Leon Maksin, Tejal Patwardhan, Lilian Weng, Aleksander Mądry*
+
+    > 在 Kaggle 式机器学习工程任务上评测 agent。
+
+34. **AFlow: Automating Agentic Workflow Generation.** ICLR 2025, 2024. [paper](https://arxiv.org/abs/2410.10762)
+
+    *Jiayi Zhang, Jinyu Xiang, Zhaoyang Yu, Fengwei Teng, Xionghui Chen, Jiaqi Chen, Mingchen Zhuge, Xin Cheng, Sirui Hong, Jinlin Wang, Bingnan Zheng, Bang Liu, Yuyu Luo, Chenglin Wu*
+
+    > 用 MCTS 在代码表示的工作流空间中自动生成 agentic workflow（ICLR 2025）。
+
+35. **RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts.** ICML 2025, 2024. [paper](https://arxiv.org/abs/2411.15114)
+
+    *Hjalmar Wijk, Tao Lin, Joel Becker, Sami Jawhar, Neev Parikh, Thomas Broadley, Lawrence Chan, Michael Chen, Josh Clymer, Jai Dhyani, Elena Ericheva, Katharyn Garcia, Brian Goodrich, Nikola Jurkovic, Holden Karnofsky, Megan Kinniment, Aron Lajko, Seraphina Nix, Lucas Sato, William Saunders, Maksym Taran, Ben West, Elizabeth Barnes*
+
+    > 对比前沿 agent 与人类专家的 AI R&D 能力（ICML 2025）。
+
+36. **KernelBench: Can LLMs Write Efficient GPU Kernels?.** arXiv, 2025. [paper](https://arxiv.org/abs/2502.10517)
+
+    *Anne Ouyang, Simon Guo, Simran Arora, Alex L. Zhang, William Hu, Christopher Ré, Azalia Mirhoseini*
+
+    > LLM 能否写出高效 GPU kernel 的基准，harness 演化常用的可验证任务。
+
+37. **PaperBench: Evaluating AI's Ability to Replicate AI Research.** ICML 2025, 2025. [paper](https://arxiv.org/abs/2504.01848)
+
+    *Giulio Starace, Oliver Jaffe, Dane Sherburn, James Aung, Jun Shern Chan, Leon Maksin, Rachel Dias, Evan Mays, Benjamin Kinsella, Wyatt Thompson, Johannes Heidecke, Amelia Glaese, Tejal Patwardhan*
+
+    > 评测 AI 复现 AI 研究论文的能力（ICML 2025）。
+
+38. **Absolute Zero: Reinforced Self-play Reasoning with Zero Data.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.03335)
+
+    *Andrew Zhao, Yiran Wu, Yang Yue, Tong Wu, Quentin Xu, Yang Yue, Matthieu Lin, Shenzhi Wang, Qingyun Wu, Zilong Zheng, Gao Huang*
+
+    > 零数据自博弈推理：模型自己提出可验证任务并求解，训练时自迭代的极端形式。
+
+39. **Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents.** arXiv 2025, 2025. [paper](https://arxiv.org/abs/2505.22954)
 
     *Jenny Zhang, Shengran Hu, Cong Lu, Robert Lange, Jeff Clune*
 
     > 允许 coding agent 修改自身 harness 代码库并开放式演化，SWE-bench 20%→50%。
 
-11. **AlphaEvolve: A coding agent for scientific and algorithmic discovery.** arXiv, 2025. [paper](https://arxiv.org/abs/2506.13131)
+40. **AlphaEvolve: A coding agent for scientific and algorithmic discovery.** arXiv, 2025. [paper](https://arxiv.org/abs/2506.13131)
 
     *Alexander Novikov, Ngân Vũ, Marvin Eisenberger, Emilien Dupont, Po-Sen Huang, Adam Zsolt Wagner, Sergey Shirobokov, Borislav Kozlovskii, Francisco J. R. Ruiz, Abbas Mehrabian, M. Pawan Kumar, Abigail See, Swarat Chaudhuri, George Holland, Alex Davies, Sebastian Nowozin, Pushmeet Kohli, Matej Balog*
 
     > 冻结 LLM 生成程序 diff 的演化搜索，EVOLVE-BLOCK 标记可改区域。
 
-12. **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2507.19457)
+41. **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2507.19457)
 
     *Lakshya A Agrawal, Shangyin Tan, Dilara Soylu, Noah Ziems, Rishi Khare, Krista Opsahl-Ong, Arnav Singhvi, Herumb Shandilya, Michael J Ryan, Meng Jiang, Christopher Potts, Koushik Sen, Alexandros G. Dimakis, Ion Stoica, Dan Klein, Matei Zaharia, Omar Khattab*
 
     > 反思式 prompt 演化优于 RL 的实证。
 
-13. **Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models.** ICLR 2026, 2025. [paper](https://arxiv.org/abs/2510.04618)
+42. **ShinkaEvolve: Towards Open-Ended And Sample-Efficient Program Evolution.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.19349)
+
+    *Robert Tjarko Lange, Yuki Imajuku, Edoardo Cetin*
+
+    > 开放式、样本高效的程序演化：新颖性拒绝采样与多模型集成；本报告建议用其去重机制缓解机器人集群的假设重复。
+
+43. **Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models.** ICLR 2026, 2025. [paper](https://arxiv.org/abs/2510.04618)
 
     *Qizheng Zhang, Changran Hu, Shubhangi Upasani, Boyuan Ma, Fenglu Hong, Vamsidhar Kamanuru, Jay Rainton, Chen Wu, Mengmeng Ji, Hanchen Li, Urmish Thakker, James Zou, Kunle Olukotun*
 
     > 把上下文当作可演化的 playbook：Generator/Reflector/Curator 三角色，增量条目式更新避免上下文塌缩。
 
-14. **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks.** Technical report, 2026. [paper](https://endlessfrontier.tech/assets/paper.pdf) [code](https://huggingface.co/endless-frontier/BigBang-v1)
+44. **Early science acceleration experiments with GPT-5.** arXiv, 2025. [paper](https://arxiv.org/abs/2511.16072)
+
+    *Sébastien Bubeck, Christian Coester, Ronen Eldan, Timothy Gowers, Yin Tat Lee, Alexandru Lupsasca, Mehtaab Sawhney, Robert Scherrer, Mark Sellke, Brian K. Spears, Derya Unutmaz, Kevin Weil, Steven Yin, Nikita Zhivotovskiy*
+
+    > 前沿模型加速科研的早期实证案例集。
+
+45. **ThetaEvolve: Test-time Learning on Open Problems.** arXiv, 2025. [paper](https://arxiv.org/abs/2511.23473)
+
+    *Yiping Wang, Shao-Rong Su, Zhiyuan Zeng, Eva Xu, Liliang Ren, Xinyu Yang, Zeyi Huang, Xuehai He, Luyao Ma, Baolin Peng, Hao Cheng, Pengcheng He, Weizhu Chen, Shuohang Wang, Simon Shaolei Du, Yelong Shen*
+
+    > 面向开放问题的测试时学习：在演化搜索中同时更新模型。
+
+46. **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks.** Technical report, 2026. [paper](https://endlessfrontier.tech/assets/paper.pdf) [code](https://huggingface.co/endless-frontier/BigBang-v1)
 
     *The BigBang Team (Endless Frontier)*
 
     > 出题者 / 批评者 / 元批评者三角合成可验证难题，约一万条样本更新权重；训练时自迭代 + 评价器校准，证据来自团队技术报告。
 
-15. **Why LLMs Aren't Scientists Yet: Lessons from Four Autonomous Research Attempts.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.03315)
+47. **Towards end-to-end automation of AI research.** Nature 651:914-919, 2026. [paper](https://www.nature.com/articles/s41586-026-10265-5)
+
+    *Chris Lu, Cong Lu, Robert Tjarko Lange, Jakob Foerster, Jeff Clune, David Ha*
+
+    > The AI Scientist 路线在 Nature 上的正式发表：从想法到论文与评审的端到端自动化。
+
+48. **Why LLMs Aren't Scientists Yet: Lessons from Four Autonomous Research Attempts.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.03315)
 
     *Dhruv Trehan, Paras Chopra*
 
     > 四次自主研究尝试总结出的 6 类失败模式（训练数据默认偏置、实现漂移、记忆退化、过度乐观等）。
 
-16. **Meta Context Engineering via Agentic Skill Evolution.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.21557)
+49. **Learning to Discover at Test Time.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.16175)
+
+    *Mert Yuksekgonul, Daniel Koceja, Xinhao Li, Federico Bianchi, Jed McCaleb, Xiaolong Wang, Jan Kautz, Yejin Choi, James Zou, Carlos Guestrin, Yu Sun*
+
+    > 测试时发现：让模型在推理时对开放问题持续搜索与学习。
+
+50. **Meta Context Engineering via Agentic Skill Evolution.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.21557)
 
     *Haoran Ye, Xuning He, Vincent Arak, Haonan Dong, Guojie Song*
 
     > 双层优化：外层演化技能（上下文管理机制），内层优化任务上下文。
 
-17. **Hyperagents.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.19461)
+51. **Hyperagents.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.19461)
 
     *Jenny Zhang, Bingchen Zhao, Wannan Yang, Jakob Foerster, Jeff Clune, Minqi Jiang, Sam Devlin, Tatiana Shavrina*
 
     > 引入元代理控制如何修改任务代理。
 
-18. **Meta-Harness: End-to-End Optimization of Model Harnesses.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.28052)
+52. **Meta-Harness: End-to-End Optimization of Model Harnesses.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.28052)
 
     *Yoonho Lee, Roshen Nair, Qizheng Zhang, Kangwook Lee, Omar Khattab, Chelsea Finn*
 
     > 用 coding agent 优化 harness 代码本身，输出 Pareto 前沿上的 harness 候选。
 
-19. **Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.25850)
+53. **Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.25850)
 
     *Jiahang Lin, Shichun Liu, Chengjun Pan, Lizhi Lin, Shihan Dou, Zhiheng Xi, Xuanjing Huang, Hang Yan, Zhenhua Han, Tao Gui, Yu-Gang Jiang*
 
     > 以可观测性为核心：组件 / 经验 / 决策三层可观测，每次编辑都是可证伪的文件级声明。
 
-20. **Continual Harness: Online Adaptation for Self-Improving Foundation Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.09998)
+54. **Continual Harness: Online Adaptation for Self-Improving Foundation Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.09998)
 
     *Seth Karten, Joel Zhang, Tersoo Upaa, Ruirong Feng, Wenzhe Li, Chengshuai Shi, Chi Jin, Kiran Vodrahalli*
 
     > 长程游戏中同时更新 harness 与蒸馏策略模型。
 
-21. **⭐SkillOpt: Executive Strategy for Self-Evolving Agent Skills.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.23904) [code](https://aka.ms/skillopt)
+55. **Epistemic Uncertainty for Test-Time Discovery.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.11328)
+
+    *Kainat Riaz, Muhammad Ahmed Mohsin, Ahsan Bilal, Muhammad Umer, Ayesha Mohsin, Aqib Riaz, Ali Subhan, John M. Cioffi*
+
+    > 用认知不确定性引导测试时发现的搜索方向。
+
+56. **⭐SkillOpt: Executive Strategy for Self-Evolving Agent Skills.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.23904) [code](https://aka.ms/skillopt)
 
     *Yifan Yang, Ziyang Gong, Weiquan Huang, Qihao Yang, Ziwei Zhou, Zisu Huang, Yan Li, Xuemei Gao, Qi Dai, Bei Liu, Kai Qiu, Yuqing Yang, Dongdong Chen, Xue Yang, Chong Luo*
 
     > 把 skill.md 当冻结 agent 的外部可训练状态：有界编辑 + held-out 验证门 + 拒绝编辑缓冲 + epoch 慢更新；52/52 cells 最优或并列。
 
-22. **DemoEvolve: Overcoming Sparse Feedback in Agentic Harness Evolution with Demonstrations.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.24539)
+57. **DemoEvolve: Overcoming Sparse Feedback in Agentic Harness Evolution with Demonstrations.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.24539)
 
     *Lirong Che, Yuzhe yang, Peiwen lin, Chuang wang, Xueqian wang, Jian su*
 
     > 用人类示范补充稀疏反馈下的 harness 演化。
 
-23. **SIA: Self Improving AI with Harness & Weight Updates.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.27276)
+58. **ScientistOne: Towards Human-Level Autonomous Research via Chain-of-Evidence.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.26340)
+
+    *Rui Meng, Bhavana Dalvi Mishra, Jiefeng Chen, Chun-Liang Li, Palash Goyal, Mihir Parmar, Yiwen Song, Yale Song, Rajarishi Sinha, Parthasarathy Ranganathan, Burak Gokturk, Jinsung Yoon, Tomas Pfister*
+
+    > 以证据链（chain-of-evidence）组织自主研究，面向人类水平的科研自动化。
+
+59. **SIA: Self Improving AI with Harness & Weight Updates.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.27276)
 
     *Prannay Hebbar, Yogendra Manawat, Samuel Verboomen, Alesia Ivanova, Selvam Palanimalai, Kunal Bhatia, Vignesh Baskaran*
 
     > Feedback-Agent 决定本轮更新 harness 还是模型权重的早期尝试。
 
-24. **You Live More Than Once: Towards Hierarchical Skill Meta-Evolving.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.28390)
+60. **You Live More Than Once: Towards Hierarchical Skill Meta-Evolving.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.28390)
 
     *Xujun Li, Kehan Zheng, Mingyuan Zhao, Yize Geng, Jinfeng Zhou, Qi Zhu, Fei Mi, Lifeng Shang, Minlie Huang, Hongning Wang*
 
     > 分层技能元进化：从执行轨迹学出“怎样生成与修改技能”的元技能并反过来整理技能库，MineDojo 0.700→0.856，底层权重不变。
 
-25. **Harness Updating Is Not Harness Benefit: Disentangling Evolution Capabilities in Self-Evolving LLM Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.30621)
+61. **Harness Updating Is Not Harness Benefit: Disentangling Evolution Capabilities in Self-Evolving LLM Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.30621)
 
     *Minhua Lin, Juncheng Wu, Zijun Wang, Zhan Shi, Yisi Sang, Bing He, Zewen Liu, Tianxin Wei, Zongyu Wu, Zhiwei Zhang, Dakuo Wang, Xiang Zhang, Benoit Dumoulin, Cihang Xie, Yuyin Zhou, Suhang Wang, Hanqing Lu*
 
     > 9B 到 Opus 的模型写 harness 的能力相近，但利用 harness 的能力非单调；模型智能仍是核心。
 
-26. **When AI builds itself: our progress toward recursive self-improvement, and its implications.** Anthropic Institute, 2026. [paper](https://www.anthropic.com/institute/recursive-self-improvement)
+62. **When AI builds itself: our progress toward recursive self-improvement, and its implications.** Anthropic Institute, 2026. [paper](https://www.anthropic.com/institute/recursive-self-improvement)
 
     *Anthropic*
 
     > Anthropic 对递归自我改进的路线判断：代码建议 → 编程智能体自改代码 → AI 参与设计与训练后继系统；具身智能可能紧随，但物理制造、实验周期与部署是新的速度瓶颈。
 
-27. **Self-Harness: Harnesses That Improve Themselves.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.09498)
+63. **Self-Harness: Harnesses That Improve Themselves.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.09498)
 
     *Hangfan Zhang, Shao Zhang, Kangcong Li, Chen Zhang, Yang Chen, Yiqun Zhang, Lei Bai, Shuyue Hu*
 
     > weakness mining → bounded harness proposal → held-in/held-out 双重回归验证的自改进循环。
 
-28. **SkillOpt-Lite: Better and Faster Agent Self-evolution via One Line of Vibe.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.03451) [code](https://github.com/EvolvingLMMs-Lab/SkillOpt-Lite)
+64. **Autodata: An agentic data scientist to create high quality synthetic data.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.25996)
+
+    *Ilia Kulikov, Chenxi Whitehouse, Tianhao Wu, Yixin Nie, Swarnadeep Saha, Eryk Helenowski, Weizhe Yuan, Olga Golovneva, Jack Lanchantin, Yoram Bachrach, Jakob Foerster, Xian Li, Han Fang, Sainbayar Sukhbaatar, Jason Weston*
+
+    > 作为“数据科学家”的 agent，自动生成高质量合成数据。
+
+65. **SkillOpt-Lite: Better and Faster Agent Self-evolution via One Line of Vibe.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.03451) [code](https://github.com/EvolvingLMMs-Lab/SkillOpt-Lite)
 
     *Yifei Shen, Bo Li, Xinjie Zhang*
 
     > 零阶优化视角的最小技能优化流水线，推广到 HarnessOpt。
 
-29. **Harness Engineering for Self-Improvement.** Lil'Log, 2026. [paper](https://lilianweng.github.io/posts/2026-07-04-harness/) [code](https://lilianweng.github.io/posts/2026-07-04-harness/)
+66. **Anchored Self-Play for Code Repair.** ICML 2026, 2026. [paper](https://arxiv.org/abs/2607.03523)
+
+    *Caroline Choi, Zeyneb Kaya, Shirley Wu, Tengyu Ma, Tatsunori Hashimoto, Ludwig Schmidt*
+
+    > 带锚点的自博弈代码修复：出题者与修复者共同演化，锚定避免漂移（ICML 2026）。
+
+67. **Harness Engineering for Self-Improvement.** Lil'Log, 2026. [paper](https://lilianweng.github.io/posts/2026-07-04-harness/) [code](https://lilianweng.github.io/posts/2026-07-04-harness/)
 
     *Lilian Weng*
 
     > 定义 Harness 三大模式（工作流自动化 / 文件系统即记忆 / 子代理），提出优化对象阶梯 prompt→context→workflow→harness code→optimizer code，列出 RSI 的 7 个未解挑战。
 
-30. **Recursive Harness Self-Improvement.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.15524)
+68. **Recursive Harness Self-Improvement.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.15524)
 
     *Hyunin Lee, Jinglue Xu, Jeffrey Seely, Donghyun Lee, Matei Zaharia, Yujin Tang*
 
     > harness 作为 prompt 级 agent loop 规范，用配对反馈迭代精炼。
 
-31. **GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI.** WeChat 公众号 具身纪元, 2026. [paper](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)
+69. **GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI.** WeChat 公众号 具身纪元, 2026. [paper](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)
 
     *Marilyn Liu (具身纪元)*
 
     > 提出 Robot RSI 两条轴线：改进环节（部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究）× 人的参与程度（in-the-loop / on-the-loop / closed loop）；判断前沿 LLM 更可能先成为 Robot RSI 的认知中枢而非末端控制器。
 
-32. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
+70. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
 
     *Shuaicheng Niu, Guohao Chen, Yaofo Chen, Zhiquan Wen, Jinwu Hu, Zeshuai Deng, Deyu Chen, Shuhai Zhang, Renjie Chen, Zihao Lian, Shoukai Xu, Gang Dai, Yunbei Zhang, Wei Luo, Yifan Zhang, Mingkui Tan, Cheng Deng*
 
     > 统一测试时适应/学习/扩展的反馈驱动 TTI 视角，覆盖机器人。
 
-33. **SkillGLoW: Procedural-Family Skill Consolidation for Self-Improving Agents on Long-Horizon Task Streams.** arXiv, 2026. [paper](https://arxiv.org/abs/2609.02217)
+71. **SkillGLoW: Procedural-Family Skill Consolidation for Self-Improving Agents on Long-Horizon Task Streams.** arXiv, 2026. [paper](https://arxiv.org/abs/2609.02217)
 
     *Ao Yan, Xin Zhang, Jiawei Du, Joey Tianyi Zhou*
 
@@ -318,55 +546,61 @@ Each topic line below lists the works in chronological order. The first line of 
 
 *Agent + Robot 总览* &nbsp;|&nbsp; keywords: `Agentic Robotics / Embodied Agent / LLM Robot Agent / Physical AI Agent` &nbsp;|&nbsp; representative: AgenticLab, Agentic Robot, ManiAgent
 
-1. **RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control.** CoRL 2023, 2023. [paper](https://arxiv.org/abs/2307.15818) [code](https://robotics-transformer2.github.io)
+1. **LLM+P: Empowering Large Language Models with Optimal Planning Proficiency.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.11477)
+
+    *Bo Liu, Yuqian Jiang, Xiaohan Zhang, Qiang Liu, Shiqi Zhang, Joydeep Biswas, Peter Stone*
+
+    > LLM 把问题翻译成 PDDL，交给经典规划器求解；AgenticLab 等规划语言接口的先驱。
+
+2. **RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control.** CoRL 2023, 2023. [paper](https://arxiv.org/abs/2307.15818) [code](https://robotics-transformer2.github.io)
 
     *Anthony Brohan, Noah Brown, Justice Carbajal, Yevgen Chebotar, Xi Chen, Krzysztof Choromanski, Tianli Ding, Danny Driess, Avinava Dubey, Chelsea Finn, Pete Florence, Chuyuan Fu, Montse Gonzalez Arenas, Keerthana Gopalakrishnan, Kehang Han, Karol Hausman, Alexander Herzog, Jasmine Hsu, Brian Ichter, Alex Irpan, Nikhil Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Lisa Lee, Tsang-Wei Edward Lee, Sergey Levine, Yao Lu, Henryk Michalewski, Igor Mordatch, Karl Pertsch, Kanishka Rao, Krista Reymann, Michael Ryoo, Grecia Salazar, Pannag Sanketi, Pierre Sermanet, Jaspiar Singh, Anikait Singh, Radu Soricut, Huong Tran, Vincent Vanhoucke, Quan Vuong, Ayzaan Wahid, Stefan Welker, Paul Wohlhart, Jialin Wu, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Tianhe Yu, Brianna Zitkovich*
 
     > VLA 的起点：把 VLM 的网络知识迁移到机器人动作；文章将其作为 2023-2024 年机器人吃到 VLM 红利的代表。
 
-2. **⭐Agentic Robot: A Brain-Inspired Framework for Vision-Language-Action Models in Embodied Agents.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.23450) [code](https://agentic-robot.github.io)
+3. **⭐Agentic Robot: A Brain-Inspired Framework for Vision-Language-Action Models in Embodied Agents.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.23450) [code](https://agentic-robot.github.io)
 
     *Zhejian Yang, Yongchao Chen, Xueyang Zhou, Jiangyue Yan, Dingjie Song, Yinuo Liu, Yuting Li, Yu Zhang, Pan Zhou, Hechang Chen, Lichao Sun*
 
     > 脑启发框架：Standardized Action Procedure 协调推理模型 / VLA 执行器 / 时序验证器，LIBERO 79.6%。
 
-3. **PhysiAgent: An Embodied Agent Framework in Physical World.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24524)
+4. **PhysiAgent: An Embodied Agent Framework in Physical World.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24524)
 
     *Zhihao Wang, Jianxiong Li, Jinliang Zheng, Wencong Zhang, Dongxiu Liu, Yinan Zheng, Haoyi Niu, Junzhi Yu, Xianyuan Zhan*
 
     > VLM 根据 VLA 实时熟练度反馈组织 monitor / memory / reflection 组件。
 
-4. **⭐ManiAgent: An Agentic Framework for General Robotic Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.11660) [code](https://yi-yang929.github.io/ManiAgent/)
+5. **⭐ManiAgent: An Agentic Framework for General Robotic Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.11660) [code](https://yi-yang929.github.io/ManiAgent/)
 
     *Yi Yang, Kefan Gu, Yuqing Wen, Hebei Li, Yucheng Zhao, Tiancai Wang, Xudong Liu*
 
     > 多 agent 感知-分解-动作生成，SimplerEnv 86.8%，可为 VLA 生成训练数据。
 
-5. **⭐PLanAR: Planning-Language-Grounded Agentic Reasoning for Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.01662) [code](https://agentic1ab.github.io/)
+6. **⭐PLanAR: Planning-Language-Grounded Agentic Reasoning for Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.01662) [code](https://agentic1ab.github.io/)
 
     *Pengyuan Guo, Zhonghao Mai, Zhengtong Xu, Kaidi Zhang, Quan Khanh Luu, Heng Zhang, Zichen Miao, Arash Ajoudani, Zachary Kingston, Qiang Qiu, Yu She*
 
     > Purdue 真机 agent 平台：以规划语言（谓词/动作 schema）定义 VLM 推理空间，逐步验证符号效果并重规划。
 
-6. **Agentic AI for Robot Control: Flexible but still Fragile.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.13081)
+7. **Agentic AI for Robot Control: Flexible but still Fragile.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.13081)
 
     *Oscar Lima, Marc Vinci, Martin Günther, Marian Renz, Alexander Sung, Sebastian Stock, Johannes Brust, Lennart Niecksch, Zongyao Yi, Felix Igelbrink, Benjamin Kisliuk, Martin Atzmueller, Joachim Hertzberg*
 
     > 两台真机上的规划-执行循环：迁移只需改系统 prompt，但非确定性与 prompt 敏感性显著。
 
-7. **VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.07723) [code](https://chicychen.github.io/VoLo/)
+8. **VoLo: A Physical Orchestrator for Open-Vocabulary Long-Horizon Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.07723) [code](https://chicychen.github.io/VoLo/)
 
     *Siyi Chen, Hugo Hadfield, Alex Zook, Mikaela Angelina Uy, Chan Hee Song, Erwin Coumans, Xuning Yang, Faisal Ladhak, Qing Qu, Stan Birchfield, Jonathan Tremblay, Valts Blukis*
 
     > NVIDIA Physical Orchestration：VLM 把 VLA/WAM 当作可中断工具中途干预。
 
-8. **Guava: An Effective and Universal Harness for Embodied Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.18363)
+9. **Guava: An Effective and Universal Harness for Embodied Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.18363)
 
     *Haowen Liu, Xirui Li, Shaoxiong Yao, Peng Shi, Tianyi Zhou, Jia-Bin Huang, Furong Huang, Jiayuan Mao*
 
     > 系统探索 harness 设计空间：迭代感知-推理-动作循环、语义动作抽象、多模态观测三要素；蒸馏进 4B 模型。
 
-9. **HoloAgent-0: A Unified Embodied Agent Framework with 3D Spatial Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.23565)
+10. **HoloAgent-0: A Unified Embodied Agent Framework with 3D Spatial Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.23565)
 
     *Xiaolin Zhou, Liu Liu, Tingyang Xiao, Wei Feng, Fa Fu, Xinrui Meng, Xinjie Wang, Jialiang Han, Boyang Yu, Yun Du, Wei Sui, Zhizhong Su*
 
@@ -628,121 +862,127 @@ Each topic line below lists the works in chronological order. The first line of 
 
 *Robot Memory* &nbsp;|&nbsp; keywords: `robot memory / memory-augmented VLA / episodic memory robotics / history-dependent manipulation` &nbsp;|&nbsp; representative: RoboMME, PonderPounce, ViReSkill
 
-1. **⭐ViReSkill: Vision-Grounded Replanning with Skill Memory for LLM-Based Planning in Lifelong Robot Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24219)
+1. **Generative Agents: Interactive Simulacra of Human Behavior.** UIST 2023, 2023. [paper](https://arxiv.org/abs/2304.03442)
+
+    *Joon Sung Park, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, Michael S. Bernstein*
+
+    > 记忆流 + 检索（新近性 / 重要性 / 相关性）+ 反思 + 规划的沙盒 agent，是 Robot Memory 主线常引的记忆架构。
+
+2. **⭐ViReSkill: Vision-Grounded Replanning with Skill Memory for LLM-Based Planning in Lifelong Robot Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24219)
 
     *Tomoyuki Kagaya, Subramanian Lakshmi, Anbang Ye, Thong Jing Yuan, Jayashree Karlekar, Sugiri Pranata, Natsuki Murakami, Akira Kinose, Yang You*
 
     > 失败时视觉接地重规划，成功后把计划存入技能记忆下次直接复用，无需再调 LLM。
 
-2. **⭐RoboOS-NeXT: A Unified Memory-based Framework for Lifelong, Scalable, and Robust Multi-Robot Collaboration.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.26536) [code](https://flagopen.github.io/RoboOS/)
+3. **⭐RoboOS-NeXT: A Unified Memory-based Framework for Lifelong, Scalable, and Robust Multi-Robot Collaboration.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.26536) [code](https://flagopen.github.io/RoboOS/)
 
     *Huajie Tan, Cheng Chi, Xiansheng Chen, Yuheng Ji, Zhongxia Zhao, Xiaoshuai Hao, Yaoxu Lyu, Mingyu Cao, Junkai Zhao, Huaihai Lyu, Enshen Zhou, Ning Chen, Yankai Fu, Cheng Peng, Wei Guo, Dong Liang, Zhuo Chen, Mengsi Lyu, Chenrui He, Yulong Ao, Yonghua Lin, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang*
 
     > Spatio-Temporal-Embodiment Memory 统一多机器人终身协作的共享记忆。
 
-3. **MeCo: Enhancing LLM-Empowered Multi-Robot Collaboration via Similar Task Memoization.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.20577)
+4. **MeCo: Enhancing LLM-Empowered Multi-Robot Collaboration via Similar Task Memoization.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.20577)
 
     *Baiqing Wang, Helei Cui, Bo Zhang, Xiaolong Zheng, Bin Guo, Zhiwen Yu*
 
     > 相似任务记忆化复用多机器人计划。
 
-4. **⭐RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies.** ICML 2026, 2026. [paper](https://arxiv.org/abs/2603.04639) [code](https://robomme.github.io)
+5. **⭐RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies.** ICML 2026, 2026. [paper](https://arxiv.org/abs/2603.04639) [code](https://robomme.github.io)
 
     *Yinpei Dai, Hongze Fu, Jayjun Lee, Yuejiang Liu, Haoran Zhang, Jianing Yang, Chelsea Finn, Nima Fazeli, Joyce Chai*
 
     > ICML 2026。16 个任务覆盖时间/空间/物体/程序四类记忆，14 个 π0.5 记忆变体；记忆表示的有效性高度任务依赖。
 
-5. **Beyond Short-Horizon: VQ-Memory for Robust Long-Horizon Manipulation in Non-Markovian Simulation Benchmarks.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.09513)
+6. **Beyond Short-Horizon: VQ-Memory for Robust Long-Horizon Manipulation in Non-Markovian Simulation Benchmarks.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.09513)
 
     *Honghui Wang, Zhi Jing, Jicong Ao, Shiji Song, Xuelong Li, Gao Huang, Chenjia Bai*
 
     > 非马尔可夫保险箱基准 + VQ 离散本体历史记忆。
 
-6. **Long-Term Memory for VLA-based Agents in Open-World Task Execution.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.15671)
+7. **Long-Term Memory for VLA-based Agents in Open-World Task Execution.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.15671)
 
     *Xu Huang, Weixin Mao, Yinhao Li, Hua Chen, Jiabao Zhao*
 
     > 化学实验室双层记忆 + MCP 子 agent 编排 + 异步推理。
 
-7. **⭐RoboMME-Interference: Benchmarking Robot Memory Under Interference.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.22338) [code](https://robotmemorybench.com)
+8. **⭐RoboMME-Interference: Benchmarking Robot Memory Under Interference.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.22338) [code](https://robotmemorybench.com)
 
     *Soumil Rathi*
 
     > 跨会话干扰基准：感知型记忆随无关会话累积而衰减，检索步骤可恢复。
 
-8. **HoloAgent-0: A Unified Embodied Agent Framework with 3D Spatial Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.23565)
+9. **HoloAgent-0: A Unified Embodied Agent Framework with 3D Spatial Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.23565)
 
     *Xiaolin Zhou, Liu Liu, Tingyang Xiao, Wei Feng, Fa Fu, Xinrui Meng, Xinjie Wang, Jialiang Han, Boyang Yu, Yun Du, Wei Sui, Zhizhong Su*
 
     > Embodied AgentOS + 3D 空间记忆 + 具身技能三层真机框架。
 
-9. **Analytic Concept-Centric Memory for Agentic Embodied Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.29774)
+10. **Analytic Concept-Centric Memory for Agentic Embodied Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.29774)
 
     *Mingyang Sun, Xiujian Liang, Jiude Wei, Qichen He, Donglin Wang, Cewu Lu, Jianhua Sun*
 
     > 以部件/模板/位姿/affordance 组织的结构化概念记忆，连接转移记忆与技能记忆。
 
-10. **NativeMEM: Native Memory Compression for Long-Horizon Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.06678)
+11. **NativeMEM: Native Memory Compression for Long-Horizon Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.06678)
 
     *Ziye Wang, Modi Shi, Chaojun Ni, Jiazhi Yang, Mengdi Li, Zhizhong Su, Tianwei Lin, Hongyang Li*
 
     > 复用 VLA 自身视觉编码器把每帧压成一个记忆 token，成功率 32.4%→84.0%。
 
-11. **Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.07608) [code](https://github.com/quhongyu/LaMem-VLA)
+12. **Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.07608) [code](https://github.com/quhongyu/LaMem-VLA)
 
     *Hongyu Qu, Jianzhe Gao, Xiaobin Hu, Shaohuan Yang, Xinlei Yu, Rui Yan, Wenguan Wang, Xiangbo Shu, Shuicheng Yan*
 
     > 短/长期记忆库在 VLA 原生潜空间中交织。
 
-12. **RoboHarness: Memory-Driven Orchestration of Heterogeneous Robot Policies for Long-Horizon Planning.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.18060)
+13. **RoboHarness: Memory-Driven Orchestration of Heterogeneous Robot Policies for Long-Horizon Planning.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.18060)
 
     *Jinbang Huang, Yuanzhao Hu, Zhiyuan Li, Ran Qi, Yixin Xiao, Zhanguang Zhang, Mark Coates, Tongtong Cao, Yingxue Zhang*
 
     > 多模态执行记忆刻画异构策略能力边界，Memory Bridge 把机器人引导到下一策略的分布内区域。
 
-13. **SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.05970)
+14. **SkillMemo: Expert-guided Skill Memory Framework for Compositional Embodied Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.05970)
 
     *Changyuan Wang, Chubin Zhang, Zhenyu Wu, Runhao Li, Angyuan Ma, Ke Chao, Yinan Liang, Xiuwei Xu, Ziwei Wang, Yansong Tang, Jiwen Lu*
 
     > MoE 门控隐式切分技能原语并存入情景记忆库。
 
-14. **OnEvoMemory: Evolving Memory through Online Robot Rollouts for Pretrained Robot Policies.** ECCV 2026 Workshop, 2026. [paper](https://arxiv.org/abs/2608.08749)
+15. **OnEvoMemory: Evolving Memory through Online Robot Rollouts for Pretrained Robot Policies.** ECCV 2026 Workshop, 2026. [paper](https://arxiv.org/abs/2608.08749)
 
     *Zhongxi Chen, Shenqi Zong*
 
     > 价值引导的记忆模块，用在线 rollout 结果学习该保留哪些经验。
 
-15. **Skills in Weights, Memory in Code: Hybrid Learning for Memory-Dependent Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.09410)
+16. **Skills in Weights, Memory in Code: Hybrid Learning for Memory-Dependent Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.09410)
 
     *Yunhao Zhao, Zhenyang Ni, Haoyang Chen, Ruohan Zhang, Qi Zhu*
 
     > 权重学技能、代码管记忆：coding agent 用启发式学习迭代记忆管理系统，RoboMemArena 任务成功 41.3%→60.1%。
 
-16. **Remember Smarter: Visual History Compressor and Hyperbolic Experience Space for Robotic Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.15269)
+17. **Remember Smarter: Visual History Compressor and Hyperbolic Experience Space for Robotic Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.15269)
 
     *Dai Zhou, Jiexi Yan, Tong Li, Yuxuan Wang, Cheng Deng*
 
     > Mamba 视觉历史压缩 + 双曲经验空间，LIBERO-Plus 53.6%→70.6%。
 
-17. **Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16889)
+18. **Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16889)
 
     *Bingxin Xu, Yuzhang Shang, Emilio Ferrara*
 
     > 以子任务为探索单元（成本 T·K 而非 T^K），转移感知记忆治理 VLA 的进入条件。
 
-18. **⭐PonderPounce: A Pretrained MLLM as an Episode Context Engine for Robot Control.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.24115) [code](https://worv-ai.github.io/ponderpounce/)
+19. **⭐PonderPounce: A Pretrained MLLM as an Episode Context Engine for Robot Control.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.24115) [code](https://worv-ai.github.io/ponderpounce/)
 
     *Suhwan Choi, Jaeyoon Jung, Sungkyung Kim, Yunsung Lee, Youngjae Yu*
 
     > 复用 MLLM 原生因果上下文作为 episode 记忆：Ponder(System2) 异步向 Pounce(System1 VLA) 发送最新认知 token；RoboMME 60.83% vs π0.5 17.93%。
 
-19. **Memory Anchors for Continual Robot Learning.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.26545) [code](https://robot-adaptation.github.io/MemoryAnchors)
+20. **Memory Anchors for Continual Robot Learning.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.26545) [code](https://robot-adaptation.github.io/MemoryAnchors)
 
     *Maximilian Du, Zhanyi Sun, Chen Xu, Paarth Shah, Masha Itkina, Shuran Song*
 
     > 持续学习中 10% 的关键锚点经验决定是否灾难性遗忘。
 
-20. **AGM: Achievement-Grounded Memory for Closed-Loop Agents with Frozen VLA Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.29537)
+21. **AGM: Achievement-Grounded Memory for Closed-Loop Agents with Frozen VLA Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.29537)
 
     *Hongbo Gao, Zeyu Ni, Xin Wen, Siyu Xu, Ruifeng Li*
 
@@ -758,79 +998,85 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 部署时的记忆自改进：把测试 / 环境反馈写成反思存进记忆再重试，不更新权重；HumanEval 91%。
 
-2. **⭐REMAC: Self-Reflective and Self-Evolving Multi-Agent Collaboration for Long-Horizon Robot Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2503.22122)
+2. **Self-Refine: Iterative Refinement with Self-Feedback.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.17651)
+
+    *Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, Shashank Gupta, Bodhisattwa Prasad Majumder, Katherine Hermann, Sean Welleck, Amir Yazdanbakhsh, Peter Clark*
+
+    > 同一模型生成 → 自我反馈 → 精炼的迭代，不训练；反思类方法的基线。
+
+3. **⭐REMAC: Self-Reflective and Self-Evolving Multi-Agent Collaboration for Long-Horizon Robot Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2503.22122)
 
     *Puzhen Yuan, Angyuan Ma, Yunchao Yao, Huaxiu Yao, Masayoshi Tomizuka, Mingyu Ding*
 
     > 多机器人长程规划：前置/后置条件检查的自反思 + 场景推理的自进化，成功率 +40%，效率 +52.7%。
 
-3. **⭐ViReSkill: Vision-Grounded Replanning with Skill Memory for LLM-Based Planning in Lifelong Robot Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24219)
+4. **⭐ViReSkill: Vision-Grounded Replanning with Skill Memory for LLM-Based Planning in Lifelong Robot Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24219)
 
     *Tomoyuki Kagaya, Subramanian Lakshmi, Anbang Ye, Thong Jing Yuan, Jayashree Karlekar, Sugiri Pranata, Natsuki Murakami, Akira Kinose, Yang You*
 
     > 失败时视觉接地重规划，成功后把计划存入技能记忆下次直接复用，无需再调 LLM。
 
-4. **PhysiAgent: An Embodied Agent Framework in Physical World.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24524)
+5. **PhysiAgent: An Embodied Agent Framework in Physical World.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.24524)
 
     *Zhihao Wang, Jianxiong Li, Jinliang Zheng, Wencong Zhang, Dongxiu Liu, Yinan Zheng, Haoyi Niu, Junzhi Yu, Xianyuan Zhan*
 
     > VLM 根据 VLA 实时熟练度反馈组织 monitor / memory / reflection 组件。
 
-5. **⭐PLanAR: Planning-Language-Grounded Agentic Reasoning for Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.01662) [code](https://agentic1ab.github.io/)
+6. **⭐PLanAR: Planning-Language-Grounded Agentic Reasoning for Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.01662) [code](https://agentic1ab.github.io/)
 
     *Pengyuan Guo, Zhonghao Mai, Zhengtong Xu, Kaidi Zhang, Quan Khanh Luu, Heng Zhang, Zichen Miao, Arash Ajoudani, Zachary Kingston, Qiang Qiu, Yu She*
 
     > Purdue 真机 agent 平台：以规划语言（谓词/动作 schema）定义 VLM 推理空间，逐步验证符号效果并重规划。
 
-6. **Agentic AI for Robot Control: Flexible but still Fragile.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.13081)
+7. **Agentic AI for Robot Control: Flexible but still Fragile.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.13081)
 
     *Oscar Lima, Marc Vinci, Martin Günther, Marian Renz, Alexander Sung, Sebastian Stock, Johannes Brust, Lennart Niecksch, Zongyao Yi, Felix Igelbrink, Benjamin Kisliuk, Martin Atzmueller, Joachim Hertzberg*
 
     > 两台真机上的规划-执行循环：迁移只需改系统 prompt，但非确定性与 prompt 敏感性显著。
 
-7. **RoboGene: Boosting VLA Pre-training via Diversity-Driven Agentic Framework for Real-World Task Generation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.16444)
+8. **RoboGene: Boosting VLA Pre-training via Diversity-Driven Agentic Framework for Real-World Task Generation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.16444)
 
     *Yixue Zhang, Kun Wu, Zhi Gao, Zhen Zhao, Pei Ren, Zhiyuan Xu, Fei Liao, Xinhua Wang, Shichao Fan, Di Wu, Qiuxuan Feng, Meng Li, Zhengping Che, Chang Liu, Jian Tang*
 
     > 多样性驱动 + 自反思物理约束的真实任务生成 agent，18k 轨迹。
 
-8. **Self-adapting Robotic Agents through Online Continual Reinforcement Learning with World Model Feedback.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.04029)
+9. **Self-adapting Robotic Agents through Online Continual Reinforcement Learning with World Model Feedback.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.04029)
 
     *Fabian Domberg, Georg Schildbach*
 
     > DreamerV3 预测残差检测 OOD 并自动触发微调。
 
-9. **⭐From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.15600)
+10. **⭐From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.15600)
 
     *Yibin Liu, Yaxing Lyu, Daqi Gao, Zhixuan Liang, Weiliang Tang, Shilong Mu, Xiaokang Yang, Yao Mu*
 
     > 7B 视频 MLLM 从“观察者”变“批评者”：以初始 / 当前画面锚定过程视频，RL 激励显式 CoT 估计进度与失败位置；RoboFail 失败检测 67%。
 
-10. **PhysReflect-VLA: Physical Feasibility and Self-Reflective Regulation for Reliable Vision-Language-Action Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.27146)
+11. **PhysReflect-VLA: Physical Feasibility and Self-Reflective Regulation for Reliable Vision-Language-Action Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.27146)
 
     *Jiayu Yang, Tao Yang, Weijun Li, Xiang Chang, Fei Chao, Changjing Shang, Qiang Shen*
 
     > 可行性算子 + 动作解释算子 + LLM 反思模块的执行期可靠性框架。
 
-11. **⭐ASPIRE: Agentic /Skills Discovery for Robotics.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.00272) [code](https://research.nvidia.com/labs/gear/aspire/)
+12. **⭐ASPIRE: Agentic /Skills Discovery for Robotics.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.00272) [code](https://research.nvidia.com/labs/gear/aspire/)
 
     *Runyu Lu, Yubo Wu, Ethan Kou, Letian Fu, Wenli Xiao, Ajay Mandlekar, Yinzhen Xu, Guanya Shi, Ken Goldberg, Ang Chen, Mosharaf Chowdhury, Yuke Zhu, Linxi "Jim" Fan, Guanzhi Wang*
 
     > NVIDIA GEAR：执行引擎 + 技能库 + 演化搜索的持续学习系统，技能跨任务/仿真/真机/本体持久化，LIBERO-Pro Long 零样本 31% vs 4%。
 
-12. **Agentic RAG-VLM: Affordance-Aware Retrieval-Augmented Generation with Self-Reflective Planning for Robotic Grasping.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.31200)
+13. **Agentic RAG-VLM: Affordance-Aware Retrieval-Augmented Generation with Self-Reflective Planning for Robotic Grasping.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.31200)
 
     *Tao Chen, Lizheng Liu, Jiaxu Wang, Ziyue Jiang, Ruiqi Tian, JiGuang Huo, Zhongxue Gan*
 
     > affordance 感知检索 + 场景图约束 + 14 类失败分类的自反思抓取。
 
-13. **⭐Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.08448) [code](https://github.com/RLinf/RPent)
+14. **⭐Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.08448) [code](https://github.com/RLinf/RPent)
 
     *Yixian Zhang, Huanming Zhang, Feng Gao, Xiao Li, Zhihao Liu, Chunyang Zhu, Jiaxing Qiu, Yuchen Yan, Jiyuan Liu, Wenhao Tang, Zhengru Fang, Yi Nie, Changxu Wei, Yu Wang, Wenbo Ding, Chao Yu*
 
     > 把冻结 VLA 暴露为可重试的接触原语，与少量解析原语组合；从执行轨迹学习原语的适用范围而非扩张技能库；LIBERO-Pro +38.6pp。
 
-14. **Zetta $ζ$: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16590)
+15. **Zetta $ζ$: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16590)
 
     *Xin Ding, Liang Mi, Mingzhe Huang, Zixuan Wang, Chao Zhang, Zixu Hao, Fu Chen, Xiangyu Li, Yikai Zheng, Yaoyu Guo, Weijun Wang, Kun Li, Hao Wu, Yunxin Liu, Ting Cao*
 
@@ -1922,25 +2168,31 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > Brain-Cerebellum 架构：Embodied Brain + Cerebellum Skill Library + Real-Time Shared Memory，边云通信。
 
-2. **⭐RoboOS-NeXT: A Unified Memory-based Framework for Lifelong, Scalable, and Robust Multi-Robot Collaboration.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.26536) [code](https://flagopen.github.io/RoboOS/)
+2. **ShinkaEvolve: Towards Open-Ended And Sample-Efficient Program Evolution.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.19349)
+
+    *Robert Tjarko Lange, Yuki Imajuku, Edoardo Cetin*
+
+    > 开放式、样本高效的程序演化：新颖性拒绝采样与多模型集成；本报告建议用其去重机制缓解机器人集群的假设重复。
+
+3. **⭐RoboOS-NeXT: A Unified Memory-based Framework for Lifelong, Scalable, and Robust Multi-Robot Collaboration.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.26536) [code](https://flagopen.github.io/RoboOS/)
 
     *Huajie Tan, Cheng Chi, Xiansheng Chen, Yuheng Ji, Zhongxia Zhao, Xiaoshuai Hao, Yaoxu Lyu, Mingyu Cao, Junkai Zhao, Huaihai Lyu, Enshen Zhou, Ning Chen, Yankai Fu, Cheng Peng, Wei Guo, Dong Liang, Zhuo Chen, Mengsi Lyu, Chenrui He, Yulong Ao, Yonghua Lin, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang*
 
     > Spatio-Temporal-Embodiment Memory 统一多机器人终身协作的共享记忆。
 
-3. **Federated Single-Agent Robotics: Multi-Robot Coordination Without Intra-Robot Multi-Agent Fragmentation.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.11028) [code](https://github.com/s20sc/fsar-fleet-coordination)
+4. **Federated Single-Agent Robotics: Multi-Robot Coordination Without Intra-Robot Multi-Agent Fragmentation.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.11028) [code](https://github.com/s20sc/fsar-fleet-coordination)
 
     *Xue Qin, Simin Luan, John See, Cong Yang, Zhijun Li*
 
     > 多机器人协调不需要机器人内部多 agent 碎片化，联邦式 fleet runtime。
 
-4. **⭐Learning While Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.00416)
+5. **⭐Learning While Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.00416)
 
     *Yi Wang, Xinchen Li, Pengwei Xie, Pu Yang, Buqing Nie, Yunuo Cai, Qinglin Zhang, Chendi Qu, Jeffrey Wu, Jianheng Song, Xinlin Ren, Jingshun Huang, Mingjie Pan, Siyuan Feng, Zhi Chen, Jianlan Luo*
 
     > 16 台双臂机器人 fleet-scale 离线到在线 RL 持续后训练通用 VLA（DIVL + QAM），8 个真实任务平均 95%。
 
-5. **⭐ENPIRE: Agentic Robot Policy Self-Improvement in the Real World.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.19980)
+6. **⭐ENPIRE: Agentic Robot Policy Self-Improvement in the Real World.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.19980)
 
     *Wenli Xiao, Jia Xie, Tonghe Zhang, Haotian Lin, Letian "Max" Fu, Haoru Xue, Jalen Lu, Yi Yang, Cunxi Dai, Zi Wang, Jimmy Wu, Guanzhi Wang, S. Shankar Sastry, Ken Goldberg, Linxi "Jim" Fan, Yuke Zhu, Guanya Shi*
 
@@ -1996,127 +2248,133 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 过程奖励模型：逐步标出推理出错位置而非只看最终答案，为 RSI 提供细粒度评价信号。
 
-2. **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge.** arXiv, 2024. [paper](https://arxiv.org/abs/2407.19594)
+2. **Self-Rewarding Language Models.** arXiv, 2024. [paper](https://arxiv.org/abs/2401.10020)
+
+    *Weizhe Yuan, Richard Yuanzhe Pang, Kyunghyun Cho, Xian Li, Sainbayar Sukhbaatar, Jing Xu, Jason Weston*
+
+    > 模型用 LLM-as-a-Judge 给自己的回答打分并做 DPO，回答与评价能力同时迭代。
+
+3. **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge.** arXiv, 2024. [paper](https://arxiv.org/abs/2407.19594)
 
     *Tianhao Wu, Weizhe Yuan, Olga Golovneva, Jing Xu, Yuandong Tian, Jiantao Jiao, Jason Weston, Sainbayar Sukhbaatar*
 
     > 同一模型既当回答者、评审者和“评审的评审”，评价能力本身自改进；四轮后 AlpacaEval 2 LC 胜率 22.9%→39.4%。
 
-3. **⭐REMAC: Self-Reflective and Self-Evolving Multi-Agent Collaboration for Long-Horizon Robot Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2503.22122)
+4. **⭐REMAC: Self-Reflective and Self-Evolving Multi-Agent Collaboration for Long-Horizon Robot Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2503.22122)
 
     *Puzhen Yuan, Angyuan Ma, Yunchao Yao, Huaxiu Yao, Masayoshi Tomizuka, Mingyu Ding*
 
     > 多机器人长程规划：前置/后置条件检查的自反思 + 场景推理的自进化，成功率 +40%，效率 +52.7%。
 
-4. **⭐Agentic Robot: A Brain-Inspired Framework for Vision-Language-Action Models in Embodied Agents.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.23450) [code](https://agentic-robot.github.io)
+5. **⭐Agentic Robot: A Brain-Inspired Framework for Vision-Language-Action Models in Embodied Agents.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.23450) [code](https://agentic-robot.github.io)
 
     *Zhejian Yang, Yongchao Chen, Xueyang Zhou, Jiangyue Yan, Dingjie Song, Yinuo Liu, Yuting Li, Yu Zhang, Pan Zhou, Hechang Chen, Lichao Sun*
 
     > 脑启发框架：Standardized Action Procedure 协调推理模型 / VLA 执行器 / 时序验证器，LIBERO 79.6%。
 
-5. **SENTINEL: A Multi-Level Formal Framework for Safety Evaluation of Foundation Model-based Embodied Agents.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.12985)
+6. **SENTINEL: A Multi-Level Formal Framework for Safety Evaluation of Foundation Model-based Embodied Agents.** arXiv, 2025. [paper](https://arxiv.org/abs/2510.12985)
 
     *Simon Sinong Zhan, Philip Wang, Yao Liu, Yiyan Peng, Zinan Wang, Qineng Wang, Zhian Ruan, Xiangyu Shi, Xinyu Cao, Frank Yang, Zhenyang Ni, Kangrui Wang, Ruohan Zhang, Huajie Shao, Manling Li, Qi Zhu*
 
     > 语义/计划/轨迹三层时序逻辑形式化安全评估。
 
-6. **Towards Reliable Code-as-Policies: A Neuro-Symbolic Framework for Embodied Task Planning.** NeurIPS 2025 Spotlight, 2025. [paper](https://arxiv.org/abs/2510.21302)
+7. **Towards Reliable Code-as-Policies: A Neuro-Symbolic Framework for Embodied Task Planning.** NeurIPS 2025 Spotlight, 2025. [paper](https://arxiv.org/abs/2510.21302)
 
     *Sanghyun Ahn, Wonje Choi, Junyong Lee, Jinwoo Park, Honguk Woo*
 
     > NeurIPS 2025 Spotlight：符号验证 + 交互式验证代码，成功率比 CaP +46.2%。
 
-7. **⭐PLanAR: Planning-Language-Grounded Agentic Reasoning for Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.01662) [code](https://agentic1ab.github.io/)
+8. **⭐PLanAR: Planning-Language-Grounded Agentic Reasoning for Robot Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.01662) [code](https://agentic1ab.github.io/)
 
     *Pengyuan Guo, Zhonghao Mai, Zhengtong Xu, Kaidi Zhang, Quan Khanh Luu, Heng Zhang, Zichen Miao, Arash Ajoudani, Zachary Kingston, Qiang Qiu, Yu She*
 
     > Purdue 真机 agent 平台：以规划语言（谓词/动作 schema）定义 VLM 推理空间，逐步验证符号效果并重规划。
 
-8. **⭐From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.15600)
+9. **⭐From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.15600)
 
     *Yibin Liu, Yaxing Lyu, Daqi Gao, Zhixuan Liang, Weiliang Tang, Shilong Mu, Xiaokang Yang, Yao Mu*
 
     > 7B 视频 MLLM 从“观察者”变“批评者”：以初始 / 当前画面锚定过程视频，RL 激励显式 CoT 估计进度与失败位置；RoboFail 失败检测 67%。
 
-9. **PerceptTwin: Semantic Scene Reconstruction for Iterative LLM Planning and Verification.** ICRA 2026, 2026. [paper](https://arxiv.org/abs/2606.04226)
+10. **PerceptTwin: Semantic Scene Reconstruction for Iterative LLM Planning and Verification.** ICRA 2026, 2026. [paper](https://arxiv.org/abs/2606.04226)
 
     *Charlie Gauthier, Sacha Morin, Liam Paull*
 
     > ICRA 2026：从感知栈自动构建交互仿真以验证与精炼计划，成功率 +39%。
 
-10. **VASO: Formally Verifiable Self-Evolving Skills for Physical AI Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.05395)
+11. **VASO: Formally Verifiable Self-Evolving Skills for Physical AI Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.05395)
 
     *Yunhao Yang, Neel P. Bhatt, Kevin Wang, Samuel Tetteh, Zhangyang Wang, Ufuk Topcu*
 
     > 形式化可验证的自进化技能契约：模型检查反例变成文本梯度，97.2% 规范符合。
 
-11. **⭐Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.18247) [code](https://veritas-improvement.github.io/)
+12. **⭐Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.18247) [code](https://veritas-improvement.github.io/)
 
     *Mingtong Zhang, Dhruv Shah*
 
     > 生成器-验证器框架：冻结通用策略 + 无梯度视觉验证器做推理时引导，验证过的自生成轨迹再微调策略；50 条自主轨迹 70% vs 同量人工示范 65%。
 
-12. **PhysReflect-VLA: Physical Feasibility and Self-Reflective Regulation for Reliable Vision-Language-Action Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.27146)
+13. **PhysReflect-VLA: Physical Feasibility and Self-Reflective Regulation for Reliable Vision-Language-Action Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.27146)
 
     *Jiayu Yang, Tao Yang, Weijun Li, Xiang Chang, Fei Chao, Changjing Shang, Qiang Shen*
 
     > 可行性算子 + 动作解释算子 + LLM 反思模块的执行期可靠性框架。
 
-13. **Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.30686)
+14. **Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.30686)
 
     *Taozhao Chen, Ian Manchester, Huaming Chen*
 
     > 成功率无法区分语义匹配与物理泛化，需受控变量评测设计。
 
-14. **LLM-as-a-Verifier: A General-Purpose Verification Framework.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.05391) [code](https://llm-as-a-verifier.com)
+15. **LLM-as-a-Verifier: A General-Purpose Verification Framework.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.05391) [code](https://llm-as-a-verifier.com)
 
     *Jacky Kwok, Shulu Li, Pranav Atreya, Yuejiang Liu, Yixing Jiang, Chelsea Finn, Marco Pavone, Ion Stoica, Azalia Mirhoseini*
 
     > 对评分 token logits 取期望得到连续分数，RoboRewardBench 87.4%，可作 RL 密集奖励。
 
-15. **⭐Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.08448) [code](https://github.com/RLinf/RPent)
+16. **⭐Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.08448) [code](https://github.com/RLinf/RPent)
 
     *Yixian Zhang, Huanming Zhang, Feng Gao, Xiao Li, Zhihao Liu, Chunyang Zhu, Jiaxing Qiu, Yuchen Yan, Jiyuan Liu, Wenhao Tang, Zhengru Fang, Yi Nie, Changxu Wei, Yu Wang, Wenbo Ding, Chao Yu*
 
     > 把冻结 VLA 暴露为可重试的接触原语，与少量解析原语组合；从执行轨迹学习原语的适用范围而非扩张技能库；LIBERO-Pro +38.6pp。
 
-16. **⭐PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.16636)
+17. **⭐PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.16636)
 
     *Yang Liu, Weixing Chen, Xinshuai Song, Tao Pu, Siwen Mo, Yongjie Bai, Zihao Chen, Qianran Sun, Liruo Zhong, Ying Shen, Liang Lin*
 
     > 会话为最小调度单元的运行时：State-as-a-File、SessionVerifier 区分执行终止与语义完成、epistemic memory、分层安全；19+ 本体验证。
 
-17. **Towards the Harness of Embodied Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.11246) [code](https://eit-hai.github.io/thea)
+18. **Towards the Harness of Embodied Agents.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.11246) [code](https://eit-hai.github.io/thea)
 
     *Qi Wang, Tianyi Wang, Chengyang Li, Shikun Ban, Yurun Chen, Yizhong Ge, Jason Qin, Chengtai Li, Wentao Zhu*
 
     > 继承 coding agent 组件，补上物理世界缺的两件事：Scene Graph as Context 与 Evaluation as Exit Codes。
 
-18. **Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.09857)
+19. **Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.09857)
 
     *Rohan Bhagra, Mahantesh Halapannavar, Uddhav Bhattarai*
 
     > 规划与执行之间的 LLM-as-a-Judge 集成验证层，接受/拒绝/升级人工，对抗攻击 97% 拦截。
 
-19. **Consilience for Verifier-Free Test-Time Scaling.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.09898)
+20. **Consilience for Verifier-Free Test-Time Scaling.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.09898)
 
     *Lecheng Kong, Like Hui, Haitao Mao, Jun Huan*
 
     > 无验证器测试时扩展：置信度轨迹的时间不对称性。
 
-20. **ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.13438)
+21. **ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.13438)
 
     *Gehan Zheng, Matthew Johnson-Roberson, Weiming Zhi*
 
     > 潜空间世界模型的接触前执行监控。
 
-21. **Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16889)
+22. **Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16889)
 
     *Bingxin Xu, Yuzhang Shang, Emilio Ferrara*
 
     > 以子任务为探索单元（成本 T·K 而非 T^K），转移感知记忆治理 VLA 的进入条件。
 
-22. **AGM: Achievement-Grounded Memory for Closed-Loop Agents with Frozen VLA Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.29537)
+23. **AGM: Achievement-Grounded Memory for Closed-Loop Agents with Frozen VLA Policies.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.29537)
 
     *Hongbo Gao, Zeyu Ni, Xin Wen, Siyu Xu, Ruifeng Li*
 
@@ -2126,145 +2384,271 @@ Each topic line below lists the works in chronological order. The first line of 
 
 *Robot RSI：递归自我改进* &nbsp;|&nbsp; keywords: `recursive self-improvement robot / deployment-time self-evolution / training-time self-iteration / self-evaluation verifier / auto research robotics / human-on-the-loop` &nbsp;|&nbsp; representative: ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka, DrEureka, Reflexion, STaR, Let's Verify Step by Step, Meta-Rewarding LMs, The AI Scientist
 
-1. **Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements.** arXiv, 2003. [paper](https://arxiv.org/abs/cs/0309048)
+1. **Speculations Concerning the First Ultraintelligent Machine.** Advances in Computers 6:31-88, 1965. [paper](https://doi.org/10.1016/S0065-2458(08)60418-0)
+
+    *Irving John Good*
+
+    > 1965 年的“智能爆炸”设想：能设计出更强机器的机器会让新机器继续参与下一代设计；RSI 概念的源头。
+
+2. **Gödel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements.** arXiv, 2003. [paper](https://arxiv.org/abs/cs/0309048)
 
     *Jürgen Schmidhuber*
 
     > 自我改写的形式化起点：只有能证明某项修改会提高既定效用时才执行修改。
 
-2. **STaR: Bootstrapping Reasoning With Reasoning.** NeurIPS 2022, 2022. [paper](https://arxiv.org/abs/2203.14465)
+3. **Recursive Self-Improvement.** LessWrong, 2008. [paper](https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement)
+
+    *Eliezer Yudkowsky*
+
+    > 2008 年对递归自我改进的系统论述，Lil'Log 与具身纪元文章均以其为概念参照。
+
+4. **STaR: Bootstrapping Reasoning With Reasoning.** NeurIPS 2022, 2022. [paper](https://arxiv.org/abs/2203.14465)
 
     *Eric Zelikman, Yuhuai Wu, Jesse Mu, Noah D. Goodman*
 
     > 训练时自迭代：生成推理 → 答对保留、答错看答案重推 → 筛出的过程微调下一版模型。
 
-3. **Reflexion: Language Agents with Verbal Reinforcement Learning.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.11366) [code](https://github.com/noahshinn/reflexion)
+5. **Reflexion: Language Agents with Verbal Reinforcement Learning.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.11366) [code](https://github.com/noahshinn/reflexion)
 
     *Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao*
 
     > 部署时的记忆自改进：把测试 / 环境反馈写成反思存进记忆再重试，不更新权重；HumanEval 91%。
 
-4. **Let's Verify Step by Step.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2305.20050)
+6. **Emergent autonomous scientific research capabilities of large language models.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.05332)
+
+    *Daniil A. Boiko, Robert MacKnight, Gabe Gomes*
+
+    > LLM 驾驭实验室自动化（含云实验室）做科学实验的早期案例。
+
+7. **Let's Verify Step by Step.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2305.20050)
 
     *Hunter Lightman, Vineet Kosaraju, Yura Burda, Harri Edwards, Bowen Baker, Teddy Lee, Jan Leike, John Schulman, Ilya Sutskever, Karl Cobbe*
 
     > 过程奖励模型：逐步标出推理出错位置而非只看最终答案，为 RSI 提供细粒度评价信号。
 
-5. **Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation.** arXiv, 2023. [paper](https://arxiv.org/abs/2310.02304)
+8. **Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation.** arXiv, 2023. [paper](https://arxiv.org/abs/2310.02304)
 
     *Eric Zelikman, Eliana Lorch, Lester Mackey, Adam Tauman Kalai*
 
     > 自学优化器：优化 improver 而非解本身；弱模型下会退化。
 
-6. **⭐Eureka: Human-Level Reward Design via Coding Large Language Models.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2310.12931) [code](https://eureka-research.github.io)
+9. **⭐Eureka: Human-Level Reward Design via Coding Large Language Models.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2310.12931) [code](https://eureka-research.github.io)
 
     *Yecheng Jason Ma, William Liang, Guanzhi Wang, De-An Huang, Osbert Bastani, Dinesh Jayaraman, Yuke Zhu, Linxi Fan, Anima Anandkumar*
 
     > LLM 编写奖励函数、RL 学策略、结果反馈回 LLM 改奖励；83% 任务超过人工奖励；训练方法的自动搜索。
 
-7. **⭐DrEureka: Language Model Guided Sim-To-Real Transfer.** RSS 2024, 2024. [paper](https://arxiv.org/abs/2406.01967) [code](https://eureka-research.github.io/dr-eureka/)
+10. **Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models.** ICML 2024, 2024. [paper](https://arxiv.org/abs/2401.01335)
+
+    *Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, Quanquan Gu*
+
+    > 弱模型通过与自己历史版本博弈变强，无需额外人类数据。
+
+11. **Self-Rewarding Language Models.** arXiv, 2024. [paper](https://arxiv.org/abs/2401.10020)
+
+    *Weizhe Yuan, Richard Yuanzhe Pang, Kyunghyun Cho, Xian Li, Sainbayar Sukhbaatar, Jing Xu, Jason Weston*
+
+    > 模型用 LLM-as-a-Judge 给自己的回答打分并做 DPO，回答与评价能力同时迭代。
+
+12. **⭐DrEureka: Language Model Guided Sim-To-Real Transfer.** RSS 2024, 2024. [paper](https://arxiv.org/abs/2406.01967) [code](https://eureka-research.github.io/dr-eureka/)
 
     *Yecheng Jason Ma, William Liang, Hung-Ju Wang, Sam Wang, Yuke Zhu, Linxi Fan, Osbert Bastani, Dinesh Jayaraman*
 
     > LLM 同时写奖励与域随机化参数范围（摩擦、质量、外力），四足机器人仿真学会站瑜伽球并迁移真机；自动研究推进到 sim-to-real。
 
-8. **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge.** arXiv, 2024. [paper](https://arxiv.org/abs/2407.19594)
+13. **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge.** arXiv, 2024. [paper](https://arxiv.org/abs/2407.19594)
 
     *Tianhao Wu, Weizhe Yuan, Olga Golovneva, Jing Xu, Yuandong Tian, Jiantao Jiao, Jason Weston, Sainbayar Sukhbaatar*
 
     > 同一模型既当回答者、评审者和“评审的评审”，评价能力本身自改进；四轮后 AlpacaEval 2 LC 胜率 22.9%→39.4%。
 
-9. **The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery.** arXiv, 2024. [paper](https://arxiv.org/abs/2408.06292) [code](https://github.com/SakanaAI/AI-Scientist)
+14. **The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery.** arXiv, 2024. [paper](https://arxiv.org/abs/2408.06292) [code](https://github.com/SakanaAI/AI-Scientist)
 
     *Chris Lu, Cong Lu, Robert Tjarko Lange, Jakob Foerster, Jeff Clune, David Ha*
 
     > 自动研究：从代码模板出发提想法、查新颖性、改代码、跑实验、写论文并接受自动评审。
 
-10. **Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents.** arXiv 2025, 2025. [paper](https://arxiv.org/abs/2505.22954)
+15. **CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark.** TMLR 2024, 2024. [paper](https://arxiv.org/abs/2409.11363)
+
+    *Zachary S. Siegel, Sayash Kapoor, Nitya Nadgir, Benedikt Stroebl, Arvind Narayanan*
+
+    > 计算可复现性 agent 基准（TMLR 2024）。
+
+16. **ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery.** ICLR 2025, 2024. [paper](https://arxiv.org/abs/2410.05080)
+
+    *Ziru Chen, Shijie Chen, Yuting Ning, Qianheng Zhang, Boshi Wang, Botao Yu, Yifei Li, Zeyi Liao, Chen Wei, Zitong Lu, Vishal Dey, Mingyi Xue, Frazier N. Baker, Benjamin Burns, Daniel Adu-Ampratwum, Xuhui Huang, Xia Ning, Song Gao, Yu Su, Huan Sun*
+
+    > 数据驱动科学发现任务上的语言 agent 严格评测（ICLR 2025）。
+
+17. **MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering.** arXiv, 2024. [paper](https://arxiv.org/abs/2410.07095)
+
+    *Jun Shern Chan, Neil Chowdhury, Oliver Jaffe, James Aung, Dane Sherburn, Evan Mays, Giulio Starace, Kevin Liu, Leon Maksin, Tejal Patwardhan, Lilian Weng, Aleksander Mądry*
+
+    > 在 Kaggle 式机器学习工程任务上评测 agent。
+
+18. **RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts.** ICML 2025, 2024. [paper](https://arxiv.org/abs/2411.15114)
+
+    *Hjalmar Wijk, Tao Lin, Joel Becker, Sami Jawhar, Neev Parikh, Thomas Broadley, Lawrence Chan, Michael Chen, Josh Clymer, Jai Dhyani, Elena Ericheva, Katharyn Garcia, Brian Goodrich, Nikola Jurkovic, Holden Karnofsky, Megan Kinniment, Aron Lajko, Seraphina Nix, Lucas Sato, William Saunders, Maksym Taran, Ben West, Elizabeth Barnes*
+
+    > 对比前沿 agent 与人类专家的 AI R&D 能力（ICML 2025）。
+
+19. **KernelBench: Can LLMs Write Efficient GPU Kernels?.** arXiv, 2025. [paper](https://arxiv.org/abs/2502.10517)
+
+    *Anne Ouyang, Simon Guo, Simran Arora, Alex L. Zhang, William Hu, Christopher Ré, Azalia Mirhoseini*
+
+    > LLM 能否写出高效 GPU kernel 的基准，harness 演化常用的可验证任务。
+
+20. **PaperBench: Evaluating AI's Ability to Replicate AI Research.** ICML 2025, 2025. [paper](https://arxiv.org/abs/2504.01848)
+
+    *Giulio Starace, Oliver Jaffe, Dane Sherburn, James Aung, Jun Shern Chan, Leon Maksin, Rachel Dias, Evan Mays, Benjamin Kinsella, Wyatt Thompson, Johannes Heidecke, Amelia Glaese, Tejal Patwardhan*
+
+    > 评测 AI 复现 AI 研究论文的能力（ICML 2025）。
+
+21. **Absolute Zero: Reinforced Self-play Reasoning with Zero Data.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.03335)
+
+    *Andrew Zhao, Yiran Wu, Yang Yue, Tong Wu, Quentin Xu, Yang Yue, Matthieu Lin, Shenzhi Wang, Qingyun Wu, Zilong Zheng, Gao Huang*
+
+    > 零数据自博弈推理：模型自己提出可验证任务并求解，训练时自迭代的极端形式。
+
+22. **Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents.** arXiv 2025, 2025. [paper](https://arxiv.org/abs/2505.22954)
 
     *Jenny Zhang, Shengran Hu, Cong Lu, Robert Lange, Jeff Clune*
 
     > 允许 coding agent 修改自身 harness 代码库并开放式演化，SWE-bench 20%→50%。
 
-11. **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks.** Technical report, 2026. [paper](https://endlessfrontier.tech/assets/paper.pdf) [code](https://huggingface.co/endless-frontier/BigBang-v1)
+23. **ShinkaEvolve: Towards Open-Ended And Sample-Efficient Program Evolution.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.19349)
+
+    *Robert Tjarko Lange, Yuki Imajuku, Edoardo Cetin*
+
+    > 开放式、样本高效的程序演化：新颖性拒绝采样与多模型集成；本报告建议用其去重机制缓解机器人集群的假设重复。
+
+24. **Early science acceleration experiments with GPT-5.** arXiv, 2025. [paper](https://arxiv.org/abs/2511.16072)
+
+    *Sébastien Bubeck, Christian Coester, Ronen Eldan, Timothy Gowers, Yin Tat Lee, Alexandru Lupsasca, Mehtaab Sawhney, Robert Scherrer, Mark Sellke, Brian K. Spears, Derya Unutmaz, Kevin Weil, Steven Yin, Nikita Zhivotovskiy*
+
+    > 前沿模型加速科研的早期实证案例集。
+
+25. **ThetaEvolve: Test-time Learning on Open Problems.** arXiv, 2025. [paper](https://arxiv.org/abs/2511.23473)
+
+    *Yiping Wang, Shao-Rong Su, Zhiyuan Zeng, Eva Xu, Liliang Ren, Xinyu Yang, Zeyi Huang, Xuehai He, Luyao Ma, Baolin Peng, Hao Cheng, Pengcheng He, Weizhu Chen, Shuohang Wang, Simon Shaolei Du, Yelong Shen*
+
+    > 面向开放问题的测试时学习：在演化搜索中同时更新模型。
+
+26. **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks.** Technical report, 2026. [paper](https://endlessfrontier.tech/assets/paper.pdf) [code](https://huggingface.co/endless-frontier/BigBang-v1)
 
     *The BigBang Team (Endless Frontier)*
 
     > 出题者 / 批评者 / 元批评者三角合成可验证难题，约一万条样本更新权重；训练时自迭代 + 评价器校准，证据来自团队技术报告。
 
-12. **Why LLMs Aren't Scientists Yet: Lessons from Four Autonomous Research Attempts.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.03315)
+27. **Towards end-to-end automation of AI research.** Nature 651:914-919, 2026. [paper](https://www.nature.com/articles/s41586-026-10265-5)
+
+    *Chris Lu, Cong Lu, Robert Tjarko Lange, Jakob Foerster, Jeff Clune, David Ha*
+
+    > The AI Scientist 路线在 Nature 上的正式发表：从想法到论文与评审的端到端自动化。
+
+28. **Why LLMs Aren't Scientists Yet: Lessons from Four Autonomous Research Attempts.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.03315)
 
     *Dhruv Trehan, Paras Chopra*
 
     > 四次自主研究尝试总结出的 6 类失败模式（训练数据默认偏置、实现漂移、记忆退化、过度乐观等）。
 
-13. **⭐RoboClaw: An Agentic Framework for Scalable Long-Horizon Robotic Tasks.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.11558) [code](https://github.com/RoboClaw-Robotics/RoboClaw)
+29. **Learning to Discover at Test Time.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.16175)
+
+    *Mert Yuksekgonul, Daniel Koceja, Xinhao Li, Federico Bianchi, Jed McCaleb, Xiaolong Wang, Jan Kautz, Yejin Choi, James Zou, Carlos Guestrin, Yu Sun*
+
+    > 测试时发现：让模型在推理时对开放问题持续搜索与学习。
+
+30. **⭐RoboClaw: An Agentic Framework for Scalable Long-Horizon Robotic Tasks.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.11558) [code](https://github.com/RoboClaw-Robotics/RoboClaw)
 
     *Ruiying Li, Yunlang Zhou, YuYao Zhu, Kylin Chen, Jingyuan Wang, Sukai Wang, Kongtao Hu, Minhui Yu, Bowen Jiang, Zhan Su, Jiayao Ma, Xin He, Yongjian Shen, Yang Yang, Guanghui Ren, Maoqing Yao, Wenhao Wang, Yao Mu*
 
     > 统一采集-学习-部署的 VLM 控制器；Entangled Action Pairs 把正向技能与逆向恢复绑定实现自复位采数据，成功率 +25%，人工时间 -53.7%。
 
-14. **⭐From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.15600)
+31. **⭐From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation.** arXiv, 2026. [paper](https://arxiv.org/abs/2603.15600)
 
     *Yibin Liu, Yaxing Lyu, Daqi Gao, Zhixuan Liang, Weiliang Tang, Shilong Mu, Xiaokang Yang, Yao Mu*
 
     > 7B 视频 MLLM 从“观察者”变“批评者”：以初始 / 当前画面锚定过程视频，RL 激励显式 CoT 估计进度与失败位置；RoboFail 失败检测 67%。
 
-15. **You Live More Than Once: Towards Hierarchical Skill Meta-Evolving.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.28390)
+32. **Epistemic Uncertainty for Test-Time Discovery.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.11328)
+
+    *Kainat Riaz, Muhammad Ahmed Mohsin, Ahsan Bilal, Muhammad Umer, Ayesha Mohsin, Aqib Riaz, Ali Subhan, John M. Cioffi*
+
+    > 用认知不确定性引导测试时发现的搜索方向。
+
+33. **ScientistOne: Towards Human-Level Autonomous Research via Chain-of-Evidence.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.26340)
+
+    *Rui Meng, Bhavana Dalvi Mishra, Jiefeng Chen, Chun-Liang Li, Palash Goyal, Mihir Parmar, Yiwen Song, Yale Song, Rajarishi Sinha, Parthasarathy Ranganathan, Burak Gokturk, Jinsung Yoon, Tomas Pfister*
+
+    > 以证据链（chain-of-evidence）组织自主研究，面向人类水平的科研自动化。
+
+34. **You Live More Than Once: Towards Hierarchical Skill Meta-Evolving.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.28390)
 
     *Xujun Li, Kehan Zheng, Mingyuan Zhao, Yize Geng, Jinfeng Zhou, Qi Zhu, Fei Mi, Lifeng Shang, Minlie Huang, Hongning Wang*
 
     > 分层技能元进化：从执行轨迹学出“怎样生成与修改技能”的元技能并反过来整理技能库，MineDojo 0.700→0.856，底层权重不变。
 
-16. **When AI builds itself: our progress toward recursive self-improvement, and its implications.** Anthropic Institute, 2026. [paper](https://www.anthropic.com/institute/recursive-self-improvement)
+35. **When AI builds itself: our progress toward recursive self-improvement, and its implications.** Anthropic Institute, 2026. [paper](https://www.anthropic.com/institute/recursive-self-improvement)
 
     *Anthropic*
 
     > Anthropic 对递归自我改进的路线判断：代码建议 → 编程智能体自改代码 → AI 参与设计与训练后继系统；具身智能可能紧随，但物理制造、实验周期与部署是新的速度瓶颈。
 
-17. **⭐Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.18247) [code](https://veritas-improvement.github.io/)
+36. **⭐Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.18247) [code](https://veritas-improvement.github.io/)
 
     *Mingtong Zhang, Dhruv Shah*
 
     > 生成器-验证器框架：冻结通用策略 + 无梯度视觉验证器做推理时引导，验证过的自生成轨迹再微调策略；50 条自主轨迹 70% vs 同量人工示范 65%。
 
-18. **⭐ENPIRE: Agentic Robot Policy Self-Improvement in the Real World.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.19980)
+37. **⭐ENPIRE: Agentic Robot Policy Self-Improvement in the Real World.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.19980)
 
     *Wenli Xiao, Jia Xie, Tonghe Zhang, Haotian Lin, Letian "Max" Fu, Haoru Xue, Jalen Lu, Yi Yang, Cunxi Dai, Zi Wang, Jimmy Wu, Guanzhi Wang, S. Shankar Sastry, Ken Goldberg, Linxi "Jim" Fan, Yuke Zhu, Guanya Shi*
 
     > coding agent 的真机 harness：EN（自动 reset+验证）/ PI / R（多机并行 rollout）/ E（读日志改算法与基础设施），自主训练策略至 99% 成功。
 
-19. **⭐ASPIRE: Agentic /Skills Discovery for Robotics.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.00272) [code](https://research.nvidia.com/labs/gear/aspire/)
+38. **Autodata: An agentic data scientist to create high quality synthetic data.** arXiv, 2026. [paper](https://arxiv.org/abs/2606.25996)
+
+    *Ilia Kulikov, Chenxi Whitehouse, Tianhao Wu, Yixin Nie, Swarnadeep Saha, Eryk Helenowski, Weizhe Yuan, Olga Golovneva, Jack Lanchantin, Yoram Bachrach, Jakob Foerster, Xian Li, Han Fang, Sainbayar Sukhbaatar, Jason Weston*
+
+    > 作为“数据科学家”的 agent，自动生成高质量合成数据。
+
+39. **⭐ASPIRE: Agentic /Skills Discovery for Robotics.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.00272) [code](https://research.nvidia.com/labs/gear/aspire/)
 
     *Runyu Lu, Yubo Wu, Ethan Kou, Letian Fu, Wenli Xiao, Ajay Mandlekar, Yinzhen Xu, Guanya Shi, Ken Goldberg, Ang Chen, Mosharaf Chowdhury, Yuke Zhu, Linxi "Jim" Fan, Guanzhi Wang*
 
     > NVIDIA GEAR：执行引擎 + 技能库 + 演化搜索的持续学习系统，技能跨任务/仿真/真机/本体持久化，LIBERO-Pro Long 零样本 31% vs 4%。
 
-20. **Harness Engineering for Self-Improvement.** Lil'Log, 2026. [paper](https://lilianweng.github.io/posts/2026-07-04-harness/) [code](https://lilianweng.github.io/posts/2026-07-04-harness/)
+40. **Anchored Self-Play for Code Repair.** ICML 2026, 2026. [paper](https://arxiv.org/abs/2607.03523)
+
+    *Caroline Choi, Zeyneb Kaya, Shirley Wu, Tengyu Ma, Tatsunori Hashimoto, Ludwig Schmidt*
+
+    > 带锚点的自博弈代码修复：出题者与修复者共同演化，锚定避免漂移（ICML 2026）。
+
+41. **Harness Engineering for Self-Improvement.** Lil'Log, 2026. [paper](https://lilianweng.github.io/posts/2026-07-04-harness/) [code](https://lilianweng.github.io/posts/2026-07-04-harness/)
 
     *Lilian Weng*
 
     > 定义 Harness 三大模式（工作流自动化 / 文件系统即记忆 / 子代理），提出优化对象阶梯 prompt→context→workflow→harness code→optimizer code，列出 RSI 的 7 个未解挑战。
 
-21. **RoboHarness: Memory-Driven Orchestration of Heterogeneous Robot Policies for Long-Horizon Planning.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.18060)
+42. **RoboHarness: Memory-Driven Orchestration of Heterogeneous Robot Policies for Long-Horizon Planning.** arXiv, 2026. [paper](https://arxiv.org/abs/2607.18060)
 
     *Jinbang Huang, Yuanzhao Hu, Zhiyuan Li, Ran Qi, Yixin Xiao, Zhanguang Zhang, Mark Coates, Tongtong Cao, Yingxue Zhang*
 
     > 多模态执行记忆刻画异构策略能力边界，Memory Bridge 把机器人引导到下一策略的分布内区域。
 
-22. **Zetta $ζ$: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16590)
+43. **Zetta $ζ$: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence.** arXiv, 2026. [paper](https://arxiv.org/abs/2608.16590)
 
     *Xin Ding, Liang Mi, Mingzhe Huang, Zixuan Wang, Chao Zhang, Zixu Hao, Fu Chen, Xiangyu Li, Yikai Zheng, Yaoyu Guo, Weijun Wang, Kun Li, Hao Wu, Yunxin Liu, Ting Cao*
 
     > 三时间尺度闭环 harness：动作频率治理 / rollout 级 critic-recovery 提议 / 验证门控技能更新；LIBERO-Pro 90.8%，推理加速 11.1x。
 
-23. **GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI.** WeChat 公众号 具身纪元, 2026. [paper](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)
+44. **GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI.** WeChat 公众号 具身纪元, 2026. [paper](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)
 
     *Marilyn Liu (具身纪元)*
 
     > 提出 Robot RSI 两条轴线：改进环节（部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究）× 人的参与程度（in-the-loop / on-the-loop / closed loop）；判断前沿 LLM 更可能先成为 Robot RSI 的认知中枢而非末端控制器。
 
-24. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
+45. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
 
     *Shuaicheng Niu, Guohao Chen, Yaofo Chen, Zhiquan Wen, Jinwu Hu, Zeshuai Deng, Deyu Chen, Shuhai Zhang, Renjie Chen, Zihao Lian, Shoukai Xu, Gang Dai, Yunbei Zhang, Wei Luo, Yifan Zhang, Mingkui Tan, Cheng Deng*
 
@@ -2272,9 +2656,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
 ## Statistics
 
-- 169 entries: 46 core (⭐), 94 extended, 29 foundation.
-- By year: 2003: 1, 2022: 2, 2023: 8, 2024: 6, 2025: 23, 2026: 129.
-- Topic coverage: Foundations: LLM Agents & Harness Engineering (33), Agent + Robot Overview (9), Coding Agents Control Robots (19), OpenClaw / ROS (10), Long-Horizon Tasks (11), Robot Memory (20), Reflection / Failure Correction (14), Self-Evolution (21), Skill Library (16), VLA + RL (20), Deployment Data Flywheel (8), Digital Twin / Sim2Real (9), World Model (9), Fast-Slow Dual Systems (14), Edge Agent / On-Device Deployment (11), Harness (15), Runtime (9), Safety (15), Standard Interfaces / Hardware API (5), Multi-Robot Collaboration (13), Cross-Embodiment (5), Fleet Learning (5), Active Perception (6), Verifier / Success Verification (22), Robot RSI: Recursive Self-Improvement (24).
+- 207 entries: 46 core (⭐), 94 extended, 67 foundation.
+- By year: 1965: 1, 2003: 1, 2008: 1, 2021: 1, 2022: 7, 2023: 18, 2024: 14, 2025: 29, 2026: 135.
+- Topic coverage: Foundations: LLM Agents & Harness Engineering (71), Agent + Robot Overview (10), Coding Agents Control Robots (19), OpenClaw / ROS (10), Long-Horizon Tasks (11), Robot Memory (21), Reflection / Failure Correction (15), Self-Evolution (21), Skill Library (16), VLA + RL (20), Deployment Data Flywheel (8), Digital Twin / Sim2Real (9), World Model (9), Fast-Slow Dual Systems (14), Edge Agent / On-Device Deployment (11), Harness (15), Runtime (9), Safety (15), Standard Interfaces / Hardware API (5), Multi-Robot Collaboration (13), Cross-Embodiment (5), Fleet Learning (6), Active Perception (6), Verifier / Success Verification (23), Robot RSI: Recursive Self-Improvement (45).
 
 ## Citation
 

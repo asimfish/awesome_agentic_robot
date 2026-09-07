@@ -1,5 +1,5 @@
 topic_id,order,name_en,name_zh,keywords,representative
-T0,0,Foundations: LLM Agents & Harness Engineering,基础：LLM Agent 与 Harness 工程,LLM agent / harness engineering / recursive self-improvement / context engineering / agentic workflow search,"Lil'Log (LLM Powered Autonomous Agents; Harness Engineering for Self-Improvement), ACE, Meta-Harness, Self-Harness, DGM"
+T0,0,Foundations: LLM Agents & Harness Engineering,基础：LLM Agent 与 Harness 工程,LLM agent / harness engineering / recursive self-improvement / context engineering / agentic workflow search,"Lil'Log (LLM Powered Autonomous Agents; Harness Engineering for Self-Improvement) and the full reference lists of both posts: ReAct, Reflexion, Toolformer, Generative Agents, ACE, Meta-Harness, Self-Harness, DGM, AlphaEvolve, STOP, AI-R&D benchmarks"
 T1,1,Agent + Robot Overview,Agent + Robot 总览,Agentic Robotics / Embodied Agent / LLM Robot Agent / Physical AI Agent,"AgenticLab, Agentic Robot, ManiAgent"
 T2,2,Coding Agents Control Robots,Coding Agent 控机器人,Code-as-Policy robotics / robot coding agent / coding agents robot manipulation,"Code as Policies, CaP-X, RHO, ASPIRE"
 T3,3,OpenClaw / ROS,OpenClaw / ROS,OpenClaw robotics / ROS2 agentic robot / MCP robotics,"ROSClaw, OpenClawPi, AgentRob"

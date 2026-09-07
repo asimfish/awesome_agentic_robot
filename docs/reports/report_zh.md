@@ -19,7 +19,7 @@ lang: zh-CN
 5. **群体是经验规模化的唯一出路，但收益不是线性的。** LWD 用 16 台双臂机器人把单一 VLA 推到 95%；ENPIRE 用 8 个工位把收敛时间从 5 小时压到 2 小时——8 倍机器人换来 2-3 倍加速，多出来的是假设吞吐量，不是 rollout 数量。
 6. **Robot RSI 是把这些串起来的框架。** 具身纪元文章的两条轴线（改进的环节：部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究 × 人的参与程度）把 ENPIRE、ASPIRE、RoboHarness、RoboClaw、PRIMO R1、VERITAS、Eureka、DrEureka 与软件侧的 Reflexion、STaR、Let's Verify、Meta-Rewarding、The AI Scientist 放进同一张表；前沿 LLM 更可能先成为机器人研发循环的认知中枢，而不是机器人的末端控制器。
 
-阅读路径：只想知道结论看第 7、8 章；想核对每条主线的论文看第 4 章和附录；想看五份材料各自的解读看第 2、3、5、6 章。仓库根目录的 `README.md` 是按主线组织的 169 篇论文清单，`data/papers.csv` 是机器可读版本。
+阅读路径：只想知道结论看第 7、8 章；想核对每条主线的论文看第 4 章和附录；想看五份材料各自的解读看第 2、3、5、6 章。仓库根目录的 `README.md` 是按主线组织的 207 篇论文清单，`data/papers.csv` 是机器可读版本。
 
 # 1. 材料、方法与边界
 
@@ -35,7 +35,7 @@ lang: zh-CN
 
 ## 1.2 方法
 
-我们把地图上 23 条主线的代表工作和长文、讲稿点名的全部工作逐一在 arXiv 上核实（标题、作者、日期、摘要），再沿每条主线按提交时间倒序检索 2025-2026 的新工作，最终保留 169 条：46 条是材料点名的机器人侧核心工作，94 条是扩展检索到的 2025-2026 新工作，29 条是软件侧 Agent / Harness / RSI 的基础工作（其中具身纪元文章点名的 Reflexion、STaR、Let's Verify Step by Step、Meta-Rewarding、The AI Scientist、HiSME、BigBang-V1、Gödel Machine、Anthropic《When AI builds itself》归入此类）。地图与文章上的非 arXiv 条目也做了溯源：BigBang-V1 是 Endless Frontier 的技术报告；PRIMO R1 对应 arXiv 2603.15600《From Passive Observer to Active Critic》；VERITAS 对应 arXiv 2606.18247《Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement》；HiSME 对应 arXiv 2605.28390《You Live More Than Once》；AgenticLab 对应 arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS 是 Anthropic 2026 年 8 月 27 日发布的 Model Hardware Standard 研究预览；OpenClawPi 是松灵机器人（AgileX）面向 OpenClaw 的技能库，不是论文。
+我们把地图上 23 条主线的代表工作和长文、讲稿点名的全部工作逐一在 arXiv 上核实（标题、作者、日期、摘要），再沿每条主线按提交时间倒序检索 2025-2026 的新工作，最终保留 207 条：46 条是材料点名的机器人侧核心工作，94 条是扩展检索到的 2025-2026 新工作，67 条是软件侧 Agent / Harness / RSI 的基础工作——包括 Lil'Log 两篇文章参考文献中的全部论文（harness 一文 39 条、agents 一文 21 条，去掉博客与代码库链接后共 54 篇）以及具身纪元文章点名的 Reflexion、STaR、Let's Verify Step by Step、Meta-Rewarding、The AI Scientist、HiSME、BigBang-V1、Gödel Machine、Anthropic《When AI builds itself》。地图与文章上的非 arXiv 条目也做了溯源：BigBang-V1 是 Endless Frontier 的技术报告；PRIMO R1 对应 arXiv 2603.15600《From Passive Observer to Active Critic》；VERITAS 对应 arXiv 2606.18247《Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement》；HiSME 对应 arXiv 2605.28390《You Live More Than Once》；AgenticLab 对应 arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS 是 Anthropic 2026 年 8 月 27 日发布的 Model Hardware Standard 研究预览；OpenClawPi 是松灵机器人（AgileX）面向 OpenClaw 的技能库，不是论文。
 
 所有对论文的陈述都以摘要和材料原文为依据；报告区分“论文报告的数字”与“我们的判断”。
 
@@ -269,6 +269,8 @@ SkillOpt 把这个类比推到最严格：参数 ↔ 技能文档，梯度方向
 
 文章里有两个结论对机器人尤其重要。第一，STOP 的自学优化器在 GPT-4 上有效、在 GPT-3.5 和 Mixtral 上退化，Lin 等人 2026 年进一步拆出两个轴：写 harness 的能力（从 Qwen3.5-9B 到 Claude Opus 4.6 几乎持平）和利用 harness 的能力（非单调，中等模型受益最大）。这意味着 ENPIRE 里 Codex、Claude、Kimi 在真机上的差距，更可能来自利用 harness 的能力而非提出改进的能力。第二，评估器和权限控制必须放在演化循环之外：AHE 把 runs 目录、tracer、verifier 和 LLM 配置设为只读，才能把每一次收益归因到 harness 编辑而不是奖励作弊。机器人侧的 Runtime Governance、ICAN-Deploy 和 AgenticRobotics 的签名验证器做的是同一件事。
 
+两篇文章引用的全部论文（harness 一文 39 条：从 Good 1965 与 Yudkowsky 2008 的 RSI 概念、Absolute Zero / Self-Rewarding / SPIN 的自博弈，到 ADAS / AFlow / ShinkaEvolve / ThetaEvolve 的搜索方法与 PaperBench / RE-Bench / MLE-bench / KernelBench 等 AI 研发基准；agents 一文 21 条：CoT、ToT、ReAct、Reflexion、Toolformer、HuggingGPT、Generative Agents 等）已收入 README 的基础主线 T0，RSI 相关者同时挂在 T24。
+
 文章列出的 RSI 七个挑战——弱而模糊的评估器、上下文与记忆的生命周期、负面结果、多样性塌缩、奖励作弊、长期成功、人的角色——在机器人侧有更具体的形态：评估器弱对应 Verifier 主线（“这一步成没成”要靠物理证据）；记忆生命周期对应 RoboMME-Interference 的干扰衰减；负面结果对应 ASPIRE 与 Zetta 强调的失败轨迹是最有价值的数据；多样性塌缩对应 ENPIRE 里多个 Agent 重复探索相似想法；奖励作弊对应仿真里 100% 成功、真机上 60% 的 Push-T；人的角色对应 LWD 与 TwinRL 里的人工干预与 human-in-the-loop rollout。
 
 ## 5.3 两篇文章没有覆盖的部分
@@ -363,7 +365,7 @@ RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“phy
 
 ## 9.1 论文索引
 
-按 25 条主线组织的 169 条论文清单见仓库 `README.md`；机器可读版本见 `data/papers.csv`（字段：id、short_name、title、authors、year、date、venue、url、code_url、topics、tier、note_zh）。`tier` 为 core 的 46 条是五份材料点名的机器人侧工作，extended 的 94 条是扩展检索到的 2025-2026 工作，foundation 的 29 条是软件侧 Agent / Harness / RSI 基础。
+按 25 条主线组织的 207 条论文清单见仓库 `README.md`；机器可读版本见 `data/papers.csv`（字段：id、short_name、title、authors、year、date、venue、url、code_url、topics、tier、note_zh）。`tier` 为 core 的 46 条是五份材料点名的机器人侧工作，extended 的 94 条是扩展检索到的 2025-2026 工作，foundation 的 67 条是软件侧 Agent / Harness / RSI 基础（含 Lil'Log 两篇文章的全部参考文献）。
 
 ## 9.2 术语表
 
