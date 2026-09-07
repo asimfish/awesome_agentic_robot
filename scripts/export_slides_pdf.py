@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export docs/slides/index.html to PDF (one page per slide) and PNG previews using Playwright/Chromium."""
+"""Export docs/slides/index.html to PDF (one page per slide) with Playwright/Chromium, then render README preview PNGs from it."""
 import asyncio, pathlib, sys
 from playwright.async_api import async_playwright
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -16,13 +16,13 @@ async def main():
         await page.wait_for_timeout(500)
         await page.emulate_media(media="print")
         await page.pdf(path=str(PDF), width="1280px", height="720px", print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"}, prefer_css_page_size=True)
-        await page.emulate_media(media="screen")
         n = await page.evaluate("document.querySelectorAll('section.slide').length")
-        for i in [1, 2, 4, 6, 13, 18]:
-            if i <= n:
-                await page.goto(HTML.as_uri() + f"#{i}"); await page.wait_for_timeout(200)
-                await page.screenshot(path=str(PREVIEW / f"slide_{i:02d}.png"))
         await b.close()
+    import fitz  # PyMuPDF: README preview images rendered from the exported PDF
+    doc = fitz.open(str(PDF))
+    for i in (1, 13):
+        if i <= doc.page_count:
+            doc.load_page(i - 1).get_pixmap(matrix=fitz.Matrix(0.8, 0.8)).save(str(PREVIEW / f"pdf_{i:02d}.png"))
     print("pdf:", PDF, "slides:", n)
 
 if __name__ == "__main__":

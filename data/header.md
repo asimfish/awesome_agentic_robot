@@ -8,7 +8,7 @@ A curated reading map of **Agentic Robotics** (Agent × Robot): coding agents th
 
 We mark robotics works that are explicitly named in the source materials (the retrieval map, the Xiaohongshu essay, the Code-as-Policy deck and the 具身纪元 Robot RSI essay) with ⭐; the remaining entries were found by an arXiv sweep of 2025-2026 work along each line. Every entry links to the paper and, when available, to code.
 
-*Maintained by [asimfish](https://github.com/asimfish). Built on 2026-09-06 from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu. Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
+*Maintained by [asimfish](https://github.com/asimfish). Built on 2026-09-06 from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu (together with its Xiaohongshu companion note "GPT-6 Astra 开启 Robot RSI 时代"). Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
 
 ## Deliverables
 
@@ -18,7 +18,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 | Detailed report (PDF) | [docs/reports/report_zh.pdf](docs/reports/report_zh.pdf) | [docs/reports/report_en.pdf](docs/reports/report_en.pdf) |
 | Summary slides, HTML deck (19 slides, bilingual) | [docs/slides/index.html](docs/slides/index.html) — open in a browser, arrow keys to navigate, `P` prints to PDF; a pre-rendered export is [docs/slides/index.pdf](docs/slides/index.pdf) | same file |
 | Summary slides, Beamer PDF (25 pages incl. backup) | [docs/slides/agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) ([source](docs/slides/agentic_robot_slides.tex)) | same file |
-| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript | |
+| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript and its Xiaohongshu companion note | |
 | Core papers, original + Chinese (SuperTranslate, layout-preserving) | [papers/pdf_zh/](papers/pdf_zh/) — see [papers/README.md](papers/README.md) for what is translated | originals in [papers/pdf/](papers/pdf/) |
 | Machine-readable data | [data/papers.csv](data/papers.csv), [data/topics.csv](data/topics.csv), [data/paper_meta.json](data/paper_meta.json) | regenerate README with `python3 src/build_papers_csv.py && python3 src/generator.py` |
 
@@ -40,7 +40,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 
 ```
 README.md                  this file (generated from data/*.csv by src/generator.py)
-data/                      topics.csv (25 lines), papers.csv (207 entries), paper_meta.json (arXiv metadata), header.md
+data/                      topics.csv (25 lines), papers.csv (208 entries), paper_meta.json (arXiv metadata), header.md
 docs/reports/              report_zh.md/.pdf, report_en.md/.pdf, LaTeX header + pandoc Lua filter + build scripts
 docs/slides/               index.html (HTML deck) + index.pdf, agentic_robot_slides.tex/.pdf (Beamer)
 papers/pdf/                original PDFs of the five core papers

@@ -166,6 +166,7 @@ A = {
 "2609.01679": ("Survey: Self-Improving Test-Time Intelligence", "T0;T7;T24", "extended", "统一测试时适应/学习/扩展的反馈驱动 TTI 视角，覆盖机器人。", ""),
 # ---- named by the WeChat article 具身纪元《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》(Robot RSI line) ----
 "embodied-era-robotrsi-2026": ("GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI（具身纪元）", "T24;T0", "foundation", "提出 Robot RSI 两条轴线：改进环节（部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究）× 人的参与程度（in-the-loop / on-the-loop / closed loop）；判断前沿 LLM 更可能先成为 Robot RSI 的认知中枢而非末端控制器。", ""),
+"xhs-robotrsi-howto-2026": ("GPT-6 Astra 开启 Robot RSI 时代（小红书图文版）", "T24", "foundation", "具身纪元 Robot RSI 文章的小红书精简版：把 Robot RSI 压成一段话——执行 → 判断错在哪 → 智能体改代码与策略 → 仿真与真机验证 → 有效经验进入下一轮；结论是 GPT-6 更可能先成为制造下一代机器人能力的引擎。", ""),
 "anthropic-rsi-2026": ("When AI builds itself (Anthropic)", "T24;T0", "foundation", "Anthropic 对递归自我改进的路线判断：代码建议 → 编程智能体自改代码 → AI 参与设计与训练后继系统；具身智能可能紧随，但物理制造、实验周期与部署是新的速度瓶颈。", ""),
 "godel-machine-2003": ("Gödel Machine", "T24;T0", "foundation", "自我改写的形式化起点：只有能证明某项修改会提高既定效用时才执行修改。", ""),
 "2303.11366": ("Reflexion", "T24;T0;T6", "foundation", "部署时的记忆自改进：把测试 / 环境反馈写成反思存进记忆再重试，不更新权重；HumanEval 91%。", "https://github.com/noahshinn/reflexion"),
@@ -222,6 +223,7 @@ A = {
 }
 
 MANUAL_META = {
+ "xhs-robotrsi-howto-2026": {"title": "GPT-6 Astra 开启 Robot RSI 时代! howto 实现", "authors": ["♥VLA和RL的具身未来 (小红书)"], "published": "2026-09-06", "venue": "小红书", "url": "https://www.xiaohongshu.com/explore/6a9e3498000000002802d485"},
  "good-1965": {"title": "Speculations Concerning the First Ultraintelligent Machine", "authors": ["Irving John Good"], "published": "1965", "venue": "Advances in Computers 6:31-88", "url": "https://doi.org/10.1016/S0065-2458(08)60418-0"},
  "yudkowsky-rsi-2008": {"title": "Recursive Self-Improvement", "authors": ["Eliezer Yudkowsky"], "published": "2008-12-01", "venue": "LessWrong", "url": "https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement"},
  "nature-ai-research-automation-2026": {"title": "Towards end-to-end automation of AI research", "authors": ["Chris Lu", "Cong Lu", "Robert Tjarko Lange", "Jakob Foerster", "Jeff Clune", "David Ha"], "published": "2026", "venue": "Nature 651:914-919", "url": "https://www.nature.com/articles/s41586-026-10265-5"},

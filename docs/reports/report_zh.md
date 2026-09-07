@@ -19,7 +19,7 @@ lang: zh-CN
 5. **群体是经验规模化的唯一出路，但收益不是线性的。** LWD 用 16 台双臂机器人把单一 VLA 推到 95%；ENPIRE 用 8 个工位把收敛时间从 5 小时压到 2 小时——8 倍机器人换来 2-3 倍加速，多出来的是假设吞吐量，不是 rollout 数量。
 6. **Robot RSI 是把这些串起来的框架。** 具身纪元文章的两条轴线（改进的环节：部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究 × 人的参与程度）把 ENPIRE、ASPIRE、RoboHarness、RoboClaw、PRIMO R1、VERITAS、Eureka、DrEureka 与软件侧的 Reflexion、STaR、Let's Verify、Meta-Rewarding、The AI Scientist 放进同一张表；前沿 LLM 更可能先成为机器人研发循环的认知中枢，而不是机器人的末端控制器。
 
-阅读路径：只想知道结论看第 7、8 章；想核对每条主线的论文看第 4 章和附录；想看五份材料各自的解读看第 2、3、5、6 章。仓库根目录的 `README.md` 是按主线组织的 207 篇论文清单，`data/papers.csv` 是机器可读版本。
+阅读路径：只想知道结论看第 7、8 章；想核对每条主线的论文看第 4 章和附录；想看五份材料各自的解读看第 2、3、5、6 章。仓库根目录的 `README.md` 是按主线组织的 208 篇论文清单，`data/papers.csv` 是机器可读版本。
 
 # 1. 材料、方法与边界
 
@@ -31,11 +31,11 @@ lang: zh-CN
 | Code-as-Policy 讲稿（25 页 PPTX） | 论文精读讲稿 | 从 Code as Policies 到 SkillOpt、CaP-X、ASPIRE、ENPIRE，自进化 = 优化外部产物 $z$ |
 | 《Agent + Robot 论文检索地图》，两页表格 | 检索框架 | 23 条主线，每条给检索词与代表工作 |
 | Lil'Log：《LLM Powered Autonomous Agents》(2023.06)、《Harness Engineering for Self-Improvement》(2026.07) | 软件侧综述 | Agent = Planning + Memory + Tool use；Harness 三模式、优化阶梯、RSI 七个挑战 |
-| 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》，Marilyn Liu，公众号具身纪元 | 观点长文 | RSI 两条轴线（改进环节 × 人的参与程度）；LLM 更可能先成为 Robot RSI 的认知中枢；Robot RSI 缺一个可重复、可扩展的虚拟世界 |
+| 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》，Marilyn Liu，公众号具身纪元（另有小红书图文精简版《GPT-6 Astra 开启 Robot RSI 时代》） | 观点长文 | RSI 两条轴线（改进环节 × 人的参与程度）；LLM 更可能先成为 Robot RSI 的认知中枢；Robot RSI 缺一个可重复、可扩展的虚拟世界 |
 
 ## 1.2 方法
 
-我们把地图上 23 条主线的代表工作和长文、讲稿点名的全部工作逐一在 arXiv 上核实（标题、作者、日期、摘要），再沿每条主线按提交时间倒序检索 2025-2026 的新工作，最终保留 207 条：46 条是材料点名的机器人侧核心工作，94 条是扩展检索到的 2025-2026 新工作，67 条是软件侧 Agent / Harness / RSI 的基础工作——包括 Lil'Log 两篇文章参考文献中的全部论文（harness 一文 39 条、agents 一文 21 条，去掉博客与代码库链接后共 54 篇）以及具身纪元文章点名的 Reflexion、STaR、Let's Verify Step by Step、Meta-Rewarding、The AI Scientist、HiSME、BigBang-V1、Gödel Machine、Anthropic《When AI builds itself》。地图与文章上的非 arXiv 条目也做了溯源：BigBang-V1 是 Endless Frontier 的技术报告；PRIMO R1 对应 arXiv 2603.15600《From Passive Observer to Active Critic》；VERITAS 对应 arXiv 2606.18247《Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement》；HiSME 对应 arXiv 2605.28390《You Live More Than Once》；AgenticLab 对应 arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS 是 Anthropic 2026 年 8 月 27 日发布的 Model Hardware Standard 研究预览；OpenClawPi 是松灵机器人（AgileX）面向 OpenClaw 的技能库，不是论文。
+我们把地图上 23 条主线的代表工作和长文、讲稿点名的全部工作逐一在 arXiv 上核实（标题、作者、日期、摘要），再沿每条主线按提交时间倒序检索 2025-2026 的新工作，最终保留 208 条：46 条是材料点名的机器人侧核心工作，94 条是扩展检索到的 2025-2026 新工作，68 条是软件侧 Agent / Harness / RSI 的基础工作——包括 Lil'Log 两篇文章参考文献中的全部论文（harness 一文 39 条、agents 一文 21 条，去掉博客与代码库链接后共 54 篇）以及具身纪元文章点名的 Reflexion、STaR、Let's Verify Step by Step、Meta-Rewarding、The AI Scientist、HiSME、BigBang-V1、Gödel Machine、Anthropic《When AI builds itself》。地图与文章上的非 arXiv 条目也做了溯源：BigBang-V1 是 Endless Frontier 的技术报告；PRIMO R1 对应 arXiv 2603.15600《From Passive Observer to Active Critic》；VERITAS 对应 arXiv 2606.18247《Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement》；HiSME 对应 arXiv 2605.28390《You Live More Than Once》；AgenticLab 对应 arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS 是 Anthropic 2026 年 8 月 27 日发布的 Model Hardware Standard 研究预览；OpenClawPi 是松灵机器人（AgileX）面向 OpenClaw 的技能库，不是论文。
 
 所有对论文的陈述都以摘要和材料原文为依据；报告区分“论文报告的数字”与“我们的判断”。
 
@@ -300,7 +300,11 @@ Lil'Log 讨论的 harness 生活在数字世界：状态可读、结果可判、
 
 文章新增的价值有三点。第一，它把 PRIMO R1 与 VERITAS 放进“自我评估”环节，补上了本报告 T23 里两类此前缺席的验证器：过程级的视频批评者（不只判断最终画面像不像成功，而是判断进展到哪一步、从哪里开始失败）和推理时的动作验证器（生成器-验证器框架，验证过的 rollout 直接成为微调数据，且效率与专家示范相当）。第二，它把 Eureka / DrEureka 这条 2023-2024 年的“LLM 写奖励与仿真参数”线接回自动研究，说明 ENPIRE 式的 physical autoresearch 有更早的源头：先自动化训练方法（奖励、域随机化），再自动化整个研究循环。第三，它给出了机器人 RSI 与大模型 RSI 的核心差异：评估包含两个问题——评价器能否判断成功、进度与失败位置，以及系统能否提供可重复、可扩展的验证环境；后者是 LLM 从未遇到、机器人必须解决的。这与本报告 I6（Sim 是 sandbox）和 I3（验证器是瓶颈）的结论重合，作者把它表述为“Robot RSI 还缺一个虚拟世界”，并认为世界模型是比传统仿真更可扩展的解法。
 
-## 6.3 评价
+## 6.3 小红书图文版
+
+同一观点还有一个小红书图文版《GPT-6 Astra 开启 Robot RSI 时代! howto 实现》（账号“♥VLA和RL的具身未来”，2026-09-06，五张文字卡片，带 #具身纪元 话题）。它没有新增论文，只点名 ASPIRE、RoboClaw、ENPIRE，但把 Robot RSI 压成了一段可以直接引用的定义：“机器人先执行任务。失败后，系统判断错在哪，智能体修改代码和策略，再去仿真和真机验证。有效经验会继续进入下一轮。”这段话恰好就是讲稿公式 $z_{t+1} = A(z_t, \tau_t, r_t, \log_t)$ 的自然语言版本：执行产生 $\tau$，判断错在哪产生 $r$ 与 $\log$，改代码与策略就是 $A$ 更新 $z$，仿真与真机验证是选择门，进入下一轮是递归。结尾一句“GPT-6 未必先成为机器人的大脑，它更可能先成为制造下一代机器人能力的引擎”是对公众号长文核心判断的压缩。
+
+## 6.4 评价
 
 文章的核心判断——前沿 LLM 更可能先成为 Robot RSI 的认知中枢而不是机器人的末端控制器——有本报告核实过的证据支持：ASPIRE 用 Claude Opus 4.6 读多模态执行记录并修复程序，RoboHarness 用 GPT-5.5 改策略编排代码，ENPIRE 让 coding agent 查文献、提假设并在真机比较，Zetta 在冻结 VLA 下持续更新 critic、恢复技能和工具。它对产业动向的记录（Anthropic《When AI builds itself》、OpenAI 的 RSI 团队、Recursive Superintelligence / Trajectory / Discovery Loop 的融资与创立、王兴兴在 2026 世界机器人大会上的“直接让物理 AI 机器人模型实现自进化”）是观察，不是证据；Robocurve 测试与方舟无限视频也属第三方报道。文章没有触及的部分与小红书长文相同：治理与安全——closed loop 这一格在文章里只有定义，而 Runtime Governance 的 96.2% 越权拦截、EmbodiedGovBench 的七维评测正是让 closed loop 可被授权的前提；另一个空缺是 Lil'Log 强调的“评估器必须在演化循环之外”，当自我评估环节本身也在被系统改进（Meta-Rewarding 的“评审的评审”）时，这条原则如何在机器人上落实，是 Robot RSI 真正的难题。
 
@@ -365,7 +369,7 @@ RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“phy
 
 ## 9.1 论文索引
 
-按 25 条主线组织的 207 条论文清单见仓库 `README.md`；机器可读版本见 `data/papers.csv`（字段：id、short_name、title、authors、year、date、venue、url、code_url、topics、tier、note_zh）。`tier` 为 core 的 46 条是五份材料点名的机器人侧工作，extended 的 94 条是扩展检索到的 2025-2026 工作，foundation 的 67 条是软件侧 Agent / Harness / RSI 基础（含 Lil'Log 两篇文章的全部参考文献）。
+按 25 条主线组织的 208 条论文清单见仓库 `README.md`；机器可读版本见 `data/papers.csv`（字段：id、short_name、title、authors、year、date、venue、url、code_url、topics、tier、note_zh）。`tier` 为 core 的 46 条是五份材料点名的机器人侧工作，extended 的 94 条是扩展检索到的 2025-2026 工作，foundation 的 68 条是软件侧 Agent / Harness / RSI 基础（含 Lil'Log 两篇文章的全部参考文献）。
 
 ## 9.2 术语表
 
@@ -396,3 +400,4 @@ RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“phy
 - 《Agent + Robot 论文检索地图》，两页表格，转写见 `data/topics.csv`。
 - Lilian Weng, "LLM Powered Autonomous Agents", Lil'Log, 2023-06-23; "Harness Engineering for Self-Improvement", Lil'Log, 2026-07-04。文本存档见 `sources/`。
 - Marilyn Liu（具身纪元），《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》，微信公众号，2026 年 8-9 月（访问日期 2026-09-06）。转写与论文对照表见 `sources/wechat_embodied_era_robot_rsi_transcript.md`。
+- ♥VLA和RL的具身未来，《GPT-6 Astra 开启 Robot RSI 时代! howto 实现》，小红书，2026-09-06。转写见 `sources/xiaohongshu_robot_rsi_howto_transcript.md`。

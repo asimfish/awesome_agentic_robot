@@ -1,6 +1,6 @@
 # Awesome Agentic Robot: Agent + Robot Papers, Reports and Slides
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/papers-207-blue) ![topics](https://img.shields.io/badge/topic%20lines-25-green) ![updated](https://img.shields.io/badge/updated-2026-09-07-lightgrey)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/papers-208-blue) ![topics](https://img.shields.io/badge/topic%20lines-25-green) ![updated](https://img.shields.io/badge/updated-2026-09-07-lightgrey)
 
 A curated reading map of **Agentic Robotics** (Agent × Robot): coding agents that write robot policies, harnesses and runtimes around frozen VLAs, robot memory, reflection and self-evolution, VLA + RL, digital twins, fleet learning, safety and hardware standards. The list follows the 23 topic lines of the "Agent + Robot 论文检索地图" and adds two lines: a foundation line (LLM agents and harness engineering) and a Robot RSI line (recursive self-improvement, from the 具身纪元 essay), so that the software-side theory and the robotics-side practice can be read together.
 
@@ -8,7 +8,7 @@ A curated reading map of **Agentic Robotics** (Agent × Robot): coding agents th
 
 We mark robotics works that are explicitly named in the source materials (the retrieval map, the Xiaohongshu essay, the Code-as-Policy deck and the 具身纪元 Robot RSI essay) with ⭐; the remaining entries were found by an arXiv sweep of 2025-2026 work along each line. Every entry links to the paper and, when available, to code.
 
-*Maintained by [asimfish](https://github.com/asimfish). Built on 2026-09-06 from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu. Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
+*Maintained by [asimfish](https://github.com/asimfish). Built on 2026-09-06 from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu (together with its Xiaohongshu companion note "GPT-6 Astra 开启 Robot RSI 时代"). Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
 
 ## Deliverables
 
@@ -18,7 +18,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 | Detailed report (PDF) | [docs/reports/report_zh.pdf](docs/reports/report_zh.pdf) | [docs/reports/report_en.pdf](docs/reports/report_en.pdf) |
 | Summary slides, HTML deck (19 slides, bilingual) | [docs/slides/index.html](docs/slides/index.html) — open in a browser, arrow keys to navigate, `P` prints to PDF; a pre-rendered export is [docs/slides/index.pdf](docs/slides/index.pdf) | same file |
 | Summary slides, Beamer PDF (25 pages incl. backup) | [docs/slides/agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) ([source](docs/slides/agentic_robot_slides.tex)) | same file |
-| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript | |
+| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript and its Xiaohongshu companion note | |
 | Core papers, original + Chinese (SuperTranslate, layout-preserving) | [papers/pdf_zh/](papers/pdf_zh/) — see [papers/README.md](papers/README.md) for what is translated | originals in [papers/pdf/](papers/pdf/) |
 | Machine-readable data | [data/papers.csv](data/papers.csv), [data/topics.csv](data/topics.csv), [data/paper_meta.json](data/paper_meta.json) | regenerate README with `python3 src/build_papers_csv.py && python3 src/generator.py` |
 
@@ -40,7 +40,7 @@ We mark robotics works that are explicitly named in the source materials (the re
 
 ```
 README.md                  this file (generated from data/*.csv by src/generator.py)
-data/                      topics.csv (25 lines), papers.csv (207 entries), paper_meta.json (arXiv metadata), header.md
+data/                      topics.csv (25 lines), papers.csv (208 entries), paper_meta.json (arXiv metadata), header.md
 docs/reports/              report_zh.md/.pdf, report_en.md/.pdf, LaTeX header + pandoc Lua filter + build scripts
 docs/slides/               index.html (HTML deck) + index.pdf, agentic_robot_slides.tex/.pdf (Beamer)
 papers/pdf/                original PDFs of the five core papers
@@ -2654,11 +2654,17 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 统一测试时适应/学习/扩展的反馈驱动 TTI 视角，覆盖机器人。
 
+46. **GPT-6 Astra 开启 Robot RSI 时代! howto 实现.** 小红书, 2026. [paper](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485)
+
+    *♥VLA和RL的具身未来 (小红书)*
+
+    > 具身纪元 Robot RSI 文章的小红书精简版：把 Robot RSI 压成一段话——执行 → 判断错在哪 → 智能体改代码与策略 → 仿真与真机验证 → 有效经验进入下一轮；结论是 GPT-6 更可能先成为制造下一代机器人能力的引擎。
+
 ## Statistics
 
-- 207 entries: 46 core (⭐), 94 extended, 67 foundation.
-- By year: 1965: 1, 2003: 1, 2008: 1, 2021: 1, 2022: 7, 2023: 18, 2024: 14, 2025: 29, 2026: 135.
-- Topic coverage: Foundations: LLM Agents & Harness Engineering (71), Agent + Robot Overview (10), Coding Agents Control Robots (19), OpenClaw / ROS (10), Long-Horizon Tasks (11), Robot Memory (21), Reflection / Failure Correction (15), Self-Evolution (21), Skill Library (16), VLA + RL (20), Deployment Data Flywheel (8), Digital Twin / Sim2Real (9), World Model (9), Fast-Slow Dual Systems (14), Edge Agent / On-Device Deployment (11), Harness (15), Runtime (9), Safety (15), Standard Interfaces / Hardware API (5), Multi-Robot Collaboration (13), Cross-Embodiment (5), Fleet Learning (6), Active Perception (6), Verifier / Success Verification (23), Robot RSI: Recursive Self-Improvement (45).
+- 208 entries: 46 core (⭐), 94 extended, 68 foundation.
+- By year: 1965: 1, 2003: 1, 2008: 1, 2021: 1, 2022: 7, 2023: 18, 2024: 14, 2025: 29, 2026: 136.
+- Topic coverage: Foundations: LLM Agents & Harness Engineering (71), Agent + Robot Overview (10), Coding Agents Control Robots (19), OpenClaw / ROS (10), Long-Horizon Tasks (11), Robot Memory (21), Reflection / Failure Correction (15), Self-Evolution (21), Skill Library (16), VLA + RL (20), Deployment Data Flywheel (8), Digital Twin / Sim2Real (9), World Model (9), Fast-Slow Dual Systems (14), Edge Agent / On-Device Deployment (11), Harness (15), Runtime (9), Safety (15), Standard Interfaces / Hardware API (5), Multi-Robot Collaboration (13), Cross-Embodiment (5), Fleet Learning (6), Active Perception (6), Verifier / Success Verification (23), Robot RSI: Recursive Self-Improvement (46).
 
 ## Citation
 
