@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1460" viewBox="0 0 1900 1460" font-family="PingFang SC, Helvetica Neue, Arial, sans-serif">
+<rect width="1900" height="1460" fill="#ffffff"/>
+<text x="300" y="34" font-size="22" font-weight="700" fill="#1e293b">图 1 · Agent × Robot 论文时间线（2022-2026）</text>
+<text x="300" y="58" font-size="13" fill="#64748b">按七个 Part 分泳道、按发表年月定位；★ = 被源材料点名的核心工作。2022 年前的基础文献（Good 1965、Gödel Machine 2003、Yudkowsky 2008、WebGPT 2021 等）未画出。</text>
+<line x1="286.6" y1="80" x2="286.6" y2="1420" stroke="#e2e8f0" stroke-width="1"/>
+<text x="292.6" y="74" font-size="13" fill="#64748b">2022</text>
+<line x1="608.2" y1="80" x2="608.2" y2="1420" stroke="#e2e8f0" stroke-width="1"/>
+<text x="614.2" y="74" font-size="13" fill="#64748b">2023</text>
+<line x1="929.9" y1="80" x2="929.9" y2="1420" stroke="#e2e8f0" stroke-width="1"/>
+<text x="935.9" y="74" font-size="13" fill="#64748b">2024</text>
+<line x1="1251.5" y1="80" x2="1251.5" y2="1420" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1257.5" y="74" font-size="13" fill="#64748b">2025</text>
+<line x1="1573.2" y1="80" x2="1573.2" y2="1420" stroke="#e2e8f0" stroke-width="1"/>
+<text x="1579.2" y="74" font-size="13" fill="#64748b">2026</text>
+<rect x="1586.6" y="80" width="214.4" height="1340" fill="#f59e0b" opacity="0.08"/>
+<text x="1590.6" y="1438" font-size="12" fill="#d97706">2026 年 6-8 月：Harness / 记忆 / 自进化论文密度最高的季度</text>
+<rect x="0" y="90" width="1900" height="208" fill="#f8fafc" opacity="0.9"/>
+<rect x="0" y="90" width="8" height="208" fill="#0e7490"/>
+<text x="20" y="112" font-size="14" font-weight="700" fill="#0e7490">Part A</text>
+<text x="20" y="132" font-size="12" fill="#64748b">主线：Coding Agent 与自进化</text>
+<rect x="454.3" y="103" width="147.0" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="527.8" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Code as Policies</text>
+<rect x="839.2" y="103" width="74.2" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="876.3" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Eureka</text>
+<rect x="964.9" y="103" width="198.0" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1063.9" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Agentic Skill Discovery</text>
+<rect x="1046.3" y="129" width="88.8" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1090.7" y="144.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ DrEureka</text>
+<rect x="1190.3" y="103" width="176.2" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1278.4" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Atomic Skill Library</text>
+<rect x="1386.5" y="103" width="212.6" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1492.8" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Growing w/ Embodied Agent</text>
+<rect x="1444.7" y="129" width="96.1" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1492.8" y="144.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ ViReSkill</text>
+<rect x="1446.1" y="155" width="147.0" height="22" rx="11" fill="#0e7490" opacity="0.72"/>
+<text x="1519.6" y="170.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Neuro-Symbolic CaP</text>
+<rect x="1620.1" y="103" width="67.0" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1653.6" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ CaP-X</text>
+<rect x="1662.8" y="129" width="88.8" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1707.2" y="144.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ SkillOpt</text>
+<rect x="1707.8" y="103" width="52.4" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1734.0" y="118.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RHO</text>
+<rect x="1696.9" y="155" width="74.2" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1734.0" y="170.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ ENPIRE</text>
+<rect x="1696.9" y="181" width="74.2" height="22" rx="11" fill="#0e7490" opacity="1.0"/>
+<text x="1734.0" y="196.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ ASPIRE</text>
+<rect x="1704.2" y="207" width="59.7" height="22" rx="11" fill="#0e7490" opacity="0.72"/>
+<text x="1734.0" y="222.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">HARBOR</text>
+<rect x="1761.4" y="129" width="52.4" height="22" rx="11" fill="#0e7490" opacity="0.72"/>
+<text x="1787.6" y="144.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Zetta</text>
+<rect x="1757.8" y="233" width="59.7" height="22" rx="11" fill="#0e7490" opacity="0.72"/>
+<text x="1787.6" y="248.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">SHAPER</text>
+<rect x="1750.5" y="259" width="74.2" height="22" rx="11" fill="#0e7490" opacity="0.72"/>
+<text x="1787.6" y="274.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">PRACTICE</text>
+<rect x="0" y="298" width="1900" height="234" fill="#ffffff" opacity="0.9"/>
+<rect x="0" y="298" width="8" height="234" fill="#7c3aed"/>
+<text x="20" y="320" font-size="14" font-weight="700" fill="#7c3aed">Part B</text>
+<text x="20" y="340" font-size="12" fill="#64748b">记忆 · 反思 · 验证</text>
+<rect x="1298.5" y="311" width="67.0" height="22" rx="11" fill="#7c3aed" opacity="1.0"/>
+<text x="1332.0" y="326.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ REMAC</text>
+<rect x="1612.8" y="311" width="81.5" height="22" rx="11" fill="#7c3aed" opacity="1.0"/>
+<text x="1653.6" y="326.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RoboMME</text>
+<rect x="1609.2" y="337" width="88.8" height="22" rx="11" fill="#7c3aed" opacity="1.0"/>
+<text x="1653.6" y="352.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ PRIMO R1</text>
+<rect x="1693.3" y="363" width="81.5" height="22" rx="11" fill="#7c3aed" opacity="1.0"/>
+<text x="1734.0" y="378.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ VERITAS</text>
+<rect x="1664.1" y="389" width="139.8" height="22" rx="11" fill="#7c3aed" opacity="1.0"/>
+<text x="1734.0" y="404.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RoboMME-Interf.</text>
+<rect x="1728.7" y="311" width="117.9" height="22" rx="11" fill="#7c3aed" opacity="1.0"/>
+<text x="1787.6" y="326.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ PonderPounce</text>
+<rect x="1768.7" y="337" width="37.8" height="22" rx="11" fill="#7c3aed" opacity="0.72"/>
+<text x="1787.6" y="352.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">AGM</text>
+<rect x="1761.4" y="415" width="52.4" height="22" rx="11" fill="#7c3aed" opacity="0.72"/>
+<text x="1787.6" y="430.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">BATON</text>
+<rect x="1761.4" y="441" width="52.4" height="22" rx="11" fill="#7c3aed" opacity="0.72"/>
+<text x="1787.6" y="456.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">HyMeS</text>
+<rect x="1746.9" y="467" width="81.5" height="22" rx="11" fill="#7c3aed" opacity="0.72"/>
+<text x="1787.6" y="482.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">NativeMEM</text>
+<rect x="1717.7" y="493" width="139.8" height="22" rx="11" fill="#7c3aed" opacity="0.72"/>
+<text x="1787.6" y="508.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">LLM-as-a-Verifier</text>
+<rect x="0" y="532" width="1900" height="208" fill="#f8fafc" opacity="0.9"/>
+<rect x="0" y="532" width="8" height="208" fill="#d97706"/>
+<text x="20" y="554" font-size="14" font-weight="700" fill="#d97706">Part C</text>
+<text x="20" y="574" font-size="12" fill="#64748b">Harness · Runtime · 双系统 · 端侧</text>
+<rect x="1337.5" y="545" width="96.1" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1385.6" y="560.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ OneTwoVLA</text>
+<rect x="1353.4" y="571" width="117.9" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1412.4" y="586.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Fast-in-Slow</text>
+<rect x="1357.1" y="597" width="110.6" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1412.4" y="612.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RationalVLA</text>
+<rect x="1566.5" y="545" width="67.0" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1600.0" y="560.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ LaST0</text>
+<rect x="1578.8" y="571" width="96.1" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1626.8" y="586.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ StreamVLA</text>
+<rect x="1653.2" y="545" width="161.6" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1734.0" y="560.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ HE for Physical AI</text>
+<rect x="1707.8" y="571" width="52.4" height="22" rx="11" fill="#d97706" opacity="0.72"/>
+<text x="1734.0" y="586.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Guava</text>
+<rect x="1705.5" y="597" width="110.6" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1760.8" y="612.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Harness VLA</text>
+<rect x="1709.1" y="623" width="103.4" height="22" rx="11" fill="#d97706" opacity="1.0"/>
+<text x="1760.8" y="638.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ PhyAgentOS</text>
+<rect x="1712.8" y="649" width="96.1" height="22" rx="11" fill="#d97706" opacity="0.72"/>
+<text x="1760.8" y="664.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">RoboHarness</text>
+<rect x="1765.1" y="675" width="45.1" height="22" rx="11" fill="#d97706" opacity="0.72"/>
+<text x="1787.6" y="690.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Thea</text>
+<rect x="1761.4" y="701" width="52.4" height="22" rx="11" fill="#d97706" opacity="0.72"/>
+<text x="1787.6" y="716.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">PhyAI</text>
+<rect x="0" y="740" width="1900" height="130" fill="#ffffff" opacity="0.9"/>
+<rect x="0" y="740" width="8" height="130" fill="#059669"/>
+<text x="20" y="762" font-size="14" font-weight="700" fill="#059669">Part D</text>
+<text x="20" y="782" font-size="12" fill="#64748b">学习闭环：RL · 数据回流 · 孪生 · 世界模型</text>
+<rect x="1448.4" y="753" width="88.8" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1492.8" y="768.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ SAC Flow</text>
+<rect x="1505.6" y="779" width="81.5" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1546.4" y="794.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Arcadia</text>
+<rect x="1562.9" y="753" width="74.2" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1600.0" y="768.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ TT-VLA</text>
+<rect x="1589.7" y="805" width="74.2" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1626.8" y="820.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ TwinRL</text>
+<rect x="1597.0" y="779" width="59.7" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1626.8" y="794.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ H-WM</text>
+<rect x="1609.2" y="831" width="88.8" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1653.6" y="846.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RoboClaw</text>
+<rect x="1681.0" y="753" width="52.4" height="22" rx="11" fill="#059669" opacity="1.0"/>
+<text x="1707.2" y="768.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ LWD</text>
+<rect x="1716.4" y="779" width="88.8" height="22" rx="11" fill="#059669" opacity="0.72"/>
+<text x="1760.8" y="794.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Q-Planning</text>
+<rect x="1732.3" y="805" width="110.6" height="22" rx="11" fill="#059669" opacity="0.72"/>
+<text x="1787.6" y="820.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Temporal GRPO</text>
+<rect x="1750.5" y="753" width="74.2" height="22" rx="11" fill="#059669" opacity="0.72"/>
+<text x="1787.6" y="768.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">RoboSnap</text>
+<rect x="1757.8" y="831" width="59.7" height="22" rx="11" fill="#059669" opacity="0.72"/>
+<text x="1787.6" y="846.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Motus2</text>
+<rect x="0" y="870" width="1900" height="156" fill="#f8fafc" opacity="0.9"/>
+<rect x="0" y="870" width="8" height="156" fill="#2563eb"/>
+<text x="20" y="892" font-size="14" font-weight="700" fill="#2563eb">Part E</text>
+<text x="20" y="912" font-size="12" fill="#64748b">总览 · 接口 · 多机 · 跨本体</text>
+<rect x="766.0" y="883" width="59.7" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="795.9" y="898.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RoCo</text>
+<rect x="773.3" y="909" width="45.1" height="22" rx="11" fill="#2563eb" opacity="0.72"/>
+<text x="795.9" y="924.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">RT-2</text>
+<rect x="1191.3" y="883" width="67.0" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1224.7" y="898.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ MALMM</text>
+<rect x="1348.4" y="883" width="74.2" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1385.6" y="898.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RoboOS</text>
+<rect x="1323.0" y="909" width="125.2" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1385.6" y="924.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Agentic Robot</text>
+<rect x="1471.5" y="883" width="96.1" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1519.6" y="898.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ ManiAgent</text>
+<rect x="1464.3" y="909" width="110.6" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1519.6" y="924.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ RoboOS-NeXT</text>
+<rect x="1575.1" y="883" width="103.4" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1626.8" y="898.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ AgenticLab</text>
+<rect x="1582.4" y="909" width="88.8" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1626.8" y="924.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ AgentRob</text>
+<rect x="1612.8" y="935" width="81.5" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1653.6" y="950.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ ROSClaw</text>
+<rect x="1606.9" y="961" width="147.0" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1680.4" y="976.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ ROSClaw (hetero)</text>
+<rect x="1628.7" y="987" width="103.4" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1680.4" y="1002.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ OpenClawPi</text>
+<rect x="1761.4" y="883" width="52.4" height="22" rx="11" fill="#2563eb" opacity="1.0"/>
+<text x="1787.6" y="898.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ MHS</text>
+<rect x="0" y="1026" width="1900" height="156" fill="#ffffff" opacity="0.9"/>
+<rect x="0" y="1026" width="8" height="156" fill="#dc2626"/>
+<text x="20" y="1048" font-size="14" font-weight="700" fill="#dc2626">Part F</text>
+<text x="20" y="1068" font-size="12" fill="#64748b">安全与治理</text>
+<rect x="1599.6" y="1039" width="161.6" height="22" rx="11" fill="#dc2626" opacity="1.0"/>
+<text x="1680.4" y="1054.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="700">★ Runtime Governance</text>
+<rect x="1614.2" y="1065" width="132.5" height="22" rx="11" fill="#dc2626" opacity="0.72"/>
+<text x="1680.4" y="1080.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">EmbodiedGovBench</text>
+<rect x="1711.5" y="1091" width="45.1" height="22" rx="11" fill="#dc2626" opacity="0.72"/>
+<text x="1734.0" y="1106.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">VASO</text>
+<rect x="1750.5" y="1117" width="74.2" height="22" rx="11" fill="#dc2626" opacity="0.72"/>
+<text x="1787.6" y="1132.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">EMBGuard</text>
+<rect x="1688.6" y="1143" width="198.0" height="22" rx="11" fill="#dc2626" opacity="0.72"/>
+<text x="1787.6" y="1158.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Same Weights ≠ Same Robot</text>
+<rect x="0" y="1182" width="1900" height="208" fill="#f8fafc" opacity="0.9"/>
+<rect x="0" y="1182" width="8" height="208" fill="#475569"/>
+<text x="20" y="1204" font-size="14" font-weight="700" fill="#475569">Part G</text>
+<text x="20" y="1224" font-size="12" fill="#64748b">基础：LLM Agent · Harness 工程 · RSI</text>
+<rect x="294.5" y="1195" width="37.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="313.4" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">CoT</text>
+<rect x="344.5" y="1195" width="45.1" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="367.0" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">STaR</text>
+<rect x="528.4" y="1195" width="52.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="554.6" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">ReAct</text>
+<rect x="617.5" y="1195" width="88.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="661.9" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Toolformer</text>
+<rect x="647.9" y="1221" width="81.5" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="688.7" y="1236.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Reflexion</text>
+<rect x="645.6" y="1247" width="139.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="715.5" y="1262.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Generative Agents</text>
+<rect x="690.6" y="1273" width="103.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="742.3" y="1288.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Let's Verify</text>
+<rect x="710.1" y="1299" width="117.9" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="769.1" y="1314.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Lil'Log Agents</text>
+<rect x="853.7" y="1195" width="45.1" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="876.3" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">STOP</text>
+<rect x="897.7" y="1221" width="117.9" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="956.7" y="1236.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Self-Rewarding</text>
+<rect x="1058.6" y="1195" width="117.9" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1117.5" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Meta-Rewarding</text>
+<rect x="1121.8" y="1221" width="45.1" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1144.3" y="1236.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">ADAS</text>
+<rect x="1092.6" y="1247" width="103.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1144.3" y="1262.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">AI Scientist</text>
+<rect x="1366.6" y="1195" width="37.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1385.6" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">DGM</text>
+<rect x="1364.3" y="1221" width="96.1" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1412.4" y="1236.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">AlphaEvolve</text>
+<rect x="1441.1" y="1195" width="103.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1492.8" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">ShinkaEvolve</text>
+<rect x="1500.7" y="1221" width="37.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1519.6" y="1236.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">ACE</text>
+<rect x="1497.4" y="1247" width="205.3" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1600.0" y="1262.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Why LLMs Aren't Scientists</text>
+<rect x="1601.9" y="1195" width="103.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1653.6" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Meta-Harness</text>
+<rect x="1661.5" y="1221" width="37.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1680.4" y="1236.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">AHE</text>
+<rect x="1681.0" y="1273" width="52.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1707.2" y="1288.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">HiSME</text>
+<rect x="1644.6" y="1299" width="125.2" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1707.2" y="1314.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Harness≠Benefit</text>
+<rect x="1682.3" y="1325" width="103.4" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1734.0" y="1340.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Self-Harness</text>
+<rect x="1698.2" y="1351" width="125.2" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1760.8" y="1366.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">Lil'Log Harness</text>
+<rect x="1744.0" y="1195" width="140.8" height="22" rx="11" fill="#475569" opacity="0.72"/>
+<text x="1814.4" y="1210.5" font-size="13" text-anchor="middle" fill="#ffffff" font-weight="400">具身纪元 Robot RSI</text>
+</svg>

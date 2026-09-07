@@ -10,15 +10,44 @@
 
 ## 目录
 
-1. [仓库简介](#仓库简介)
-2. [怎么使用](#怎么使用)
-3. [六条核心结论](#六条核心结论)
-4. [源材料](#源材料)
-5. [交付物](#交付物)
-6. [论文清单](#论文清单)（{N_TOPICS} 条主线，{N_PAPERS} 篇）
-7. [统计](#统计)
-8. [复现与贡献](#复现与贡献)
-9. [许可与引用](#许可与引用)
+1. [产物入口](#产物入口)
+2. [总览图](#总览图)
+3. [仓库简介](#仓库简介)
+4. [六条核心结论](#六条核心结论)
+5. [源材料](#源材料)
+6. [深度解读索引](#深度解读索引)（{N_NOTES} 篇）
+7. [论文清单](#论文清单)（{N_TOPICS} 条主线，{N_PAPERS} 篇）
+8. [统计](#统计)
+9. [复现与贡献](#复现与贡献)
+10. [许可与引用](#许可与引用)
+
+## 产物入口
+
+| 想要 | 打开 | 说明 |
+|---|---|---|
+| **15 分钟拿到全部结论** | [`docs/slides/index.html`](docs/slides/index.html) · [PDF](docs/slides/index.pdf) | 19 页 HTML 幻灯片，浏览器打开 ← → 翻页、F 全屏、P 打印；另有 [Beamer 版 PDF](docs/slides/agentic_robot_slides.pdf)（25 页，含参考文献与备份页） |
+| **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | {N_FULL_PAGES} 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 {N_NOTES} 份深度解读 |
+| **两份解读报告** | [中文 PDF](docs/reports/report_zh.pdf) · [英文 PDF](docs/reports/report_en.pdf) | 独立成篇的中英文报告（19 / 21 页）：五份材料逐一解读、主线综述、十条洞见、八个开放问题；Markdown 源在 [`docs/reports/`](docs/reports/) |
+| **趋势与洞察** | [`insights/10_trends_insights_zh.md`](insights/10_trends_insights_zh.md) | 一页结论 · 领域时间线 · 六大趋势 · 十条洞察 · 八条可证伪预测（12-24 个月，到期回来核对） |
+| **研究机会清单** | [`insights/11_open_problems_zh.md`](insights/11_open_problems_zh.md) | 18 个待验证问题，按 Part A-G 排列，每条配「缺口 + 为什么重要 + 最小可行实验 + 相关解读」；只做一件事就做第 1 条（分层验证器） |
+| **数字口径账本** | [`insights/12_numbers_ledger_zh.md`](insights/12_numbers_ledger_zh.md) | 30 余个头条数字逐条标注任务集 / 指标类型 / 对照 / 干预与更新 / 证据形式——并排任何两个数字前先查此表 |
+| **总览图** | [图 1 时间线](assets/fig1_timeline.svg) · [图 2 分类树](assets/fig2_taxonomy.svg) | 矢量 SVG，`scripts/make_figures.py` 生成；深色版见 `assets/*_dark.svg` |
+| **逐篇深度解读** | [`notes/`](notes/) | {N_NOTES} 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
+| **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 五篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页）；方法见 [`papers/README.md`](papers/README.md) |
+| **源材料转写** | [`sources/`](sources/) | 小红书长文 39 卡转写、讲稿文字与备注、检索地图转写、Lil'Log 两篇存档、具身纪元文章与其小红书版转写 |
+| **机器可读数据** | [`data/papers.csv`](data/papers.csv) · [`data/topics.csv`](data/topics.csv) · [`data/paper_meta.json`](data/paper_meta.json) | {N_PAPERS} 条论文条目、{N_TOPICS} 条主线、arXiv 元数据；README 由此生成 |
+
+> 所有成功率数字都依赖各自的任务集与判定口径，**不同工作的数字禁止直接比大小**；详见各篇解读的「结果与口径」节与[数字口径账本](insights/12_numbers_ledger_zh.md)。
+
+## 总览图
+
+![图 1 · 时间线](assets/fig1_timeline.svg)
+
+*图 1 · {N_PAPERS} 篇中约 100 项代表工作的时间线：按七个 Part 分泳道、按发表年月定位，★ 为源材料点名的核心工作，橙色竖带为 2026 年 6-8 月——Harness、记忆、自进化论文密度最高的季度。*
+
+![图 2 · 分类树](assets/fig2_taxonomy.svg)
+
+*图 2 · 分类体系：七个 Part、25 条主线（括号内为条目数）——与下文论文清单和全文报告的 Part A-G 一一对应。*
 
 ## 仓库简介
 
@@ -26,17 +55,6 @@
 - **标注规则**：⭐ 表示被源材料点名的机器人侧核心工作；未标星的条目来自沿每条主线对 2025-2026 年 arXiv 的扩展检索（扩展），或软件侧 Agent / Harness / RSI 的基础工作（基础）。
 - **条目格式**：`**标题.** 发表信息, 年份. [paper] [code]`，下一行为作者，再下一行为一句中文说明（这项工作对该主线的贡献）。
 - **数据口径**：全部条目经 arXiv API 核实标题、作者与日期；非 arXiv 条目（博客、技术报告、标准预览）单独标注来源。报告中严格区分「论文报告的数字」与「我们的判断」。
-
-## 怎么使用
-
-| 你想… | 去这里 |
-|---|---|
-| 五分钟了解结论 | 下面的[六条核心结论](#六条核心结论)，或打开 [HTML 幻灯片](docs/slides/index.html)（19 页，方向键翻页） |
-| 系统阅读 | [中文详细报告 PDF](docs/reports/report_zh.pdf)（19 页）：五份材料逐一解读、25 条主线逐线综述、十条洞见、八个开放问题 |
-| 查某条主线有哪些论文 | 下方[论文清单](#论文清单)，每条主线附检索关键词与代表工作 |
-| 读核心论文的中文版 | [papers/pdf_zh/](papers/pdf_zh/)：SuperTranslate 保版式译本（Code as Policies 正文全译，其余四篇首页），说明见 [papers/README.md](papers/README.md) |
-| 做汇报 | [Beamer 幻灯片 PDF](docs/slides/agentic_robot_slides.pdf)（25 页，含备份页）或 [HTML 幻灯片导出的 PDF](docs/slides/index.pdf) |
-| 增补论文 / 重新生成 | 见[复现与贡献](#复现与贡献) |
 
 ## 六条核心结论
 
@@ -59,19 +77,6 @@
 | 4 | 《LLM Powered Autonomous Agents》(2023)、《Harness Engineering for Self-Improvement》(2026) | Lilian Weng · Lil'Log | [2023](https://lilianweng.github.io/posts/2023-06-23-agent/)、[2026](https://lilianweng.github.io/posts/2026-07-04-harness/) | [2023 存档](sources/lilianweng_2023-06-23_llm_agents.txt)、[2026 存档](sources/lilianweng_2026-07-04_harness_engineering.txt)；两文 60 条参考文献全部收入 T0 | 报告第 5 章 |
 | 5 | 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》及其小红书图文版《GPT-6 Astra 开启 Robot RSI 时代》 | Marilyn Liu · 具身纪元（公众号）；♥VLA和RL的具身未来（小红书） | [公众号](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)、[小红书](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485) | [公众号转写](sources/wechat_embodied_era_robot_rsi_transcript.md)、[小红书转写](sources/xiaohongshu_robot_rsi_howto_transcript.md) | 报告第 6 章、主线 T24 |
 
-## 交付物
+## 深度解读索引
 
-| 交付物 | 文件 |
-|---|---|
-| 中文详细解读报告 | [report_zh.md](docs/reports/report_zh.md) · [report_zh.pdf](docs/reports/report_zh.pdf)（19 页） |
-| 英文报告 | [report_en.md](docs/reports/report_en.md) · [report_en.pdf](docs/reports/report_en.pdf)（21 页） |
-| HTML 幻灯片（19 页，中英双语，自包含） | [docs/slides/index.html](docs/slides/index.html)（浏览器打开，方向键翻页，`P` 打印为 PDF）· 预渲染 [index.pdf](docs/slides/index.pdf) |
-| Beamer 幻灯片 PDF（25 页，含参考文献与备份页） | [agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) · [源码](docs/slides/agentic_robot_slides.tex) |
-| 五篇核心论文原文与中文版 | [papers/pdf/](papers/pdf/) · [papers/pdf_zh/](papers/pdf_zh/) · 说明与翻译方法见 [papers/README.md](papers/README.md) |
-| 源材料转写与存档 | [sources/](sources/) |
-| 机器可读数据 | [data/papers.csv](data/papers.csv)、[data/topics.csv](data/topics.csv)、[data/paper_meta.json](data/paper_meta.json)（arXiv 元数据） |
-
-<p align="center">
-  <a href="docs/slides/index.html"><img src="docs/assets/slides_preview/pdf_01.png" width="49%" alt="HTML 幻灯片：标题页"></a>
-  <a href="docs/slides/index.html"><img src="docs/assets/slides_preview/pdf_13.png" width="49%" alt="HTML 幻灯片：架构页"></a>
-</p>
+{NOTES_INDEX}

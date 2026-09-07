@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1534" viewBox="0 0 1500 1534" font-family="PingFang SC, Helvetica Neue, Arial, sans-serif">
+<rect width="1500" height="1534" fill="#ffffff"/>
+<text x="40" y="36" font-size="22" font-weight="700" fill="#1e293b">图 2 · Agent × Robot 分类体系：七个 Part、25 条主线</text>
+<text x="40" y="60" font-size="13" fill="#64748b">括号内为该主线的条目数（一篇论文可属多条主线）；右侧为代表工作。与 README 的 25 条主线、合订本的 Part A-G 一一对应。</text>
+<rect x="640" y="100" width="820" height="44" rx="8" fill="#0e7490" opacity="0.09" stroke="#0e7490" stroke-width="1"/>
+<text x="654" y="119" font-size="14" font-weight="700" fill="#1e293b">T2 Coding Agent 控机器人（Coding Agents Control Robots） <tspan fill="#0e7490">(19)</tspan></text>
+<text x="654" y="137" font-size="12" fill="#64748b">Code as Policies · CaP-X · RHO · ENPIRE</text>
+<rect x="640" y="152" width="820" height="44" rx="8" fill="#0e7490" opacity="0.09" stroke="#0e7490" stroke-width="1"/>
+<text x="654" y="171" font-size="14" font-weight="700" fill="#1e293b">T7 自进化（Self-Evolution） <tspan fill="#0e7490">(21)</tspan></text>
+<text x="654" y="189" font-size="12" fill="#64748b">ASPIRE · PhyAgentOS · Arcadia · Zetta</text>
+<rect x="640" y="204" width="820" height="44" rx="8" fill="#0e7490" opacity="0.09" stroke="#0e7490" stroke-width="1"/>
+<text x="654" y="223" font-size="14" font-weight="700" fill="#1e293b">T8 技能库（Skill Library） <tspan fill="#0e7490">(16)</tspan></text>
+<text x="654" y="241" font-size="12" fill="#64748b">Agentic Skill Discovery · ViReSkill · RATs</text>
+<rect x="640" y="256" width="820" height="44" rx="8" fill="#0e7490" opacity="0.09" stroke="#0e7490" stroke-width="1"/>
+<text x="654" y="275" font-size="14" font-weight="700" fill="#1e293b">T24 Robot RSI：递归自我改进（Robot RSI: Recursive Self-Improvement） <tspan fill="#0e7490">(46)</tspan></text>
+<text x="654" y="293" font-size="12" fill="#64748b">ENPIRE · PRIMO R1 · VERITAS · Eureka</text>
+<rect x="330" y="176.0" width="270" height="48" rx="10" fill="#0e7490"/>
+<text x="342" y="196.0" font-size="14" font-weight="700" fill="#fff">Part A</text>
+<text x="342" y="215.0" font-size="12" fill="#fff">主线：Coding Agent 与自进化</text>
+<path d="M 600 200.0 C 630 200.0, 610 122.0, 640 122.0" stroke="#0e7490" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 200.0 C 630 200.0, 610 174.0, 640 174.0" stroke="#0e7490" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 200.0 C 630 200.0, 610 226.0, 640 226.0" stroke="#0e7490" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 200.0 C 630 200.0, 610 278.0, 640 278.0" stroke="#0e7490" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="640" y="322" width="820" height="44" rx="8" fill="#7c3aed" opacity="0.09" stroke="#7c3aed" stroke-width="1"/>
+<text x="654" y="341" font-size="14" font-weight="700" fill="#1e293b">T4 长程任务（Long-Horizon Tasks） <tspan fill="#7c3aed">(11)</tspan></text>
+<text x="654" y="359" font-size="12" fill="#64748b">RoboClaw · BATON · H-WM</text>
+<rect x="640" y="374" width="820" height="44" rx="8" fill="#7c3aed" opacity="0.09" stroke="#7c3aed" stroke-width="1"/>
+<text x="654" y="393" font-size="14" font-weight="700" fill="#1e293b">T5 机器人记忆（Robot Memory） <tspan fill="#7c3aed">(21)</tspan></text>
+<text x="654" y="411" font-size="12" fill="#64748b">RoboMME · PonderPounce · AGM · NativeMEM</text>
+<rect x="640" y="426" width="820" height="44" rx="8" fill="#7c3aed" opacity="0.09" stroke="#7c3aed" stroke-width="1"/>
+<text x="654" y="445" font-size="14" font-weight="700" fill="#1e293b">T6 反思与纠错（Reflection / Failure Correction） <tspan fill="#7c3aed">(15)</tspan></text>
+<text x="654" y="463" font-size="12" fill="#64748b">REMAC · PhysReflect-VLA · PRIMO R1</text>
+<rect x="640" y="478" width="820" height="44" rx="8" fill="#7c3aed" opacity="0.09" stroke="#7c3aed" stroke-width="1"/>
+<text x="654" y="497" font-size="14" font-weight="700" fill="#1e293b">T23 验证器 / 成功验证（Verifier / Success Verification） <tspan fill="#7c3aed">(23)</tspan></text>
+<text x="654" y="515" font-size="12" fill="#64748b">PhyAgentOS · Thea · LLM-as-a-Verifier</text>
+<rect x="330" y="398.0" width="270" height="48" rx="10" fill="#7c3aed"/>
+<text x="342" y="418.0" font-size="14" font-weight="700" fill="#fff">Part B</text>
+<text x="342" y="437.0" font-size="12" fill="#fff">记忆 · 反思 · 验证</text>
+<path d="M 600 422.0 C 630 422.0, 610 344.0, 640 344.0" stroke="#7c3aed" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 422.0 C 630 422.0, 610 396.0, 640 396.0" stroke="#7c3aed" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 422.0 C 630 422.0, 610 448.0, 640 448.0" stroke="#7c3aed" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 422.0 C 630 422.0, 610 500.0, 640 500.0" stroke="#7c3aed" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="640" y="544" width="820" height="44" rx="8" fill="#d97706" opacity="0.09" stroke="#d97706" stroke-width="1"/>
+<text x="654" y="563" font-size="14" font-weight="700" fill="#1e293b">T13 快慢双系统（Fast-Slow Dual Systems） <tspan fill="#d97706">(14)</tspan></text>
+<text x="654" y="581" font-size="12" fill="#64748b">Fast-in-Slow · StreamVLA · LaST0</text>
+<rect x="640" y="596" width="820" height="44" rx="8" fill="#d97706" opacity="0.09" stroke="#d97706" stroke-width="1"/>
+<text x="654" y="615" font-size="14" font-weight="700" fill="#1e293b">T14 端侧部署 / Edge Agent（Edge Agent / On-Device Deployment） <tspan fill="#d97706">(11)</tspan></text>
+<text x="654" y="633" font-size="12" fill="#64748b">HE for Physical AI · PhyAI · CloudEdgeVLA</text>
+<rect x="640" y="648" width="820" height="44" rx="8" fill="#d97706" opacity="0.09" stroke="#d97706" stroke-width="1"/>
+<text x="654" y="667" font-size="14" font-weight="700" fill="#1e293b">T15 Harness <tspan fill="#d97706">(15)</tspan></text>
+<text x="654" y="685" font-size="12" fill="#64748b">RHO · Harness VLA · Thea · Guava</text>
+<rect x="640" y="700" width="820" height="44" rx="8" fill="#d97706" opacity="0.09" stroke="#d97706" stroke-width="1"/>
+<text x="654" y="719" font-size="14" font-weight="700" fill="#1e293b">T16 Runtime 运行时（Runtime） <tspan fill="#d97706">(9)</tspan></text>
+<text x="654" y="737" font-size="12" fill="#64748b">PhyAgentOS · Runtime Governance · FSAR</text>
+<rect x="330" y="620.0" width="270" height="48" rx="10" fill="#d97706"/>
+<text x="342" y="640.0" font-size="14" font-weight="700" fill="#fff">Part C</text>
+<text x="342" y="659.0" font-size="12" fill="#fff">Harness · Runtime · 双系统 · 端侧</text>
+<path d="M 600 644.0 C 630 644.0, 610 566.0, 640 566.0" stroke="#d97706" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 644.0 C 630 644.0, 610 618.0, 640 618.0" stroke="#d97706" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 644.0 C 630 644.0, 610 670.0, 640 670.0" stroke="#d97706" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 644.0 C 630 644.0, 610 722.0, 640 722.0" stroke="#d97706" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="640" y="766" width="820" height="44" rx="8" fill="#059669" opacity="0.09" stroke="#059669" stroke-width="1"/>
+<text x="654" y="785" font-size="14" font-weight="700" fill="#1e293b">T9 VLA + RL <tspan fill="#059669">(20)</tspan></text>
+<text x="654" y="803" font-size="12" fill="#64748b">TwinRL · LWD · Temporal GRPO · TEMPO</text>
+<rect x="640" y="818" width="820" height="44" rx="8" fill="#059669" opacity="0.09" stroke="#059669" stroke-width="1"/>
+<text x="654" y="837" font-size="14" font-weight="700" fill="#1e293b">T10 部署数据回流（Deployment Data Flywheel） <tspan fill="#059669">(8)</tspan></text>
+<text x="654" y="855" font-size="12" fill="#64748b">LWD · RoboClaw · Q-Planning</text>
+<rect x="640" y="870" width="820" height="44" rx="8" fill="#059669" opacity="0.09" stroke="#059669" stroke-width="1"/>
+<text x="654" y="889" font-size="14" font-weight="700" fill="#1e293b">T11 数字孪生 / Sim2Real（Digital Twin / Sim2Real） <tspan fill="#059669">(9)</tspan></text>
+<text x="654" y="907" font-size="12" fill="#64748b">TwinRL · RoboSnap · PerceptTwin</text>
+<rect x="640" y="922" width="820" height="44" rx="8" fill="#059669" opacity="0.09" stroke="#059669" stroke-width="1"/>
+<text x="654" y="941" font-size="14" font-weight="700" fill="#1e293b">T12 世界模型（World Model） <tspan fill="#059669">(9)</tspan></text>
+<text x="654" y="959" font-size="12" fill="#64748b">H-WM · Motus2 · ContactGuard</text>
+<rect x="330" y="842.0" width="270" height="48" rx="10" fill="#059669"/>
+<text x="342" y="862.0" font-size="14" font-weight="700" fill="#fff">Part D</text>
+<text x="342" y="881.0" font-size="12" fill="#fff">学习闭环：RL · 数据回流 · 孪生 · 世界模型</text>
+<path d="M 600 866.0 C 630 866.0, 610 788.0, 640 788.0" stroke="#059669" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 866.0 C 630 866.0, 610 840.0, 640 840.0" stroke="#059669" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 866.0 C 630 866.0, 610 892.0, 640 892.0" stroke="#059669" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 866.0 C 630 866.0, 610 944.0, 640 944.0" stroke="#059669" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="640" y="988" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1007" font-size="14" font-weight="700" fill="#1e293b">T1 Agent + Robot 总览（Agent + Robot Overview） <tspan fill="#2563eb">(10)</tspan></text>
+<text x="654" y="1025" font-size="12" fill="#64748b">AgenticLab · Agentic Robot · ManiAgent</text>
+<rect x="640" y="1040" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1059" font-size="14" font-weight="700" fill="#1e293b">T3 OpenClaw / ROS 生态（OpenClaw / ROS） <tspan fill="#2563eb">(10)</tspan></text>
+<text x="654" y="1077" font-size="12" fill="#64748b">ROSClaw · OpenClawPi · AgentRob</text>
+<rect x="640" y="1092" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1111" font-size="14" font-weight="700" fill="#1e293b">T18 标准接口 / Hardware API（Standard Interfaces / Hardware API） <tspan fill="#2563eb">(5)</tspan></text>
+<text x="654" y="1129" font-size="12" fill="#64748b">MHS · ROSClaw · MCP servers</text>
+<rect x="640" y="1144" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1163" font-size="14" font-weight="700" fill="#1e293b">T19 多机器人协作（Multi-Robot Collaboration） <tspan fill="#2563eb">(13)</tspan></text>
+<text x="654" y="1181" font-size="12" fill="#64748b">RoCo · REMAC · RoboOS-NeXT</text>
+<rect x="640" y="1196" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1215" font-size="14" font-weight="700" fill="#1e293b">T20 跨本体（Cross-Embodiment） <tspan fill="#2563eb">(5)</tspan></text>
+<text x="654" y="1233" font-size="12" fill="#64748b">RoboOS · ASPIRE · Harness VLA</text>
+<rect x="640" y="1248" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1267" font-size="14" font-weight="700" fill="#1e293b">T21 群体学习 / Fleet Learning（Fleet Learning） <tspan fill="#2563eb">(6)</tspan></text>
+<text x="654" y="1285" font-size="12" fill="#64748b">LWD · ENPIRE · RoboOS</text>
+<rect x="640" y="1300" width="820" height="44" rx="8" fill="#2563eb" opacity="0.09" stroke="#2563eb" stroke-width="1"/>
+<text x="654" y="1319" font-size="14" font-weight="700" fill="#1e293b">T22 主动感知（Active Perception） <tspan fill="#2563eb">(6)</tspan></text>
+<text x="654" y="1337" font-size="12" fill="#64748b">PhysCaP · ActiveVLA</text>
+<rect x="330" y="1142.0" width="270" height="48" rx="10" fill="#2563eb"/>
+<text x="342" y="1162.0" font-size="14" font-weight="700" fill="#fff">Part E</text>
+<text x="342" y="1181.0" font-size="12" fill="#fff">总览 · 接口 · 多机 · 跨本体</text>
+<path d="M 600 1166.0 C 630 1166.0, 610 1010.0, 640 1010.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 1166.0 C 630 1166.0, 610 1062.0, 640 1062.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 1166.0 C 630 1166.0, 610 1114.0, 640 1114.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 1166.0 C 630 1166.0, 610 1166.0, 640 1166.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 1166.0 C 630 1166.0, 610 1218.0, 640 1218.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 1166.0 C 630 1166.0, 610 1270.0, 640 1270.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<path d="M 600 1166.0 C 630 1166.0, 610 1322.0, 640 1322.0" stroke="#2563eb" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="640" y="1366" width="820" height="44" rx="8" fill="#dc2626" opacity="0.09" stroke="#dc2626" stroke-width="1"/>
+<text x="654" y="1385" font-size="14" font-weight="700" fill="#1e293b">T17 安全（Safety） <tspan fill="#dc2626">(15)</tspan></text>
+<text x="654" y="1403" font-size="12" fill="#64748b">EMBGuard · VASO · Same Weights</text>
+<rect x="330" y="1364.0" width="270" height="48" rx="10" fill="#dc2626"/>
+<text x="342" y="1384.0" font-size="14" font-weight="700" fill="#fff">Part F</text>
+<text x="342" y="1403.0" font-size="12" fill="#fff">安全与治理</text>
+<path d="M 600 1388.0 C 630 1388.0, 610 1388.0, 640 1388.0" stroke="#dc2626" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="640" y="1432" width="820" height="44" rx="8" fill="#475569" opacity="0.09" stroke="#475569" stroke-width="1"/>
+<text x="654" y="1451" font-size="14" font-weight="700" fill="#1e293b">T0 基础：LLM Agent 与 Harness 工程（Foundations: LLM Agents &amp; Harness Engineering） <tspan fill="#475569">(71)</tspan></text>
+<text x="654" y="1469" font-size="12" fill="#64748b">Lil'Log · ReAct · Reflexion · STOP · DGM</text>
+<rect x="330" y="1430.0" width="270" height="48" rx="10" fill="#475569"/>
+<text x="342" y="1450.0" font-size="14" font-weight="700" fill="#fff">Part G</text>
+<text x="342" y="1469.0" font-size="12" fill="#fff">基础：LLM Agent · Harness 工程 · RSI</text>
+<path d="M 600 1454.0 C 630 1454.0, 610 1454.0, 640 1454.0" stroke="#475569" stroke-width="1.6" fill="none" opacity="0.8"/>
+<rect x="60" y="797.0" width="220" height="60" rx="12" fill="#1e293b"/>
+<text x="170" y="823.0" font-size="16" font-weight="700" text-anchor="middle" fill="#ffffff">Agent × Robot</text>
+<text x="170" y="843.0" font-size="12" text-anchor="middle" fill="#ffffff">208 篇 · 25 条主线</text>
+<path d="M 280 827.0 C 320 827.0, 290 200.0, 330 200.0" stroke="#0e7490" stroke-width="2" fill="none" opacity="0.85"/>
+<path d="M 280 827.0 C 320 827.0, 290 422.0, 330 422.0" stroke="#7c3aed" stroke-width="2" fill="none" opacity="0.85"/>
+<path d="M 280 827.0 C 320 827.0, 290 644.0, 330 644.0" stroke="#d97706" stroke-width="2" fill="none" opacity="0.85"/>
+<path d="M 280 827.0 C 320 827.0, 290 866.0, 330 866.0" stroke="#059669" stroke-width="2" fill="none" opacity="0.85"/>
+<path d="M 280 827.0 C 320 827.0, 290 1166.0, 330 1166.0" stroke="#2563eb" stroke-width="2" fill="none" opacity="0.85"/>
+<path d="M 280 827.0 C 320 827.0, 290 1388.0, 330 1388.0" stroke="#dc2626" stroke-width="2" fill="none" opacity="0.85"/>
+<path d="M 280 827.0 C 320 827.0, 290 1454.0, 330 1454.0" stroke="#475569" stroke-width="2" fill="none" opacity="0.85"/>
+</svg>

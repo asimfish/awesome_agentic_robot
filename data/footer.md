@@ -7,10 +7,14 @@ README.md              由 data/*.csv + data/header.md + data/footer.md 生成�
 data/                  topics.csv（主线）· papers.csv（论文条目）· paper_meta.json（arXiv 元数据）· header.md / footer.md
 docs/reports/          中英文报告 Markdown 与 PDF，LaTeX 头文件、pandoc Lua 过滤器与构建脚本
 docs/slides/           HTML 幻灯片（index.html / index.pdf）与 Beamer 幻灯片（.tex / .pdf）
+report/                survey_full_report.html / .pdf：全文合订本（scripts/build_full_report.py 生成）
+insights/              10 趋势与洞察 · 11 研究机会清单 · 12 数字口径账本
+notes/                 43 份深度解读（01-43），按 Part A-G 合订进全文报告
+assets/                fig1_timeline.svg · fig2_taxonomy.svg（scripts/make_figures.py 生成）及幻灯片预览图
 papers/pdf/            五篇核心论文原文；papers/pdf_zh/ 为 SuperTranslate 中文版（*.inspect.json 为 QA 报告）
 papers/translations/   人工译文表，供 scripts/manual_translate.py 使用
 sources/               五份源材料的转写与存档
-scripts/               download_papers.sh · translate_papers.sh · manual_translate.py · export_slides_pdf.py · build_docs.sh
+scripts/               download_papers.sh · translate_papers.sh · manual_translate.py · export_slides_pdf.py · make_figures.py · build_full_report.py · build_docs.sh
 src/                   fetch_arxiv_meta.py · build_papers_csv.py · generator.py
 ```
 
@@ -26,7 +30,7 @@ bash scripts/download_papers.sh
 # 用 SuperTranslate 翻译（需要 LLM API key，如 DEEPSEEK_API_KEY）；无 key 时用 scripts/manual_translate.py 的人工译文表通路
 bash scripts/translate_papers.sh
 
-# 重建全部报告与幻灯片 PDF（pandoc + XeLaTeX + Playwright/Chromium）
+# 重建总览图、两份报告、两套幻灯片与全文合订本（pandoc + XeLaTeX + Playwright/Chromium）
 bash scripts/build_docs.sh
 ```
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Generate README.md from data/papers.csv, data/topics.csv and data/header.md (awesome-ml4co style)."""
-import csv, datetime, html, os, re
+import csv, datetime, html, os, re, sys, importlib.util
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = lambda *p: os.path.join(ROOT, *p)
 
@@ -10,6 +10,28 @@ def slug(name):
     s = re.sub(r"[^\w\s-]", "", name.lower())
     return s.replace(" ", "-")
 
+def notes_index_table():
+    """Table of the deep-dive notes grouped by the same parts as report/ (PARTS defined in scripts/build_full_report.py)."""
+    spec = importlib.util.spec_from_file_location("bfr", D("scripts", "build_full_report.py"))
+    bfr = importlib.util.module_from_spec(spec); spec.loader.exec_module(bfr)
+    rows, n = ["| Part | 编号 · 解读 | 一句话 |", "|---|---|---|"], 0
+    for key, title, _desc, files in bfr.PARTS:
+        if key in ("0", "1"): continue
+        for i, f in enumerate(files):
+            first = f.read_text(encoding="utf-8").splitlines()[0].lstrip("# ").strip()
+            num, _, rest = first.partition(" · ")
+            name, _, sub = rest.partition("：")
+            label = f"**{key}** · {title}" if i == 0 else f"{key}"
+            rows.append(f"| {label} | [{num} · {name}](notes/{f.name}) | {sub} |"); n += 1
+    return "\n".join(rows), n
+
+def full_report_pages():
+    try:
+        import fitz
+        return fitz.open(D("report", "survey_full_report.pdf")).page_count
+    except Exception:
+        return "—"
+
 def heading(t):
     return t["name_zh"] if t["name_zh"] == t["name_en"] else f"{t['name_zh']} | {t['name_en']}"
 
@@ -18,7 +40,10 @@ def main():
     papers = list(csv.DictReader(open(D("data", "papers.csv"), encoding="utf-8")))
     topics.sort(key=lambda t: int(t["order"]))
     header = open(D("data", "header.md"), encoding="utf-8").read()
-    header = header.replace("{N_PAPERS}", str(len(papers))).replace("{N_TOPICS}", str(len(topics))).replace("{DATE}", datetime.date.today().isoformat())
+    notes_index, n_notes = notes_index_table()
+    n_full = full_report_pages()
+    header = (header.replace("{N_PAPERS}", str(len(papers))).replace("{N_TOPICS}", str(len(topics))).replace("{DATE}", datetime.date.today().isoformat())
+              .replace("{N_NOTES}", str(n_notes)).replace("{N_FULL_PAGES}", str(n_full)).replace("{NOTES_INDEX}", notes_index))
     footer = open(D("data", "footer.md"), encoding="utf-8").read()
     out = [header, "", "## 论文清单", "",
            f"共 {len(topics)} 条主线、{len(papers)} 篇论文，按主线分组、组内按时间排序。每条主线先给检索关键词与代表工作，再列条目；⭐ 为源材料点名的核心工作。点击主线标题可回到本目录。", "",
