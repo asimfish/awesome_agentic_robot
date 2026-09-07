@@ -16,7 +16,7 @@ def notes_index_table():
     bfr = importlib.util.module_from_spec(spec); spec.loader.exec_module(bfr)
     rows, n = ["| Part | 编号 · 解读 | 一句话 |", "|---|---|---|"], 0
     for key, title, _desc, files in bfr.PARTS:
-        if key in ("0", "1"): continue
+        if key in ("0", "1") or any(f.parent.name != "notes" for f in files): continue
         for i, f in enumerate(files):
             first = f.read_text(encoding="utf-8").splitlines()[0].lstrip("# ").strip()
             num, _, rest = first.partition(" · ")

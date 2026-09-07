@@ -53,6 +53,7 @@ math{font-size:10.5pt}
 <div class="part">Part E · 总览、接口、多机器人与跨本体</div><ol><li>34 · AgenticLab / PLanAR 深度解读：用规划语言定义 VLM 的推理空间</li><li>35 · Agent + Robot 总览合评：Agentic Robot、ManiAgent、VoLo、HoloAgent-0 与"灵活但仍脆弱"</li><li>36 · 接口层合评：两篇 ROSClaw、MHS、OpenClaw 生态与 MCP</li><li>37 · 多机器人协作合评：RoCo、MALMM、REMAC、RoboOS 系列、DynaHMRC、Scale-Plan、MeCo、Tool-RoCo、对话对齐与通信攻击</li><li>38 · 生命周期、跨本体与主动感知合评：Arcadia、PhysCaP、ActiveVLA 与相关工作</li></ol>
 <div class="part">Part F · 安全与治理</div><ol><li>39 · 安全合评：EMBGuard、SENTINEL、VASO、Same Weights Different Robot、RationalVLA、通信攻击与 AgentRob</li></ol>
 <div class="part">Part G · 基础：LLM Agent、Harness 工程与 RSI</div><ol><li>40 · Lil'Log 两篇深度解读：《LLM Powered Autonomous Agents》与《Harness Engineering for Self-Improvement》</li><li>41 · RSI 谱系：从 Good 1965 到 BigBang-V1——软件侧递归自我改进的四个环节</li><li>42 · Harness 演化方法合评：ACE、MCE、Meta-Harness、Self-Harness、AHE、Harness Updating ≠ Harness Benefit、DGM、Hyperagents、AlphaEvolve、ShinkaEvolve、ThetaEvolve、GEPA、Promptbreeder、STOP、ADAS、AFlow 与相关工作</li><li>43 · AI 研发基准与失败模式合评：PaperBench、RE-Bench、MLE-bench、ScienceAgentBench、CORE-Bench、KernelBench、Early Science Acceleration 与《Why LLMs Aren't Scientists Yet》</li></ol>
+<div class="part">Part H · 我们的方案：HARVEST 自举式数据引擎</div><ol><li>方案：HARVEST——以前沿多模态 Agent 为遥操作员、以规则记忆为脚手架的自举式机器人数据引擎</li></ol>
 </div>
 <div class="figpage1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1460" font-family="PingFang SC, Helvetica Neue, Arial, sans-serif">
 <rect width="1900" height="1460" fill="#ffffff"/>
@@ -5666,4 +5667,289 @@ Bench"：固定仿真环境与真机接口、固定人类基线、固定验证�
 RE-Bench 的人类对照协议、CORE-Bench 的复现判定与 KernelBench
 的可验证任务形式，再加上
 EmbodiedGovBench（notes/25）的治理维度。在这份基准出现之前，本仓库数字口径账本（insights/12）里所有"自动研究"的数字都只能定性定位，不能定量比较。</p>
+
+<div class="divider"><div class="k">PART H</div><div class="t">我们的方案：HARVEST 自举式数据引擎</div><div class="d">以前沿多模态 Agent 为遥操作员、以规则记忆为脚手架、以独立验证器为准入、以三级补齐覆盖接触段、以训好的动作头交回 Agent 形成自举课程。含系统架构、数据格式、规则生命周期、12 周计划、五条可证伪假设、基线与指标、风险与新颖性声明。</div><ol><li>方案：HARVEST——以前沿多模态 Agent 为遥操作员、以规则记忆为脚手架的自举式机器人数据引擎</li></ol></div>
+<h1
+id="方案harvest以前沿多模态-agent-为遥操作员以规则记忆为脚手架的自举式机器人数据引擎">方案：HARVEST——以前沿多模态
+Agent 为遥操作员、以规则记忆为脚手架的自举式机器人数据引擎</h1>
+<blockquote>
+<p>HARVEST = Harness-guided Agent Rollouts for Verified Embodied Skill
+Training。 本方案综合了本仓库的证据链：RoboCurve 的 GPT-6 Astra
+演示（notes/44）、Harness VLA
+的原语库与两级记忆（notes/20、45）、VERITAS 的"验证过的自主轨迹 ≈
+人类示范"（notes/18）、Q-Planning 的失败样本价值（notes/29）、RoboClaw
+的自复位（notes/31）、ENPIRE 的真机 harness
+与群体加速比（notes/06）、RoboGene 的任务生成（notes/33）、BATON
+的进入条件（notes/14）以及验证器谱系（notes/12、17、19）。所有引用的数字口径见
+<code>insights/12_numbers_ledger_zh.md</code>。</p>
+</blockquote>
+<h2 id="0-一句话主张">0. 一句话主张</h2>
+<p><strong>用一个前沿多模态 Agent 代替人做遥操作员，用 Harness VLA
+式的规则记忆让它越采越便宜、越采越有标签，用独立验证器决定什么能进数据集，用"闭环接触原语
+→ 残差 RL → 人只接管最后几厘米"三级补齐 Agent
+采不到的接触段，再把训出来的 System-1 动作头交回 Agent
+当原语去采更难的数据。</strong> 目标不是让 GPT-6
+控制机器人，而是让每一条经过验证、带阶段标签、覆盖接触段的示范的单位成本降到人类遥操作的几分之一，并证明用它训出的策略不比等量人类示范差。</p>
+<h2 id="1-为什么现在做为什么是这个组合">1.
+为什么现在做、为什么是这个组合</h2>
+<p>三条证据同时成立了：</p>
+<ol type="1">
+<li><strong>Agent 已经能可靠完成几何阶段。</strong> RoboCurve：GPT-6
+Astra 在 block → bowl 上 19/20，每次 2.5 分钟、约 1 美元 API
+成本；失败集中在精密插入（10%），且"identify / approach / grasp / move
+above ✓，insertion ✗"的分界与 CaP-X、Harness VLA、ENPIRE
+三篇论文划的线完全一致（notes/44）。</li>
+<li><strong>验证过的自主数据可以替代人类示范。</strong> VERITAS：50
+条自主验证轨迹训出的策略 70%，50 条人类示范 65%（每格 20
+次评测，应读作"相当"）；Q-Planning：同批 rollout
+里加入失败样本后真机成功率 55/30% → 90/80%（notes/18、29）。</li>
+<li><strong>规则记忆能把采集成本压下来。</strong> Harness
+VLA：一个参考种子的探索产出可复用的原语骨架与规则后，位置扰动下的成功率从零样本
+31.0% 到少样本
+87.0%（notes/20）。对采集而言，这意味着每个新摆放不必重新推理，token
+与时间成本随种子数近似线性下降。</li>
+</ol>
+<p>三者此前分别属于"控制"、"策略改进"、"harness"三个话题；把它们组合成一条数据引擎，是本方案的核心动作。</p>
+<h2 id="2-系统架构五层一环">2. 系统架构：五层一环</h2>
+<pre><code>┌──────────────────────────────── 任务与场景生成 ─────────────────────────────┐
+│ RoboGene 式任务提议 · 物体/布局随机化 · （可选）数字孪生里的域随机化           │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       ▼
+┌── L2 Agent 层 ─────────────────────────────────────────────────────────────┐
+│ 前沿 VLM（GPT-6 Astra 级）· 三路相机 + 本体状态 + 语言 → JSON 原语调用       │
+│ 循环：Observe → Reason → Move → Replan；读取 L3 的配方与规则                  │
+└──────────────┬────────────────────────────────────────────┬──────────────────┘
+               ▼                                            ▼
+┌── L1 原语与安全层 ─────────────────┐   ┌── L3 记忆与规则层 ──────────────────┐
+│ 固定小词表：MOVE_TO / MOVE_POSE /  │   │ 任务配方记忆：去坐标化的原语骨架 +    │
+│ ROTATE / SET_GRIPPER / RELEASE +   │   │   审计笔记（每任务一次自举）           │
+│ 接触原语 CONTACT_ACT（闭环插入 /   │   │ 全局规则记忆：规则对象（条件 · 动作 · │
+│   学习的 VLA 头，可替换）          │   │   标签 · 证据 · 状态 · 来源）          │
+│ 安全：工作空间/力限投影、接触前监控 │   │ 生命周期：候选 → 留出验证 → 生效/退役 │
+└──────────────┬─────────────────────┘   └───────────────────┬─────────────────┘
+               ▼                                             │
+┌── L4 验证与标注层（只读，不被 Agent 演化）──────────────────┴─────────────────┐
+│ 独立验证器：多视角一致性 + 点跟踪 + 力/本体感知线索（AGM 式高频门控）          │
+│           + 过程级视频判断（PRIMO R1 式低频复核）                              │
+│ 标签：阶段边界 · 进入条件状态 · 每阶段成败 · 失败类型 · 负样本段                │
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       ▼
+┌── L5 数据与训练层 ──────────────────────────────────────────────────────────┐
+│ 三层记录（语义 / 意图 / 稠密动作）· 轨迹重定时 · 数据集构建                    │
+│ 训练 System-1 动作头（flow / diffusion），以子目标或意图为条件                 │
+│ 等量对照评测（vs 人类示范）· 接触段单独报告                                    │
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       │  训好的头作为 CONTACT_ACT 交回 L1
+                                       └──────────────────────────────▶ 下一轮更难任务
+横切：自复位（EAP 正反技能对，同时产出反向任务数据）· 治理（能力准入、审计、人工接管）· 多机并行</code></pre>
+<p>五层各自的来源与改动：L1 来自 Harness VLA
+的原语词表加一个可替换的接触原语与 Projection 安全投影；L2 就是
+RoboCurve 演示的 agent；L3 来自 Harness VLA
+的两级记忆，但规则改为可验证对象并增加"标签"字段；L4
+是本方案相对所有先例最大的改动——验证器独立于 agent
+与基准谓词，且只读；L5 把数据引擎接回策略学习，并形成自举环。</p>
+<h2 id="3-三条设计原则每条对应一个已知失败模式">3.
+三条设计原则（每条对应一个已知失败模式）</h2>
+<p><strong>原则 A：Agent 采意图与边界，控制器采动作。</strong> 每条
+episode 记录三层——agent
+层（推理、子目标、工具调用序列、失败诊断）、意图层（waypoint、目标位姿、夹爪指令）、执行层（控制器频率的关节与末端轨迹、力/力矩、多视角图像）。waypoint
+之间以最小 jerk
+或时间最优重参数化执行，<strong>记录执行后的轨迹而非规划的直线</strong>。对应的失败模式：waypoint
+数据形态错误，训出的头走-停-走（notes/44 §3）。</p>
+<p><strong>原则 B：在 Agent 失败的地方补，不丢。</strong>
+接触段三级补齐——闭环接触原语（力控螺旋搜索或现成 VLA 头）→ 残差 RL（以
+agent 停在"目标上方"的状态为起点、以自复位为循环）→
+人只接管最后几厘米（HG-DAgger
+式）。人工秒数是一等成本指标。对应的失败模式：数据集在最有价值的接触段留下空洞，头原样继承
+agent 的失败（notes/44 §3）。</p>
+<p><strong>原则 C：验证器与采集器分离且只读。</strong>
+成败由独立物理证据判定，不用 agent
+自评，不用仿真谓词；失败轨迹保留并标注失败阶段。对应的失败模式：Harness
+VLA 的可靠性部分来自基准谓词这一真机不存在的完美验证器（notes/20
+§5）；自评会把模型盲区带进数据（Lil'Log
+的弱评估器；具身纪元"无法验证的变化只能叫变化"）。</p>
+<h2 id="4-规则记忆格式起始集与生命周期">4.
+规则记忆：格式、起始集与生命周期</h2>
+<p>规则对象（详见 notes/45）：<code>scope</code>（原语 / 阶段 /
+物体类）、<code>condition</code>（可观测谓词）、<code>action</code>（规划器动作，含"交给人/RL"）、<code>label</code>（触发即打的标签）、<code>evidence</code>（应用/修复/伤害计数与来源轨迹）、<code>status</code>（候选
+/ 生效 / 退役）、<code>provenance</code>。</p>
+<p>起始十条：分工（接触段用学习原语或人/RL，非接触段用解析原语）；预定位（接触前先进入成功轨迹里的接触前位姿分布——这是
+BATON 缺的进入条件的数据形式）；空抓（夹爪闭合而物体未随动 →
+标失败、重定位、重预定位、重试）；禁止视觉终止（必须有独立验证信号）；重新定位（任一状态变化后重定位，多像素取中位数）；输出纪律（成败都写审计
++ 命令轨迹）；重试预算（同段 VLA 调用 ≤ k 次后交人/RL，k
+由饱和曲线定）；多样性（每任务保留 ≥ m
+条互不相同的成功骨架）；轨迹重定时；安全投影。</p>
+<p>生命周期借 SkillOpt
+的纪律（notes/05）：规则由可恢复失败的聚类提议；在留出种子上 A/B（启用
+vs
+禁用），比较采集成功率、每条成功示范的成本、规则标签与独立验证器的一致率；严格提升才生效，否则进拒绝缓冲；生效规则带来源，可审计、可退役。</p>
+<h2 id="5-数据格式">5. 数据格式</h2>
+<p>每条 episode 一个目录：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>内容</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>episode.json</code></td>
+<td>任务、场景随机化参数、agent 模型/版本、prompt 哈希、配方
+id、触发的规则、每阶段验证结论、成本（token、美元、机器人秒、人工秒）</td>
+<td>溯源、成本核算、筛选</td>
+</tr>
+<tr>
+<td><code>commands.jsonl</code></td>
+<td>原语调用序列（含参数、时间戳、返回状态）</td>
+<td>意图层监督；配方记忆的来源</td>
+</tr>
+<tr>
+<td><code>trajectory.parquet</code></td>
+<td>50-100 Hz 关节/末端/夹爪/力，多视角图像帧索引</td>
+<td>动作层监督</td>
+</tr>
+<tr>
+<td><code>labels.json</code></td>
+<td>阶段边界、进入条件状态、每阶段成败、失败类型（空抓 / 错位 / 滑落 /
+碰撞…）、负样本段</td>
+<td>阶段级信用分配、进度估计器训练、失败学习</td>
+</tr>
+<tr>
+<td><code>verifier.json</code></td>
+<td>每次验证的证据（点跟踪结果、跨视角一致性、力信号）与置信度</td>
+<td>验证器审计；FP/FN 统计</td>
+</tr>
+</tbody>
+</table>
+<p>三层记录使同一批数据可以同时训练：以意图为条件的 System-1
+头（执行层）、阶段/进度估计器（标签层）、以及配方与规则本身（agent
+层）。</p>
+<h2 id="6-分阶段计划12-周单臂或双臂一套真机--一套仿真孪生">6.
+分阶段计划（12 周，单臂或双臂一套真机 + 一套仿真孪生）</h2>
+<p><strong>阶段 0（第 1-2 周）基础设施。</strong> 机械臂 + ROS
+2；原语词表与 JSON 接口；安全投影与接触前监控；三层记录器；验证器
+v0（多视角一致性 + 点跟踪 + 夹爪/力线索）；EAP
+式自复位（先做可逆任务）。交付：一次 agent 驱动的 block → bowl 完整
+episode 及其三层记录。</p>
+<p><strong>阶段 1（第 3-5 周）采集与配方。</strong>
+三个任务族（抓放、堆叠、插入），每族 5 个变体；每任务一次参考种子自举 →
+配方记忆；起始十条规则上线；统计示范/小时、每条成本、接触段覆盖率。里程碑：<strong>MVE-1
+等量对照</strong>——50 条 agent 采集并验证的示范 vs 50
+条人类遥操作示范，训同一 flow 头，报告总成功率、接触段成功率、jerk。</p>
+<p><strong>阶段 2（第 6-9 周）接触段补齐与蒸馏。</strong>
+三级补齐并行实现；训练以子目标为条件的 System-1
+头。里程碑：<strong>MVE-2 覆盖修补消融</strong>——agent-only / agent +
+人接管末段 / agent +
+闭环接触原语三组数据训同一头，报告插入成功率与每条示范的人工秒数。</p>
+<p><strong>阶段 3（第 10-12 周）自举与规则验证。</strong> 把阶段 2
+的头作为 CONTACT_ACT 交回
+agent，采更难任务（更小公差、铰接物体）；规则在留出种子上 A/B
+验证。里程碑：<strong>MVE-3 自举课程</strong>——round 0 vs round 1
+的任务覆盖与成功率曲线；<strong>MVE-4
+验证器替换</strong>——同一流程下用独立验证器 vs
+仿真谓词（在孪生里）的假成功率差。</p>
+<h2 id="7-假设与可证伪判据">7. 假设与可证伪判据</h2>
+<ul>
+<li><strong>H1（等价）</strong>：等量 agent
+示范训出的头在几何阶段与人类示范无显著差（20
+次以上评测、置信区间重叠），在接触段显著落后。若接触段也不落后，原则 B
+的必要性存疑；若几何阶段也落后，原则 A 的重定时未生效。</li>
+<li><strong>H2（补齐）</strong>：人只接管最后几厘米，可把每条含插入示范的人工时间压到人类全程遥操作的
+20% 以下，且插入成功率不低于全程人类示范。若人工秒数降不到 40%
+以下，agent 的预定位价值不成立。</li>
+<li><strong>H3（配方）</strong>：配方记忆使同任务后续种子的 token
+成本与采集时间下降 ≥ 50%（Harness VLA 31% → 87% 的方向）。若下降 &lt;
+20%，任务专属记忆对真机采集无用。</li>
+<li><strong>H4（自举）</strong>：round 1 用训好的头当原语后，agent
+可完成任务集扩大且 round 1 数据训出的头优于 round 0（单调改进）。若
+round 1 退化，说明头继承了 agent 的预定位依赖，需要无预定位的评测。</li>
+<li><strong>H5（验证）</strong>：独立验证器相对仿真谓词的假成功率 &lt;
+5%；规则标签与验证器一致率 &gt; 90%。否则规则不能当标签用。</li>
+</ul>
+<h2 id="8-评估与基线">8. 评估与基线</h2>
+<p>基线：人类遥操作（等量）；agent-only waypoint
+数据（无重定时、无规则）；无记忆的 agent（CaP-X 式多轮）；Harness VLA
+式（有
+VLA_ACT、有记忆、但不做数据回流）。指标：每小时验证示范数、每条验证示范的成本（美元
++ 机器人秒 +
+人工秒）、接触段覆盖率、下游策略总成功率与接触段成功率（相对等量人类示范）、jerk
+与执行时间、轨迹多样性（路径熵）、验证器
+FP/FN、规则验证通过率、机器人利用率。所有成功率按二元、20
+次以上试验、报告置信区间；不同任务族不并排。</p>
+<h2 id="9-风险与对策">9. 风险与对策</h2>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>对策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>真机 RGB-D 噪声使 agent 的 MOVE_TO 参数偏差</td>
+<td>重新定位规则（多像素中位数）；把定位不确定性传给验证器；必要时加
+ArUco/深度融合的"世界地图"层</td>
+</tr>
+<tr>
+<td>验证器质量不足</td>
+<td>分层：高频几何门控 + 低频过程复核；每周抽样人工审计
+FP/FN；验证器只读</td>
+</tr>
+<tr>
+<td>前沿 API 成本随规模上升</td>
+<td>配方记忆减少推理；把配方与规则蒸馏进小 VLM（Guava
+的做法）；成本进入每条示范的账</td>
+</tr>
+<tr>
+<td>重定时后的轨迹仍与人类分布不同</td>
+<td>用人类示范的速度剖面做参考重定时；jerk 作为一等指标</td>
+</tr>
+<tr>
+<td>多样性塌缩</td>
+<td>多样性规则；多模型/多 prompt 采样；任务生成随机化</td>
+</tr>
+<tr>
+<td>头学会依赖 agent 的预定位</td>
+<td>训练时随机扰动起点；评测同时报告"有/无 agent 预定位"两种条件</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>工作空间与力限投影、接触前监控、人工接管键、审计日志（治理层只读）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-新颖性声明相对本仓库已收录工作">10.
+新颖性声明（相对本仓库已收录工作）</h2>
+<ul>
+<li>相对 Harness
+VLA：目标从部署成功率改为<strong>单位成本下的验证示范产量</strong>；验证器从基准谓词改为独立物理证据；规则从规划器提示改为<strong>同时是标签函数</strong>的可验证对象；场地从仿真改为真机。</li>
+<li>相对 VERITAS：生成器从被训练的策略本身改为外部前沿
+agent，把"验证过的自主轨迹 ≈ 人类示范"扩展到策略尚不存在的任务。</li>
+<li>相对 RoboGene：从生成任务扩展到生成示范与标签。</li>
+<li>相对 ENPIRE：agent 的角色从"跑训练实验的研究员"改为"遥操作员"，RL
+与人只用于接触段。</li>
+<li>相对 RoboClaw：沿用 EAP
+自复位，并把逆向技能的终态用作正向技能的进入条件样本。</li>
+<li>组合本身是新的：三层记录 + 规则即标签 + 三级接触段补齐 + 自举课程 +
+等量对照证据，本次检索未见任何一篇工作同时具备。</li>
+</ul>
+<h2 id="11-论文故事若成">11. 论文故事（若成）</h2>
+<p>标题方向："Agents as Teleoperators: Harness-Guided, Verified Data
+Collection for Contact-Rich Skill Learning"。主张一句话：N
+条经独立验证的 agent 采集示范，在几何阶段与 N 条人类示范等价、成本为其
+1/k，接触段用每条 X 人工秒即可补齐，且训出的头交回 agent
+后能采集更难任务。四张核心图：成本-成功率平面（agent vs 人类 vs
+混合）、接触段覆盖率随三级补齐的变化、自举两轮的任务覆盖曲线、验证器混淆矩阵与规则标签一致率。</p>
+<h2 id="12-立即可做的三件事">12. 立即可做的三件事</h2>
+<ol type="1">
+<li>用现有机械臂搭 L1 + L4 的最小版本（六个解析原语 + 一个接触原语 +
+多视角点跟踪验证器），一天内跑通 agent 驱动的 block → bowl
+三层记录。</li>
+<li>采 50 条并请一名操作员采 50 条，两周内出 MVE-1
+的第一版数字——它决定整个方案是否值得继续。</li>
+<li>同时在数字孪生里复现 Harness VLA
+的自举流程，测量配方记忆对采集成本的压缩比（H3），这一项不需要真机就能开始。</li>
+</ol>
 </body></html>

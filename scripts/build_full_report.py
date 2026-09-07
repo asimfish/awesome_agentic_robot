@@ -41,10 +41,14 @@ PARTS = [
  ("G", "基础：LLM Agent、Harness 工程与 RSI",
   "Lil'Log 两篇、软件侧 RSI 谱系（四个环节）、harness 演化方法（优化阶梯的完整实例集）、AI 研发基准与失败模式。",
   [N("40_lilianweng_posts_zh.md"), N("41_rsi_lineage_zh.md"), N("42_harness_evolution_methods_zh.md"), N("43_ai_research_benchmarks_zh.md")]),
+ ("H", "我们的方案：HARVEST 自举式数据引擎",
+  "以前沿多模态 Agent 为遥操作员、以规则记忆为脚手架、以独立验证器为准入、以三级补齐覆盖接触段、以训好的动作头交回 Agent 形成自举课程。含系统架构、数据格式、规则生命周期、12 周计划、五条可证伪假设、基线与指标、风险与新颖性声明。",
+  [REPO/"docs/proposal/PROPOSAL_agent_data_engine_zh.md"]),
 ]
 all_files = [f for _, _, _, fs in PARTS for f in fs if f != "REPORT_ZH"]
+note_files = [f for f in all_files if f.parent.name == "notes"]
 missing = [f for f in all_files if not f.exists()]; assert not missing, missing
-notes_all = sorted((REPO / "notes").glob("*.md")); uncovered = [f.name for f in notes_all if f not in all_files]; assert not uncovered, uncovered
+notes_all = sorted((REPO / "notes").glob("*.md")); uncovered = [f.name for f in notes_all if f not in note_files]; assert not uncovered, uncovered
 
 CSS = """
 @page{size:A4;margin:22mm 18mm 20mm 18mm}
