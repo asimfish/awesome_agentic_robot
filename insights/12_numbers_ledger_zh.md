@@ -40,7 +40,7 @@
 | PRIMO R1 | RoboFail 67% | RoboFail | 失败检测准确率 | 摘要未说明 | RL 训练 7B 视频 MLLM | 论文（具身纪元转述） | 验证器指标（notes/17） |
 | VERITAS | 70% vs 65%（50 条自主 vs 50 条人工示范） | 真机单任务，每格 20 次 | 二元 | 同量人工示范 SFT | 验证过的 rollout 微调 | 论文（具身纪元转述） | 20 次评测差异不显著，应读"相当"（notes/18） |
 | LLM-as-a-Verifier | RoboRewardBench 87.4% | RoboRewardBench | 验证器准确率 | 标准 LM judge | 不训练 | 论文 | 可作 RL 密集奖励（notes/19） |
-| Harness VLA | +38.6 pp（LIBERO-Pro）· +27.1 pp（RoboCasa365，v4；早期版本 +25.4）· 58.4%（RoboTwin C2R） | 三个仿真基准 | 绝对 pp；二元 | 同一冻结 VLA 直接执行 | 规则记忆学习；VLA 冻结 | 论文（v4 PDF 已核对） | 版本间数字有变动，引用时注明版本（notes/20） |
+| Harness VLA | LIBERO-Pro 82.4%（CC）/ 72.1%（Codex）· RoboCasa365 57.1%（Codex）· RoboTwin C2R 58.4% | 800 / 340 / 250 次 rollout，每任务 10（或 5）留出种子，s0 仅自举 | 二元（基准谓词） | 头条 +38.6 pp 是对 RATS 43.8；对同一冻结 VLA πRLinf 50.0 为 +32.4；RoboCasa365 +27.1 对 RLDX-1 30.0（早期版本写 +25.4）；C2R +8.0 对 LingBot-VLA 50.4 | 一个参考种子自举（含 RESET）；部署禁 RESET、短预算；VLA 冻结 | 论文 v4 全文已核对 | 规划器可读基准成功信号；零样本 GOAL 位置交换 31.0% vs 少样本 87.0%（notes/20） |
 | Runtime Governance | 96.2% 拦截 · 100% → 22.2% 不安全继续 · 90.7% 恢复 · RVDR 61.3% vs 0% | 1000 次随机试验 | 治理指标 | AutoRT 式过滤、RoboGuard 式护栏 | 外置治理层 | 论文 | 主要为仿真化场景（notes/25） |
 | Fast-in-Slow / StreamVLA / LaST0 | 117.7 Hz · 72% 时间步跳过解码、-48% 延迟、LIBERO 98.5% · +13-14%（真机） | 各自设置 | 频率；比例；二元；相对提升 | 各自基线 | 训练 | 论文 | 系统指标与成功率混合（notes/26） |
 | CloudEdgeVLA / PhyAI / EcoVLA | 63.8-78.0% vs ≤6.4%（40 步延迟）· 1.40-4.65× · +236% 能效 | 仿真延迟注入；四种 VLA；20 Hz 约束 | 二元；加速比；能效 | 对比方法 / 原推理程序 | — | 论文 | 延迟为统一窗口（notes/27） |

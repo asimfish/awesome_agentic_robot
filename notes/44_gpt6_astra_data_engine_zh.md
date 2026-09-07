@@ -2,7 +2,7 @@
 
 > 来源：罗清雨《RoboCurve：GPT-6 Astra 直接控制机器人》（知乎，转写见 `sources/zhihu_robocurve_gpt6_astra_transcript.md`）；RoboCurve 第三方测试（经知乎与具身纪元文章转述，原始报告本次检索未取得）
 > 所属主线：T2、T10、T13、T15、T23、T24 · 相关解读：notes/02（CaP-X）、06（ENPIRE）、18（VERITAS）、20（Harness VLA）、26（双系统）、29（Q-Planning）、31（RoboClaw）、33（RoboGene）
-> 本篇同时回答一个实践问题：观察到"用 GPT-6 Astra 采数据集非常强"之后，怎样把它做成一条可靠的数据引擎，而不是一个昂贵的演示。
+> 本篇同时回答一个实践问题：观察到"用 GPT-6 Astra 采数据集非常强"之后，怎样把它做成一条可靠的数据引擎，而不是一个昂贵的演示。续篇 notes/45 把 Harness VLA 的规则记忆接到这条引擎上。
 
 ## 1. 这个演示到底是什么
 

@@ -15,7 +15,7 @@
 3. [仓库简介](#仓库简介)
 4. [六条核心结论](#六条核心结论)
 5. [源材料](#源材料)
-6. [深度解读索引](#深度解读索引)（44 篇）
+6. [深度解读索引](#深度解读索引)（45 篇）
 7. [论文清单](#论文清单)（25 条主线，209 篇）
 8. [统计](#统计)
 9. [复现与贡献](#复现与贡献)
@@ -26,13 +26,13 @@
 | 想要 | 打开 | 说明 |
 |---|---|---|
 | **15 分钟拿到全部结论** | [`docs/slides/index.html`](docs/slides/index.html) · [PDF](docs/slides/index.pdf) | 19 页 HTML 幻灯片，浏览器打开 ← → 翻页、F 全屏、P 打印；另有 [Beamer 版 PDF](docs/slides/agentic_robot_slides.pdf)（25 页，含参考文献与备份页） |
-| **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | 140 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 44 份深度解读 |
+| **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | 142 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 45 份深度解读 |
 | **两份解读报告** | [中文 PDF](docs/reports/report_zh.pdf) · [英文 PDF](docs/reports/report_en.pdf) | 独立成篇的中英文报告（19 / 21 页）：五份材料逐一解读、主线综述、十条洞见、八个开放问题；Markdown 源在 [`docs/reports/`](docs/reports/) |
 | **趋势与洞察** | [`insights/10_trends_insights_zh.md`](insights/10_trends_insights_zh.md) | 一页结论 · 领域时间线 · 六大趋势 · 十条洞察 · 八条可证伪预测（12-24 个月，到期回来核对） |
 | **研究机会清单** | [`insights/11_open_problems_zh.md`](insights/11_open_problems_zh.md) | 19 个待验证问题，按 Part A-G 排列，每条配「缺口 + 为什么重要 + 最小可行实验 + 相关解读」；只做一件事就做第 1 条（分层验证器） |
 | **数字口径账本** | [`insights/12_numbers_ledger_zh.md`](insights/12_numbers_ledger_zh.md) | 30 余个头条数字逐条标注任务集 / 指标类型 / 对照 / 干预与更新 / 证据形式——并排任何两个数字前先查此表 |
 | **总览图** | [图 1 时间线](assets/fig1_timeline.svg) · [图 2 分类树](assets/fig2_taxonomy.svg) | 矢量 SVG，`scripts/make_figures.py` 生成；深色版见 `assets/*_dark.svg` |
-| **逐篇深度解读** | [`notes/`](notes/) | 44 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
+| **逐篇深度解读** | [`notes/`](notes/) | 45 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
 | **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 六篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页或首两页）；方法见 [`papers/README.md`](papers/README.md) |
 | **源材料转写** | [`sources/`](sources/) | 小红书长文 39 卡转写、讲稿文字与备注、检索地图转写、Lil'Log 两篇存档、具身纪元文章与其小红书版转写 |
 | **机器可读数据** | [`data/papers.csv`](data/papers.csv) · [`data/topics.csv`](data/topics.csv) · [`data/paper_meta.json`](data/paper_meta.json) | 209 条论文条目、25 条主线、arXiv 元数据；README 由此生成 |
@@ -102,6 +102,7 @@
 | B | [18 · VERITAS 深度解读](notes/18_veritas_zh.md) | 推理时视觉验证，验证过的 rollout 直接成为训练数据 |
 | B | [19 · 验证器谱系](notes/19_verifier_lineage_zh.md) | LLM-as-a-Verifier、立场论文、Consilience、Agentic Harnesses |
 | **C** · Harness、Runtime、双系统与端侧 | [20 · Harness VLA 深度解读](notes/20_harness_vla_zh.md) | 不改权重、不扩技能库，学冻结 VLA 的"使用说明书" |
+| C | [45 · Harness VLA × Agent 数据引擎](notes/45_harness_vla_rules_for_data_engine_zh.md) | 把"规则记忆"加进采集 agent |
 | C | [21 · PhyAgentOS 深度解读](notes/21_phyagentos_zh.md) | 把 Harness 做成操作系统 |
 | C | [22 · Thea 深度解读](notes/22_thea_zh.md) | 物理世界不白送的两样东西——读状态、判结果 |
 | C | [23 · Harness Engineering for Physical AI 深度解读](notes/23_harness_engineering_physical_ai_zh.md) | 机器人中间件就是 harness 层 |

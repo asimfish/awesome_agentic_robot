@@ -71,7 +71,7 @@ lang: zh-CN
 | L6 Policy Evolution | LWD、Q-Planning、Z-1、TEMPO、Temporal GRPO | 策略权重 |
 | L7 Fleet Evolution | LWD 的 16 台机器人、ENPIRE 的 8 工位、RoboOS-NeXT 的共享记忆 | 群体共享的数据与策略 |
 
-长文对 Harness VLA 的概括值得强调：它不修改 VLA 权重，也不扩张技能库，而是从任务专属执行轨迹、全局成功规则和失败模型里学“这个 VLA 什么时候靠谱、什么时候先 MOVE_TO、什么时候重新 grounding、什么时候交给解析原语”。论文数字是 LIBERO-Pro +38.6 个百分点、RoboCasa365 +27.1 个百分点（v4，2026-09-02；小红书长文引用的早期版本为 +25.4）、RoboTwin C2R 58.4%。ASPIRE 的“经验复利”也有数字：LIBERO-90 上积累的技能库让 LIBERO-Pro Long 的零样本成功率随库规模单调上升，N=90 时达到 31%，对比先前方法 4%。
+长文对 Harness VLA 的概括值得强调：它不修改 VLA 权重，也不扩张技能库，而是从任务专属执行轨迹、全局成功规则和失败模型里学“这个 VLA 什么时候靠谱、什么时候先 MOVE_TO、什么时候重新 grounding、什么时候交给解析原语”。论文数字（v4，2026-09-02）：LIBERO-Pro 总体 82.4%，头条的 +38.6 个百分点是相对此前最强的 RATS（43.8%），相对同一冻结 VLA 直接执行（50.0%）为 +32.4；RoboCasa365 57.1% 对 RLDX-1 30.0%（+27.1；小红书长文引用的早期版本为 +25.4）；RoboTwin C2R 58.4% 对 LingBot-VLA 50.4%。ASPIRE 的“经验复利”也有数字：LIBERO-90 上积累的技能库让 LIBERO-Pro Long 的零样本成功率随库规模单调上升，N=90 时达到 31%，对比先前方法 4%。
 
 ## 2.3 两个时间尺度：Agent 负责秒，Controller 负责毫秒
 
