@@ -189,24 +189,6 @@
   "comment": "",
   "journal_ref": ""
  },
- "2606.22338": {
-  "id": "2606.22338",
-  "id_version": "2606.22338v3",
-  "title": "RoboMME-Interference: Benchmarking Robot Memory Under Interference",
-  "authors": [
-   "Soumil Rathi"
-  ],
-  "published": "2026-06-21",
-  "updated": "2026-08-26",
-  "abstract": "Robots deployed in realistic settings will accumulate experience across many sessions and tasks over their deployment. The robot's tasks may often require it to remember information from multiple sessions ago, making long-context robot memory important for real-world deployments. However, most robot-memory benchmarks today are based on single episodes or a short context. To measure how current robot memory systems perform on longer sessions with more distractions, we introduce RoboMME-Interference, a cross-session benchmark built on RoboMME (Dai et al., 2026). For each query episode, we construct a session history using the query's relevant prior demonstration followed by a controlled number of unrelated sessions, which we provide to the VLA as memory and measure accuracy. Running RoboMME's released memory-augmented $π_{0.5}$ variants unmodified through this benchmark, we find that while perceptual memory variants improve success when given the history without any distractors, they decay strongly and steadily as unrelated sessions accumulate. The subgoal variants, which read the history with a vision-language model and pass written subgoals to the policy, improve less at their best but hold more of that improvement as distractors accumulate. Adding a retrieval step to the strongest perceptual variant, which selects the section of history most visually similar to the robot's current view and passes only that section to the policy, restores its no-distractor success rate at every interference level. With this release, we emphasize the importance of long-context memory and robustness to interference and show that current systems largely fail on such capabilities. The project page, videos, code, and data are at https://robotmemorybench.com.",
-  "categories": [
-   "cs.RO",
-   "cs.AI",
-   "cs.LG"
-  ],
-  "comment": "9 pages, 5 figures. Updated results; added subgoal-memory systems",
-  "journal_ref": ""
- },
  "2602.01662": {
   "id": "2602.01662",
   "id_version": "2602.01662v4",
@@ -231,6 +213,24 @@
    "cs.RO"
   ],
   "comment": "New version with updated framing, contributions, experiments, and figures",
+  "journal_ref": ""
+ },
+ "2606.22338": {
+  "id": "2606.22338",
+  "id_version": "2606.22338v3",
+  "title": "RoboMME-Interference: Benchmarking Robot Memory Under Interference",
+  "authors": [
+   "Soumil Rathi"
+  ],
+  "published": "2026-06-21",
+  "updated": "2026-08-26",
+  "abstract": "Robots deployed in realistic settings will accumulate experience across many sessions and tasks over their deployment. The robot's tasks may often require it to remember information from multiple sessions ago, making long-context robot memory important for real-world deployments. However, most robot-memory benchmarks today are based on single episodes or a short context. To measure how current robot memory systems perform on longer sessions with more distractions, we introduce RoboMME-Interference, a cross-session benchmark built on RoboMME (Dai et al., 2026). For each query episode, we construct a session history using the query's relevant prior demonstration followed by a controlled number of unrelated sessions, which we provide to the VLA as memory and measure accuracy. Running RoboMME's released memory-augmented $π_{0.5}$ variants unmodified through this benchmark, we find that while perceptual memory variants improve success when given the history without any distractors, they decay strongly and steadily as unrelated sessions accumulate. The subgoal variants, which read the history with a vision-language model and pass written subgoals to the policy, improve less at their best but hold more of that improvement as distractors accumulate. Adding a retrieval step to the strongest perceptual variant, which selects the section of history most visually similar to the robot's current view and passes only that section to the policy, restores its no-distractor success rate at every interference level. With this release, we emphasize the importance of long-context memory and robustness to interference and show that current systems largely fail on such capabilities. The project page, videos, code, and data are at https://robotmemorybench.com.",
+  "categories": [
+   "cs.RO",
+   "cs.AI",
+   "cs.LG"
+  ],
+  "comment": "9 pages, 5 figures. Updated results; added subgoal-memory systems",
   "journal_ref": ""
  },
  "2509.24219": {
@@ -1194,23 +1194,26 @@
   "comment": "",
   "journal_ref": ""
  },
- "2607.22832": {
-  "id": "2607.22832",
-  "id_version": "2607.22832v1",
-  "title": "MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution",
+ "2607.15524": {
+  "id": "2607.15524",
+  "id_version": "2607.15524v1",
+  "title": "Recursive Harness Self-Improvement",
   "authors": [
-   "Alkis Sygkounas",
-   "Victor Aregbede",
-   "Amy Loutfi",
-   "Andreas Persson"
+   "Hyunin Lee",
+   "Jinglue Xu",
+   "Jeffrey Seely",
+   "Donghyun Lee",
+   "Matei Zaharia",
+   "Yujin Tang"
   ],
-  "published": "2026-07-24",
-  "updated": "2026-07-24",
-  "abstract": "Long-horizon embodied tasks require policies that execute many dependent actions before task success can be observed. Representing policies as executable control pro- grams (code-as-policy) enables their decision logic to be inspected and revised after rollout evaluation. Revised programs can then be executed and compared by rollout performance, framing policy improvement as execution-guided program search. Evo- lutionary methods driven by large language models (LLMs) provide a natural mecha- nism for this search by generating variants and selecting high-performing candidates. However, existing approaches primarily select among independently generated vari- ants and lack a sequential local improvement phase. We introduce MEMENTO, a memory-guided single-elite memetic framework for code-as-policy evolution. ME- MENTO first evolves a rollout evaluator that maps policy rollouts to scalar fitness and structured feedback metrics. Fitness selects accepted candidates and the next elite, while feedback metrics condition policy proposals generated by memory-guided hill-climbing, macro-mutation, and crossover. We evaluate MEMENTO on two long- horizon embodied domains: Robosuite Franka Tower-of-Hanoi manipulation and AI2- THOR household interaction. MEMENTO outperforms Eureka and REvolve, adapted as code-as-policy evolutionary baselines, in task success and generalization to held- out Robosuite object configurations and unseen AI2-THOR scenes. Ablations show that zero-shot generation and unevolved evaluators fail to solve either domain, and that removing policy-search branches reduces performance. Finally, we deploy the best-evolved Robosuite policy on a physical Franka robot, demonstrating the feasibil- ity of sim-to-real transfer of the evolved code-as-policy. Code, prompts, and videos are available at: https://github.com/sygkounas/MEMENTO.",
+  "published": "2026-07-17",
+  "updated": "2026-07-17",
+  "abstract": "Under model--harness co-evolution, harnesses are not merely inference-time scaffolds but data-generating components whose execution traces can shape future foundation models. This motivates harness-in-the-loop learning: optimizing harnesses for both immediate agent performance and the quality of traces used for future model training. However, continually updating provider-built scaffolds is costly and labor-intensive. We therefore investigate whether optimizing user-constructed harnesses in a task-specific manner can improve execution-trace quality while remaining computationally lightweight and requiring only a few update iterations. To this end, we introduce Recursive Harness Self-Improvement (RHI), which represents the harness as a prompt-level specification of the agent loop and iteratively refines it using pairwise feedback over its own revision history. Across 30 synthetic machine-learning research tasks spanning quantitative finance, robotics, and pharmacy, a few RHI iterations suffice to substantially raise the performance ceiling of low-reasoning-effort agents, exceeding the corresponding maximum-reasoning-effort setting while reducing inference cost by up to 60%. We show that these gains arise primarily from improved task-specific context management through more effective inter-agent information flow rather than longer reasoning traces. Finally, we formalize this behavior as an information-theoretic hypothesis for RHI's implicit optimization objective, suggesting RHI as a practical algorithm for continual learning within the paradigm of model--harness co-evolution.",
   "categories": [
-   "cs.LG"
+   "cs.LG",
+   "cs.AI"
   ],
-  "comment": "",
+  "comment": "This work addresses the first half of the model-harness coevolution loop",
   "journal_ref": ""
  },
  "2608.11246": {
@@ -1237,6 +1240,25 @@
    "cs.RO"
   ],
   "comment": "Project page: https://eit-hai.github.io/thea",
+  "journal_ref": ""
+ },
+ "2607.22832": {
+  "id": "2607.22832",
+  "id_version": "2607.22832v1",
+  "title": "MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution",
+  "authors": [
+   "Alkis Sygkounas",
+   "Victor Aregbede",
+   "Amy Loutfi",
+   "Andreas Persson"
+  ],
+  "published": "2026-07-24",
+  "updated": "2026-07-24",
+  "abstract": "Long-horizon embodied tasks require policies that execute many dependent actions before task success can be observed. Representing policies as executable control pro- grams (code-as-policy) enables their decision logic to be inspected and revised after rollout evaluation. Revised programs can then be executed and compared by rollout performance, framing policy improvement as execution-guided program search. Evo- lutionary methods driven by large language models (LLMs) provide a natural mecha- nism for this search by generating variants and selecting high-performing candidates. However, existing approaches primarily select among independently generated vari- ants and lack a sequential local improvement phase. We introduce MEMENTO, a memory-guided single-elite memetic framework for code-as-policy evolution. ME- MENTO first evolves a rollout evaluator that maps policy rollouts to scalar fitness and structured feedback metrics. Fitness selects accepted candidates and the next elite, while feedback metrics condition policy proposals generated by memory-guided hill-climbing, macro-mutation, and crossover. We evaluate MEMENTO on two long- horizon embodied domains: Robosuite Franka Tower-of-Hanoi manipulation and AI2- THOR household interaction. MEMENTO outperforms Eureka and REvolve, adapted as code-as-policy evolutionary baselines, in task success and generalization to held- out Robosuite object configurations and unseen AI2-THOR scenes. Ablations show that zero-shot generation and unevolved evaluators fail to solve either domain, and that removing policy-search branches reduces performance. Finally, we deploy the best-evolved Robosuite policy on a physical Franka robot, demonstrating the feasibil- ity of sim-to-real transfer of the evolved code-as-policy. Code, prompts, and videos are available at: https://github.com/sygkounas/MEMENTO.",
+  "categories": [
+   "cs.LG"
+  ],
+  "comment": "",
   "journal_ref": ""
  },
  "2608.16590": {
@@ -1267,28 +1289,6 @@
    "cs.RO"
   ],
   "comment": "",
-  "journal_ref": ""
- },
- "2607.15524": {
-  "id": "2607.15524",
-  "id_version": "2607.15524v1",
-  "title": "Recursive Harness Self-Improvement",
-  "authors": [
-   "Hyunin Lee",
-   "Jinglue Xu",
-   "Jeffrey Seely",
-   "Donghyun Lee",
-   "Matei Zaharia",
-   "Yujin Tang"
-  ],
-  "published": "2026-07-17",
-  "updated": "2026-07-17",
-  "abstract": "Under model--harness co-evolution, harnesses are not merely inference-time scaffolds but data-generating components whose execution traces can shape future foundation models. This motivates harness-in-the-loop learning: optimizing harnesses for both immediate agent performance and the quality of traces used for future model training. However, continually updating provider-built scaffolds is costly and labor-intensive. We therefore investigate whether optimizing user-constructed harnesses in a task-specific manner can improve execution-trace quality while remaining computationally lightweight and requiring only a few update iterations. To this end, we introduce Recursive Harness Self-Improvement (RHI), which represents the harness as a prompt-level specification of the agent loop and iteratively refines it using pairwise feedback over its own revision history. Across 30 synthetic machine-learning research tasks spanning quantitative finance, robotics, and pharmacy, a few RHI iterations suffice to substantially raise the performance ceiling of low-reasoning-effort agents, exceeding the corresponding maximum-reasoning-effort setting while reducing inference cost by up to 60%. We show that these gains arise primarily from improved task-specific context management through more effective inter-agent information flow rather than longer reasoning traces. Finally, we formalize this behavior as an information-theoretic hypothesis for RHI's implicit optimization objective, suggesting RHI as a practical algorithm for continual learning within the paradigm of model--harness co-evolution.",
-  "categories": [
-   "cs.LG",
-   "cs.AI"
-  ],
-  "comment": "This work addresses the first half of the model-harness coevolution loop",
   "journal_ref": ""
  },
  "2609.02217": {
@@ -2080,48 +2080,6 @@
   "comment": "",
   "journal_ref": ""
  },
- "2606.31846": {
-  "id": "2606.31846",
-  "id_version": "2606.31846v1",
-  "title": "Z-1: Efficient Reinforcement Learning for Vision-Language-Action Models",
-  "authors": [
-   "Lang Cao",
-   "Renhong Chen",
-   "Luyi Li",
-   "Peng Wang",
-   "Mofan Peng",
-   "Yitong Li"
-  ],
-  "published": "2026-06-30",
-  "updated": "2026-06-30",
-  "abstract": "Vision-Language-Action (VLA) models offer a promising framework for robotic manipulation by connecting language instructions, visual observations, and continuous control. However, most existing policies remain limited by behavior cloning or supervised fine-tuning (SFT) from fixed demonstrations, which provides limited opportunity to improve from the policy's own failures. In this paper, we present Z-1, a reinforcement learning (RL) post-training framework for flow-based VLA models. Built on top of $π_{0.5}$, Z-1 uses only publicly released RoboCasa demonstrations for SFT and then applies a task-wise Group Relative Policy Optimization (GRPO) strategy across $24$ standard RoboCasa tasks. To improve the efficiency and stability of online optimization, Z-1 combines shared-prefix rollout construction, tree-structured trajectory branching, completion-aware reward calibration, and selective joint training of VLM and Action Expert. Across all $24$ RoboCasa tasks, Z-1 achieves an average success rate of $80.6\\%$, improving over its SFT initialization by $13.2\\%$ points and outperforms the published sota models. These results show that systematic GRPO post-training can substantially improve flow-based VLA policies without additional private demonstrations.",
-  "categories": [
-   "cs.RO",
-   "cs.AI"
-  ],
-  "comment": "",
-  "journal_ref": ""
- },
- "2606.29892": {
-  "id": "2606.29892",
-  "id_version": "2606.29892v1",
-  "title": "Trust Your Instincts: Confidence-Driven Test-Time RL for Vision-Language-Action Models",
-  "authors": [
-   "Siyao Chen",
-   "Jiakang Yuan",
-   "Jiaxin Wang",
-   "Tao Chen"
-  ],
-  "published": "2026-06-29",
-  "updated": "2026-06-29",
-  "abstract": "Reinforcement learning (RL) has become indispensable for pushing Vision-Language-Action Models (VLAs) beyond static imitation learning. However, existing RL methods typically require external environmental feedback, relying on predefined success signals to guide policy updates. In this work, we show that VLA models possess useful internal evaluative capabilities: in discrete-action VLAs, trajectories with higher generation confidence are significantly more likely to succeed. Based on this observation, we introduce T^2VLA (Test-time VLA), an architecture-agnostic test-time RL framework that enables VLA models to achieve self-bootstrapping policy improvement. Instead of relying on external rewards, T^2VLA leverages trajectory-level similarity to high-confidence expert demonstrations as an intrinsic reward signal. In addition, we propose a Confidence-Driven Dual Expert Bootstrapping mechanism, which dynamically balances a Local Pseudo-Expert for exploration and a Global Expert Pool for training stability. Extensive experiments on the LIBERO and RoboTwin benchmarks show that T^2VLA consistently outperforms supervised baselines and approaches oracle RL performance with ground-truth rewards, achieving effective improvement without external reward feedback. Furthermore, T^2VLA adapts to distinct VLA paradigms, including both OpenVLA-OFT and the pi series.",
-  "categories": [
-   "cs.RO",
-   "cs.AI"
-  ],
-  "comment": "",
-  "journal_ref": ""
- },
  "2606.18646": {
   "id": "2606.18646",
   "id_version": "2606.18646v1",
@@ -2140,29 +2098,6 @@
    "cs.RO"
   ],
   "comment": "CCF Transactions on Pervasive Computing and Interaction",
-  "journal_ref": ""
- },
- "2607.29613": {
-  "id": "2607.29613",
-  "id_version": "2607.29613v1",
-  "title": "WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning",
-  "authors": [
-   "Senyu Fei",
-   "Xiaopeng Yu",
-   "Siyin Wang",
-   "Xianzhong Zhao",
-   "Jingjing Gong",
-   "Xipeng Qiu"
-  ],
-  "published": "2026-07-31",
-  "updated": "2026-07-31",
-  "abstract": "Reinforcement learning (RL) post-training of Vision-Language-Action (VLA) models has shown strong promise for robotic manipulation. Among RL methods, critic-based approaches rely on a value estimator that predominantly operates on single-frame observations or single-frame VLM backbone latents, which is a fundamental mismatch with the partially observable nature of robot control. A naive approach to incorporate observation history into the critic incurs exponential complexity with high-dimensional visual space, and still fails because pure scalar-return regression provides insufficient supervision for learning cross-temporal dynamics. We identify the root cause as a state approximation problem: without an explicit world modeling objective, the critic's representation cannot capture the temporal structure needed for accurate value estimation. To address this, we propose the World Critic Model (WCM), built on a lightweight LeJEPA architecture; WCM jointly predicts future latent state and estimates values, such that the critic's representation is explicitly trained to capture temporal dynamics rather than merely regress scalar returns. WCM integrates seamlessly into both on-policy and off-policy training pipelines and is compatible with state-of-the-art VLA backbones including Pi0, Pi0.5, and OpenVLA-OFT. Extensive experiments on 149 tasks across four benchmarks demonstrate that WCM consistently achieves state-of-the-art performance in both in-distribution and out-of-distribution settings, with particularly strong generalization gains. We further validate WCM on seven real-world manipulation tasks using OpenVLA-OFT and Pi0.5 with off-policy RL, confirming stable deployment across diverse settings.",
-  "categories": [
-   "cs.RO",
-   "cs.CL",
-   "cs.CV"
-  ],
-  "comment": "",
   "journal_ref": ""
  },
  "2608.23831": {
@@ -2199,6 +2134,71 @@
    "cs.LG"
   ],
   "comment": "25 pages, 12 figures, project website: https://async-rl-intermediate-information.github.io/",
+  "journal_ref": ""
+ },
+ "2606.29892": {
+  "id": "2606.29892",
+  "id_version": "2606.29892v1",
+  "title": "Trust Your Instincts: Confidence-Driven Test-Time RL for Vision-Language-Action Models",
+  "authors": [
+   "Siyao Chen",
+   "Jiakang Yuan",
+   "Jiaxin Wang",
+   "Tao Chen"
+  ],
+  "published": "2026-06-29",
+  "updated": "2026-06-29",
+  "abstract": "Reinforcement learning (RL) has become indispensable for pushing Vision-Language-Action Models (VLAs) beyond static imitation learning. However, existing RL methods typically require external environmental feedback, relying on predefined success signals to guide policy updates. In this work, we show that VLA models possess useful internal evaluative capabilities: in discrete-action VLAs, trajectories with higher generation confidence are significantly more likely to succeed. Based on this observation, we introduce T^2VLA (Test-time VLA), an architecture-agnostic test-time RL framework that enables VLA models to achieve self-bootstrapping policy improvement. Instead of relying on external rewards, T^2VLA leverages trajectory-level similarity to high-confidence expert demonstrations as an intrinsic reward signal. In addition, we propose a Confidence-Driven Dual Expert Bootstrapping mechanism, which dynamically balances a Local Pseudo-Expert for exploration and a Global Expert Pool for training stability. Extensive experiments on the LIBERO and RoboTwin benchmarks show that T^2VLA consistently outperforms supervised baselines and approaches oracle RL performance with ground-truth rewards, achieving effective improvement without external reward feedback. Furthermore, T^2VLA adapts to distinct VLA paradigms, including both OpenVLA-OFT and the pi series.",
+  "categories": [
+   "cs.RO",
+   "cs.AI"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
+ "2606.31846": {
+  "id": "2606.31846",
+  "id_version": "2606.31846v1",
+  "title": "Z-1: Efficient Reinforcement Learning for Vision-Language-Action Models",
+  "authors": [
+   "Lang Cao",
+   "Renhong Chen",
+   "Luyi Li",
+   "Peng Wang",
+   "Mofan Peng",
+   "Yitong Li"
+  ],
+  "published": "2026-06-30",
+  "updated": "2026-06-30",
+  "abstract": "Vision-Language-Action (VLA) models offer a promising framework for robotic manipulation by connecting language instructions, visual observations, and continuous control. However, most existing policies remain limited by behavior cloning or supervised fine-tuning (SFT) from fixed demonstrations, which provides limited opportunity to improve from the policy's own failures. In this paper, we present Z-1, a reinforcement learning (RL) post-training framework for flow-based VLA models. Built on top of $π_{0.5}$, Z-1 uses only publicly released RoboCasa demonstrations for SFT and then applies a task-wise Group Relative Policy Optimization (GRPO) strategy across $24$ standard RoboCasa tasks. To improve the efficiency and stability of online optimization, Z-1 combines shared-prefix rollout construction, tree-structured trajectory branching, completion-aware reward calibration, and selective joint training of VLM and Action Expert. Across all $24$ RoboCasa tasks, Z-1 achieves an average success rate of $80.6\\%$, improving over its SFT initialization by $13.2\\%$ points and outperforms the published sota models. These results show that systematic GRPO post-training can substantially improve flow-based VLA policies without additional private demonstrations.",
+  "categories": [
+   "cs.RO",
+   "cs.AI"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
+ "2607.29613": {
+  "id": "2607.29613",
+  "id_version": "2607.29613v1",
+  "title": "WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning",
+  "authors": [
+   "Senyu Fei",
+   "Xiaopeng Yu",
+   "Siyin Wang",
+   "Xianzhong Zhao",
+   "Jingjing Gong",
+   "Xipeng Qiu"
+  ],
+  "published": "2026-07-31",
+  "updated": "2026-07-31",
+  "abstract": "Reinforcement learning (RL) post-training of Vision-Language-Action (VLA) models has shown strong promise for robotic manipulation. Among RL methods, critic-based approaches rely on a value estimator that predominantly operates on single-frame observations or single-frame VLM backbone latents, which is a fundamental mismatch with the partially observable nature of robot control. A naive approach to incorporate observation history into the critic incurs exponential complexity with high-dimensional visual space, and still fails because pure scalar-return regression provides insufficient supervision for learning cross-temporal dynamics. We identify the root cause as a state approximation problem: without an explicit world modeling objective, the critic's representation cannot capture the temporal structure needed for accurate value estimation. To address this, we propose the World Critic Model (WCM), built on a lightweight LeJEPA architecture; WCM jointly predicts future latent state and estimates values, such that the critic's representation is explicitly trained to capture temporal dynamics rather than merely regress scalar returns. WCM integrates seamlessly into both on-policy and off-policy training pipelines and is compatible with state-of-the-art VLA backbones including Pi0, Pi0.5, and OpenVLA-OFT. Extensive experiments on 149 tasks across four benchmarks demonstrate that WCM consistently achieves state-of-the-art performance in both in-distribution and out-of-distribution settings, with particularly strong generalization gains. We further validate WCM on seven real-world manipulation tasks using OpenVLA-OFT and Pi0.5 with off-policy RL, confirming stable deployment across diverse settings.",
+  "categories": [
+   "cs.RO",
+   "cs.CL",
+   "cs.CV"
+  ],
+  "comment": "",
   "journal_ref": ""
  },
  "2605.30924": {
@@ -2965,6 +2965,29 @@
   "comment": "",
   "journal_ref": ""
  },
+ "2309.16797": {
+  "id": "2309.16797",
+  "id_version": "2309.16797v1",
+  "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+  "authors": [
+   "Chrisantha Fernando",
+   "Dylan Banarse",
+   "Henryk Michalewski",
+   "Simon Osindero",
+   "Tim Rocktäschel"
+  ],
+  "published": "2023-09-28",
+  "updated": "2023-09-28",
+  "abstract": "Popular prompt strategies like Chain-of-Thought Prompting can dramatically improve the reasoning abilities of Large Language Models (LLMs) in various domains. However, such hand-crafted prompt-strategies are often sub-optimal. In this paper, we present Promptbreeder, a general-purpose self-referential self-improvement mechanism that evolves and adapts prompts for a given domain. Driven by an LLM, Promptbreeder mutates a population of task-prompts, and subsequently evaluates them for fitness on a training set. Crucially, the mutation of these task-prompts is governed by mutation-prompts that the LLM generates and improves throughout evolution in a self-referential way. That is, Promptbreeder is not just improving task-prompts, but it is also improving the mutationprompts that improve these task-prompts. Promptbreeder outperforms state-of-the-art prompt strategies such as Chain-of-Thought and Plan-and-Solve Prompting on commonly used arithmetic and commonsense reasoning benchmarks. Furthermore, Promptbreeder is able to evolve intricate task-prompts for the challenging problem of hate speech classification.",
+  "categories": [
+   "cs.CL",
+   "cs.AI",
+   "cs.LG",
+   "cs.NE"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
  "2601.08325": {
   "id": "2601.08325",
   "id_version": "2601.08325v1",
@@ -3023,6 +3046,41 @@
   "comment": "",
   "journal_ref": ""
  },
+ "2506.13131": {
+  "id": "2506.13131",
+  "id_version": "2506.13131v1",
+  "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+  "authors": [
+   "Alexander Novikov",
+   "Ngân Vũ",
+   "Marvin Eisenberger",
+   "Emilien Dupont",
+   "Po-Sen Huang",
+   "Adam Zsolt Wagner",
+   "Sergey Shirobokov",
+   "Borislav Kozlovskii",
+   "Francisco J. R. Ruiz",
+   "Abbas Mehrabian",
+   "M. Pawan Kumar",
+   "Abigail See",
+   "Swarat Chaudhuri",
+   "George Holland",
+   "Alex Davies",
+   "Sebastian Nowozin",
+   "Pushmeet Kohli",
+   "Matej Balog"
+  ],
+  "published": "2025-06-16",
+  "updated": "2025-06-16",
+  "abstract": "In this white paper, we present AlphaEvolve, an evolutionary coding agent that substantially enhances capabilities of state-of-the-art LLMs on highly challenging tasks such as tackling open scientific problems or optimizing critical pieces of computational infrastructure. AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code. Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm, potentially leading to new scientific and practical discoveries. We demonstrate the broad applicability of this approach by applying it to a number of important computational problems. When applied to optimizing critical components of large-scale computational stacks at Google, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery methods (Romera-Paredes et al., 2023). Notably, AlphaEvolve developed a search algorithm that found a procedure to multiply two $4 \\times 4$ complex-valued matrices using $48$ scalar multiplications; offering the first improvement, after 56 years, over Strassen's algorithm in this setting. We believe AlphaEvolve and coding agents like it can have a significant impact in improving solutions of problems across many areas of science and computation.",
+  "categories": [
+   "cs.AI",
+   "cs.LG",
+   "cs.NE"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
  "2602.09430": {
   "id": "2602.09430",
   "id_version": "2602.09430v2",
@@ -3047,6 +3105,48 @@
    "cs.AI"
   ],
   "comment": "",
+  "journal_ref": ""
+ },
+ "2310.02304": {
+  "id": "2310.02304",
+  "id_version": "2310.02304v3",
+  "title": "Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation",
+  "authors": [
+   "Eric Zelikman",
+   "Eliana Lorch",
+   "Lester Mackey",
+   "Adam Tauman Kalai"
+  ],
+  "published": "2023-10-03",
+  "updated": "2024-08-16",
+  "abstract": "Several recent advances in AI systems solve problems by providing a \"scaffolding\" program that structures multiple calls to language models (LMs) to generate better outputs. A scaffolding program is written in a programming language such as Python. In this work, we use a language-model-infused scaffolding program to improve itself. We start with a seed \"improver\" that improves an input program according to a given utility function by querying an LM several times and returning the best solution. We then run this seed improver to improve itself. Across a small set of downstream tasks, the resulting improved improver generates programs with significantly better performance than its seed improver. A variety of self-improvement strategies are proposed by the language model, including beam search, genetic algorithms, and simulated annealing. Since the language models themselves are not altered, this is not full recursive self-improvement. Nonetheless, it demonstrates that a modern language model, GPT-4 in our experiments, is capable of writing code that can call itself to improve itself. We consider concerns around the development of self-improving technologies and evaluate the frequency with which the generated code bypasses a sandbox.",
+  "categories": [
+   "cs.CL",
+   "cs.AI",
+   "cs.LG",
+   "stat.ML"
+  ],
+  "comment": "Published as a conference paper at COLM 2024",
+  "journal_ref": ""
+ },
+ "2505.22954": {
+  "id": "2505.22954",
+  "id_version": "2505.22954v3",
+  "title": "Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents",
+  "authors": [
+   "Jenny Zhang",
+   "Shengran Hu",
+   "Cong Lu",
+   "Robert Lange",
+   "Jeff Clune"
+  ],
+  "published": "2025-05-29",
+  "updated": "2026-03-12",
+  "abstract": "Today's AI systems have human-designed, fixed architectures and cannot autonomously and continuously improve themselves. The advance of AI could itself be automated. If done safely, that would accelerate AI development and allow us to reap its benefits much sooner. Meta-learning can automate the discovery of novel algorithms, but is limited by first-order improvements and the human design of a suitable search space. The Gödel machine proposed a theoretical alternative: a self-improving AI that repeatedly modifies itself in a provably beneficial manner. Unfortunately, proving that most changes are net beneficial is impossible in practice. We introduce the Darwin Gödel Machine (DGM), a self-improving system that iteratively modifies its own code (thereby also improving its ability to modify its own codebase) and empirically validates each change using coding benchmarks. Inspired by Darwinian evolution and open-endedness research, the DGM maintains an archive of generated coding agents. It grows the archive by sampling an agent from it and using a foundation model to create a new, interesting, version of the sampled agent. This open-ended exploration forms a growing tree of diverse, high-quality agents and allows the parallel exploration of many different paths through the search space. Empirically, the DGM automatically improves its coding capabilities (e.g., better code editing tools, long-context window management, peer-review mechanisms), increasing performance on SWE-bench from 20.0% to 50.0%, and on Polyglot from 14.2% to 30.7%. Furthermore, the DGM significantly outperforms baselines without self-improvement or open-ended exploration. All experiments were done with safety precautions (e.g., sandboxing, human oversight). The DGM is a significant step toward self-improving AI, capable of gathering its own stepping stones along paths that unfold into endless innovation.",
+  "categories": [
+   "cs.AI"
+  ],
+  "comment": "Code at https://github.com/jennyzzt/dgm",
   "journal_ref": ""
  },
  "2606.07723": {
@@ -3097,6 +3197,71 @@
    "cs.SE"
   ],
   "comment": "",
+  "journal_ref": ""
+ },
+ "2510.04618": {
+  "id": "2510.04618",
+  "id_version": "2510.04618v3",
+  "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
+  "authors": [
+   "Qizheng Zhang",
+   "Changran Hu",
+   "Shubhangi Upasani",
+   "Boyuan Ma",
+   "Fenglu Hong",
+   "Vamsidhar Kamanuru",
+   "Jay Rainton",
+   "Chen Wu",
+   "Mengmeng Ji",
+   "Hanchen Li",
+   "Urmish Thakker",
+   "James Zou",
+   "Kunle Olukotun"
+  ],
+  "published": "2025-10-06",
+  "updated": "2026-03-29",
+  "abstract": "Large language model (LLM) applications such as agents and domain-specific reasoning increasingly rely on context adaptation: modifying inputs with instructions, strategies, or evidence, rather than weight updates. Prior approaches improve usability but often suffer from brevity bias, which drops domain insights for concise summaries, and from context collapse, where iterative rewriting erodes details over time. We introduce ACE (Agentic Context Engineering), a framework that treats contexts as evolving playbooks that accumulate, refine, and organize strategies through a modular process of generation, reflection, and curation. ACE prevents collapse with structured, incremental updates that preserve detailed knowledge and scale with long-context models. Across agent and domain-specific benchmarks, ACE optimizes contexts both offline (e.g., system prompts) and online (e.g., agent memory), consistently outperforming strong baselines: +10.6% on agents and +8.6% on finance, while significantly reducing adaptation latency and rollout cost. Notably, ACE could adapt effectively without labeled supervision and instead by leveraging natural execution feedback. On the AppWorld leaderboard, ACE matches the top-ranked production-level agent on the overall average and surpasses it on the harder test-challenge split, despite using a smaller open-source model. These results show that comprehensive, evolving contexts enable scalable, efficient, and self-improving LLM systems with low overhead.",
+  "categories": [
+   "cs.LG",
+   "cs.AI",
+   "cs.CL"
+  ],
+  "comment": "ICLR 2026; 32 pages",
+  "journal_ref": ""
+ },
+ "2507.19457": {
+  "id": "2507.19457",
+  "id_version": "2507.19457v2",
+  "title": "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
+  "authors": [
+   "Lakshya A Agrawal",
+   "Shangyin Tan",
+   "Dilara Soylu",
+   "Noah Ziems",
+   "Rishi Khare",
+   "Krista Opsahl-Ong",
+   "Arnav Singhvi",
+   "Herumb Shandilya",
+   "Michael J Ryan",
+   "Meng Jiang",
+   "Christopher Potts",
+   "Koushik Sen",
+   "Alexandros G. Dimakis",
+   "Ion Stoica",
+   "Dan Klein",
+   "Matei Zaharia",
+   "Omar Khattab"
+  ],
+  "published": "2025-07-25",
+  "updated": "2026-02-14",
+  "abstract": "Large language models (LLMs) are increasingly adapted to downstream tasks via reinforcement learning (RL) methods like Group Relative Policy Optimization (GRPO), which often require thousands of rollouts to learn new tasks. We argue that the interpretable nature of language often provides a much richer learning medium for LLMs, compared to policy gradients derived from sparse, scalar rewards. To test this, we introduce GEPA (Genetic-Pareto), a prompt optimizer that thoroughly incorporates natural language reflection to learn high-level rules from trial and error. Given any AI system containing one or more LLM prompts, GEPA samples trajectories (e.g., reasoning, tool calls, and tool outputs) and reflects on them in natural language to diagnose problems, propose and test prompt updates, and combine complementary lessons from the Pareto frontier of its own attempts. As a result of GEPA's design, it can often turn even just a few rollouts into a large quality gain. Across six tasks, GEPA outperforms GRPO by 6% on average and by up to 20%, while using up to 35x fewer rollouts. GEPA also outperforms the leading prompt optimizer, MIPROv2, by over 10% (e.g., +12% accuracy on AIME-2025), and demonstrates promising results as an inference-time search strategy for code optimization. We release our code at https://github.com/gepa-ai/gepa .",
+  "categories": [
+   "cs.CL",
+   "cs.AI",
+   "cs.LG",
+   "cs.SE"
+  ],
+  "comment": "Accepted to ICLR 2026 (Oral). Code: https://github.com/gepa-ai/gepa",
   "journal_ref": ""
  },
  "2604.14399": {
@@ -3280,83 +3445,107 @@
   "comment": "",
   "journal_ref": ""
  },
- "2309.16797": {
-  "id": "2309.16797",
-  "id_version": "2309.16797v1",
-  "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+ "2310.12931": {
+  "id": "2310.12931",
+  "id_version": "2310.12931v2",
+  "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
   "authors": [
-   "Chrisantha Fernando",
-   "Dylan Banarse",
-   "Henryk Michalewski",
-   "Simon Osindero",
-   "Tim Rocktäschel"
+   "Yecheng Jason Ma",
+   "William Liang",
+   "Guanzhi Wang",
+   "De-An Huang",
+   "Osbert Bastani",
+   "Dinesh Jayaraman",
+   "Yuke Zhu",
+   "Linxi Fan",
+   "Anima Anandkumar"
   ],
-  "published": "2023-09-28",
-  "updated": "2023-09-28",
-  "abstract": "Popular prompt strategies like Chain-of-Thought Prompting can dramatically improve the reasoning abilities of Large Language Models (LLMs) in various domains. However, such hand-crafted prompt-strategies are often sub-optimal. In this paper, we present Promptbreeder, a general-purpose self-referential self-improvement mechanism that evolves and adapts prompts for a given domain. Driven by an LLM, Promptbreeder mutates a population of task-prompts, and subsequently evaluates them for fitness on a training set. Crucially, the mutation of these task-prompts is governed by mutation-prompts that the LLM generates and improves throughout evolution in a self-referential way. That is, Promptbreeder is not just improving task-prompts, but it is also improving the mutationprompts that improve these task-prompts. Promptbreeder outperforms state-of-the-art prompt strategies such as Chain-of-Thought and Plan-and-Solve Prompting on commonly used arithmetic and commonsense reasoning benchmarks. Furthermore, Promptbreeder is able to evolve intricate task-prompts for the challenging problem of hate speech classification.",
+  "published": "2023-10-19",
+  "updated": "2024-04-30",
+  "abstract": "Large Language Models (LLMs) have excelled as high-level semantic planners for sequential decision-making tasks. However, harnessing them to learn complex low-level manipulation tasks, such as dexterous pen spinning, remains an open problem. We bridge this fundamental gap and present Eureka, a human-level reward design algorithm powered by LLMs. Eureka exploits the remarkable zero-shot generation, code-writing, and in-context improvement capabilities of state-of-the-art LLMs, such as GPT-4, to perform evolutionary optimization over reward code. The resulting rewards can then be used to acquire complex skills via reinforcement learning. Without any task-specific prompting or pre-defined reward templates, Eureka generates reward functions that outperform expert human-engineered rewards. In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%. The generality of Eureka also enables a new gradient-free in-context learning approach to reinforcement learning from human feedback (RLHF), readily incorporating human inputs to improve the quality and the safety of the generated rewards without model updating. Finally, using Eureka rewards in a curriculum learning setting, we demonstrate for the first time, a simulated Shadow Hand capable of performing pen spinning tricks, adeptly manipulating a pen in circles at rapid speed.",
   "categories": [
-   "cs.CL",
+   "cs.RO",
    "cs.AI",
-   "cs.LG",
-   "cs.NE"
+   "cs.LG"
   ],
-  "comment": "",
+  "comment": "ICLR 2024. Project website and open-source code: https://eureka-research.github.io/",
   "journal_ref": ""
  },
- "2308.10379": {
-  "id": "2308.10379",
-  "id_version": "2308.10379v3",
-  "title": "Algorithm of Thoughts: Enhancing Exploration of Ideas in Large Language Models",
+ "2605.28390": {
+  "id": "2605.28390",
+  "id_version": "2605.28390v2",
+  "title": "You Live More Than Once: Towards Hierarchical Skill Meta-Evolving",
   "authors": [
-   "Bilgehan Sel",
-   "Ahmad Al-Tawaha",
-   "Vanshaj Khattar",
-   "Ruoxi Jia",
-   "Ming Jin"
+   "Xujun Li",
+   "Kehan Zheng",
+   "Mingyuan Zhao",
+   "Yize Geng",
+   "Jinfeng Zhou",
+   "Qi Zhu",
+   "Fei Mi",
+   "Lifeng Shang",
+   "Minlie Huang",
+   "Hongning Wang"
   ],
-  "published": "2023-08-20",
-  "updated": "2024-06-02",
-  "abstract": "Current literature, aiming to surpass the \"Chain-of-Thought\" approach, often resorts to external modi operandi involving halting, modifying, and then resuming the generation process to boost Large Language Models' (LLMs) reasoning capacities. Due to their myopic perspective, they escalate the number of query requests, leading to increased costs, memory, and computational overheads. Addressing this, we propose the Algorithm of Thoughts -- a novel strategy that propels LLMs through algorithmic reasoning pathways. By employing algorithmic examples fully in-context, this overarching view of the whole process exploits the innate recurrence dynamics of LLMs, expanding their idea exploration with merely one or a few queries. Our technique outperforms earlier single-query methods and even more recent multi-query strategies that employ an extensive tree search algorithms while using significantly fewer tokens. Intriguingly, our results suggest that instructing an LLM using an algorithm can lead to performance surpassing that of the algorithm itself, hinting at LLM's inherent ability to weave its intuition into optimized searches. We probe into the underpinnings of our method's efficacy and its nuances in application. The code and related content can be found in: https://algorithm-of-thoughts.github.io.",
+  "published": "2026-05-27",
+  "updated": "2026-07-22",
+  "abstract": "Test-time skill evolving is regarded as a new paradigm for enhancing deployed agentic systems. Existing works mainly focus on hard-coded skill evolving strategies or parametric learning that rely on expensive parameter updates in the underlying LLMs. In this paper, we demonstrate that test-time refinement of the skill evolving framework itself is necessary for continuous improvement of the agent systems in different downstream scenarios, and lightweight algorithmic adaptation is feasible. Specifically, we propose HiSME, a lightweight hierarchical skill meta-evolving solution that jointly optimizes skills and the skill evolving strategy by learning meta-skills from agents' task execution traces. Experiments on mainstream agentic benchmarks show that meta-evolving can produce a higher-quality skill library than pure skill evolving and can derive diverse meta-skills for different scenarios, thereby facilitating future continual experience learning. Our code is temporarily public at https://anonymous.4open.science/r/HiSME-BD45.",
   "categories": [
-   "cs.CL",
    "cs.AI"
   ],
-  "comment": "ICML 2024",
+  "comment": "",
   "journal_ref": ""
  },
- "2506.13131": {
-  "id": "2506.13131",
-  "id_version": "2506.13131v1",
-  "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+ "2305.20050": {
+  "id": "2305.20050",
+  "id_version": "2305.20050v1",
+  "title": "Let's Verify Step by Step",
   "authors": [
-   "Alexander Novikov",
-   "Ngân Vũ",
-   "Marvin Eisenberger",
-   "Emilien Dupont",
-   "Po-Sen Huang",
-   "Adam Zsolt Wagner",
-   "Sergey Shirobokov",
-   "Borislav Kozlovskii",
-   "Francisco J. R. Ruiz",
-   "Abbas Mehrabian",
-   "M. Pawan Kumar",
-   "Abigail See",
-   "Swarat Chaudhuri",
-   "George Holland",
-   "Alex Davies",
-   "Sebastian Nowozin",
-   "Pushmeet Kohli",
-   "Matej Balog"
+   "Hunter Lightman",
+   "Vineet Kosaraju",
+   "Yura Burda",
+   "Harri Edwards",
+   "Bowen Baker",
+   "Teddy Lee",
+   "Jan Leike",
+   "John Schulman",
+   "Ilya Sutskever",
+   "Karl Cobbe"
   ],
-  "published": "2025-06-16",
-  "updated": "2025-06-16",
-  "abstract": "In this white paper, we present AlphaEvolve, an evolutionary coding agent that substantially enhances capabilities of state-of-the-art LLMs on highly challenging tasks such as tackling open scientific problems or optimizing critical pieces of computational infrastructure. AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code. Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm, potentially leading to new scientific and practical discoveries. We demonstrate the broad applicability of this approach by applying it to a number of important computational problems. When applied to optimizing critical components of large-scale computational stacks at Google, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery methods (Romera-Paredes et al., 2023). Notably, AlphaEvolve developed a search algorithm that found a procedure to multiply two $4 \\times 4$ complex-valued matrices using $48$ scalar multiplications; offering the first improvement, after 56 years, over Strassen's algorithm in this setting. We believe AlphaEvolve and coding agents like it can have a significant impact in improving solutions of problems across many areas of science and computation.",
+  "published": "2023-05-31",
+  "updated": "2023-05-31",
+  "abstract": "In recent years, large language models have greatly improved in their ability to perform complex multi-step reasoning. However, even state-of-the-art models still regularly produce logical mistakes. To train more reliable models, we can turn either to outcome supervision, which provides feedback for a final result, or process supervision, which provides feedback for each intermediate reasoning step. Given the importance of training reliable models, and given the high cost of human feedback, it is important to carefully compare the both methods. Recent work has already begun this comparison, but many questions still remain. We conduct our own investigation, finding that process supervision significantly outperforms outcome supervision for training models to solve problems from the challenging MATH dataset. Our process-supervised model solves 78% of problems from a representative subset of the MATH test set. Additionally, we show that active learning significantly improves the efficacy of process supervision. To support related research, we also release PRM800K, the complete dataset of 800,000 step-level human feedback labels used to train our best reward model.",
   "categories": [
-   "cs.AI",
    "cs.LG",
-   "cs.NE"
+   "cs.AI",
+   "cs.CL"
   ],
   "comment": "",
+  "journal_ref": ""
+ },
+ "2406.01967": {
+  "id": "2406.01967",
+  "id_version": "2406.01967v1",
+  "title": "DrEureka: Language Model Guided Sim-To-Real Transfer",
+  "authors": [
+   "Yecheng Jason Ma",
+   "William Liang",
+   "Hung-Ju Wang",
+   "Sam Wang",
+   "Yuke Zhu",
+   "Linxi Fan",
+   "Osbert Bastani",
+   "Dinesh Jayaraman"
+  ],
+  "published": "2024-06-04",
+  "updated": "2024-06-04",
+  "abstract": "Transferring policies learned in simulation to the real world is a promising strategy for acquiring robot skills at scale. However, sim-to-real approaches typically rely on manual design and tuning of the task reward function as well as the simulation physics parameters, rendering the process slow and human-labor intensive. In this paper, we investigate using Large Language Models (LLMs) to automate and accelerate sim-to-real design. Our LLM-guided sim-to-real approach, DrEureka, requires only the physics simulation for the target task and automatically constructs suitable reward functions and domain randomization distributions to support real-world transfer. We first demonstrate that our approach can discover sim-to-real configurations that are competitive with existing human-designed ones on quadruped locomotion and dexterous manipulation tasks. Then, we showcase that our approach is capable of solving novel robot tasks, such as quadruped balancing and walking atop a yoga ball, without iterative manual design.",
+  "categories": [
+   "cs.RO",
+   "cs.AI",
+   "cs.LG"
+  ],
+  "comment": "Robotics: Science and Systems (RSS) 2024. Project website and open-source code: https://eureka-research.github.io/dr-eureka/",
   "journal_ref": ""
  },
  "2603.28052": {
@@ -3404,89 +3593,45 @@
   "comment": "28 pages, 19 figures, 5 tables",
   "journal_ref": ""
  },
- "2505.22954": {
-  "id": "2505.22954",
-  "id_version": "2505.22954v3",
-  "title": "Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents",
+ "2408.06292": {
+  "id": "2408.06292",
+  "id_version": "2408.06292v3",
+  "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
   "authors": [
-   "Jenny Zhang",
-   "Shengran Hu",
+   "Chris Lu",
    "Cong Lu",
-   "Robert Lange",
-   "Jeff Clune"
+   "Robert Tjarko Lange",
+   "Jakob Foerster",
+   "Jeff Clune",
+   "David Ha"
   ],
-  "published": "2025-05-29",
-  "updated": "2026-03-12",
-  "abstract": "Today's AI systems have human-designed, fixed architectures and cannot autonomously and continuously improve themselves. The advance of AI could itself be automated. If done safely, that would accelerate AI development and allow us to reap its benefits much sooner. Meta-learning can automate the discovery of novel algorithms, but is limited by first-order improvements and the human design of a suitable search space. The Gödel machine proposed a theoretical alternative: a self-improving AI that repeatedly modifies itself in a provably beneficial manner. Unfortunately, proving that most changes are net beneficial is impossible in practice. We introduce the Darwin Gödel Machine (DGM), a self-improving system that iteratively modifies its own code (thereby also improving its ability to modify its own codebase) and empirically validates each change using coding benchmarks. Inspired by Darwinian evolution and open-endedness research, the DGM maintains an archive of generated coding agents. It grows the archive by sampling an agent from it and using a foundation model to create a new, interesting, version of the sampled agent. This open-ended exploration forms a growing tree of diverse, high-quality agents and allows the parallel exploration of many different paths through the search space. Empirically, the DGM automatically improves its coding capabilities (e.g., better code editing tools, long-context window management, peer-review mechanisms), increasing performance on SWE-bench from 20.0% to 50.0%, and on Polyglot from 14.2% to 30.7%. Furthermore, the DGM significantly outperforms baselines without self-improvement or open-ended exploration. All experiments were done with safety precautions (e.g., sandboxing, human oversight). The DGM is a significant step toward self-improving AI, capable of gathering its own stepping stones along paths that unfold into endless innovation.",
+  "published": "2024-08-12",
+  "updated": "2024-09-01",
+  "abstract": "One of the grand challenges of artificial general intelligence is developing agents capable of conducting scientific research and discovering new knowledge. While frontier models have already been used as aides to human scientists, e.g. for brainstorming ideas, writing code, or prediction tasks, they still conduct only a small part of the scientific process. This paper presents the first comprehensive framework for fully automatic scientific discovery, enabling frontier large language models to perform research independently and communicate their findings. We introduce The AI Scientist, which generates novel research ideas, writes code, executes experiments, visualizes results, describes its findings by writing a full scientific paper, and then runs a simulated review process for evaluation. In principle, this process can be repeated to iteratively develop ideas in an open-ended fashion, acting like the human scientific community. We demonstrate its versatility by applying it to three distinct subfields of machine learning: diffusion modeling, transformer-based language modeling, and learning dynamics. Each idea is implemented and developed into a full paper at a cost of less than $15 per paper. To evaluate the generated papers, we design and validate an automated reviewer, which we show achieves near-human performance in evaluating paper scores. The AI Scientist can produce papers that exceed the acceptance threshold at a top machine learning conference as judged by our automated reviewer. This approach signifies the beginning of a new era in scientific discovery in machine learning: bringing the transformative benefits of AI agents to the entire research process of AI itself, and taking us closer to a world where endless affordable creativity and innovation can be unleashed on the world's most challenging problems. Our code is open-sourced at https://github.com/SakanaAI/AI-Scientist",
   "categories": [
+   "cs.AI",
+   "cs.CL",
+   "cs.LG"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
+ "2606.18247": {
+  "id": "2606.18247",
+  "id_version": "2606.18247v1",
+  "title": "Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement",
+  "authors": [
+   "Mingtong Zhang",
+   "Dhruv Shah"
+  ],
+  "published": "2026-06-16",
+  "updated": "2026-06-16",
+  "abstract": "Robots deployed in the real world should learn from their experience and improve over time. This requires a mechanism of practicing and learning from feedback. In this paper, we propose VERITAS, a generator-verifier framework for generalist robot policies for inference-time policy steering and self-improvement. We use a pre-trained generalist robot policy as a ``generator'' and pair it with a gradient-free ``visual verifier'' that evaluates actions at inference time. This framework enables inference-time steering that improves policy performance without additional training. We demonstrate that inference-time verification consistently outperforms vanilla generalists without training on additional demonstration data. Additionally, we demonstrate that the verified rollouts provide effective supervision for offline policy improvement: policies fine-tuned on verified self-generated trajectories achieve consistent performance gains. Notably, we find that post-training with verified rollouts achieves comparable efficiency to expert demonstrations, while requiring no human interventions. Our results highlight inference-time verification as a practical and scalable mechanism for improving robotic policies during deployment.",
+  "categories": [
+   "cs.RO",
    "cs.AI"
   ],
-  "comment": "Code at https://github.com/jennyzzt/dgm",
-  "journal_ref": ""
- },
- "2510.04618": {
-  "id": "2510.04618",
-  "id_version": "2510.04618v3",
-  "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
-  "authors": [
-   "Qizheng Zhang",
-   "Changran Hu",
-   "Shubhangi Upasani",
-   "Boyuan Ma",
-   "Fenglu Hong",
-   "Vamsidhar Kamanuru",
-   "Jay Rainton",
-   "Chen Wu",
-   "Mengmeng Ji",
-   "Hanchen Li",
-   "Urmish Thakker",
-   "James Zou",
-   "Kunle Olukotun"
-  ],
-  "published": "2025-10-06",
-  "updated": "2026-03-29",
-  "abstract": "Large language model (LLM) applications such as agents and domain-specific reasoning increasingly rely on context adaptation: modifying inputs with instructions, strategies, or evidence, rather than weight updates. Prior approaches improve usability but often suffer from brevity bias, which drops domain insights for concise summaries, and from context collapse, where iterative rewriting erodes details over time. We introduce ACE (Agentic Context Engineering), a framework that treats contexts as evolving playbooks that accumulate, refine, and organize strategies through a modular process of generation, reflection, and curation. ACE prevents collapse with structured, incremental updates that preserve detailed knowledge and scale with long-context models. Across agent and domain-specific benchmarks, ACE optimizes contexts both offline (e.g., system prompts) and online (e.g., agent memory), consistently outperforming strong baselines: +10.6% on agents and +8.6% on finance, while significantly reducing adaptation latency and rollout cost. Notably, ACE could adapt effectively without labeled supervision and instead by leveraging natural execution feedback. On the AppWorld leaderboard, ACE matches the top-ranked production-level agent on the overall average and surpasses it on the harder test-challenge split, despite using a smaller open-source model. These results show that comprehensive, evolving contexts enable scalable, efficient, and self-improving LLM systems with low overhead.",
-  "categories": [
-   "cs.LG",
-   "cs.AI",
-   "cs.CL"
-  ],
-  "comment": "ICLR 2026; 32 pages",
-  "journal_ref": ""
- },
- "2507.19457": {
-  "id": "2507.19457",
-  "id_version": "2507.19457v2",
-  "title": "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
-  "authors": [
-   "Lakshya A Agrawal",
-   "Shangyin Tan",
-   "Dilara Soylu",
-   "Noah Ziems",
-   "Rishi Khare",
-   "Krista Opsahl-Ong",
-   "Arnav Singhvi",
-   "Herumb Shandilya",
-   "Michael J Ryan",
-   "Meng Jiang",
-   "Christopher Potts",
-   "Koushik Sen",
-   "Alexandros G. Dimakis",
-   "Ion Stoica",
-   "Dan Klein",
-   "Matei Zaharia",
-   "Omar Khattab"
-  ],
-  "published": "2025-07-25",
-  "updated": "2026-02-14",
-  "abstract": "Large language models (LLMs) are increasingly adapted to downstream tasks via reinforcement learning (RL) methods like Group Relative Policy Optimization (GRPO), which often require thousands of rollouts to learn new tasks. We argue that the interpretable nature of language often provides a much richer learning medium for LLMs, compared to policy gradients derived from sparse, scalar rewards. To test this, we introduce GEPA (Genetic-Pareto), a prompt optimizer that thoroughly incorporates natural language reflection to learn high-level rules from trial and error. Given any AI system containing one or more LLM prompts, GEPA samples trajectories (e.g., reasoning, tool calls, and tool outputs) and reflects on them in natural language to diagnose problems, propose and test prompt updates, and combine complementary lessons from the Pareto frontier of its own attempts. As a result of GEPA's design, it can often turn even just a few rollouts into a large quality gain. Across six tasks, GEPA outperforms GRPO by 6% on average and by up to 20%, while using up to 35x fewer rollouts. GEPA also outperforms the leading prompt optimizer, MIPROv2, by over 10% (e.g., +12% accuracy on AIME-2025), and demonstrates promising results as an inference-time search strategy for code optimization. We release our code at https://github.com/gepa-ai/gepa .",
-  "categories": [
-   "cs.CL",
-   "cs.AI",
-   "cs.LG",
-   "cs.SE"
-  ],
-  "comment": "Accepted to ICLR 2026 (Oral). Code: https://github.com/gepa-ai/gepa",
+  "comment": "Website: https://veritas-improvement.github.io",
   "journal_ref": ""
  },
  "2603.19461": {
@@ -3512,6 +3657,50 @@
   "comment": "Code at https://github.com/facebookresearch/Hyperagents",
   "journal_ref": ""
  },
+ "2303.11366": {
+  "id": "2303.11366",
+  "id_version": "2303.11366v4",
+  "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+  "authors": [
+   "Noah Shinn",
+   "Federico Cassano",
+   "Edward Berman",
+   "Ashwin Gopinath",
+   "Karthik Narasimhan",
+   "Shunyu Yao"
+  ],
+  "published": "2023-03-20",
+  "updated": "2023-10-10",
+  "abstract": "Large language models (LLMs) have been increasingly used to interact with external environments (e.g., games, compilers, APIs) as goal-driven agents. However, it remains challenging for these language agents to quickly and efficiently learn from trial-and-error as traditional reinforcement learning methods require extensive training samples and expensive model fine-tuning. We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback. Concretely, Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials. Reflexion is flexible enough to incorporate various types (scalar values or free-form language) and sources (external or internally simulated) of feedback signals, and obtains significant improvements over a baseline agent across diverse tasks (sequential decision-making, coding, language reasoning). For example, Reflexion achieves a 91% pass@1 accuracy on the HumanEval coding benchmark, surpassing the previous state-of-the-art GPT-4 that achieves 80%. We also conduct ablation and analysis studies using different feedback signals, feedback incorporation methods, and agent types, and provide insights into how they affect performance.",
+  "categories": [
+   "cs.AI",
+   "cs.CL",
+   "cs.LG"
+  ],
+  "comment": "v4 contains a few additional experiments",
+  "journal_ref": ""
+ },
+ "2203.14465": {
+  "id": "2203.14465",
+  "id_version": "2203.14465v2",
+  "title": "STaR: Bootstrapping Reasoning With Reasoning",
+  "authors": [
+   "Eric Zelikman",
+   "Yuhuai Wu",
+   "Jesse Mu",
+   "Noah D. Goodman"
+  ],
+  "published": "2022-03-28",
+  "updated": "2022-05-20",
+  "abstract": "Generating step-by-step \"chain-of-thought\" rationales improves language model performance on complex reasoning tasks like mathematics or commonsense question-answering. However, inducing language model rationale generation currently requires either constructing massive rationale datasets or sacrificing accuracy by using only few-shot inference. We propose a technique to iteratively leverage a small number of rationale examples and a large dataset without rationales, to bootstrap the ability to perform successively more complex reasoning. This technique, the \"Self-Taught Reasoner\" (STaR), relies on a simple loop: generate rationales to answer many questions, prompted with a few rationale examples; if the generated answers are wrong, try again to generate a rationale given the correct answer; fine-tune on all the rationales that ultimately yielded correct answers; repeat. We show that STaR significantly improves performance on multiple datasets compared to a model fine-tuned to directly predict final answers, and performs comparably to fine-tuning a 30$\\times$ larger state-of-the-art language model on CommensenseQA. Thus, STaR lets a model improve itself by learning from its own generated reasoning.",
+  "categories": [
+   "cs.LG",
+   "cs.AI",
+   "cs.CL"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
  "2601.03315": {
   "id": "2601.03315",
   "id_version": "2601.03315v1",
@@ -3528,6 +3717,56 @@
    "cs.AI"
   ],
   "comment": "",
+  "journal_ref": ""
+ },
+ "2407.19594": {
+  "id": "2407.19594",
+  "id_version": "2407.19594v2",
+  "title": "Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge",
+  "authors": [
+   "Tianhao Wu",
+   "Weizhe Yuan",
+   "Olga Golovneva",
+   "Jing Xu",
+   "Yuandong Tian",
+   "Jiantao Jiao",
+   "Jason Weston",
+   "Sainbayar Sukhbaatar"
+  ],
+  "published": "2024-07-28",
+  "updated": "2024-07-30",
+  "abstract": "Large Language Models (LLMs) are rapidly surpassing human knowledge in many domains. While improving these models traditionally relies on costly human data, recent self-rewarding mechanisms (Yuan et al., 2024) have shown that LLMs can improve by judging their own responses instead of relying on human labelers. However, existing methods have primarily focused on improving model responses rather than judgment capabilities, resulting in rapid saturation during iterative training. To address this issue, we introduce a novel Meta-Rewarding step to the self-improvement process, where the model judges its own judgements and uses that feedback to refine its judgment skills. Surprisingly, this unsupervised approach improves the model's ability to judge {\\em and} follow instructions, as demonstrated by a win rate improvement of Llama-3-8B-Instruct from 22.9% to 39.4% on AlpacaEval 2, and 20.6% to 29.1% on Arena-Hard. These results strongly suggest the potential for self-improving models without human supervision.",
+  "categories": [
+   "cs.CL",
+   "cs.AI"
+  ],
+  "comment": "",
+  "journal_ref": ""
+ },
+ "2603.15600": {
+  "id": "2603.15600",
+  "id_version": "2603.15600v2",
+  "title": "From Passive Observer to Active Critic: Reinforcement Learning Elicits Process Reasoning for Robotic Manipulation",
+  "authors": [
+   "Yibin Liu",
+   "Yaxing Lyu",
+   "Daqi Gao",
+   "Zhixuan Liang",
+   "Weiliang Tang",
+   "Shilong Mu",
+   "Xiaokang Yang",
+   "Yao Mu"
+  ],
+  "published": "2026-03-16",
+  "updated": "2026-07-07",
+  "abstract": "Accurate process supervision remains a critical challenge for long-horizon robotic manipulation. A primary bottleneck is that current video MLLMs, trained primarily under a Supervised Fine-Tuning (SFT) paradigm, function as passive \"Observers\" that recognize ongoing events rather than evaluating the current state relative to the final task goal. In this paper, we introduce PRIMO R1 (Process Reasoning Induced Monitoring), a 7B framework that transforms video MLLMs into active \"Critics\". We leverage outcome-based Reinforcement Learning to incentivize explicit Chain-of-Thought generation for progress estimation. Furthermore, our architecture constructs a structured temporal input by explicitly anchoring the video sequence between initial and current state images. Supported by the proposed PRIMO Dataset and Benchmark, extensive experiments across diverse in-domain environments and out-of-domain real-world humanoid scenarios demonstrate that PRIMO R1 achieves state-of-the-art performance. Quantitatively, our 7B model achieves a 50% reduction in the mean absolute error of specialized reasoning baselines, demonstrating significant relative accuracy improvements over 72B-scale general MLLMs. Furthermore, PRIMO R1 exhibits strong zero-shot generalization on difficult failure detection tasks. We establish state-of-the-art performance on RoboFail benchmark with 67.0% accuracy, surpassing closed-source models like OpenAI o1 by 6.0%.",
+  "categories": [
+   "cs.RO",
+   "cs.AI",
+   "cs.CL",
+   "cs.CV"
+  ],
+  "comment": "Accepted to ECCV 2026. 32 pages",
   "journal_ref": ""
  },
  "2606.09498": {
@@ -3675,6 +3914,78 @@
    "cs.CL"
   ],
   "comment": "",
+  "journal_ref": ""
+ },
+ "2307.15818": {
+  "id": "2307.15818",
+  "id_version": "2307.15818v1",
+  "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+  "authors": [
+   "Anthony Brohan",
+   "Noah Brown",
+   "Justice Carbajal",
+   "Yevgen Chebotar",
+   "Xi Chen",
+   "Krzysztof Choromanski",
+   "Tianli Ding",
+   "Danny Driess",
+   "Avinava Dubey",
+   "Chelsea Finn",
+   "Pete Florence",
+   "Chuyuan Fu",
+   "Montse Gonzalez Arenas",
+   "Keerthana Gopalakrishnan",
+   "Kehang Han",
+   "Karol Hausman",
+   "Alexander Herzog",
+   "Jasmine Hsu",
+   "Brian Ichter",
+   "Alex Irpan",
+   "Nikhil Joshi",
+   "Ryan Julian",
+   "Dmitry Kalashnikov",
+   "Yuheng Kuang",
+   "Isabel Leal",
+   "Lisa Lee",
+   "Tsang-Wei Edward Lee",
+   "Sergey Levine",
+   "Yao Lu",
+   "Henryk Michalewski",
+   "Igor Mordatch",
+   "Karl Pertsch",
+   "Kanishka Rao",
+   "Krista Reymann",
+   "Michael Ryoo",
+   "Grecia Salazar",
+   "Pannag Sanketi",
+   "Pierre Sermanet",
+   "Jaspiar Singh",
+   "Anikait Singh",
+   "Radu Soricut",
+   "Huong Tran",
+   "Vincent Vanhoucke",
+   "Quan Vuong",
+   "Ayzaan Wahid",
+   "Stefan Welker",
+   "Paul Wohlhart",
+   "Jialin Wu",
+   "Fei Xia",
+   "Ted Xiao",
+   "Peng Xu",
+   "Sichun Xu",
+   "Tianhe Yu",
+   "Brianna Zitkovich"
+  ],
+  "published": "2023-07-28",
+  "updated": "2023-07-28",
+  "abstract": "We study how vision-language models trained on Internet-scale data can be incorporated directly into end-to-end robotic control to boost generalization and enable emergent semantic reasoning. Our goal is to enable a single end-to-end trained model to both learn to map robot observations to actions and enjoy the benefits of large-scale pretraining on language and vision-language data from the web. To this end, we propose to co-fine-tune state-of-the-art vision-language models on both robotic trajectory data and Internet-scale vision-language tasks, such as visual question answering. In contrast to other approaches, we propose a simple, general recipe to achieve this goal: in order to fit both natural language responses and robotic actions into the same format, we express the actions as text tokens and incorporate them directly into the training set of the model in the same way as natural language tokens. We refer to such category of models as vision-language-action models (VLA) and instantiate an example of such a model, which we call RT-2. Our extensive evaluation (6k evaluation trials) shows that our approach leads to performant robotic policies and enables RT-2 to obtain a range of emergent capabilities from Internet-scale training. This includes significantly improved generalization to novel objects, the ability to interpret commands not present in the robot training data (such as placing an object onto a particular number or icon), and the ability to perform rudimentary reasoning in response to user commands (such as picking up the smallest or largest object, or the one closest to another object). We further show that incorporating chain of thought reasoning allows RT-2 to perform multi-stage semantic reasoning, for example figuring out which object to pick up for use as an improvised hammer (a rock), or which type of drink is best suited for someone who is tired (an energy drink).",
+  "categories": [
+   "cs.RO",
+   "cs.CL",
+   "cs.CV",
+   "cs.LG"
+  ],
+  "comment": "Website: https://robotics-transformer.github.io/",
   "journal_ref": ""
  }
 }

@@ -8,5 +8,6 @@
 | `retrieval_map_transcript.md` | Transcript of the two-page "Agent + Robot 论文检索地图" (23 topic lines), with provenance for the non-arXiv entries. |
 | `lilianweng_2023-06-23_llm_agents.txt` | Text archive of Lilian Weng, "LLM Powered Autonomous Agents", Lil'Log. |
 | `lilianweng_2026-07-04_harness_engineering.txt` | Text archive of Lilian Weng, "Harness Engineering for Self-Improvement", Lil'Log. |
+| `wechat_embodied_era_robot_rsi_transcript.md` | Transcript of the WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu (具身纪元), with a table mapping every paper it mentions to its arXiv id. |
 
 All third-party texts are archived for reading and citation; copyright remains with their authors.

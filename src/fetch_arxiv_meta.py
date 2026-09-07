@@ -26,6 +26,9 @@ ids = """
 csv_path = os.path.join(ROOT, "data", "papers.csv")
 if os.path.exists(csv_path):
     ids += [r["id"] for r in csv.DictReader(open(csv_path, encoding="utf-8")) if re.match(r"^\d{4}\.\d{4,5}$", r["id"])]
+builder = os.path.join(ROOT, "src", "build_papers_csv.py")
+if os.path.exists(builder):
+    ids += re.findall(r'^"(\d{4}\.\d{4,5})": \(', open(builder, encoding="utf-8").read(), flags=re.M)
 ids = list(dict.fromkeys(ids))
 print("total ids", len(ids))
 out = {}

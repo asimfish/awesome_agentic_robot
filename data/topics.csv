@@ -23,3 +23,4 @@ T20,20,Cross-Embodiment,跨本体,cross-embodiment robot agent / heterogeneous r
 T21,21,Fleet Learning,群体学习 / Fleet Learning,fleet learning robotics / shared robot experience / collective robot learning,"LWD, RoboOS"
 T22,22,Active Perception,主动感知,active perception robot agent / VLM active perception manipulation,"AgenticLab, PhysCaP, ActiveVLA"
 T23,23,Verifier / Success Verification,Verifier / 成功验证,robot verifier agent / semantic verification robotics / precondition postcondition VLM,"Harness VLA, PhyAgentOS, REMAC"
+T24,24,Robot RSI: Recursive Self-Improvement,Robot RSI：递归自我改进,recursive self-improvement robot / deployment-time self-evolution / training-time self-iteration / self-evaluation verifier / auto research robotics / human-on-the-loop,"ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka, DrEureka, Reflexion, STaR, Let's Verify Step by Step, Meta-Rewarding LMs, The AI Scientist"

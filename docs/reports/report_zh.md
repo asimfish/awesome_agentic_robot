@@ -8,7 +8,7 @@ lang: zh-CN
 
 # 导读
 
-这份报告回答三个问题：2026 年 Agent × Robot 这条线上到底发生了什么；手头四份材料（一篇小红书长文、一份 Code-as-Policy 讲稿、一张 23 条主线的检索地图、Lilian Weng 的两篇博文）各自说对了什么、漏了什么；沿着这些主线往前看，哪些判断有论文证据支撑，哪些还只是预测。
+这份报告回答三个问题：2026 年 Agent × Robot 这条线上到底发生了什么；手头五份材料（一篇小红书长文、一份 Code-as-Policy 讲稿、一张 23 条主线的检索地图、Lilian Weng 的两篇博文、具身纪元关于 Robot RSI 的公众号文章）各自说对了什么、漏了什么；沿着这些主线往前看，哪些判断有论文证据支撑，哪些还只是预测。
 
 结论先放在前面。
 
@@ -17,8 +17,9 @@ lang: zh-CN
 3. **验证器是新的瓶颈，也是新的 scaling 轴。** PhyAgentOS 的 SessionVerifier、Thea 的 Evaluation as Exit Codes、AGM 的“物理证据才能推进进度指针”、LLM-as-a-Verifier 把验证当作可扩展维度，以及那篇立场论文“成功率无法证明 VLA 在做物理推理”，都指向同一件事：能不能自进化，取决于能不能可靠地判断“这一步到底成没成”。
 4. **Harness 从软件术语变成了机器人中间件问题。** 软件 Agent 的 harness 在工具调用边界介入；机器人的 harness 必须同时在控制、计算、通信三处介入（Harness Engineering for Physical AI），必须知道模型最大延迟、技能 deadline 和断网后的 fallback（小红书长文的 Real-time-aware Harness）。这不再是 prompt 工程，而是 OS 与实时系统设计。
 5. **群体是经验规模化的唯一出路，但收益不是线性的。** LWD 用 16 台双臂机器人把单一 VLA 推到 95%；ENPIRE 用 8 个工位把收敛时间从 5 小时压到 2 小时——8 倍机器人换来 2-3 倍加速，多出来的是假设吞吐量，不是 rollout 数量。
+6. **Robot RSI 是把这些串起来的框架。** 具身纪元文章的两条轴线（改进的环节：部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究 × 人的参与程度）把 ENPIRE、ASPIRE、RoboHarness、RoboClaw、PRIMO R1、VERITAS、Eureka、DrEureka 与软件侧的 Reflexion、STaR、Let's Verify、Meta-Rewarding、The AI Scientist 放进同一张表；前沿 LLM 更可能先成为机器人研发循环的认知中枢，而不是机器人的末端控制器。
 
-阅读路径：只想知道结论看第 6、7 章；想核对每条主线的论文看第 4 章和附录；想看四份材料各自的解读看第 2、3、5 章。仓库根目录的 `README.md` 是按主线组织的 154 篇论文清单，`data/papers.csv` 是机器可读版本。
+阅读路径：只想知道结论看第 7、8 章；想核对每条主线的论文看第 4 章和附录；想看五份材料各自的解读看第 2、3、5、6 章。仓库根目录的 `README.md` 是按主线组织的 169 篇论文清单，`data/papers.csv` 是机器可读版本。
 
 # 1. 材料、方法与边界
 
@@ -30,10 +31,11 @@ lang: zh-CN
 | Code-as-Policy 讲稿（25 页 PPTX） | 论文精读讲稿 | 从 Code as Policies 到 SkillOpt、CaP-X、ASPIRE、ENPIRE，自进化 = 优化外部产物 $z$ |
 | 《Agent + Robot 论文检索地图》，两页表格 | 检索框架 | 23 条主线，每条给检索词与代表工作 |
 | Lil'Log：《LLM Powered Autonomous Agents》(2023.06)、《Harness Engineering for Self-Improvement》(2026.07) | 软件侧综述 | Agent = Planning + Memory + Tool use；Harness 三模式、优化阶梯、RSI 七个挑战 |
+| 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》，Marilyn Liu，公众号具身纪元 | 观点长文 | RSI 两条轴线（改进环节 × 人的参与程度）；LLM 更可能先成为 Robot RSI 的认知中枢；Robot RSI 缺一个可重复、可扩展的虚拟世界 |
 
 ## 1.2 方法
 
-我们把地图上 23 条主线的代表工作和长文、讲稿点名的全部工作逐一在 arXiv 上核实（标题、作者、日期、摘要），再沿每条主线按提交时间倒序检索 2025-2026 的新工作，最终保留 154 条：42 条是材料点名的核心工作，94 条是扩展检索到的 2025-2026 新工作，18 条是软件侧 Agent/Harness 的基础工作。地图上三个非 arXiv 条目也做了溯源：AgenticLab 对应 arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS 是 Anthropic 2026 年 8 月 27 日发布的 Model Hardware Standard 研究预览；OpenClawPi 是松灵机器人（AgileX）面向 OpenClaw 的技能库，不是论文。
+我们把地图上 23 条主线的代表工作和长文、讲稿点名的全部工作逐一在 arXiv 上核实（标题、作者、日期、摘要），再沿每条主线按提交时间倒序检索 2025-2026 的新工作，最终保留 169 条：46 条是材料点名的机器人侧核心工作，94 条是扩展检索到的 2025-2026 新工作，29 条是软件侧 Agent / Harness / RSI 的基础工作（其中具身纪元文章点名的 Reflexion、STaR、Let's Verify Step by Step、Meta-Rewarding、The AI Scientist、HiSME、BigBang-V1、Gödel Machine、Anthropic《When AI builds itself》归入此类）。地图与文章上的非 arXiv 条目也做了溯源：BigBang-V1 是 Endless Frontier 的技术报告；PRIMO R1 对应 arXiv 2603.15600《From Passive Observer to Active Critic》；VERITAS 对应 arXiv 2606.18247《Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement》；HiSME 对应 arXiv 2605.28390《You Live More Than Once》；AgenticLab 对应 arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS 是 Anthropic 2026 年 8 月 27 日发布的 Model Hardware Standard 研究预览；OpenClawPi 是松灵机器人（AgileX）面向 OpenClaw 的技能库，不是论文。
 
 所有对论文的陈述都以摘要和材料原文为依据；报告区分“论文报告的数字”与“我们的判断”。
 
@@ -54,7 +56,7 @@ lang: zh-CN
 
 长文预测机器人记忆会分化为 Working / Episodic / Semantic / Skill 四类。2026 年 6-8 月的论文恰好在这四条线上各有实例：AGM 用带进度指针的子目标序列做 working memory，且只有物理证据验证子目标完成后才推进指针（它的结论很硬——可靠的具身记忆靠的是状态更新纪律，不是记忆容量）；Analytic Concept-Centric Memory 用部件、参数模板、位姿、affordance 组织物体与场景记忆，并连接转移记忆和技能记忆；HyMeS 提出“技能在权重里、记忆在代码里”，让 coding agent 用启发式学习迭代一个可执行的记忆管理系统，RoboMemArena 任务成功率从 41.3% 提到 60.1%；ViReSkill 把验证过的计划存进技能记忆下次直接重放。
 
-长文没有展开、但论文已经给出的一点：记忆可以放在 VLA 权重内部。NativeMEM 复用 VLA 自身的视觉编码器把每帧压成一个 token 追加到输入序列，成功率从 32.4% 提到 84.0%；LaMem-VLA 把短期/长期记忆库在 VLA 原生潜空间里交织；Remember Smarter 用 Mamba 压缩视觉历史加双曲经验空间，LIBERO-Plus 从 53.6% 到 70.6%。权重内记忆与权重外记忆现在是两条并行路线，第 6 章会讨论它们的分工。
+长文没有展开、但论文已经给出的一点：记忆可以放在 VLA 权重内部。NativeMEM 复用 VLA 自身的视觉编码器把每帧压成一个 token 追加到输入序列，成功率从 32.4% 提到 84.0%；LaMem-VLA 把短期/长期记忆库在 VLA 原生潜空间里交织；Remember Smarter 用 Mamba 压缩视觉历史加双曲经验空间，LIBERO-Plus 从 53.6% 到 70.6%。权重内记忆与权重外记忆现在是两条并行路线，第 7 章会讨论它们的分工。
 
 ## 2.2 Reflection：Retry 不等于 Learning
 
@@ -242,6 +244,10 @@ SkillOpt 把这个类比推到最严格：参数 ↔ 技能文档，梯度方向
 
 问题：“这一步到底成没成”由谁判断。Harness VLA 的成功规则与失败模型、PhyAgentOS 的 SessionVerifier、REMAC 的前置/后置条件是地图点名的三种形态。2026 年这条线上的新工作最能说明它已成为瓶颈：Thea 的 Evaluation as Exit Codes（检测动作何时应终止、判断是否成功、失败时诊断原因）；AGM 用本体感知线索决定何时验证、用点跟踪与跨视角语言比较决定达成了什么，一个 2.43M 参数的验证头；Agentic Harnesses 的 LLM-as-a-Judge 集成；LLM-as-a-Verifier 把验证当作新的 scaling 轴，对评分 token logits 取期望得到连续分数，RoboRewardBench 87.4%，还能作为 RL 的密集奖励；VASO 用模型检查替代轨迹级证据；PerceptTwin 用仿真验证计划；Consilience 讨论无验证器时如何利用置信度轨迹。那篇立场论文《VLA Cannot Be Verified to Perform Physical Reasoning》指出成功率无法区分语义匹配与物理泛化，需要受控变量的评测设计。判断：验证器决定了自进化循环的上限——奖励作弊、过度乐观、“仿真 100% 真机 60%”都在这里发生。
 
+## T24 Robot RSI：递归自我改进（新增主线）
+
+问题：机器人系统能否参与改进“怎样让自己变得更好”，并把成果带进下一轮。这条主线来自具身纪元的文章（见第 6 章），把软件侧的 RSI 谱系（Gödel Machine 的“可证明有益才修改”、STaR、Reflexion、Let's Verify Step by Step、Meta-Rewarding、The AI Scientist、HiSME、BigBang-V1、Anthropic《When AI builds itself》）与机器人侧的四个环节并列：部署时自演化（ASPIRE、RoboHarness、Zetta）、训练时自迭代（RoboClaw、LWD、Q-Planning）、自我评估（PRIMO R1 的过程级视频批评者、VERITAS 的推理时视觉验证器）、自动研究（Eureka → DrEureka → ENPIRE 的“奖励 → 仿真参数 → 整个研究循环”演进）。判断：Robot RSI 是把 T2、T7、T9、T10、T23 串起来的框架而不是新方法；它的两个独有难题是可重复、可扩展的物理验证环境，以及当评价器本身也在演化时如何保持“评估器在循环之外”。
+
 # 5. 解读四：Lilian Weng 的两篇文章
 
 
@@ -267,9 +273,36 @@ SkillOpt 把这个类比推到最严格：参数 ↔ 技能文档，梯度方向
 
 ## 5.3 两篇文章没有覆盖的部分
 
-Lil'Log 讨论的 harness 生活在数字世界：状态可读、结果可判、失败可重试一千次。Thea 那篇论文说得最清楚——物理世界拒绝提供软件白送的两样东西：读取世界状态和判断动作结果。它用 Scene Graph as Context 和 Evaluation as Exit Codes 补这两个缺口。Harness Engineering for Physical AI 补的是第三个缺口：时间。软件 harness 不关心一次推理花 2 秒，机器人 harness 必须关心，因为这 2 秒会改变控制日程和轨迹。这三点是机器人 harness 与软件 harness 的本质差异，也是第 6 章几条洞见的出发点。
+Lil'Log 讨论的 harness 生活在数字世界：状态可读、结果可判、失败可重试一千次。Thea 那篇论文说得最清楚——物理世界拒绝提供软件白送的两样东西：读取世界状态和判断动作结果。它用 Scene Graph as Context 和 Evaluation as Exit Codes 补这两个缺口。Harness Engineering for Physical AI 补的是第三个缺口：时间。软件 harness 不关心一次推理花 2 秒，机器人 harness 必须关心，因为这 2 秒会改变控制日程和轨迹。这三点是机器人 harness 与软件 harness 的本质差异，也是第 7 章几条洞见的出发点。
 
-# 6. 趋势与洞见
+# 6. 解读五：具身纪元《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》
+
+这篇文章（Marilyn Liu，公众号具身纪元，2026 年 8-9 月）从一个反差出发：GPT-6 Astra 在 Robocurve 第三方测试的“方块放入碗中”拿到 19/20（Claude Fable 5.1 为 8/20），却在精细拼图插入上与对手同为 2/20，拧洗衣机按钮用了 4 分钟。作者的判断是，模型升级增强了视觉理解、空间规划、纠错和工具调用，但涉及接触、摩擦、精确对齐和毫米级误差时，LLM 的提升没有转化成控制能力；因此与其关注 LLM 对 policy generator 的贡献，不如关注它对具身领域 RSI（Recursive Self-Improvement，递归自我改进）的贡献。这与本报告 I2 的判断（冻结 VLA + 外围学习有天花板，接触相关的连续关系要写回权重）是同一件事的两面。
+
+## 6.1 RSI 的定义与两条轴线
+
+文章把 RSI 拆成三个词：Self（被改的可以是回答方式、记忆、工具、代码、训练数据、评价器或权重，不必是重写全部源代码）、Improvement（新版本必须在某个可检查目标上更好，无法验证的变化只能叫变化）、Recursive（上一轮成果进入下一轮并让系统更有效地制造下一版，“改进能力本身也被再次用于改进”）。它随后给出两条轴线，这是全文最有用的工具：
+
+| 轴线一：改进的环节 | LLM 侧代表 | 机器人侧代表（文章点名） |
+|---|---|---|
+| 部署时自演化：权重不变，改推理、记忆、工具、代码、harness | Reflexion（反思存记忆再重试，HumanEval 91%）；HiSME（从执行轨迹学“怎样生成与修改技能”的元技能，MineDojo 0.700→0.856）；Lil'Log 的 harness 判断 | ASPIRE（失败修复存成技能）；RoboHarness（执行记忆调度异构策略，切换前先把机器人带到下一策略熟悉的状态，135 次真机实验） |
+| 训练时自迭代：上一轮数据、推理、偏好、奖励回到训练，更新权重 | STaR（答对保留、答错看答案重推、微调下一版）；BigBang-V1（出题者 / 批评者 / 元批评者合成约一万条可验证难题更新权重） | RoboClaw（同时学“完成任务”与“恢复现场”两套策略，正反交替回收成功数据，人工时间 -53.7%） |
+| 自我评估：改进 judge、reward model、process reward model、verifier | Let's Verify Step by Step（过程奖励模型逐步定位错误）；Meta-Rewarding LMs（同一模型当回答者、评审者和“评审的评审”，AlpacaEval 2 LC 22.9%→39.4%） | PRIMO R1（以初始 / 当前画面锚定过程视频，判断进度与失败位置，RoboFail 67%）；VERITAS（冻结策略 + 无梯度视觉验证器，50 条验证过的自主轨迹 70% vs 同量人工示范 65%） |
+| 自动研究：提出假设、改算法、跑实验、分析结果、安排下一轮 | The AI Scientist（从代码模板到自动评审的全流程） | ENPIRE（自动复位、成功验证、策略更新、真机试验封装成工具）；Eureka（LLM 写奖励，83% 任务超过人工奖励）；DrEureka（LLM 同时写奖励与域随机化范围，四足机器人站瑜伽球迁移真机） |
+
+轴线二是人的参与程度：Human-in-the-loop（AI 提议、人逐次确认）、Human-on-the-loop（数据、奖励、评价、执行大体自动，人监督结果、设置权限、控制发布）、Closed loop（在预先授权范围内自行提出、验证并采用改进）。文章没有把论文逐一放进这条轴，但本报告第 4 章 T16 的 Runtime Governance、ICAN-Deploy 和 AgenticRobotics 的“人可以离开”的操作性定义，正是从 on-the-loop 走向 closed loop 时需要的基础设施。
+
+## 6.2 与本报告框架的对照
+
+两条轴线与前面几章的框架可以直接叠放。轴线一的四个环节对应讲稿公式里 $A$ 被允许改的对象：部署时自演化改 $z$ 中的 harness / 记忆 / 技能，训练时自迭代改策略权重，自我评估改 $r$ 的来源，自动研究改整个实验流程。它也对应小红书长文的 L1-L7：部署时自演化覆盖 L3-L5，训练时自迭代是 L6，自动研究把 L7 的群体经验变成研究流程本身。文章对 ENPIRE 的概括——“把自动复位、成功验证、策略更新和真机试验封装成工具，让编程智能体连续执行—检查—改代码—再执行”——与讲稿第 3 章的四个教训一致。
+
+文章新增的价值有三点。第一，它把 PRIMO R1 与 VERITAS 放进“自我评估”环节，补上了本报告 T23 里两类此前缺席的验证器：过程级的视频批评者（不只判断最终画面像不像成功，而是判断进展到哪一步、从哪里开始失败）和推理时的动作验证器（生成器-验证器框架，验证过的 rollout 直接成为微调数据，且效率与专家示范相当）。第二，它把 Eureka / DrEureka 这条 2023-2024 年的“LLM 写奖励与仿真参数”线接回自动研究，说明 ENPIRE 式的 physical autoresearch 有更早的源头：先自动化训练方法（奖励、域随机化），再自动化整个研究循环。第三，它给出了机器人 RSI 与大模型 RSI 的核心差异：评估包含两个问题——评价器能否判断成功、进度与失败位置，以及系统能否提供可重复、可扩展的验证环境；后者是 LLM 从未遇到、机器人必须解决的。这与本报告 I6（Sim 是 sandbox）和 I3（验证器是瓶颈）的结论重合，作者把它表述为“Robot RSI 还缺一个虚拟世界”，并认为世界模型是比传统仿真更可扩展的解法。
+
+## 6.3 评价
+
+文章的核心判断——前沿 LLM 更可能先成为 Robot RSI 的认知中枢而不是机器人的末端控制器——有本报告核实过的证据支持：ASPIRE 用 Claude Opus 4.6 读多模态执行记录并修复程序，RoboHarness 用 GPT-5.5 改策略编排代码，ENPIRE 让 coding agent 查文献、提假设并在真机比较，Zetta 在冻结 VLA 下持续更新 critic、恢复技能和工具。它对产业动向的记录（Anthropic《When AI builds itself》、OpenAI 的 RSI 团队、Recursive Superintelligence / Trajectory / Discovery Loop 的融资与创立、王兴兴在 2026 世界机器人大会上的“直接让物理 AI 机器人模型实现自进化”）是观察，不是证据；Robocurve 测试与方舟无限视频也属第三方报道。文章没有触及的部分与小红书长文相同：治理与安全——closed loop 这一格在文章里只有定义，而 Runtime Governance 的 96.2% 越权拦截、EmbodiedGovBench 的七维评测正是让 closed loop 可被授权的前提；另一个空缺是 Lil'Log 强调的“评估器必须在演化循环之外”，当自我评估环节本身也在被系统改进（Meta-Rewarding 的“评审的评审”）时，这条原则如何在机器人上落实，是 Robot RSI 真正的难题。
+
+# 7. 趋势与洞见
 
 下面十条是把四份材料和 154 篇论文放在一起之后得到的判断。每条给出证据、边界和它对研究选题的含义。
 
@@ -283,7 +316,7 @@ Harness VLA、BATON、AGM、HyMeS、Zetta、SHAPER、RoboHarness、AtomBridge、
 
 ## I3 验证器是新的瓶颈，也是新的 scaling 轴
 
-自进化循环的每一步都要回答“成没成”。PhyAgentOS 把“执行终止”与“语义完成”分开；Thea 把评估做成 exit code；AGM 只在物理证据确认后推进进度指针，并得出“可靠记忆靠状态更新纪律”的结论；LLM-as-a-Verifier 证明验证精度可以沿评分粒度、重复评估和标准分解三个维度扩展，并能作为 RL 密集奖励；VASO 用形式验证替代轨迹级证据；那篇立场论文说成功率本身无法证明物理推理。Lil'Log 列的 RSI 第一个挑战正是弱评估器。含义：在 Agent × Robot 里，一个更好的验证器比一个更好的规划器更稀缺，也更容易成为独立贡献。
+自进化循环的每一步都要回答“成没成”。PhyAgentOS 把“执行终止”与“语义完成”分开；Thea 把评估做成 exit code；AGM 只在物理证据确认后推进进度指针，并得出“可靠记忆靠状态更新纪律”的结论；LLM-as-a-Verifier 证明验证精度可以沿评分粒度、重复评估和标准分解三个维度扩展，并能作为 RL 密集奖励；VASO 用形式验证替代轨迹级证据；那篇立场论文说成功率本身无法证明物理推理。Lil'Log 列的 RSI 第一个挑战正是弱评估器。具身纪元文章点名的 PRIMO R1（过程级视频批评者，判断进度与失败位置）和 VERITAS（推理时视觉验证器，验证过的 rollout 直接成为微调数据）说明验证器正在分化为“过程监督”和“动作选择”两种形态。含义：在 Agent × Robot 里，一个更好的验证器比一个更好的规划器更稀缺，也更容易成为独立贡献。
 
 ## I4 记忆分成权重内与权重外两条路，各有适用区
 
@@ -307,13 +340,13 @@ LWD 用 16 台机器人把单一 VLA 推到 95%；ENPIRE 用 8 工位把收敛�
 
 ## I9 Coding agent 成为 roboticist：autoresearch 进入物理世界
 
-RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“physical autoresearch”、HARBOR 的 RL 工程自动化、Nautilus 的一句话工作流、Goldberg 组的 Push-T 实验（Claude Code 无示范 100% 成功、少 46% 步数）、AgenticRobotics 的“人可以离开”。这条线与 Lil'Log 讨论的 AI Scientist、AlphaEvolve、DGM 是同一件事在物理世界的版本，而物理世界给它加了三个约束：读状态难、判结果难、有时间。含义：Trehan & Chopra 总结的六类自主研究失败模式（训练数据默认偏置、实现漂移、记忆退化、过度乐观、领域知识不足、科学品味弱）在机器人侧会以“仿真 100% 真机 60%”、“重复假设”、“把噪声当信号宣布成功”的形式出现，需要专门的检测。
+RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“physical autoresearch”、HARBOR 的 RL 工程自动化、Nautilus 的一句话工作流、Goldberg 组的 Push-T 实验（Claude Code 无示范 100% 成功、少 46% 步数）、AgenticRobotics 的“人可以离开”。这条线与 Lil'Log 讨论的 AI Scientist、AlphaEvolve、DGM 是同一件事在物理世界的版本，具身纪元文章把它命名为 Robot RSI 并追溯到 Eureka / DrEureka 的“LLM 写奖励与仿真参数”；物理世界给它加了三个约束：读状态难、判结果难、有时间。含义：Trehan & Chopra 总结的六类自主研究失败模式（训练数据默认偏置、实现漂移、记忆退化、过度乐观、领域知识不足、科学品味弱）在机器人侧会以“仿真 100% 真机 60%”、“重复假设”、“把噪声当信号宣布成功”的形式出现，需要专门的检测。
 
 ## I10 风险与反例
 
 三条警告应该和上面九条一起读。第一，“harness updating ≠ harness benefit”：写 harness 编辑的能力在 9B 到 Opus 之间几乎持平，利用 harness 的能力非单调，所以 harness 收益不能脱离基座模型讨论。第二，奖励作弊与 Goodhart：Lil'Log 强调评估器与权限控制必须在演化循环之外，AHE 用只读的 verifier 与配置做到这一点，机器人侧对应的是 Runtime Governance 的外置治理与 AgenticRobotics 的签名验证器；任何把验证器放进可编辑面的自进化系统都应被怀疑。第三，多智能体系统的对话可能降低任务成功（World-Model Alignment Through Dialogue），协作工具很少被调用（Tool-RoCo 7.09%），共享经验会共享污染（通信攻击）。这些反例提醒：Agent × Robot 的系统复杂度本身就是风险来源。
 
-# 7. 开放问题与研究建议
+# 8. 开放问题与研究建议
 
 1. **验证器的可扩展性。** 能否把 LLM-as-a-Verifier 的连续评分、AGM 的物理证据验证头和 VASO 的形式检查组合成分层验证器，并用 EmbodiedGovBench 式的指标评测它？这是自进化循环的上限所在。
 2. **进入条件。** BATON 指出 VLA 原语只有退出条件；RoboHarness 用执行记忆估计分布内区域并引导机器人进入。能否为每个原语学习显式的进入条件与交接状态质量（Foresight Residual RL 的 foresight value），使长程任务的代价从 $T^K$ 变成 $T \cdot K$？
@@ -326,13 +359,13 @@ RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“phy
 
 给自己的 method-story 起点（沿讲稿第 24 页的建议）：选一个 $z$（例如“技能的进入条件与验证头”），选一个 $r$ 的来源（物理证据 + 形式检查），把 $A$ 的可编辑面画清楚并把验证器放在外面，然后在 LIBERO-Pro Long 或 RoboMemArena 这类长程基准上报告库规模 vs 零样本成功率的曲线。
 
-# 8. 附录
+# 9. 附录
 
-## 8.1 论文索引
+## 9.1 论文索引
 
-按 24 条主线组织的 154 条论文清单见仓库 `README.md`；机器可读版本见 `data/papers.csv`（字段：id、short_name、title、authors、year、date、venue、url、code_url、topics、tier、note_zh）。`tier` 为 core 的 42 条是四份材料点名的工作，extended 的 94 条是扩展检索到的 2025-2026 工作，foundation 的 18 条是软件侧 Agent/Harness 基础。
+按 25 条主线组织的 169 条论文清单见仓库 `README.md`；机器可读版本见 `data/papers.csv`（字段：id、short_name、title、authors、year、date、venue、url、code_url、topics、tier、note_zh）。`tier` 为 core 的 46 条是五份材料点名的机器人侧工作，extended 的 94 条是扩展检索到的 2025-2026 工作，foundation 的 29 条是软件侧 Agent / Harness / RSI 基础。
 
-## 8.2 术语表
+## 9.2 术语表
 
 | 术语 | 本报告中的含义 |
 |---|---|
@@ -345,17 +378,19 @@ RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“phy
 | Real-time-aware Harness | 知道模型最大延迟、技能 deadline、断网 fallback、哪些动作必须本地完成的 harness |
 | Projection / Isolation / Transfer | Harness Engineering for Physical AI 提出的三个强制功能：输出处约束动作、限定执行与传输时隙、失败时回退到验证过的基线 |
 | Experience Scaling | 小红书长文的判断：机器人的 scaling 来自群体持续产生的物理交互经验，而非仅来自模型规模 |
+| RSI 两条轴线 | 具身纪元文章的框架：改进的环节（部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究）× 人的参与程度（in-the-loop / on-the-loop / closed loop） |
 
-## 8.3 复现说明
+## 9.3 复现说明
 
 - 重新生成 README：`python3 src/build_papers_csv.py && python3 src/generator.py`（前者需要 `data/paper_meta.json`，由 `src/fetch_arxiv_meta.py` 从 arXiv API 抓取）。
 - 下载全部论文 PDF：`bash scripts/download_papers.sh`。
 - 用 SuperTranslate 翻译：配置 `DEEPSEEK_API_KEY`（或任意 OpenAI 兼容端点）后运行 `bash scripts/translate_papers.sh`；无 API key 时可用 `scripts/manual_translate.py` 走"导出文本块 → 人工译文表 → 原位回填 → inspect QA"的确定性通路，本仓库五篇核心论文的中文版即由此产生。
 - 生成 PDF 报告与幻灯片：`bash scripts/build_docs.sh`（pandoc + XeLaTeX；HTML 幻灯片用 Playwright/Chromium 导出 PDF；Beamer 幻灯片用 XeLaTeX 编译）。
 
-## 8.4 材料来源
+## 9.4 材料来源
 
 - 具身RL日记，《Harness 之后，Agent+Robot 下一站是什么？》，小红书，2026。转写见 `sources/xiaohongshu_harness_next_transcript.md`。
 - `code_policy_self_evolving_agents.pptx`，25 页，文字与讲稿摘录见 `sources/code_policy_deck_extracted.md`。
 - 《Agent + Robot 论文检索地图》，两页表格，转写见 `data/topics.csv`。
 - Lilian Weng, "LLM Powered Autonomous Agents", Lil'Log, 2023-06-23; "Harness Engineering for Self-Improvement", Lil'Log, 2026-07-04。文本存档见 `sources/`。
+- Marilyn Liu（具身纪元），《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》，微信公众号，2026 年 8-9 月（访问日期 2026-09-06）。转写与论文对照表见 `sources/wechat_embodied_era_robot_rsi_transcript.md`。

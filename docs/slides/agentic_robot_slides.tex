@@ -27,7 +27,7 @@
 \newcommand{\en}[1]{{\footnotesize\textcolor{neutral}{#1}}}
 
 \title[Agent × Robot]{Agent × Robot：从 Harness 到自进化物理智能体}
-\subtitle{四份材料的解读 · 23 条主线的 2026 综述 · 十条洞见}
+\subtitle{五份材料的解读 · 23+2 条主线的 2026 综述 · 十条洞见}
 \author{awesome\_agentic\_robot · asimfish}
 \institute{github.com/asimfish/awesome\_agentic\_robot}
 \date{2026-09-06}
@@ -41,8 +41,8 @@
 \begin{frame}{一个问题：Harness 之后是什么？}
 过去一年的关键词：VLA、WAM；最近的关键词：Agent、Harness。
 \begin{itemize}
-  \item 四份材料给出同一判断：它们不是互相替代，而是在拼装同一台机器人系统
-  \item 本报告核实 154 篇论文（42 核心 / 94 扩展 / 18 基础）后回答三个问题：
+  \item 五份材料给出同一判断：它们不是互相替代，而是在拼装同一台机器人系统
+  \item 本报告核实 169 篇论文（46 核心 / 94 扩展 / 29 基础）后回答三个问题：
   \begin{itemize}
     \item 2026 年 Agent × Robot 到底发生了什么
     \item 每份材料说对了什么、漏了什么
@@ -52,10 +52,10 @@
 \begin{block}{结论先行}
 下一阶段不是 Model Scaling，也不只是 Harness Scaling，而是 \HL{System Scaling + Experience Scaling}：先训练出足够好的机器人让它开始工作，再让工作本身继续训练机器人。
 \end{block}
-\en{Source materials: the Xiaohongshu essay by 具身RL日记, the Code-as-Policy deck, the 23-line retrieval map, and Lilian Weng's Lil'Log posts (2023, 2026).}
+\en{Source materials: the Xiaohongshu essay by 具身RL日记, the Code-as-Policy deck, the 23-line retrieval map, Lilian Weng's Lil'Log posts (2023, 2026), and the 具身纪元 WeChat essay on Robot RSI by Marilyn Liu.}
 \end{frame}
 
-\begin{frame}{五个结论}
+\begin{frame}{六个结论}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \begin{enumerate}
@@ -68,8 +68,9 @@
   \setcounter{enumi}{3}
   \item \textbf{Harness 变成实时系统问题}：控制 / 计算 / 通信三处介入；Cloud can think, edge must survive
   \item \textbf{群体是经验规模化的出路，收益亚线性}：8 倍机器人 → 2--3 倍加速（ENPIRE）
+  \item \textbf{Robot RSI 是串起一切的框架}：改进环节 × 人的参与程度（具身纪元）；LLM 先成为认知中枢而非末端控制器
 \end{enumerate}
-\vspace{4pt}
+\vspace{2pt}
 \[ z_{t+1} = A(z_t,\ \tau_t,\ r_t,\ \log_t) \]
 \en{$z$: skill.md, policy.py, skill library, recipe, harness code; $A$: coding agent; $\tau$: rollouts; $r$: verification; $\log$: diagnosable evidence.}
 \end{columns}
@@ -207,6 +208,27 @@ Harness updating ≠ harness benefit & Codex/Claude/Kimi 的真机差距更像�
 \en{Three essential differences of a robot harness (Thea; Harness Engineering for Physical AI): reading world state is hard, judging outcomes is hard, and time matters.}
 \end{frame}
 
+\begin{frame}{解读五：具身纪元的 Robot RSI 两条轴线}
+\begin{center}
+\vspace{2pt}
+\scriptsize
+\begin{tabular}{@{}p{2.4cm}p{5.0cm}p{5.6cm}@{}}
+\toprule
+环节（轴线一） & LLM 侧代表 & 机器人侧代表（文章点名） \\
+\midrule
+部署时自演化 & Reflexion（反思存记忆，HumanEval 91\%）· HiSME（技能元进化，MineDojo 0.700→0.856）· Lil'Log harness-first & ASPIRE（修复存成技能）· RoboHarness（执行记忆调度异构策略，135 次真机）· Zetta \\
+训练时自迭代 & STaR（答对保留、答错重推、微调下一版）· BigBang-V1（出题者 / 批评者 / 元批评者） & RoboClaw（正反任务交替回收数据，人工时间 $-$53.7\%）· LWD · Q-Planning \\
+自我评估 & Let's Verify Step by Step（过程奖励模型）· Meta-Rewarding LMs（评审的评审，22.9→39.4\%） & PRIMO R1（过程级视频批评者，RoboFail 67\%）· VERITAS（推理时视觉验证器，70\% vs 65\%） \\
+自动研究 & The AI Scientist（代码模板 → 自动评审） & Eureka（LLM 写奖励，83\% 超人工）→ DrEureka（域随机化范围）→ ENPIRE \\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{itemize}
+  \item 轴线二：Human-in-the-loop → Human-on-the-loop → Closed loop；\con{closed loop 一格只有定义没有机制}，Runtime Governance / EmbodiedGovBench 是让它可被授权的前提
+  \item 判断：前沿 LLM 更可能先成为 Robot RSI 的\HL{认知中枢}而非末端控制器；Robot RSI 与 LLM RSI 的差别在评估——既要判断成败与进度，还要一个可重复、可扩展的虚拟世界
+\end{itemize}
+\end{frame}
+
 \begin{frame}{解读三：23 条主线的密度与状态}
 \begin{columns}[T]
 \column{0.32\textwidth}
@@ -229,10 +251,11 @@ Harness updating ≠ harness benefit & Codex/Claude/Kimi 的真机差距更像�
   \item T21 Fleet：中间的共享经验 / 世界知识缺系统工作
   \item T18 标准接口：MHS（2026-08-27）与 ROS 2 Harness Profile 待融合
   \item T22 主动感知：PhysCaP、ActiveVLA，成本控制是关键
+  \item T24 Robot RSI（新增）：Eureka → DrEureka → ENPIRE；PRIMO R1、VERITAS
 \end{itemize}
 \end{columns}
 \vspace{4pt}
-\en{Full line-by-line survey in report Section 4; 154 papers by line in README.}
+\en{Full line-by-line survey in report Section 4; 169 papers on 25 lines in README.}
 \end{frame}
 
 \begin{frame}{解读三：长程任务被重述为“技能交接问题”}
@@ -372,6 +395,10 @@ Harness updating ≠ harness benefit & Codex/Claude/Kimi 的真机差距更像�
 \bibitem{hepai} Lee, Chae, Park. Harness Engineering for Physical AI: Robot Middleware Is the Harness Layer. arXiv:2606.09416, 2026.
 \bibitem{weng} Weng, L. Harness Engineering for Self-Improvement. Lil'Log, July 2026; LLM Powered Autonomous Agents. Lil'Log, June 2023.
 \bibitem{xhs} 具身RL日记. Harness 之后，Agent+Robot 下一站是什么？ 小红书, 2026.
+\bibitem{jsjy} Marilyn Liu（具身纪元）. GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI. 微信公众号, 2026.
+\bibitem{primo} Liu et al. From Passive Observer to Active Critic (PRIMO R1). arXiv:2603.15600, 2026.
+\bibitem{veritas} Zhang, Shah. Visual Verification Enables Inference-time Steering and Autonomous Policy Improvement (VERITAS). arXiv:2606.18247, 2026.
+\bibitem{eureka} Ma et al. Eureka: Human-Level Reward Design via Coding LLMs. arXiv:2310.12931, 2023; DrEureka, arXiv:2406.01967, 2024.
 \end{thebibliography}
 \end{frame}
 
@@ -379,7 +406,7 @@ Harness updating ≠ harness benefit & Codex/Claude/Kimi 的真机差距更像�
 \centering
 {\Large 谢谢 · Thank you}\\[8pt]
 github.com/asimfish/awesome\_agentic\_robot\\[4pt]
-\en{README（154 篇论文 / 24 主线）· 中英文报告 PDF · HTML 幻灯片 · SuperTranslate 中文译本}
+\en{README（169 篇论文 / 25 主线）· 中英文报告 PDF · HTML 幻灯片 · SuperTranslate 中文译本}
 \end{frame}
 
 \appendix

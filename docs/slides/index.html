@@ -64,36 +64,37 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
 <section class="slide title-slide">
   <div class="kicker">awesome_agentic_robot · 2026-09-06</div>
   <h1>Agent × Robot：从 Harness 到自进化物理智能体</h1>
-  <p class="sub">四份材料的解读 · 23 条主线的 2026 综述 · 十条洞见<br><span class="en" style="color:#c8d3e0">Agent × Robot: From Harness to Self-Evolving Physical Agents — four sources, 23 topic lines, ten insights</span></p>
-  <p class="en" style="color:#9fb0c2;margin-top:30px">材料：小红书长文《Harness 之后，Agent+Robot 下一站是什么？》（具身RL日记）· Code-as-Policy 讲稿（25 页）· Agent+Robot 论文检索地图（23 主线）· Lil'Log（LLM Agents 2023 / Harness Engineering 2026）<br>证据：154 篇论文（42 核心 / 94 扩展 / 18 基础），全部经 arXiv 核实</p>
+  <p class="sub">五份材料的解读 · 23+2 条主线的 2026 综述 · 十条洞见<br><span class="en" style="color:#c8d3e0">Agent × Robot: From Harness to Self-Evolving Physical Agents — five sources, 25 topic lines, ten insights</span></p>
+  <p class="en" style="color:#9fb0c2;margin-top:30px">材料：小红书长文《Harness 之后，Agent+Robot 下一站是什么？》（具身RL日记）· Code-as-Policy 讲稿（25 页）· Agent+Robot 论文检索地图（23 主线）· Lil'Log（LLM Agents 2023 / Harness Engineering 2026）· 具身纪元《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》<br>证据：169 篇论文（46 核心 / 94 扩展 / 29 基础），全部经 arXiv 核实</p>
   <div class="footer"><span>github.com/asimfish/awesome_agentic_robot</span><span>1</span></div>
 </section>
 
 <section class="slide">
   <div class="kicker">TL;DR</div>
-  <h2>五个结论</h2>
+  <h2>六个结论</h2>
   <div class="cols3">
     <div class="card"><h3>1 · 优化对象在上移</h3><p>2022 年 LLM 写一段策略代码；2026 年 coding agent 优化 skill.md、策略仓库、训练配方、整套 harness。<br><span class="en">The optimised object moved from actions to artifacts: z<sub>t+1</sub> = A(z<sub>t</sub>, τ<sub>t</sub>, r<sub>t</sub>, log<sub>t</sub>).</span></p></div>
     <div class="card"><h3>2 · 冻结 VLA + 外围学习</h3><p>Harness VLA、BATON、AGM、HyMeS、Zetta 都不改权重；但 LWD、Q-Planning 说明真实反馈终要写回权重。<br><span class="en">Frozen-VLA-plus-harness is the 2026 default, with a ceiling.</span></p></div>
     <div class="card"><h3>3 · 验证器是新瓶颈</h3><p>SessionVerifier、Exit Codes、物理证据推进指针、LLM-as-a-Verifier：能不能自进化取决于能不能判断"成没成"。<br><span class="en">The verifier is the bottleneck and a new scaling axis.</span></p></div>
     <div class="card"><h3>4 · Harness 变成实时系统问题</h3><p>软件 harness 在工具调用处介入；机器人 harness 要同时管控制、计算、通信，知道延迟、deadline 与 fallback。<br><span class="en">Cloud can think. Edge must survive.</span></p></div>
     <div class="card"><h3>5 · 群体是出路，但收益亚线性</h3><p>LWD 16 台机器人 → 95%；ENPIRE 8 工位把收敛时间压到 1/3-1/2，8 倍机器人只换来 2-3 倍加速。<br><span class="en">Fleets multiply hypothesis throughput, not rollouts.</span></p></div>
-    <div class="card" style="background:#fff7e8;border-color:#f3d9a4"><h3>一句话</h3><p>下一阶段不是 Model Scaling，也不只是 Harness Scaling，而是 <b>System Scaling + Experience Scaling</b>：先训练出足够好的机器人让它开始工作，再让工作本身继续训练机器人。</p></div>
+    <div class="card" style="background:#fff7e8;border-color:#f3d9a4"><h3>6 · Robot RSI 是串起一切的框架</h3><p>具身纪元文章的两条轴线（改进环节：部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究 × 人的参与程度）把 ENPIRE、ASPIRE、RoboHarness、PRIMO R1、VERITAS、Eureka 与 Reflexion、STaR、AI Scientist 放进同一张表。<br><span class="en">The frontier LLM is more likely to become the cognitive hub of the robot research loop than its end-effector controller.</span></p></div>
   </div>
   <div class="footer"><span>awesome_agentic_robot</span><span>2</span></div>
 </section>
 
 <section class="slide">
   <div class="kicker">材料 · Sources</div>
-  <h2>四份输入各自回答什么</h2>
+  <h2>五份输入各自回答什么</h2>
   <table>
     <tr><th style="width:26%">材料</th><th style="width:14%">形态</th><th>核心主张</th><th style="width:22%">本报告的对应章节</th></tr>
     <tr><td>《Harness 只是开始：Agent+Robot 真正值得关注的 6 个下一站》，具身RL日记，39 张卡片</td><td>观点长文</td><td>Memory / Reflection &amp; Evolution（L1-L7）/ 双时间尺度 / Agent+VLA+RL / Real→Sim→Learn→Real / Multi-Robot；终局 System + Experience Scaling</td><td>第 2 章：逐条对照论文，4 条有实证、2 条为预测</td></tr>
     <tr><td>Code-as-Policy 讲稿，25 页</td><td>论文精读</td><td>CaP → CaP-X → ASPIRE → SkillOpt → ENPIRE；自进化 = 优化外部产物 z</td><td>第 3 章：补数字、补 7-9 月续作（Zetta、SHAPER、RHO、PRACTICE、SkillGLoW）</td></tr>
     <tr><td>Agent + Robot 论文检索地图</td><td>检索框架</td><td>23 条主线 × 检索词 × 代表工作</td><td>第 4 章：每条主线的问题、代表工作、2026 新增、判断</td></tr>
     <tr><td>Lil'Log：LLM Agents (2023) / Harness Engineering for Self-Improvement (2026)</td><td>软件侧综述</td><td>Agent = Planning + Memory + Tool use；Harness 三模式、优化阶梯、RSI 七挑战</td><td>第 5 章：软件侧理论 → 机器人侧对应物</td></tr>
+    <tr><td>《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》，Marilyn Liu，具身纪元</td><td>观点长文</td><td>RSI 两条轴线（改进环节 × 人的参与程度）；LLM 先成为 Robot RSI 的认知中枢；Robot RSI 缺一个虚拟世界</td><td>第 6 章：矩阵与本报告框架叠放，补 PRIMO R1 / VERITAS / Eureka / DrEureka</td></tr>
   </table>
-  <p class="small" style="margin-top:14px">非 arXiv 条目溯源：AgenticLab = arXiv 2602.01662（v1 题为 PLanAR，Purdue）；MHS = Anthropic Model Hardware Standard 研究预览（2026-08-27）；OpenClawPi = 松灵机器人 OpenClaw 技能库。</p>
+  <p class="small" style="margin-top:14px">非 arXiv 与别名条目溯源：AgenticLab = arXiv 2602.01662（v1 题为 PLanAR）；MHS = Anthropic MHS 研究预览（2026-08-27）；OpenClawPi = 松灵 OpenClaw 技能库；PRIMO R1 = arXiv 2603.15600；VERITAS = arXiv 2606.18247；HiSME = arXiv 2605.28390；BigBang-V1 = Endless Frontier 技术报告。</p>
   <div class="footer"><span>awesome_agentic_robot</span><span>3</span></div>
 </section>
 
@@ -216,15 +217,29 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
 </section>
 
 <section class="slide">
+  <div class="kicker">解读五 · 具身纪元《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》</div>
+  <h2>Robot RSI 的两条轴线：改进的环节 × 人的参与程度</h2>
+  <table>
+    <tr><th style="width:21%">环节（轴线一）</th><th style="width:37%">LLM 侧代表</th><th>机器人侧代表（文章点名）</th></tr>
+    <tr><td><b>部署时自演化</b><br><span class="en">权重不变，改推理 / 记忆 / 工具 / 代码 / harness</span></td><td>Reflexion（反思存记忆再重试，HumanEval 91%）· HiSME（学"怎样生成与修改技能"的元技能，MineDojo 0.700→0.856）· Lil'Log 的 harness-first 判断</td><td>ASPIRE（修复存成技能）· RoboHarness（执行记忆调度异构策略，切换前先把机器人带到下一策略熟悉的状态，135 次真机）· Zetta</td></tr>
+    <tr><td><b>训练时自迭代</b><br><span class="en">上一轮数据 / 推理 / 奖励回到训练，更新权重</span></td><td>STaR（答对保留、答错看答案重推、微调下一版）· BigBang-V1（出题者 / 批评者 / 元批评者合成约一万条可验证难题）</td><td>RoboClaw（同时学"完成任务"与"恢复现场"，正反交替回收数据，人工时间 -53.7%）· LWD · Q-Planning</td></tr>
+    <tr><td><b>自我评估</b><br><span class="en">改进 judge / reward model / PRM / verifier</span></td><td>Let's Verify Step by Step（过程奖励模型定位出错步骤）· Meta-Rewarding LMs（评审的评审，AlpacaEval 2 LC 22.9→39.4%）</td><td>PRIMO R1（以初始 / 当前画面锚定过程视频，判断进度与失败位置，RoboFail 67%）· VERITAS（冻结策略 + 无梯度视觉验证器，50 条自主轨迹 70% vs 人工示范 65%）</td></tr>
+    <tr><td><b>自动研究</b><br><span class="en">提假设、改算法、跑实验、安排下一轮</span></td><td>The AI Scientist（代码模板 → 自动评审全流程）</td><td>Eureka（LLM 写奖励，83% 任务超人工）→ DrEureka（再写域随机化范围，四足站瑜伽球迁移真机）→ ENPIRE（复位 / 验证 / 更新 / 真机试验封装成工具）</td></tr>
+  </table>
+  <div class="callout" style="margin-top:12px">轴线二：Human-in-the-loop → Human-on-the-loop → Closed loop。文章的判断：前沿 LLM 更可能先成为 Robot RSI 的认知中枢而非末端控制器；Robot RSI 与 LLM RSI 的差别在评估——既要判断成败与进度，还要一个可重复、可扩展、不掩盖失败的虚拟世界。<span class="en">Closed loop 这一格只有定义没有机制：Runtime Governance / EmbodiedGovBench 正是让它可被授权的前提。</span></div>
+  <div class="footer"><span>解读五 · 具身纪元</span><span>10</span></div>
+</section>
+
+<section class="slide">
   <div class="kicker">解读三 · 23 条主线</div>
-  <h2>地图 23 条主线 + 1 条基础线：2026 年 9 月的密度</h2>
+  <h2>地图 23 条主线 + 2 条新增线：2026 年 9 月的密度</h2>
   <div class="cols3">
     <div class="card"><h3>最密集（6-8 月）</h3><ul><li><b>T15 Harness</b>：RHO、Harness VLA、Thea、Guava、HARBOR、Zetta、SHAPER、RoboHarness、Agentic Harnesses</li><li><b>T5 Memory</b>：RoboMME、PonderPounce、AGM、HyMeS、BATON、NativeMEM、LaMem、Remember Smarter</li><li><b>T9 VLA+RL</b>：Temporal GRPO、TEMPO、WCM、Z-1、T²VLA、RL²-VLA、ARLI</li></ul></div>
     <div class="card"><h3>快速成熟</h3><ul><li><b>T13 快慢双系统</b>：UniFS、Latent Bridge、Libra-VLA、VisualThink-VLA、DSWAM</li><li><b>T11 数字孪生</b>：RoboSnap、Agentic Real2Sim、ConCent、PerceptTwin</li><li><b>T16/T17 Runtime &amp; 安全</b>：Runtime Governance、EmbodiedGovBench、ICAN-Deploy、EMBGuard、VASO、Same Weights Different Robot</li></ul></div>
-    <div class="card"><h3>仍在早期</h3><ul><li><b>T21 Fleet</b>：两端有证据（LWD 策略、RoboOS 记忆），中间的共享经验/世界知识缺系统工作</li><li><b>T18 标准接口</b>：MHS（2026-08-27）与 ROS 2 Harness Profile 是否融合待观察</li><li><b>T22 主动感知</b>：PhysCaP、ActiveVLA 把探索做成可调用工具，成本控制是关键</li></ul></div>
+    <div class="card"><h3>仍在早期</h3><ul><li><b>T21 Fleet</b>：两端有证据（LWD 策略、RoboOS 记忆），中间的共享经验/世界知识缺系统工作</li><li><b>T18 标准接口</b>：MHS（2026-08-27）与 ROS 2 Harness Profile 是否融合待观察</li><li><b>T22 主动感知</b>：PhysCaP、ActiveVLA 把探索做成可调用工具，成本控制是关键</li><li><b>T24 Robot RSI</b>（新增）：Eureka → DrEureka → ENPIRE；PRIMO R1、VERITAS 补自我评估环节</li></ul></div>
   </div>
-  <p class="small" style="margin-top:12px">完整逐线综述见报告第 4 章；154 篇论文按主线的清单见 README。</p>
-  <div class="footer"><span>解读三 · 检索地图</span><span>10</span></div>
+  <p class="small" style="margin-top:12px">完整逐线综述见报告第 4 章；169 篇论文按 25 条主线的清单见 README。</p>
+  <div class="footer"><span>解读三 · 检索地图</span><span>11</span></div>
 </section>
 
 <section class="slide">
@@ -234,7 +249,7 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
     <div class="card"><h3>BATON 的两个诊断</h3><ul><li>整任务探索代价是阶段数的指数 T<sup>K</sup>，失败无法归因到阶段 → 以子任务为探索单元，代价变 T·K</li><li>VLA 原语只有退出条件、没有进入条件 → 转移感知记忆治理调用/交接/前瞻三种转移</li><li>RoboMemArena 任务成功 +11.6%，不更新任何参数</li></ul><p class="en">AtomBridge inserts LLM-generated transitions at skill boundaries (+10-25% on 8-step tasks); Foresight Residual RL shapes handoff-state quality (85.6% vs 54.5%).</p></div>
     <div class="card"><h3>T23 验证器成为瓶颈</h3><ul><li>PhyAgentOS SessionVerifier：区分"执行终止"与"语义完成"</li><li>Thea：Evaluation as Exit Codes（何时终止、是否成功、为何失败）</li><li>AGM：2.43M 参数验证头，只有物理证据才推进进度指针</li><li>LLM-as-a-Verifier：验证是新的 scaling 轴，RoboRewardBench 87.4%，可作 RL 密集奖励</li><li>VASO：模型检查反例 → 技能契约的文本梯度，97.2% 规范符合</li><li>立场论文：成功率无法区分语义匹配与物理泛化</li></ul></div>
   </div>
-  <div class="footer"><span>解读三 · 检索地图</span><span>11</span></div>
+  <div class="footer"><span>解读三 · 检索地图</span><span>12</span></div>
 </section>
 
 <section class="slide">
@@ -245,7 +260,7 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
     <div class="card"><h3>EmbodiedGovBench 七维</h3><p>越权调用 · 运行时漂移 · 恢复 · 策略可移植 · 升级安全 · 人工接管 · 审计完整性<br><span class="en">Governance metrics track deployers' concerns better than task success.</span></p><p class="small">ICAN-Deploy：身份稳定的金丝雀部署（TLA+ 验证）；FSAR：fleet 层联邦而非机器人内部碎片化</p></div>
     <div class="card"><h3>被忽略的层面</h3><p><b>Same Weights, Different Robot</b>：换一个看似合理的动作反归一化元数据键，LIBERO-Goal 28/28 → 2/28。只审 checkpoint 会漏掉到达控制器的真实策略。</p><p><b>MHS</b>（Anthropic 2026-08-27）：让 agent 标准化地发现、操作、排障真实设备，"硬件版 MCP"。</p></div>
   </div>
-  <div class="footer"><span>解读三 · 检索地图</span><span>12</span></div>
+  <div class="footer"><span>解读三 · 检索地图</span><span>13</span></div>
 </section>
 
 <section class="slide">
@@ -270,7 +285,7 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
       <p class="small" style="padding:6px 14px">三个闭环：Execution Loop（这次能不能做完）· Learning Loop（下次能不能更好）· Fleet Loop（一台学到的能不能变成群体的）</p>
     </div>
   </div>
-  <div class="footer"><span>综合</span><span>13</span></div>
+  <div class="footer"><span>综合</span><span>14</span></div>
 </section>
 
 <section class="slide">
@@ -283,7 +298,7 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
     <li><b>I4 记忆分权重内/权重外两路</b>：精确时序与计数用权重内（NativeMEM 32.4→84.0%）；跨会话、抗干扰、可编辑用权重外结构化记忆（AGM、概念记忆）。RoboMME：记忆表示高度任务依赖。</li>
     <li><b>I5 Harness 变成实时系统问题</b>：控制/计算/通信三处介入；control-time Roofline（PhyAI）、20 Hz 约束（EcoVLA）、延迟破坏马尔可夫假设（ARLI）。"harness 像 OS"在机器人侧是字面意义。</li>
   </ul>
-  <div class="footer"><span>洞见</span><span>14</span></div>
+  <div class="footer"><span>洞见</span><span>15</span></div>
 </section>
 
 <section class="slide">
@@ -296,7 +311,7 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
     <li><b>I9 Coding agent 成为 roboticist</b>：RHO、ENPIRE、HARBOR、Nautilus、Push-T。物理世界给 autoresearch 加了三个约束：读状态难、判结果难、有时间。六类自主研究失败模式会以"仿真 100% 真机 60%"、重复假设、把噪声当信号的形式出现。</li>
     <li><b>I10 风险与反例</b>：harness updating ≠ harness benefit；验证器必须在可编辑面之外（AHE 只读 verifier）；对话可能降低多机器人任务成功；共享经验会共享污染。</li>
   </ul>
-  <div class="footer"><span>洞见</span><span>15</span></div>
+  <div class="footer"><span>洞见</span><span>16</span></div>
 </section>
 
 <section class="slide">
@@ -317,26 +332,26 @@ svg text{font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif}
     </ul>
   </div>
   <div class="callout">method-story 起点：选一个 z（如技能的进入条件 + 验证头），选 r 的来源（物理证据 + 形式检查），画清 A 的可编辑面并把验证器放在外面，在 LIBERO-Pro Long / RoboMemArena 上报告库规模 vs 零样本成功率曲线。</div>
-  <div class="footer"><span>开放问题</span><span>16</span></div>
+  <div class="footer"><span>开放问题</span><span>17</span></div>
 </section>
 
 <section class="slide">
   <div class="kicker">仓库 · Repository</div>
   <h2>awesome_agentic_robot 里有什么</h2>
   <div class="cols">
-    <div class="card"><h3>可读</h3><ul><li><code>README.md</code>：154 篇论文按 24 条主线（awesome-ml4co 规范，核心工作 ⭐）</li><li><code>docs/reports/report_zh.pdf</code> / <code>report_en.pdf</code>：详细解读报告（各 17 页）</li><li><code>docs/slides/index.html</code>：本 HTML 幻灯片；<code>agentic_robot_slides.pdf</code>：Beamer 版</li><li><code>sources/</code>：小红书长文转写、讲稿文字、Lil'Log 存档</li></ul></div>
+    <div class="card"><h3>可读</h3><ul><li><code>README.md</code>：169 篇论文按 25 条主线（awesome-ml4co 规范，核心工作 ⭐）</li><li><code>docs/reports/report_zh.pdf</code> / <code>report_en.pdf</code>：详细解读报告（19 / 20 页）</li><li><code>docs/slides/index.html</code>：本 HTML 幻灯片；<code>agentic_robot_slides.pdf</code>：Beamer 版</li><li><code>sources/</code>：小红书长文转写、讲稿文字、Lil'Log 存档、具身纪元 Robot RSI 文章转写</li></ul></div>
     <div class="card"><h3>可复现</h3><ul><li><code>data/papers.csv</code> + <code>data/topics.csv</code> → <code>src/generator.py</code> 重新生成 README</li><li><code>papers/pdf/</code> 五篇核心论文原文；<code>papers/pdf_zh/</code> SuperTranslate 保版式中文版（Code as Policies 正文全译，其余首页）</li><li><code>scripts/translate_papers.sh</code>：配置 API key 后一键补全翻译；<code>scripts/manual_translate.py</code>：无 key 的确定性通路</li><li><code>scripts/build_docs.sh</code>：pandoc + XeLaTeX + Playwright 重建全部 PDF</li></ul></div>
   </div>
   <p class="small" style="margin-top:12px">写作规范：anti-defensive-writing（先说主张）、shuorenhua（去模板腔）；排版：PaperOrchestra 的质量检查清单；幻灯片：ppt-master 版式原则 + beamer-skill 硬规则。</p>
-  <div class="footer"><span>github.com/asimfish/awesome_agentic_robot</span><span>17</span></div>
+  <div class="footer"><span>github.com/asimfish/awesome_agentic_robot</span><span>18</span></div>
 </section>
 
 <section class="slide title-slide">
   <div class="kicker">结语</div>
   <h1>先训练出一个足够好的机器人，让它开始工作；<br>然后让工作本身，继续训练机器人。</h1>
   <p class="sub">Model Scaling → Harness Scaling → System Scaling + Experience Scaling<br><span class="en" style="color:#c8d3e0">Train a robot good enough to start working; then let the work keep training the robot.</span></p>
-  <p class="en" style="color:#9fb0c2">材料致谢：具身RL日记（小红书）· Code-as-Policy 讲稿作者 · Agent+Robot 检索地图作者 · Lilian Weng（Lil'Log）· 154 篇论文的作者们</p>
-  <div class="footer"><span>awesome_agentic_robot · 2026-09-06</span><span>18</span></div>
+  <p class="en" style="color:#9fb0c2">材料致谢：具身RL日记（小红书）· Code-as-Policy 讲稿作者 · Agent+Robot 检索地图作者 · Lilian Weng（Lil'Log）· Marilyn Liu（具身纪元）· 169 篇论文的作者们</p>
+  <div class="footer"><span>awesome_agentic_robot · 2026-09-06</span><span>19</span></div>
 </section>
 
 </div>
