@@ -33,7 +33,7 @@
 | **数字口径账本** | [`insights/12_numbers_ledger_zh.md`](insights/12_numbers_ledger_zh.md) | 30 余个头条数字逐条标注任务集 / 指标类型 / 对照 / 干预与更新 / 证据形式——并排任何两个数字前先查此表 |
 | **总览图** | [图 1 时间线](assets/fig1_timeline.svg) · [图 2 分类树](assets/fig2_taxonomy.svg) | 矢量 SVG，`scripts/make_figures.py` 生成；深色版见 `assets/*_dark.svg` |
 | **逐篇深度解读** | [`notes/`](notes/) | {N_NOTES} 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
-| **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 五篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页）；方法见 [`papers/README.md`](papers/README.md) |
+| **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 六篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页或首两页）；方法见 [`papers/README.md`](papers/README.md) |
 | **源材料转写** | [`sources/`](sources/) | 小红书长文 39 卡转写、讲稿文字与备注、检索地图转写、Lil'Log 两篇存档、具身纪元文章与其小红书版转写 |
 | **机器可读数据** | [`data/papers.csv`](data/papers.csv) · [`data/topics.csv`](data/topics.csv) · [`data/paper_meta.json`](data/paper_meta.json) | {N_PAPERS} 条论文条目、{N_TOPICS} 条主线、arXiv 元数据；README 由此生成 |
 

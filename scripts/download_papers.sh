@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 mkdir -p papers/pdf
-CORE="2209.07753 2605.23904 2603.22435 2606.19980 2607.00272"
+CORE="2209.07753 2605.23904 2603.22435 2606.19980 2607.00272 2607.08448"
 if [[ "${1:-}" == "--all" ]]; then
   IDS=$(python3 -c "import csv;print(' '.join(r['id'] for r in csv.DictReader(open('data/papers.csv',encoding='utf-8')) if r['id'][0].isdigit()))")
 else

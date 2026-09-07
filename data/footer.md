@@ -11,7 +11,7 @@ report/                survey_full_report.html / .pdf：全文合订本（script
 insights/              10 趋势与洞察 · 11 研究机会清单 · 12 数字口径账本
 notes/                 43 份深度解读（01-43），按 Part A-G 合订进全文报告
 assets/                fig1_timeline.svg · fig2_taxonomy.svg（scripts/make_figures.py 生成）及幻灯片预览图
-papers/pdf/            五篇核心论文原文；papers/pdf_zh/ 为 SuperTranslate 中文版（*.inspect.json 为 QA 报告）
+papers/pdf/            六篇核心论文原文；papers/pdf_zh/ 为 SuperTranslate 中文版（*.inspect.json 为 QA 报告）
 papers/translations/   人工译文表，供 scripts/manual_translate.py 使用
 sources/               五份源材料的转写与存档
 scripts/               download_papers.sh · translate_papers.sh · manual_translate.py · export_slides_pdf.py · make_figures.py · build_full_report.py · build_docs.sh

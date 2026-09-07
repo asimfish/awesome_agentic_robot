@@ -2,11 +2,11 @@
 
 > **Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents**
 > arXiv 2607.08448（2026-07-09）· Yixian Zhang, Huanming Zhang, Feng Gao et al.（共 16 位作者）
-> 所属主线：T15、T6、T20、T23 · 材料来源：小红书长文 02 节；检索地图 T15/T20/T23 代表工作；报告第 2.2 节
+> 所属主线：T15、T6、T20、T23 · 材料来源：小红书长文 02 节；检索地图 T15/T20/T23 代表工作；报告第 2.2 节 · 本仓库有原文与首两页中译（`papers/pdf_zh/2607.08448_zh.pdf`）
 
 ## 1. 一句话定位
 
-Harness VLA 把冻结的 VLA 当作一个需要"使用说明书"的原语：从任务专属的执行轨迹、全局成功规则和失败模型里，学出这个 VLA 什么时候可靠、什么时候先用解析原语 MOVE_TO、什么时候重新 grounding、什么时候交给解析原语处理——既不修改 VLA 权重，也不扩张技能库。LIBERO-Pro +38.6 个百分点、RoboCasa365 +25.4 个百分点、RoboTwin C2R 58.4%。它是小红书长文 L4 Memory Evolution 的代表，也是"冻结 VLA + 外围学习"范式最典型的一篇。
+Harness VLA 把冻结的 VLA 当作一个需要"使用说明书"的原语：从任务专属的执行轨迹、全局成功规则和失败模型里，学出这个 VLA 什么时候可靠、什么时候先用解析原语 MOVE_TO、什么时候重新 grounding、什么时候交给解析原语处理——既不修改 VLA 权重，也不扩张技能库。LIBERO-Pro +38.6 个百分点、RoboCasa365 +27.1 个百分点、RoboTwin C2R 58.4%（v4，2026-09-02；小红书长文引用的早期版本为 RoboCasa365 +25.4）。它是小红书长文 L4 Memory Evolution 的代表，也是"冻结 VLA + 外围学习"范式最典型的一篇。
 
 ## 2. 要解决的问题
 
@@ -19,7 +19,7 @@ Harness VLA 把冻结的 VLA 当作一个需要"使用说明书"的原语：从�
 ## 4. 实验结果与口径
 
 - LIBERO-Pro：+38.6 个百分点（相对同一冻结 VLA 直接执行）。
-- RoboCasa365：+25.4 个百分点。
+- RoboCasa365：+27.1 个百分点（v4；v1 摘要为 +25.4）。
 - RoboTwin C2R（跨本体）：58.4%。
 - 口径：仿真基准、脚本判定；提升为绝对百分点，基座 VLA 与基线协议需看正文；58.4% 是绝对成功率。与 RHO 的 45.0%（LIBERO-PRO，代码策略）、Zetta 的 90.8%（LIBERO-Pro，不同基座与 rollout 预算）不可并排。
 

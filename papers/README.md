@@ -1,5 +1,7 @@
 # Core papers / 核心论文
 
+Six core papers: the five named by the Code-as-Policy deck plus Harness VLA (the representative work of the Harness / Verifier lines).
+
 | arXiv | Paper | Original | Chinese (SuperTranslate) | Translated scope |
 |---|---|---|---|---|
 | 2209.07753 | Code as Policies: Language Model Programs for Embodied Control | [pdf](pdf/2209.07753.pdf) | [pdf_zh](pdf_zh/2209.07753_zh.pdf) | Full main body (16 pages); appendix prompts/code kept in English by design. `inspect` QA: 3 untranslated appendix paragraphs, 0 issues in the main body ([report](pdf_zh/2209.07753_zh.inspect.json)) |
@@ -7,6 +9,7 @@
 | 2603.22435 | CaP-X: A Framework for Benchmarking and Improving Coding Agents for Robot Manipulation | [pdf](pdf/2603.22435.pdf) | [pdf_zh](pdf_zh/2603.22435_zh.pdf) | Page 1: title, abstract, introduction opening |
 | 2606.19980 | ENPIRE: Agentic Robot Policy Self-Improvement in the Real World | [pdf](pdf/2606.19980.pdf) | [pdf_zh](pdf_zh/2606.19980_zh.pdf) | Page 1: title, figure caption, abstract |
 | 2607.00272 | ASPIRE: Agentic Skills Discovery for Robotics | [pdf](pdf/2607.00272.pdf) | [pdf_zh](pdf_zh/2607.00272_zh.pdf) | Page 1: title, abstract, introduction opening |
+| 2607.08448 | Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents (v4, 2026-09-02) | [pdf](pdf/2607.08448.pdf) | [pdf_zh](pdf_zh/2607.08448_zh.pdf) | Pages 1-2: title, Figure 1 caption, abstract, introduction opening. Note: v4 reports +27.1 pp on RoboCasa365 where the arXiv abstract field and the Xiaohongshu essay quote +25.4 |
 
 ## How the Chinese versions were produced
 

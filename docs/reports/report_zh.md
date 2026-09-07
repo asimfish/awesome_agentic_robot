@@ -41,7 +41,7 @@ lang: zh-CN
 
 ## 1.3 边界
 
-机器翻译环节受本机条件限制：SuperTranslate 引擎需要 LLM API，本机所有 key 均不可用，因此五篇核心论文的中文版走的是引擎的手工翻译通路（`export` 导出文本块，译文由人工填入，`cache-only` 模式原位回填并跑 `inspect` QA）。Code as Policies 完成了正文全文翻译，其余四篇翻译了首页（标题、摘要、引言开头）。`scripts/translate_papers.sh` 可在配置 API key 后一键补全。
+机器翻译环节受本机条件限制：SuperTranslate 引擎需要 LLM API，本机所有 key 均不可用，因此六篇核心论文的中文版走的是引擎的手工翻译通路（`export` 导出文本块，译文由人工填入，`cache-only` 模式原位回填并跑 `inspect` QA）。Code as Policies 完成了正文全文翻译，其余五篇（SkillOpt、CaP-X、ENPIRE、ASPIRE、Harness VLA）翻译了首页或首两页（标题、摘要、引言开头）。`scripts/translate_papers.sh` 可在配置 API key 后一键补全。
 
 # 2. 解读一：《Harness 之后，Agent+Robot 下一站是什么？》
 
@@ -71,7 +71,7 @@ lang: zh-CN
 | L6 Policy Evolution | LWD、Q-Planning、Z-1、TEMPO、Temporal GRPO | 策略权重 |
 | L7 Fleet Evolution | LWD 的 16 台机器人、ENPIRE 的 8 工位、RoboOS-NeXT 的共享记忆 | 群体共享的数据与策略 |
 
-长文对 Harness VLA 的概括值得强调：它不修改 VLA 权重，也不扩张技能库，而是从任务专属执行轨迹、全局成功规则和失败模型里学“这个 VLA 什么时候靠谱、什么时候先 MOVE_TO、什么时候重新 grounding、什么时候交给解析原语”。论文数字是 LIBERO-Pro +38.6 个百分点、RoboCasa365 +25.4 个百分点、RoboTwin C2R 58.4%。ASPIRE 的“经验复利”也有数字：LIBERO-90 上积累的技能库让 LIBERO-Pro Long 的零样本成功率随库规模单调上升，N=90 时达到 31%，对比先前方法 4%。
+长文对 Harness VLA 的概括值得强调：它不修改 VLA 权重，也不扩张技能库，而是从任务专属执行轨迹、全局成功规则和失败模型里学“这个 VLA 什么时候靠谱、什么时候先 MOVE_TO、什么时候重新 grounding、什么时候交给解析原语”。论文数字是 LIBERO-Pro +38.6 个百分点、RoboCasa365 +27.1 个百分点（v4，2026-09-02；小红书长文引用的早期版本为 +25.4）、RoboTwin C2R 58.4%。ASPIRE 的“经验复利”也有数字：LIBERO-90 上积累的技能库让 LIBERO-Pro Long 的零样本成功率随库规模单调上升，N=90 时达到 31%，对比先前方法 4%。
 
 ## 2.3 两个时间尺度：Agent 负责秒，Controller 负责毫秒
 
@@ -390,7 +390,7 @@ RHO 的标题《Your Coding Agent is Secretly a Roboticist》、ENPIRE 的“phy
 
 - 重新生成 README：`python3 src/build_papers_csv.py && python3 src/generator.py`（前者需要 `data/paper_meta.json`，由 `src/fetch_arxiv_meta.py` 从 arXiv API 抓取）。
 - 下载全部论文 PDF：`bash scripts/download_papers.sh`。
-- 用 SuperTranslate 翻译：配置 `DEEPSEEK_API_KEY`（或任意 OpenAI 兼容端点）后运行 `bash scripts/translate_papers.sh`；无 API key 时可用 `scripts/manual_translate.py` 走"导出文本块 → 人工译文表 → 原位回填 → inspect QA"的确定性通路，本仓库五篇核心论文的中文版即由此产生。
+- 用 SuperTranslate 翻译：配置 `DEEPSEEK_API_KEY`（或任意 OpenAI 兼容端点）后运行 `bash scripts/translate_papers.sh`；无 API key 时可用 `scripts/manual_translate.py` 走"导出文本块 → 人工译文表 → 原位回填 → inspect QA"的确定性通路，本仓库六篇核心论文的中文版即由此产生。
 - 生成 PDF 报告与幻灯片：`bash scripts/build_docs.sh`（pandoc + XeLaTeX；HTML 幻灯片用 Playwright/Chromium 导出 PDF；Beamer 幻灯片用 XeLaTeX 编译）。
 
 ## 9.4 材料来源

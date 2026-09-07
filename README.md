@@ -1,12 +1,12 @@
 # Awesome Agentic Robot：Agent × Robot 论文地图、解读报告与幻灯片
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/%E8%AE%BA%E6%96%87-208-blue) ![topics](https://img.shields.io/badge/%E4%B8%BB%E7%BA%BF-25-green) ![updated](https://img.shields.io/badge/%E6%9B%B4%E6%96%B0-2026-09-07-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-orange)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/%E8%AE%BA%E6%96%87-208-blue) ![topics](https://img.shields.io/badge/%E4%B8%BB%E7%BA%BF-25-green) ![updated](https://img.shields.io/badge/%E6%9B%B4%E6%96%B0-2026-09-08-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-orange)
 
 一份面向 **Agentic Robotics（Agent × Robot）** 的中文检索地图与解读仓库。主题覆盖：Coding Agent 写机器人策略、围绕冻结 VLA 的 Harness 与 Runtime、机器人记忆、反思与自进化、VLA + RL、数字孪生、群体学习、安全与治理、硬件标准接口，以及把这些串起来的 Robot RSI（递归自我改进）。
 
 *A Chinese-first reading map of Agentic Robotics with bilingual reports and slides. English report: [docs/reports/report_en.pdf](docs/reports/report_en.pdf).*
 
-**仓库地址** <https://github.com/asimfish/awesome_agentic_robot> · 维护 [asimfish](https://github.com/asimfish) · 首次构建 2026-09-06 · 最近更新 2026-09-07
+**仓库地址** <https://github.com/asimfish/awesome_agentic_robot> · 维护 [asimfish](https://github.com/asimfish) · 首次构建 2026-09-06 · 最近更新 2026-09-08
 
 ## 目录
 
@@ -33,7 +33,7 @@
 | **数字口径账本** | [`insights/12_numbers_ledger_zh.md`](insights/12_numbers_ledger_zh.md) | 30 余个头条数字逐条标注任务集 / 指标类型 / 对照 / 干预与更新 / 证据形式——并排任何两个数字前先查此表 |
 | **总览图** | [图 1 时间线](assets/fig1_timeline.svg) · [图 2 分类树](assets/fig2_taxonomy.svg) | 矢量 SVG，`scripts/make_figures.py` 生成；深色版见 `assets/*_dark.svg` |
 | **逐篇深度解读** | [`notes/`](notes/) | 43 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
-| **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 五篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页）；方法见 [`papers/README.md`](papers/README.md) |
+| **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 六篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页或首两页）；方法见 [`papers/README.md`](papers/README.md) |
 | **源材料转写** | [`sources/`](sources/) | 小红书长文 39 卡转写、讲稿文字与备注、检索地图转写、Lil'Log 两篇存档、具身纪元文章与其小红书版转写 |
 | **机器可读数据** | [`data/papers.csv`](data/papers.csv) · [`data/topics.csv`](data/topics.csv) · [`data/paper_meta.json`](data/paper_meta.json) | 208 条论文条目、25 条主线、arXiv 元数据；README 由此生成 |
 
@@ -2751,7 +2751,7 @@ report/                survey_full_report.html / .pdf：全文合订本（script
 insights/              10 趋势与洞察 · 11 研究机会清单 · 12 数字口径账本
 notes/                 43 份深度解读（01-43），按 Part A-G 合订进全文报告
 assets/                fig1_timeline.svg · fig2_taxonomy.svg（scripts/make_figures.py 生成）及幻灯片预览图
-papers/pdf/            五篇核心论文原文；papers/pdf_zh/ 为 SuperTranslate 中文版（*.inspect.json 为 QA 报告）
+papers/pdf/            六篇核心论文原文；papers/pdf_zh/ 为 SuperTranslate 中文版（*.inspect.json 为 QA 报告）
 papers/translations/   人工译文表，供 scripts/manual_translate.py 使用
 sources/               五份源材料的转写与存档
 scripts/               download_papers.sh · translate_papers.sh · manual_translate.py · export_slides_pdf.py · make_figures.py · build_full_report.py · build_docs.sh

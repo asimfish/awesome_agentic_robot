@@ -8,7 +8,7 @@
 |---|---|---|---|
 | 二元成功率 | 一次 rollout 全部完成才算成功 | 基准 | 大多数仿真基准（LIBERO-Pro、RoboCasa、RoboMME） |
 | 相对提升（%） | 相对基线的相对百分比 | 取决于基线绝对值，不能换算 | ASPIRE +77%/+72%/+32%、REMAC +40% |
-| 绝对提升（pp） | 百分点差 | 需要基线绝对值才能定位 | Harness VLA +38.6/+25.4、SkillOpt +23.5、RATs +20.6、BATON +11.6、PhysReflect +5.4 |
+| 绝对提升（pp） | 百分点差 | 需要基线绝对值才能定位 | Harness VLA +38.6/+27.1、SkillOpt +23.5、RATs +20.6、BATON +11.6、PhysReflect +5.4 |
 | 多任务平均 | 若干任务成功率的平均 | 任务集不同不可比 | LWD 95%、Z-1 80.6% |
 | 连续成功次数 | 连续 N 次成功才算达标 | 远严于单次成功率 | ENPIRE pin insertion（50 次） |
 | 固定重试预算下的成功率 | K 次重试内成功 | 随 K 单调不减 | ENPIRE 99%（固定八次重试）、Agentic RAG-VLM 三级重试 |
@@ -40,7 +40,7 @@
 | PRIMO R1 | RoboFail 67% | RoboFail | 失败检测准确率 | 摘要未说明 | RL 训练 7B 视频 MLLM | 论文（具身纪元转述） | 验证器指标（notes/17） |
 | VERITAS | 70% vs 65%（50 条自主 vs 50 条人工示范） | 真机单任务，每格 20 次 | 二元 | 同量人工示范 SFT | 验证过的 rollout 微调 | 论文（具身纪元转述） | 20 次评测差异不显著，应读"相当"（notes/18） |
 | LLM-as-a-Verifier | RoboRewardBench 87.4% | RoboRewardBench | 验证器准确率 | 标准 LM judge | 不训练 | 论文 | 可作 RL 密集奖励（notes/19） |
-| Harness VLA | +38.6 pp（LIBERO-Pro）· +25.4 pp（RoboCasa365）· 58.4%（RoboTwin C2R） | 三个仿真基准 | 绝对 pp；二元 | 同一冻结 VLA 直接执行 | 规则记忆学习；VLA 冻结 | 论文 | 基线绝对值需看正文（notes/20） |
+| Harness VLA | +38.6 pp（LIBERO-Pro）· +27.1 pp（RoboCasa365，v4；早期版本 +25.4）· 58.4%（RoboTwin C2R） | 三个仿真基准 | 绝对 pp；二元 | 同一冻结 VLA 直接执行 | 规则记忆学习；VLA 冻结 | 论文（v4 PDF 已核对） | 版本间数字有变动，引用时注明版本（notes/20） |
 | Runtime Governance | 96.2% 拦截 · 100% → 22.2% 不安全继续 · 90.7% 恢复 · RVDR 61.3% vs 0% | 1000 次随机试验 | 治理指标 | AutoRT 式过滤、RoboGuard 式护栏 | 外置治理层 | 论文 | 主要为仿真化场景（notes/25） |
 | Fast-in-Slow / StreamVLA / LaST0 | 117.7 Hz · 72% 时间步跳过解码、-48% 延迟、LIBERO 98.5% · +13-14%（真机） | 各自设置 | 频率；比例；二元；相对提升 | 各自基线 | 训练 | 论文 | 系统指标与成功率混合（notes/26） |
 | CloudEdgeVLA / PhyAI / EcoVLA | 63.8-78.0% vs ≤6.4%（40 步延迟）· 1.40-4.65× · +236% 能效 | 仿真延迟注入；四种 VLA；20 Hz 约束 | 二元；加速比；能效 | 对比方法 / 原推理程序 | — | 论文 | 延迟为统一窗口（notes/27） |

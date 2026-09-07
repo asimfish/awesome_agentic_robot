@@ -429,11 +429,11 @@ github.com/asimfish/awesome\_agentic\_robot\\[4pt]
 \end{center}
 \end{frame}
 
-\begin{frame}{Backup：五篇核心论文的中文译本（SuperTranslate）}
+\begin{frame}{Backup：六篇核心论文的中文译本（SuperTranslate）}
 \begin{itemize}
   \item 引擎需要 LLM API；本机无可用 key，走引擎的手工翻译通路：\texttt{export} 导出文本块 → 人工译文表 → \texttt{cache-only} 原位回填 → \texttt{inspect} QA
   \item Code as Policies：正文全译（16 页），inspect 仅报 3 条附录页未翻译（刻意保留）
-  \item SkillOpt / CaP-X / ENPIRE / ASPIRE：首页（标题、摘要、引言开头）
+  \item SkillOpt / CaP-X / ENPIRE / ASPIRE / Harness VLA：首页或首两页（标题、摘要、引言开头）
   \item CaP-X 与 ENPIRE 原文含 MuPDF 不支持的 CID 字体，先经 Ghostscript 重蒸馏
   \item \texttt{scripts/translate\_papers.sh}：配置 \texttt{DEEPSEEK\_API\_KEY} 后一键补全
 \end{itemize}

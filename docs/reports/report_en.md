@@ -40,7 +40,7 @@ Every statement about a paper rests on its abstract or the source text. The repo
 
 ## 1.3 Scope
 
-Machine translation was constrained by the local machine: the SuperTranslate engine needs an LLM API and no working key was available, so the Chinese versions of the five core papers were produced through the engine's manual-translation path (`export` the text blocks, fill the translations by hand, render in `cache-only` mode, run `inspect` QA). Code as Policies was translated in full for the main body; the other four papers have their first page (title, abstract, start of introduction) translated. `scripts/translate_papers.sh` completes the rest once an API key is configured.
+Machine translation was constrained by the local machine: the SuperTranslate engine needs an LLM API and no working key was available, so the Chinese versions of the six core papers were produced through the engine's manual-translation path (`export` the text blocks, fill the translations by hand, render in `cache-only` mode, run `inspect` QA). Code as Policies was translated in full for the main body; the other five papers (SkillOpt, CaP-X, ENPIRE, ASPIRE, Harness VLA) have their first page or two (title, abstract, start of introduction) translated. `scripts/translate_papers.sh` completes the rest once an API key is configured.
 
 # 2. Reading one: "After Harness, what is the next stop for Agent+Robot?"
 
@@ -67,7 +67,7 @@ The essay splits "self-evolution" into seven levels, L1 Retry, L2 Replan, L3 Ref
 | L6 Policy Evolution | LWD, Q-Planning, Z-1, TEMPO, Temporal GRPO | Policy weights |
 | L7 Fleet Evolution | LWD's 16 robots, ENPIRE's 8 stations, RoboOS-NeXT's shared memory | Data and policies shared across the fleet |
 
-The essay's summary of Harness VLA deserves emphasis: it neither modifies VLA weights nor expands the skill library; it learns from task-specific execution traces, global success rules and failure models when the VLA is reliable, when to MOVE_TO first, when to re-ground and when to hand off to an analytic primitive. The paper reports +38.6 points on LIBERO-Pro, +25.4 on RoboCasa365 and 58.4% on RoboTwin C2R. ASPIRE's "compounding experience" also has numbers: skills accumulated on LIBERO-90 raise zero-shot success on LIBERO-Pro Long monotonically with library size, reaching 31% at N=90 against 4% for prior methods.
+The essay's summary of Harness VLA deserves emphasis: it neither modifies VLA weights nor expands the skill library; it learns from task-specific execution traces, global success rules and failure models when the VLA is reliable, when to MOVE_TO first, when to re-ground and when to hand off to an analytic primitive. The paper reports +38.6 points on LIBERO-Pro, +27.1 on RoboCasa365 (v4, 2 September 2026; the essay quotes +25.4 from an earlier version) and 58.4% on RoboTwin C2R. ASPIRE's "compounding experience" also has numbers: skills accumulated on LIBERO-90 raise zero-shot success on LIBERO-Pro Long monotonically with library size, reaching 31% at N=90 against 4% for prior methods.
 
 ## 2.3 Two time scales: the agent owns seconds, the controller owns milliseconds
 
@@ -327,7 +327,7 @@ The 208 entries organised by 25 topic lines are in the repository `README.md`; t
 
 - Regenerate the README: `python3 src/build_papers_csv.py && python3 src/generator.py` (the first needs `data/paper_meta.json`, fetched from the arXiv API by `src/fetch_arxiv_meta.py`).
 - Download all paper PDFs: `bash scripts/download_papers.sh`.
-- Translate with SuperTranslate: set `DEEPSEEK_API_KEY` (or any OpenAI-compatible endpoint) and run `bash scripts/translate_papers.sh`; without a key, `scripts/manual_translate.py` provides the deterministic path (export blocks → hand-filled translation table → in-place rendering → inspect QA) used to produce the five Chinese PDFs in this repository.
+- Translate with SuperTranslate: set `DEEPSEEK_API_KEY` (or any OpenAI-compatible endpoint) and run `bash scripts/translate_papers.sh`; without a key, `scripts/manual_translate.py` provides the deterministic path (export blocks → hand-filled translation table → in-place rendering → inspect QA) used to produce the six Chinese PDFs in this repository.
 - Build the PDF reports and slides: `bash scripts/build_docs.sh` (pandoc + XeLaTeX; the HTML deck is exported to PDF with Playwright/Chromium; the Beamer deck is compiled with XeLaTeX).
 
 ## 9.4 Sources
