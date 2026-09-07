@@ -12,7 +12,7 @@ OUT_PDF = REPO / "report" / "survey_full_report.pdf"
 
 PARTS = [
  ("0", "执行摘要：趋势、洞察、研究机会与口径账本",
-  "一页结论 · 六大趋势 · 十条洞察 · 八条可证伪预测 · 18 个研究机会（各配最小可行实验）· 头条数字的口径账本——全部结论先行，细节见后续各章。",
+  "一页结论 · 六大趋势 · 十条洞察 · 八条可证伪预测 · 19 个研究机会（各配最小可行实验）· 头条数字的口径账本——全部结论先行，细节见后续各章。",
   [REPO/"insights/10_trends_insights_zh.md", REPO/"insights/11_open_problems_zh.md", REPO/"insights/12_numbers_ledger_zh.md"]),
  ("1", "五份源材料的解读与 25 条主线综述",
   "小红书长文《Harness 之后，Agent+Robot 下一站是什么？》· Code-as-Policy 讲稿 · 23 条主线检索地图 · Lil'Log 两篇 · 具身纪元《GPT-6 … 加速 RobotRSI》及其小红书图文版；随后是 25 条主线的逐线综述。",
@@ -30,8 +30,8 @@ PARTS = [
   [N("20_harness_vla_zh.md"), N("21_phyagentos_zh.md"), N("22_thea_zh.md"), N("23_harness_engineering_physical_ai_zh.md"), N("24_harness_frameworks_zh.md"),
    N("25_runtime_governance_zh.md"), N("26_dual_systems_zh.md"), N("27_edge_deployment_zh.md")]),
  ("D", "学习闭环：RL、数据回流、数字孪生与世界模型",
-  "LWD 的 16 台机器人、Q-Planning 的小 Q 函数、TwinRL 与数字孪生谱系、RoboClaw 的自复位、VLA + RL 的信用分配、世界模型的角色。",
-  [N("28_lwd_zh.md"), N("29_q_planning_zh.md"), N("30_twinrl_digital_twin_zh.md"), N("31_roboclaw_zh.md"), N("32_vla_rl_credit_zh.md"), N("33_world_model_roles_zh.md")]),
+  "LWD 的 16 台机器人、Q-Planning 的小 Q 函数、TwinRL 与数字孪生谱系、RoboClaw 的自复位、VLA + RL 的信用分配、世界模型的角色，以及把前沿 VLM agent 做成数据引擎的方案（RoboCurve GPT-6 Astra 演示解读）。",
+  [N("28_lwd_zh.md"), N("29_q_planning_zh.md"), N("30_twinrl_digital_twin_zh.md"), N("31_roboclaw_zh.md"), N("32_vla_rl_credit_zh.md"), N("33_world_model_roles_zh.md"), N("44_gpt6_astra_data_engine_zh.md")]),
  ("E", "总览、接口、多机器人与跨本体",
   "AgenticLab 的规划语言接口、Agent + Robot 总览、ROSClaw 与 MHS 的接口层、多机器人协作、生命周期与主动感知。",
   [N("34_agenticlab_zh.md"), N("35_agent_robot_overview_zh.md"), N("36_rosclaw_mhs_interfaces_zh.md"), N("37_multi_robot_zh.md"), N("38_lifecycle_active_perception_zh.md")]),
@@ -114,7 +114,7 @@ def build_html():
     body = []
     body.append(f'''<div class="cover"><div class="k">AWESOME AGENTIC ROBOT · 全文报告</div>
 <div class="t1">Agent × Robot：从 Harness 到自进化物理智能体</div>
-<div class="t2">五份源材料的解读 · 25 条主线综述 · 六大趋势与十条洞察 · 18 个研究机会 · 数字口径账本 · {n_notes} 份深度解读合订</div>
+<div class="t2">五份源材料的解读 · 25 条主线综述 · 六大趋势与十条洞察 · 19 个研究机会 · 数字口径账本 · {n_notes} 份深度解读合订</div>
 <div class="meta">仓库：github.com/asimfish/awesome_agentic_robot<br>维护：asimfish · 生成日期：{today}<br>本报告由 scripts/build_full_report.py 从 insights/、docs/reports/report_zh.md 与 notes/ 自动合订；引用请注明仓库与解读编号。</div></div>''')
     # TOC
     toc = ['<div class="toc"><h1 class="first">目录</h1>']

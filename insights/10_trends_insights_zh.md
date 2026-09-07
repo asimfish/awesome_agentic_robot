@@ -83,4 +83,4 @@ I10 **风险与反例**：harness updating ≠ harness benefit；验证器进了
 
 ## 5. 开放问题清单
 
-见 `insights/11_open_problems_zh.md`：18 个问题，按 Part A-G 排列，每条配缺口、为什么重要、最小可行实验与相关解读。只做一件事就做第 1 条（分层验证器）。
+见 `insights/11_open_problems_zh.md`：19 个问题，按 Part A-G 排列，每条配缺口、为什么重要、最小可行实验与相关解读。只做一件事就做第 1 条（分层验证器）。

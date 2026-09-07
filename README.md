@@ -1,6 +1,6 @@
 # Awesome Agentic Robot：Agent × Robot 论文地图、解读报告与幻灯片
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/%E8%AE%BA%E6%96%87-208-blue) ![topics](https://img.shields.io/badge/%E4%B8%BB%E7%BA%BF-25-green) ![updated](https://img.shields.io/badge/%E6%9B%B4%E6%96%B0-2026-09-08-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-orange)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/%E8%AE%BA%E6%96%87-209-blue) ![topics](https://img.shields.io/badge/%E4%B8%BB%E7%BA%BF-25-green) ![updated](https://img.shields.io/badge/%E6%9B%B4%E6%96%B0-2026-09-08-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-orange)
 
 一份面向 **Agentic Robotics（Agent × Robot）** 的中文检索地图与解读仓库。主题覆盖：Coding Agent 写机器人策略、围绕冻结 VLA 的 Harness 与 Runtime、机器人记忆、反思与自进化、VLA + RL、数字孪生、群体学习、安全与治理、硬件标准接口，以及把这些串起来的 Robot RSI（递归自我改进）。
 
@@ -15,8 +15,8 @@
 3. [仓库简介](#仓库简介)
 4. [六条核心结论](#六条核心结论)
 5. [源材料](#源材料)
-6. [深度解读索引](#深度解读索引)（43 篇）
-7. [论文清单](#论文清单)（25 条主线，208 篇）
+6. [深度解读索引](#深度解读索引)（44 篇）
+7. [论文清单](#论文清单)（25 条主线，209 篇）
 8. [统计](#统计)
 9. [复现与贡献](#复现与贡献)
 10. [许可与引用](#许可与引用)
@@ -26,16 +26,16 @@
 | 想要 | 打开 | 说明 |
 |---|---|---|
 | **15 分钟拿到全部结论** | [`docs/slides/index.html`](docs/slides/index.html) · [PDF](docs/slides/index.pdf) | 19 页 HTML 幻灯片，浏览器打开 ← → 翻页、F 全屏、P 打印；另有 [Beamer 版 PDF](docs/slides/agentic_robot_slides.pdf)（25 页，含参考文献与备份页） |
-| **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | 135 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 43 份深度解读 |
+| **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | 140 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 44 份深度解读 |
 | **两份解读报告** | [中文 PDF](docs/reports/report_zh.pdf) · [英文 PDF](docs/reports/report_en.pdf) | 独立成篇的中英文报告（19 / 21 页）：五份材料逐一解读、主线综述、十条洞见、八个开放问题；Markdown 源在 [`docs/reports/`](docs/reports/) |
 | **趋势与洞察** | [`insights/10_trends_insights_zh.md`](insights/10_trends_insights_zh.md) | 一页结论 · 领域时间线 · 六大趋势 · 十条洞察 · 八条可证伪预测（12-24 个月，到期回来核对） |
-| **研究机会清单** | [`insights/11_open_problems_zh.md`](insights/11_open_problems_zh.md) | 18 个待验证问题，按 Part A-G 排列，每条配「缺口 + 为什么重要 + 最小可行实验 + 相关解读」；只做一件事就做第 1 条（分层验证器） |
+| **研究机会清单** | [`insights/11_open_problems_zh.md`](insights/11_open_problems_zh.md) | 19 个待验证问题，按 Part A-G 排列，每条配「缺口 + 为什么重要 + 最小可行实验 + 相关解读」；只做一件事就做第 1 条（分层验证器） |
 | **数字口径账本** | [`insights/12_numbers_ledger_zh.md`](insights/12_numbers_ledger_zh.md) | 30 余个头条数字逐条标注任务集 / 指标类型 / 对照 / 干预与更新 / 证据形式——并排任何两个数字前先查此表 |
 | **总览图** | [图 1 时间线](assets/fig1_timeline.svg) · [图 2 分类树](assets/fig2_taxonomy.svg) | 矢量 SVG，`scripts/make_figures.py` 生成；深色版见 `assets/*_dark.svg` |
-| **逐篇深度解读** | [`notes/`](notes/) | 43 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
+| **逐篇深度解读** | [`notes/`](notes/) | 44 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
 | **论文原文与中译** | [`papers/pdf/`](papers/pdf/) · [`papers/pdf_zh/`](papers/pdf_zh/) | 六篇核心论文原文与 [SuperTranslate](https://github.com/asimfish/super_translate) 保版式中译（Code as Policies 正文全译，其余首页或首两页）；方法见 [`papers/README.md`](papers/README.md) |
 | **源材料转写** | [`sources/`](sources/) | 小红书长文 39 卡转写、讲稿文字与备注、检索地图转写、Lil'Log 两篇存档、具身纪元文章与其小红书版转写 |
-| **机器可读数据** | [`data/papers.csv`](data/papers.csv) · [`data/topics.csv`](data/topics.csv) · [`data/paper_meta.json`](data/paper_meta.json) | 208 条论文条目、25 条主线、arXiv 元数据；README 由此生成 |
+| **机器可读数据** | [`data/papers.csv`](data/papers.csv) · [`data/topics.csv`](data/topics.csv) · [`data/paper_meta.json`](data/paper_meta.json) | 209 条论文条目、25 条主线、arXiv 元数据；README 由此生成 |
 
 > 所有成功率数字都依赖各自的任务集与判定口径，**不同工作的数字禁止直接比大小**；详见各篇解读的「结果与口径」节与[数字口径账本](insights/12_numbers_ledger_zh.md)。
 
@@ -43,7 +43,7 @@
 
 ![图 1 · 时间线](assets/fig1_timeline.svg)
 
-*图 1 · 208 篇中约 100 项代表工作的时间线：按七个 Part 分泳道、按发表年月定位，★ 为源材料点名的核心工作，橙色竖带为 2026 年 6-8 月——Harness、记忆、自进化论文密度最高的季度。*
+*图 1 · 209 篇中约 100 项代表工作的时间线：按七个 Part 分泳道、按发表年月定位，★ 为源材料点名的核心工作，橙色竖带为 2026 年 6-8 月——Harness、记忆、自进化论文密度最高的季度。*
 
 ![图 2 · 分类树](assets/fig2_taxonomy.svg)
 
@@ -76,6 +76,7 @@
 | 3 | 《Agent + Robot 论文检索地图》（23 条主线） | 用户提供的两页表格 | — | [转写](sources/retrieval_map_transcript.md)、[data/topics.csv](data/topics.csv) | 报告第 4 章（逐线） |
 | 4 | 《LLM Powered Autonomous Agents》(2023)、《Harness Engineering for Self-Improvement》(2026) | Lilian Weng · Lil'Log | [2023](https://lilianweng.github.io/posts/2023-06-23-agent/)、[2026](https://lilianweng.github.io/posts/2026-07-04-harness/) | [2023 存档](sources/lilianweng_2023-06-23_llm_agents.txt)、[2026 存档](sources/lilianweng_2026-07-04_harness_engineering.txt)；两文 60 条参考文献全部收入 T0 | 报告第 5 章 |
 | 5 | 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》及其小红书图文版《GPT-6 Astra 开启 Robot RSI 时代》 | Marilyn Liu · 具身纪元（公众号）；♥VLA和RL的具身未来（小红书） | [公众号](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)、[小红书](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485) | [公众号转写](sources/wechat_embodied_era_robot_rsi_transcript.md)、[小红书转写](sources/xiaohongshu_robot_rsi_howto_transcript.md) | 报告第 6 章、主线 T24 |
+| 6 | 《RoboCurve：GPT-6 Astra 直接控制机器人》（RoboCurve 第三方测试解读） | 罗清雨 · 知乎 | [知乎](https://zhuanlan.zhihu.com/p/208031326825455257) | [转写](sources/zhihu_robocurve_gpt6_astra_transcript.md) | [解读 44](notes/44_gpt6_astra_data_engine_zh.md)：演示定位 + Agent-as-Teleoperator 数据引擎方案 |
 
 ## 深度解读索引
 
@@ -114,6 +115,7 @@
 | D | [31 · RoboClaw 深度解读](notes/31_roboclaw_zh.md) | 让机器人同时学会"做任务"与"恢复现场" |
 | D | [32 · VLA + RL 合评](notes/32_vla_rl_credit_zh.md) | 信用分配、免外部奖励与测试时 RL |
 | D | [33 · 世界模型的角色合评](notes/33_world_model_roles_zh.md) | H-WM、Motus2、ContactGuard、SafeDojo、Online Continual RL、RoboGene |
+| D | [44 · RoboCurve 的 GPT-6 Astra 演示与"Agent 当遥操作员"的数据引擎](notes/44_gpt6_astra_data_engine_zh.md) | 解读与方案 |
 | **E** · 总览、接口、多机器人与跨本体 | [34 · AgenticLab / PLanAR 深度解读](notes/34_agenticlab_zh.md) | 用规划语言定义 VLM 的推理空间 |
 | E | [35 · Agent + Robot 总览合评](notes/35_agent_robot_overview_zh.md) | Agentic Robot、ManiAgent、VoLo、HoloAgent-0 与"灵活但仍脆弱" |
 | E | [36 · 接口层合评](notes/36_rosclaw_mhs_interfaces_zh.md) | 两篇 ROSClaw、MHS、OpenClaw 生态与 MCP |
@@ -128,7 +130,7 @@
 
 ## 论文清单
 
-共 25 条主线、208 篇论文，按主线分组、组内按时间排序。每条主线先给检索关键词与代表工作，再列条目；⭐ 为源材料点名的核心工作。点击主线标题可回到本目录。
+共 25 条主线、209 篇论文，按主线分组、组内按时间排序。每条主线先给检索关键词与代表工作，再列条目；⭐ 为源材料点名的核心工作。点击主线标题可回到本目录。
 
 <table>
 <tr>
@@ -680,7 +682,7 @@
 
 ### [Coding Agent 控机器人 | Coding Agents Control Robots](#论文清单)
 
-检索关键词：`Code-as-Policy robotics / robot coding agent / coding agents robot manipulation`　代表工作：Code as Policies, CaP-X, RHO, ASPIRE　（19 篇）
+检索关键词：`Code-as-Policy robotics / robot coding agent / coding agents robot manipulation`　代表工作：Code as Policies, CaP-X, RHO, ASPIRE　（20 篇）
 
 1. **⭐Code as Policies: Language Model Programs for Embodied Control.** arXiv, 2022. [paper](https://arxiv.org/abs/2209.07753) [code](https://code-as-policies.github.io)
 
@@ -795,6 +797,12 @@
     *Chen-Yu Lin, Jing-Wen Chen, Hsueh-En Chang, Hung-An Chen, Sheng-Hsun Chang, Chi-Pin Huang, Fu-En Yang, Min-Hung Chen, Yi-Ting Chen, Yu-Chiang Frank Wang, Shao-Hua Sun*
 
     > 物理信息驱动的主动探索层：从本体感知估计质量/刚度，Planner+Prioritizer 决定何时探索。
+
+20. **RoboCurve：GPT-6 Astra 直接控制机器人.** 知乎专栏, 2026. [paper](https://zhuanlan.zhihu.com/p/208031326825455257)
+
+    *罗清雨 (知乎)*
+
+    > RoboCurve 第三方测试：GPT-6 Astra 以 EEF waypoint 工具调用控制 YAM 双臂，block→bowl 19/20（2.5 min，2.1K tokens）而精密插入 10%；文章提出“接一个 flow head”的双系统设想。本仓库 notes/44 据此给出 Agent-as-Teleoperator 数据引擎方案。
 
 ### [OpenClaw / ROS 生态 | OpenClaw / ROS](#论文清单)
 
@@ -1510,7 +1518,7 @@
 
 ### [部署数据回流 | Deployment Data Flywheel](#论文清单)
 
-检索关键词：`learning while deploying robot / fleet robot learning / deployment feedback robot policy`　代表工作：Learning While Deploying, RoboClaw, Arcadia　（8 篇）
+检索关键词：`learning while deploying robot / fleet robot learning / deployment feedback robot policy`　代表工作：Learning While Deploying, RoboClaw, Arcadia　（9 篇）
 
 1. **⭐Arcadia: Toward a Full-Lifecycle Framework for Embodied Lifelong Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2512.00076)
 
@@ -1559,6 +1567,12 @@
     *Varun Giridhar, Anant Khandelwal, Jeremy A. Collins, Ignat Georgiev, Animesh Garg*
 
     > 大 BC 策略 + 小 off-policy Q 函数，只微调 Q 即可从部署失败中自我改进。
+
+9. **RoboCurve：GPT-6 Astra 直接控制机器人.** 知乎专栏, 2026. [paper](https://zhuanlan.zhihu.com/p/208031326825455257)
+
+    *罗清雨 (知乎)*
+
+    > RoboCurve 第三方测试：GPT-6 Astra 以 EEF waypoint 工具调用控制 YAM 双臂，block→bowl 19/20（2.5 min，2.1K tokens）而精密插入 10%；文章提出“接一个 flow head”的双系统设想。本仓库 notes/44 据此给出 Agent-as-Teleoperator 数据引擎方案。
 
 ### [数字孪生 / Sim2Real | Digital Twin / Sim2Real](#论文清单)
 
@@ -1678,7 +1692,7 @@
 
 ### [快慢双系统 | Fast-Slow Dual Systems](#论文清单)
 
-检索关键词：`dual-system VLA / fast slow robot reasoning / System 1 System 2 robotics`　代表工作：Fast-in-Slow, OneTwoVLA, StreamVLA, LaST0, RationalVLA　（14 篇）
+检索关键词：`dual-system VLA / fast slow robot reasoning / System 1 System 2 robotics`　代表工作：Fast-in-Slow, OneTwoVLA, StreamVLA, LaST0, RationalVLA　（15 篇）
 
 1. **Towards Synergistic, Generalized, and Efficient Dual-System for Robotic Manipulation.** arXiv, 2024. [paper](https://arxiv.org/abs/2410.08001) [code](https://opendrivelab.com/RoboDual/)
 
@@ -1763,6 +1777,12 @@
     *Suhwan Choi, Jaeyoon Jung, Sungkyung Kim, Yunsung Lee, Youngjae Yu*
 
     > 复用 MLLM 原生因果上下文作为 episode 记忆：Ponder(System2) 异步向 Pounce(System1 VLA) 发送最新认知 token；RoboMME 60.83% vs π0.5 17.93%。
+
+15. **RoboCurve：GPT-6 Astra 直接控制机器人.** 知乎专栏, 2026. [paper](https://zhuanlan.zhihu.com/p/208031326825455257)
+
+    *罗清雨 (知乎)*
+
+    > RoboCurve 第三方测试：GPT-6 Astra 以 EEF waypoint 工具调用控制 YAM 双臂，block→bowl 19/20（2.5 min，2.1K tokens）而精密插入 10%；文章提出“接一个 flow head”的双系统设想。本仓库 notes/44 据此给出 Agent-as-Teleoperator 数据引擎方案。
 
 ### [端侧部署 / Edge Agent | Edge Agent / On-Device Deployment](#论文清单)
 
@@ -2454,7 +2474,7 @@
 
 ### [Robot RSI：递归自我改进 | Robot RSI: Recursive Self-Improvement](#论文清单)
 
-检索关键词：`recursive self-improvement robot / deployment-time self-evolution / training-time self-iteration / self-evaluation verifier / auto research robotics / human-on-the-loop`　代表工作：ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka, DrEureka, Reflexion, STaR, Let's Verify Step by Step, Meta-Rewarding LMs, The AI Scientist　（46 篇）
+检索关键词：`recursive self-improvement robot / deployment-time self-evolution / training-time self-iteration / self-evaluation verifier / auto research robotics / human-on-the-loop`　代表工作：ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka, DrEureka, Reflexion, STaR, Let's Verify Step by Step, Meta-Rewarding LMs, The AI Scientist　（47 篇）
 
 1. **Speculations Concerning the First Ultraintelligent Machine.** Advances in Computers 6:31-88, 1965. [paper](https://doi.org/10.1016/S0065-2458(08)60418-0)
 
@@ -2720,13 +2740,19 @@
 
     > 提出 Robot RSI 两条轴线：改进环节（部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究）× 人的参与程度（in-the-loop / on-the-loop / closed loop）；判断前沿 LLM 更可能先成为 Robot RSI 的认知中枢而非末端控制器。
 
-45. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
+45. **RoboCurve：GPT-6 Astra 直接控制机器人.** 知乎专栏, 2026. [paper](https://zhuanlan.zhihu.com/p/208031326825455257)
+
+    *罗清雨 (知乎)*
+
+    > RoboCurve 第三方测试：GPT-6 Astra 以 EEF waypoint 工具调用控制 YAM 双臂，block→bowl 19/20（2.5 min，2.1K tokens）而精密插入 10%；文章提出“接一个 flow head”的双系统设想。本仓库 notes/44 据此给出 Agent-as-Teleoperator 数据引擎方案。
+
+46. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
 
     *Shuaicheng Niu, Guohao Chen, Yaofo Chen, Zhiquan Wen, Jinwu Hu, Zeshuai Deng, Deyu Chen, Shuhai Zhang, Renjie Chen, Zihao Lian, Shoukai Xu, Gang Dai, Yunbei Zhang, Wei Luo, Yifan Zhang, Mingkui Tan, Cheng Deng*
 
     > 统一测试时适应/学习/扩展的反馈驱动 TTI 视角，覆盖机器人。
 
-46. **GPT-6 Astra 开启 Robot RSI 时代! howto 实现.** 小红书, 2026. [paper](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485)
+47. **GPT-6 Astra 开启 Robot RSI 时代! howto 实现.** 小红书, 2026. [paper](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485)
 
     *♥VLA和RL的具身未来 (小红书)*
 
@@ -2734,9 +2760,9 @@
 
 ## 统计
 
-- 共 208 条：核心 ⭐ 46、扩展 94、基础 68。
-- 按年份：1965 年 1 篇、2003 年 1 篇、2008 年 1 篇、2021 年 1 篇、2022 年 7 篇、2023 年 18 篇、2024 年 14 篇、2025 年 29 篇、2026 年 136 篇。
-- 按主线：基础：LLM Agent 与 Harness 工程 71、Agent + Robot 总览 10、Coding Agent 控机器人 19、OpenClaw / ROS 生态 10、长程任务 11、机器人记忆 21、反思与纠错 15、自进化 21、技能库 16、VLA + RL 20、部署数据回流 8、数字孪生 / Sim2Real 9、世界模型 9、快慢双系统 14、端侧部署 / Edge Agent 11、Harness 15、Runtime 运行时 9、安全 15、标准接口 / Hardware API 5、多机器人协作 13、跨本体 5、群体学习 / Fleet Learning 6、主动感知 6、验证器 / 成功验证 23、Robot RSI：递归自我改进 46。
+- 共 209 条：核心 ⭐ 46、扩展 94、基础 69。
+- 按年份：1965 年 1 篇、2003 年 1 篇、2008 年 1 篇、2021 年 1 篇、2022 年 7 篇、2023 年 18 篇、2024 年 14 篇、2025 年 29 篇、2026 年 137 篇。
+- 按主线：基础：LLM Agent 与 Harness 工程 71、Agent + Robot 总览 10、Coding Agent 控机器人 20、OpenClaw / ROS 生态 10、长程任务 11、机器人记忆 21、反思与纠错 15、自进化 21、技能库 16、VLA + RL 20、部署数据回流 9、数字孪生 / Sim2Real 9、世界模型 9、快慢双系统 15、端侧部署 / Edge Agent 11、Harness 15、Runtime 运行时 9、安全 15、标准接口 / Hardware API 5、多机器人协作 13、跨本体 5、群体学习 / Fleet Learning 6、主动感知 6、验证器 / 成功验证 23、Robot RSI：递归自我改进 47。
 
 ## 复现与贡献
 

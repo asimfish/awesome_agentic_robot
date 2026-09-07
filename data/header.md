@@ -29,7 +29,7 @@
 | **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | {N_FULL_PAGES} 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 {N_NOTES} 份深度解读 |
 | **两份解读报告** | [中文 PDF](docs/reports/report_zh.pdf) · [英文 PDF](docs/reports/report_en.pdf) | 独立成篇的中英文报告（19 / 21 页）：五份材料逐一解读、主线综述、十条洞见、八个开放问题；Markdown 源在 [`docs/reports/`](docs/reports/) |
 | **趋势与洞察** | [`insights/10_trends_insights_zh.md`](insights/10_trends_insights_zh.md) | 一页结论 · 领域时间线 · 六大趋势 · 十条洞察 · 八条可证伪预测（12-24 个月，到期回来核对） |
-| **研究机会清单** | [`insights/11_open_problems_zh.md`](insights/11_open_problems_zh.md) | 18 个待验证问题，按 Part A-G 排列，每条配「缺口 + 为什么重要 + 最小可行实验 + 相关解读」；只做一件事就做第 1 条（分层验证器） |
+| **研究机会清单** | [`insights/11_open_problems_zh.md`](insights/11_open_problems_zh.md) | 19 个待验证问题，按 Part A-G 排列，每条配「缺口 + 为什么重要 + 最小可行实验 + 相关解读」；只做一件事就做第 1 条（分层验证器） |
 | **数字口径账本** | [`insights/12_numbers_ledger_zh.md`](insights/12_numbers_ledger_zh.md) | 30 余个头条数字逐条标注任务集 / 指标类型 / 对照 / 干预与更新 / 证据形式——并排任何两个数字前先查此表 |
 | **总览图** | [图 1 时间线](assets/fig1_timeline.svg) · [图 2 分类树](assets/fig2_taxonomy.svg) | 矢量 SVG，`scripts/make_figures.py` 生成；深色版见 `assets/*_dark.svg` |
 | **逐篇深度解读** | [`notes/`](notes/) | {N_NOTES} 份中文解读（编号 01-43），每份含一句话定位 / 问题 / 方法 / 结果与口径 / 局限 / 关系定位 / 延伸批判；索引见[下文](#深度解读索引) |
@@ -76,6 +76,7 @@
 | 3 | 《Agent + Robot 论文检索地图》（23 条主线） | 用户提供的两页表格 | — | [转写](sources/retrieval_map_transcript.md)、[data/topics.csv](data/topics.csv) | 报告第 4 章（逐线） |
 | 4 | 《LLM Powered Autonomous Agents》(2023)、《Harness Engineering for Self-Improvement》(2026) | Lilian Weng · Lil'Log | [2023](https://lilianweng.github.io/posts/2023-06-23-agent/)、[2026](https://lilianweng.github.io/posts/2026-07-04-harness/) | [2023 存档](sources/lilianweng_2023-06-23_llm_agents.txt)、[2026 存档](sources/lilianweng_2026-07-04_harness_engineering.txt)；两文 60 条参考文献全部收入 T0 | 报告第 5 章 |
 | 5 | 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》及其小红书图文版《GPT-6 Astra 开启 Robot RSI 时代》 | Marilyn Liu · 具身纪元（公众号）；♥VLA和RL的具身未来（小红书） | [公众号](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)、[小红书](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485) | [公众号转写](sources/wechat_embodied_era_robot_rsi_transcript.md)、[小红书转写](sources/xiaohongshu_robot_rsi_howto_transcript.md) | 报告第 6 章、主线 T24 |
+| 6 | 《RoboCurve：GPT-6 Astra 直接控制机器人》（RoboCurve 第三方测试解读） | 罗清雨 · 知乎 | [知乎](https://zhuanlan.zhihu.com/p/208031326825455257) | [转写](sources/zhihu_robocurve_gpt6_astra_transcript.md) | [解读 44](notes/44_gpt6_astra_data_engine_zh.md)：演示定位 + Agent-as-Teleoperator 数据引擎方案 |
 
 ## 深度解读索引
 
