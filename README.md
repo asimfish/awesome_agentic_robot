@@ -2741,23 +2741,23 @@
 
     > 提出 Robot RSI 两条轴线：改进环节（部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究）× 人的参与程度（in-the-loop / on-the-loop / closed loop）；判断前沿 LLM 更可能先成为 Robot RSI 的认知中枢而非末端控制器。
 
-45. **RoboCurve：GPT-6 Astra 直接控制机器人.** 知乎专栏, 2026. [paper](https://zhuanlan.zhihu.com/p/208031326825455257)
-
-    *罗清雨 (知乎)*
-
-    > RoboCurve 第三方测试：GPT-6 Astra 以 EEF waypoint 工具调用控制 YAM 双臂，block→bowl 19/20（2.5 min，2.1K tokens）而精密插入 10%；文章提出“接一个 flow head”的双系统设想。本仓库 notes/44 据此给出 Agent-as-Teleoperator 数据引擎方案。
-
-46. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
+45. **A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference.** Machine Intelligence Research, 2026. [paper](https://arxiv.org/abs/2609.01679)
 
     *Shuaicheng Niu, Guohao Chen, Yaofo Chen, Zhiquan Wen, Jinwu Hu, Zeshuai Deng, Deyu Chen, Shuhai Zhang, Renjie Chen, Zihao Lian, Shoukai Xu, Gang Dai, Yunbei Zhang, Wei Luo, Yifan Zhang, Mingkui Tan, Cheng Deng*
 
     > 统一测试时适应/学习/扩展的反馈驱动 TTI 视角，覆盖机器人。
 
-47. **GPT-6 Astra 开启 Robot RSI 时代! howto 实现.** 小红书, 2026. [paper](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485)
+46. **GPT-6 Astra 开启 Robot RSI 时代! howto 实现.** 小红书, 2026. [paper](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485)
 
     *♥VLA和RL的具身未来 (小红书)*
 
     > 具身纪元 Robot RSI 文章的小红书精简版：把 Robot RSI 压成一段话——执行 → 判断错在哪 → 智能体改代码与策略 → 仿真与真机验证 → 有效经验进入下一轮；结论是 GPT-6 更可能先成为制造下一代机器人能力的引擎。
+
+47. **RoboCurve：GPT-6 Astra 直接控制机器人.** 知乎专栏, 2026. [paper](https://zhuanlan.zhihu.com/p/208031326825455257)
+
+    *罗清雨 (知乎)*
+
+    > RoboCurve 第三方测试：GPT-6 Astra 以 EEF waypoint 工具调用控制 YAM 双臂，block→bowl 19/20（2.5 min，2.1K tokens）而精密插入 10%；文章提出“接一个 flow head”的双系统设想。本仓库 notes/44 据此给出 Agent-as-Teleoperator 数据引擎方案。
 
 ## 统计
 

@@ -1,18 +1,18 @@
 # 44 · RoboCurve 的 GPT-6 Astra 演示与"Agent 当遥操作员"的数据引擎：解读与方案
 
-> 来源：罗清雨《RoboCurve：GPT-6 Astra 直接控制机器人》（知乎，转写见 `sources/zhihu_robocurve_gpt6_astra_transcript.md`）；RoboCurve 第三方测试（经知乎与具身纪元文章转述，原始报告本次检索未取得）
+> 来源：罗清雨《RoboCurve：GPT-6 Astra 直接控制机器人》（知乎，2026-09-07；完整离线版含信息图与演示视频，转写见 `sources/zhihu_robocurve_gpt6_astra_transcript.md`）；RoboCurve 第三方测试（经知乎、演示视频中的 RoboCurve 图表与具身纪元文章转述，原始报告本次检索未取得）
 > 所属主线：T2、T10、T13、T15、T23、T24 · 相关解读：notes/02（CaP-X）、06（ENPIRE）、18（VERITAS）、20（Harness VLA）、26（双系统）、29（Q-Planning）、31（RoboClaw）、33（RoboGene）
 > 本篇同时回答一个实践问题：观察到"用 GPT-6 Astra 采数据集非常强"之后，怎样把它做成一条可靠的数据引擎，而不是一个昂贵的演示。续篇 notes/45 把 Harness VLA 的规则记忆接到这条引擎上。
 
 ## 1. 这个演示到底是什么
 
-RoboCurve 让 GPT-6 Astra 在同一个 agent policy 下直接控制 YAM 双臂：模型看相机与本体状态，输出 Cartesian EEF waypoint / 工具调用，IK 与底层控制器执行。用本仓库的坐标系定位，它**不是 VLA**，而是三样已知东西的组合：
+RoboCurve 让 GPT-6 Astra 在同一个 agent policy 下直接控制 YAM 双臂：模型看三路相机（顶部 + 左右腕部）与本体状态，以 `move_to(...)` 一类工具调用输出 Cartesian EEF waypoint，IK 与底层控制器执行，循环为 Observe → Reason → Move → Replan。文章配的信息图把这一点概括为"VLA 的 LA 被拆到了工具链里"。用本仓库的坐标系定位，它**不是 VLA**，而是三样已知东西的组合：
 
 - CaP-X 分层评测里"高层原语 + 多轮交互"的那一格（notes/02）：动作接口是设计者给的宏（移到某点、开合夹爪），agent 只做选择与参数化。
 - Harness VLA 去掉 VLA_ACT 之后剩下的部分（notes/20）：只有解析原语，没有接触密集的学习原语。
 - ENPIRE 在 RoboCasa365 上混合方案的前一半（notes/06）：代码/agent 负责几何确定的阶段（识别、接近、抓取、移到目标上方），本应交给 VLA 的接触阶段（插入）这里没有人接手。
 
-三组数字（20 次试验/任务）：block → bowl，Fable 5 1/20（8.2 min）、Fable 5.1 8/20（6.8 min）、GPT-6 Astra 19/20（2.5 min），每次运行 2.1K tokens 对比 Fable 5.1 的 12.9K；圆形拼图插入，三者 0% / 10% / 10%。文章总结的失败模式是：identify ✓、approach ✓、grasp ✓、move above target ✓、precise insertion ✗。
+三组数字（20 次试验/任务）：block → bowl，Fable 5 1/20（8.2 min）、Fable 5.1 8/20（6.8 min）、GPT-6 Astra 19/20（2.5 min），每次运行 2.1K tokens 对比 Fable 5.1 的 12.9K；RoboCurve 自己的图表给出每次运行的 API 成本——GPT-6 Astra 约 1 美元，Fable 5.1 约 2.3 美元，Fable 5 约 2.7 美元（"2.4× 成功率、2.3× 更便宜"）；圆形拼图插入，三者 0% / 10% / 10%。文章总结的失败模式是：identify ✓、approach ✓、grasp ✓、move above target ✓、precise insertion ✗。
 
 三个判断：
 
@@ -27,7 +27,7 @@ RoboCurve 让 GPT-6 Astra 在同一个 agent policy 下直接控制 YAM 双臂�
 - **慢而准不要求实时**。采数据的约束是每条示范的成本与质量，不是控制频率。2.5 分钟一条成功示范，配上自动复位与多台并行，吞吐可以接近人类遥操作；而它不需要人。
 - **自带语义标签**。人类遥操作只产生动作，agent 采集同时产生推理轨迹、子目标文本、物体 grounding、失败诊断——正是 Temporal GRPO 需要的阶段标签（notes/32）、PRIMO R1 需要的进度真值（notes/17）、AGM 需要的子目标序列（notes/12）、以及文章说的"Ego 数据最有价值的前半段：任务理解、affordance、技能组合、状态变化预测"。
 - **有先例**。VERITAS 用验证过的自主 rollout 微调策略，50 条自主轨迹的效果与 50 条人类示范相当（70% vs 65%，notes/18）；ManiAgent 用 agent 系统为 VLA 生成训练数据（notes/35）；Guava 把 harness 释放的能力蒸馏进 4B 模型（notes/24）；RoboGene 用 agent 生成多样任务采了 18k 轨迹（notes/33）；ENPIRE 让 agent 直接跑训练（notes/06）。"GPT-6 采数据"是一条已经有多个数据点的路——从慢而强的专家向快而窄的策略蒸馏。
-- **经济学**。2.1K tokens 一次运行的模型成本以分计；瓶颈转移到机器人时间与场景复位——RoboClaw 的 EAP（人工时间 -53.7%，notes/31）与 ENPIRE 的 EN 模块解决的正是这一项。
+- **经济学**。RoboCurve 的图表给出每次运行约 1 美元 API 成本（Fable 5.1 约 2.3 美元）；按 95% 成功率折算，一条成功的 block → bowl 示范约 1.05 美元加 2.6 分钟机器人时间，已经低于人类遥操作的人工成本量级；瓶颈转移到机器人时间与场景复位——RoboClaw 的 EAP（人工时间 -53.7%，notes/31）与 ENPIRE 的 EN 模块解决的正是这一项。
 
 ## 3. 直接拿 agent 采的数据训 flow head 会遇到的六个问题
 
@@ -80,6 +80,6 @@ RoboCurve 让 GPT-6 Astra 在同一个 agent policy 下直接控制 YAM 双臂�
 
 ## 7. 口径与局限
 
-- 全部数字来自知乎文章与具身纪元文章对 RoboCurve 测试的转述，原始报告未取得；插入任务的试验数（具身纪元写 2/20）与知乎的 10% 一致，但样本量小到无法区分模型。
+- 成功率与时间来自知乎文章对 RoboCurve 测试的转述，API 成本来自演示视频中 RoboCurve 的图表（读图值，约 ±0.2 美元），原始报告未取得；插入任务的试验数（具身纪元写 2/20）与知乎的 10% 一致，但样本量小到无法区分模型。
 - "2.1K vs 12.9K tokens"是效率指标，不是能力指标；时间数字包含推理与执行两部分，未拆分。
 - 第 4 节的流水线是设计方案，其中已有实证的环节（自复位、独立验证、失败样本价值、agent 生成任务、agent 数据 ≈ 人类示范）各有单篇论文支撑，把它们串成一条线的完整实验本次检索未见。

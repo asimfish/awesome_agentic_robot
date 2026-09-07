@@ -224,7 +224,7 @@ A = {
 }
 
 MANUAL_META = {
- "zhihu-robocurve-gpt6-astra-2026": {"title": "RoboCurve：GPT-6 Astra 直接控制机器人", "authors": ["罗清雨 (知乎)"], "published": "2026-09", "venue": "知乎专栏", "url": "https://zhuanlan.zhihu.com/p/208031326825455257"},
+ "zhihu-robocurve-gpt6-astra-2026": {"title": "RoboCurve：GPT-6 Astra 直接控制机器人", "authors": ["罗清雨 (知乎)"], "published": "2026-09-07", "venue": "知乎专栏", "url": "https://zhuanlan.zhihu.com/p/208031326825455257"},
  "xhs-robotrsi-howto-2026": {"title": "GPT-6 Astra 开启 Robot RSI 时代! howto 实现", "authors": ["♥VLA和RL的具身未来 (小红书)"], "published": "2026-09-06", "venue": "小红书", "url": "https://www.xiaohongshu.com/explore/6a9e3498000000002802d485"},
  "good-1965": {"title": "Speculations Concerning the First Ultraintelligent Machine", "authors": ["Irving John Good"], "published": "1965", "venue": "Advances in Computers 6:31-88", "url": "https://doi.org/10.1016/S0065-2458(08)60418-0"},
  "yudkowsky-rsi-2008": {"title": "Recursive Self-Improvement", "authors": ["Eliezer Yudkowsky"], "published": "2008-12-01", "venue": "LessWrong", "url": "https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement"},
