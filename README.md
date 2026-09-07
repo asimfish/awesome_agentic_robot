@@ -8,7 +8,17 @@ A curated reading map of **Agentic Robotics** (Agent × Robot): coding agents th
 
 We mark robotics works that are explicitly named in the source materials (the retrieval map, the Xiaohongshu essay, the Code-as-Policy deck and the 具身纪元 Robot RSI essay) with ⭐; the remaining entries were found by an arXiv sweep of 2025-2026 work along each line. Every entry links to the paper and, when available, to code.
 
-*Maintained by [asimfish](https://github.com/asimfish). Built on 2026-09-06 from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu (together with its Xiaohongshu companion note "GPT-6 Astra 开启 Robot RSI 时代"). Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
+*Maintained by [asimfish](https://github.com/asimfish). Repository: <https://github.com/asimfish/awesome_agentic_robot>. Built on 2026-09-06 (last updated 2026-09-07) from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu (together with its Xiaohongshu companion note "GPT-6 Astra 开启 Robot RSI 时代"). Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
+
+## Source materials
+
+| # | Material | Author / venue | Original | Transcript in this repo | Interpreted in |
+|---|---|---|---|---|---|
+| 1 | 《Harness 之后，Agent+Robot 下一站是什么？》(39 image cards) | 具身RL日记, Xiaohongshu | [post](https://www.xiaohongshu.com/explore/6a9d2fb10000000026033df2) | [sources/xiaohongshu_harness_next_transcript.md](sources/xiaohongshu_harness_next_transcript.md) | Report §2 |
+| 2 | Code-as-Policy → self-evolving robot agents deck (25 slides) | provided PPTX | [sources/code_policy_self_evolving_agents.pptx](sources/code_policy_self_evolving_agents.pptx) | [sources/code_policy_deck_extracted.md](sources/code_policy_deck_extracted.md) | Report §3 |
+| 3 | 《Agent + Robot 论文检索地图》(23 topic lines) | provided two-page table | — | [sources/retrieval_map_transcript.md](sources/retrieval_map_transcript.md), [data/topics.csv](data/topics.csv) | Report §4 (line by line) |
+| 4 | "LLM Powered Autonomous Agents" (2023) and "Harness Engineering for Self-Improvement" (2026) | Lilian Weng, Lil'Log | [2023 post](https://lilianweng.github.io/posts/2023-06-23-agent/), [2026 post](https://lilianweng.github.io/posts/2026-07-04-harness/) | [sources/lilianweng_2023-06-23_llm_agents.txt](sources/lilianweng_2023-06-23_llm_agents.txt), [sources/lilianweng_2026-07-04_harness_engineering.txt](sources/lilianweng_2026-07-04_harness_engineering.txt); all 60 references collected under T0 | Report §5 |
+| 5 | 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》 and its Xiaohongshu companion note 《GPT-6 Astra 开启 Robot RSI 时代》 | Marilyn Liu, 具身纪元 (WeChat); ♥VLA和RL的具身未来 (Xiaohongshu) | [WeChat](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA), [Xiaohongshu](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485) | [sources/wechat_embodied_era_robot_rsi_transcript.md](sources/wechat_embodied_era_robot_rsi_transcript.md), [sources/xiaohongshu_robot_rsi_howto_transcript.md](sources/xiaohongshu_robot_rsi_howto_transcript.md) | Report §6; topic line T24 |
 
 ## Deliverables
 
@@ -46,7 +56,7 @@ docs/slides/               index.html (HTML deck) + index.pdf, agentic_robot_sli
 papers/pdf/                original PDFs of the five core papers
 papers/pdf_zh/             Chinese versions rendered by SuperTranslate; *.inspect.json = QA report
 papers/translations/       human translation tables used by scripts/manual_translate.py
-sources/                   transcripts and archives of the four input materials
+sources/                   transcripts and archives of the five input materials (and the Xiaohongshu companion note)
 scripts/                   download_papers.sh, translate_papers.sh, manual_translate.py, export_slides_pdf.py, build_docs.sh
 src/                       fetch_arxiv_meta.py, build_papers_csv.py, generator.py
 ```
