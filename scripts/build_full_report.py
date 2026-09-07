@@ -118,7 +118,7 @@ def build_html():
     body = []
     body.append(f'''<div class="cover"><div class="k">AWESOME AGENTIC ROBOT · 全文报告</div>
 <div class="t1">Agent × Robot：从 Harness 到自进化物理智能体</div>
-<div class="t2">五份源材料的解读 · 25 条主线综述 · 六大趋势与十条洞察 · 19 个研究机会 · 数字口径账本 · {n_notes} 份深度解读合订</div>
+<div class="t2">五份源材料的解读 · 25 条主线综述 · 六大趋势与十条洞察 · 19 个研究机会 · 数字口径账本 · {n_notes} 份深度解读合订 · HARVEST 方案</div>
 <div class="meta">仓库：github.com/asimfish/awesome_agentic_robot<br>维护：asimfish · 生成日期：{today}<br>本报告由 scripts/build_full_report.py 从 insights/、docs/reports/report_zh.md 与 notes/ 自动合订；引用请注明仓库与解读编号。</div></div>''')
     # TOC
     toc = ['<div class="toc"><h1 class="first">目录</h1>']
