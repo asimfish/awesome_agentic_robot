@@ -1,130 +1,143 @@
-# Awesome Agentic Robot: Agent + Robot Papers, Reports and Slides
+# Awesome Agentic Robot：Agent × Robot 论文地图、解读报告与幻灯片
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/papers-208-blue) ![topics](https://img.shields.io/badge/topic%20lines-25-green) ![updated](https://img.shields.io/badge/updated-2026-09-07-lightgrey)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![papers](https://img.shields.io/badge/%E8%AE%BA%E6%96%87-208-blue) ![topics](https://img.shields.io/badge/%E4%B8%BB%E7%BA%BF-25-green) ![updated](https://img.shields.io/badge/%E6%9B%B4%E6%96%B0-2026-09-07-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY--4.0-orange)
 
-A curated reading map of **Agentic Robotics** (Agent × Robot): coding agents that write robot policies, harnesses and runtimes around frozen VLAs, robot memory, reflection and self-evolution, VLA + RL, digital twins, fleet learning, safety and hardware standards. The list follows the 23 topic lines of the "Agent + Robot 论文检索地图" and adds two lines: a foundation line (LLM agents and harness engineering) and a Robot RSI line (recursive self-improvement, from the 具身纪元 essay), so that the software-side theory and the robotics-side practice can be read together.
+一份面向 **Agentic Robotics（Agent × Robot）** 的中文检索地图与解读仓库。主题覆盖：Coding Agent 写机器人策略、围绕冻结 VLA 的 Harness 与 Runtime、机器人记忆、反思与自进化、VLA + RL、数字孪生、群体学习、安全与治理、硬件标准接口，以及把这些串起来的 Robot RSI（递归自我改进）。
 
-一份 **Agentic Robotics（Agent × Robot）** 的检索地图与解读仓库：Coding Agent 写机器人策略、围绕冻结 VLA 的 Harness 与 Runtime、机器人记忆、反思与自进化、VLA + RL、数字孪生、群体学习、安全与硬件标准。按"Agent + Robot 论文检索地图"的 23 条主线组织，并增加两条主线：基础主线（LLM Agent 与 Harness 工程）和 Robot RSI 主线（递归自我改进，来自具身纪元的文章），把软件侧理论和机器人侧实践放在一起读。
+*A Chinese-first reading map of Agentic Robotics with bilingual reports and slides. English report: [docs/reports/report_en.pdf](docs/reports/report_en.pdf).*
 
-We mark robotics works that are explicitly named in the source materials (the retrieval map, the Xiaohongshu essay, the Code-as-Policy deck and the 具身纪元 Robot RSI essay) with ⭐; the remaining entries were found by an arXiv sweep of 2025-2026 work along each line. Every entry links to the paper and, when available, to code.
+**仓库地址** <https://github.com/asimfish/awesome_agentic_robot> · 维护 [asimfish](https://github.com/asimfish) · 首次构建 2026-09-06 · 最近更新 2026-09-07
 
-*Maintained by [asimfish](https://github.com/asimfish). Repository: <https://github.com/asimfish/awesome_agentic_robot>. Built on 2026-09-06 (last updated 2026-09-07) from five inputs: the Xiaohongshu essay "Harness 之后，Agent+Robot 下一站是什么？" by 具身RL日记, the 25-slide deck `code_policy_self_evolving_agents.pptx`, the two-page "Agent + Robot 论文检索地图", Lilian Weng's Lil'Log posts on LLM agents and harness engineering, and the 具身纪元 WeChat essay "GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI" by Marilyn Liu (together with its Xiaohongshu companion note "GPT-6 Astra 开启 Robot RSI 时代"). Contributions welcome via pull request; see [CONTRIBUTING.md](CONTRIBUTING.md).*
+## 目录
 
-## Source materials
+1. [仓库简介](#仓库简介)
+2. [怎么使用](#怎么使用)
+3. [六条核心结论](#六条核心结论)
+4. [源材料](#源材料)
+5. [交付物](#交付物)
+6. [论文清单](#论文清单)（25 条主线，208 篇）
+7. [统计](#统计)
+8. [复现与贡献](#复现与贡献)
+9. [许可与引用](#许可与引用)
 
-| # | Material | Author / venue | Original | Transcript in this repo | Interpreted in |
+## 仓库简介
+
+- **组织方式**：按《Agent + Robot 论文检索地图》的 23 条主线组织，另加两条：T0「基础：LLM Agent 与 Harness 工程」收软件侧理论（含 Lil'Log 两篇文章的全部参考文献），T24「Robot RSI」收递归自我改进这条把各主线串起来的线。一篇论文属于多条主线时会在每条下重复出现。
+- **标注规则**：⭐ 表示被源材料点名的机器人侧核心工作；未标星的条目来自沿每条主线对 2025-2026 年 arXiv 的扩展检索（扩展），或软件侧 Agent / Harness / RSI 的基础工作（基础）。
+- **条目格式**：`**标题.** 发表信息, 年份. [paper] [code]`，下一行为作者，再下一行为一句中文说明（这项工作对该主线的贡献）。
+- **数据口径**：全部条目经 arXiv API 核实标题、作者与日期；非 arXiv 条目（博客、技术报告、标准预览）单独标注来源。报告中严格区分「论文报告的数字」与「我们的判断」。
+
+## 怎么使用
+
+| 你想… | 去这里 |
+|---|---|
+| 五分钟了解结论 | 下面的[六条核心结论](#六条核心结论)，或打开 [HTML 幻灯片](docs/slides/index.html)（19 页，方向键翻页） |
+| 系统阅读 | [中文详细报告 PDF](docs/reports/report_zh.pdf)（19 页）：五份材料逐一解读、25 条主线逐线综述、十条洞见、八个开放问题 |
+| 查某条主线有哪些论文 | 下方[论文清单](#论文清单)，每条主线附检索关键词与代表工作 |
+| 读核心论文的中文版 | [papers/pdf_zh/](papers/pdf_zh/)：SuperTranslate 保版式译本（Code as Policies 正文全译，其余四篇首页），说明见 [papers/README.md](papers/README.md) |
+| 做汇报 | [Beamer 幻灯片 PDF](docs/slides/agentic_robot_slides.pdf)（25 页，含备份页）或 [HTML 幻灯片导出的 PDF](docs/slides/index.pdf) |
+| 增补论文 / 重新生成 | 见[复现与贡献](#复现与贡献) |
+
+## 六条核心结论
+
+1. **优化对象在上移。** 2022 年的 Code as Policies 让 LLM 写一段策略代码；2026 年的 SkillOpt、ASPIRE、RHO、ENPIRE 让 coding agent 优化的对象变成技能文档、策略仓库、训练配方和整套 harness。讲稿的统一公式 $z_{t+1} = A(z_t, \tau_t, r_t, \log_t)$ 抓住了这个变化：被学习的 $z$ 从动作变成了外部可训练产物。
+2. **「冻结 VLA + 外围学习」是 2026 年的默认范式，但有天花板。** Harness VLA、BATON、AGM、HyMeS、Zetta 都不改 VLA 权重；LWD（16 台机器人推到 95%）和 Q-Planning（真机 40%→90%）说明真实反馈最终还要写回权重。
+3. **验证器是新的瓶颈，也是新的 scaling 轴。** PhyAgentOS 的 SessionVerifier、Thea 的 Evaluation as Exit Codes、AGM「物理证据才推进进度指针」、LLM-as-a-Verifier：能不能自进化，取决于能不能可靠判断「这一步成没成」。
+4. **Harness 从软件术语变成了机器人中间件问题。** 机器人的 harness 要同时在控制、计算、通信三处介入，必须知道模型最大延迟、技能 deadline 和断网后的 fallback——这是操作系统与实时系统设计，不是 prompt 工程。
+5. **群体是经验规模化的出路，收益亚线性。** ENPIRE 用 8 个工位把收敛时间压到 1/3-1/2：8 倍机器人换来 2-3 倍加速，多出来的是假设吞吐量，不是 rollout 数量。
+6. **Robot RSI 是把这些串起来的框架。** 具身纪元文章的两条轴线（改进环节：部署时自演化 / 训练时自迭代 / 自我评估 / 自动研究 × 人的参与程度）把 ENPIRE、ASPIRE、RoboHarness、PRIMO R1、VERITAS、Eureka 与软件侧的 Reflexion、STaR、AI Scientist 放进同一张表；前沿 LLM 更可能先成为机器人研发循环的认知中枢，而不是机器人的末端控制器。
+
+一句话：下一阶段不是 Model Scaling，也不只是 Harness Scaling，而是 **System Scaling + Experience Scaling**——先训练出足够好的机器人让它开始工作，再让工作本身继续训练机器人。
+
+## 源材料
+
+| # | 材料 | 作者 / 平台 | 原文 | 仓库内转写 | 解读位置 |
 |---|---|---|---|---|---|
-| 1 | 《Harness 之后，Agent+Robot 下一站是什么？》(39 image cards) | 具身RL日记, Xiaohongshu | [post](https://www.xiaohongshu.com/explore/6a9d2fb10000000026033df2) | [sources/xiaohongshu_harness_next_transcript.md](sources/xiaohongshu_harness_next_transcript.md) | Report §2 |
-| 2 | Code-as-Policy → self-evolving robot agents deck (25 slides) | provided PPTX | [sources/code_policy_self_evolving_agents.pptx](sources/code_policy_self_evolving_agents.pptx) | [sources/code_policy_deck_extracted.md](sources/code_policy_deck_extracted.md) | Report §3 |
-| 3 | 《Agent + Robot 论文检索地图》(23 topic lines) | provided two-page table | — | [sources/retrieval_map_transcript.md](sources/retrieval_map_transcript.md), [data/topics.csv](data/topics.csv) | Report §4 (line by line) |
-| 4 | "LLM Powered Autonomous Agents" (2023) and "Harness Engineering for Self-Improvement" (2026) | Lilian Weng, Lil'Log | [2023 post](https://lilianweng.github.io/posts/2023-06-23-agent/), [2026 post](https://lilianweng.github.io/posts/2026-07-04-harness/) | [sources/lilianweng_2023-06-23_llm_agents.txt](sources/lilianweng_2023-06-23_llm_agents.txt), [sources/lilianweng_2026-07-04_harness_engineering.txt](sources/lilianweng_2026-07-04_harness_engineering.txt); all 60 references collected under T0 | Report §5 |
-| 5 | 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》 and its Xiaohongshu companion note 《GPT-6 Astra 开启 Robot RSI 时代》 | Marilyn Liu, 具身纪元 (WeChat); ♥VLA和RL的具身未来 (Xiaohongshu) | [WeChat](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA), [Xiaohongshu](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485) | [sources/wechat_embodied_era_robot_rsi_transcript.md](sources/wechat_embodied_era_robot_rsi_transcript.md), [sources/xiaohongshu_robot_rsi_howto_transcript.md](sources/xiaohongshu_robot_rsi_howto_transcript.md) | Report §6; topic line T24 |
+| 1 | 《Harness 之后，Agent+Robot 下一站是什么？》（39 张图文卡片） | 具身RL日记 · 小红书 | [原帖](https://www.xiaohongshu.com/explore/6a9d2fb10000000026033df2) | [转写](sources/xiaohongshu_harness_next_transcript.md) | 报告第 2 章 |
+| 2 | Code-as-Policy → 自进化机器人 Agent 讲稿（25 页 PPTX） | 用户提供 | [PPTX](sources/code_policy_self_evolving_agents.pptx) | [文字与备注提取](sources/code_policy_deck_extracted.md) | 报告第 3 章 |
+| 3 | 《Agent + Robot 论文检索地图》（23 条主线） | 用户提供的两页表格 | — | [转写](sources/retrieval_map_transcript.md)、[data/topics.csv](data/topics.csv) | 报告第 4 章（逐线） |
+| 4 | 《LLM Powered Autonomous Agents》(2023)、《Harness Engineering for Self-Improvement》(2026) | Lilian Weng · Lil'Log | [2023](https://lilianweng.github.io/posts/2023-06-23-agent/)、[2026](https://lilianweng.github.io/posts/2026-07-04-harness/) | [2023 存档](sources/lilianweng_2023-06-23_llm_agents.txt)、[2026 存档](sources/lilianweng_2026-07-04_harness_engineering.txt)；两文 60 条参考文献全部收入 T0 | 报告第 5 章 |
+| 5 | 《GPT-6 未必能当好机器人的大脑，却可能帮王兴兴加速 RobotRSI》及其小红书图文版《GPT-6 Astra 开启 Robot RSI 时代》 | Marilyn Liu · 具身纪元（公众号）；♥VLA和RL的具身未来（小红书） | [公众号](https://mp.weixin.qq.com/s/DTj1be0CGhwcvaFh2WI0HA)、[小红书](https://www.xiaohongshu.com/explore/6a9e3498000000002802d485) | [公众号转写](sources/wechat_embodied_era_robot_rsi_transcript.md)、[小红书转写](sources/xiaohongshu_robot_rsi_howto_transcript.md) | 报告第 6 章、主线 T24 |
 
-## Deliverables
+## 交付物
 
-| Item | 中文 | English |
-|---|---|---|
-| Detailed report (Markdown) | [docs/reports/report_zh.md](docs/reports/report_zh.md) | [docs/reports/report_en.md](docs/reports/report_en.md) |
-| Detailed report (PDF) | [docs/reports/report_zh.pdf](docs/reports/report_zh.pdf) | [docs/reports/report_en.pdf](docs/reports/report_en.pdf) |
-| Summary slides, HTML deck (19 slides, bilingual) | [docs/slides/index.html](docs/slides/index.html) — open in a browser, arrow keys to navigate, `P` prints to PDF; a pre-rendered export is [docs/slides/index.pdf](docs/slides/index.pdf) | same file |
-| Summary slides, Beamer PDF (25 pages incl. backup) | [docs/slides/agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) ([source](docs/slides/agentic_robot_slides.tex)) | same file |
-| Source-material transcripts | [sources/](sources/) — Xiaohongshu essay transcript, deck text and notes, retrieval-map transcript, Lil'Log archives (both posts, with their full reference lists collected under the Foundations line), 具身纪元 Robot RSI essay transcript and its Xiaohongshu companion note | |
-| Core papers, original + Chinese (SuperTranslate, layout-preserving) | [papers/pdf_zh/](papers/pdf_zh/) — see [papers/README.md](papers/README.md) for what is translated | originals in [papers/pdf/](papers/pdf/) |
-| Machine-readable data | [data/papers.csv](data/papers.csv), [data/topics.csv](data/topics.csv), [data/paper_meta.json](data/paper_meta.json) | regenerate README with `python3 src/build_papers_csv.py && python3 src/generator.py` |
+| 交付物 | 文件 |
+|---|---|
+| 中文详细解读报告 | [report_zh.md](docs/reports/report_zh.md) · [report_zh.pdf](docs/reports/report_zh.pdf)（19 页） |
+| 英文报告 | [report_en.md](docs/reports/report_en.md) · [report_en.pdf](docs/reports/report_en.pdf)（21 页） |
+| HTML 幻灯片（19 页，中英双语，自包含） | [docs/slides/index.html](docs/slides/index.html)（浏览器打开，方向键翻页，`P` 打印为 PDF）· 预渲染 [index.pdf](docs/slides/index.pdf) |
+| Beamer 幻灯片 PDF（25 页，含参考文献与备份页） | [agentic_robot_slides.pdf](docs/slides/agentic_robot_slides.pdf) · [源码](docs/slides/agentic_robot_slides.tex) |
+| 五篇核心论文原文与中文版 | [papers/pdf/](papers/pdf/) · [papers/pdf_zh/](papers/pdf_zh/) · 说明与翻译方法见 [papers/README.md](papers/README.md) |
+| 源材料转写与存档 | [sources/](sources/) |
+| 机器可读数据 | [data/papers.csv](data/papers.csv)、[data/topics.csv](data/topics.csv)、[data/paper_meta.json](data/paper_meta.json)（arXiv 元数据） |
 
 <p align="center">
-  <a href="docs/slides/index.html"><img src="docs/assets/slides_preview/pdf_01.png" width="49%" alt="HTML deck, title slide"></a>
-  <a href="docs/slides/index.html"><img src="docs/assets/slides_preview/pdf_13.png" width="49%" alt="HTML deck, architecture slide"></a>
+  <a href="docs/slides/index.html"><img src="docs/assets/slides_preview/pdf_01.png" width="49%" alt="HTML 幻灯片：标题页"></a>
+  <a href="docs/slides/index.html"><img src="docs/assets/slides_preview/pdf_13.png" width="49%" alt="HTML 幻灯片：架构页"></a>
 </p>
 
-### Six conclusions of the report (TL;DR)
 
-1. **The optimised object is moving up the stack.** Code as Policies (2022) had an LLM write one policy program; SkillOpt, ASPIRE, RHO and ENPIRE (2026) have a coding agent optimise a skill document, a policy repository, a training recipe or a whole harness: $z_{t+1} = A(z_t, \tau_t, r_t, \log_t)$.
-2. **"Frozen VLA + learning around it" is the 2026 default, with a ceiling.** Harness VLA, BATON, AGM, HyMeS and Zetta never touch VLA weights; LWD and Q-Planning show real-world feedback still has to be written back into weights.
-3. **The verifier is the bottleneck and a new scaling axis.** SessionVerifier, Evaluation as Exit Codes, evidence-gated progress pointers, LLM-as-a-Verifier.
-4. **Harness became a real-time-systems problem.** A robot harness intervenes in control, compute and communication at once and must know latency, deadlines and fallbacks.
-5. **Fleets are the route to experience at scale, with sublinear returns.** 16 robots take one VLA to 95% (LWD); 8 stations give 2-3× speed, not 8× (ENPIRE).
-6. **Robot RSI is the frame that ties it together.** The 具身纪元 essay's two axes (what is improved: deployment-time / training-time / evaluator / research process × how much a human is in the loop) place ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka and DrEureka next to Reflexion, STaR, Let's Verify, Meta-Rewarding and The AI Scientist; the frontier LLM is more likely to become the cognitive hub of the robot research loop than the robot's end-effector controller.
+## 论文清单
 
-## Repository layout
-
-```
-README.md                  this file (generated from data/*.csv by src/generator.py)
-data/                      topics.csv (25 lines), papers.csv (208 entries), paper_meta.json (arXiv metadata), header.md
-docs/reports/              report_zh.md/.pdf, report_en.md/.pdf, LaTeX header + pandoc Lua filter + build scripts
-docs/slides/               index.html (HTML deck) + index.pdf, agentic_robot_slides.tex/.pdf (Beamer)
-papers/pdf/                original PDFs of the five core papers
-papers/pdf_zh/             Chinese versions rendered by SuperTranslate; *.inspect.json = QA report
-papers/translations/       human translation tables used by scripts/manual_translate.py
-sources/                   transcripts and archives of the five input materials (and the Xiaohongshu companion note)
-scripts/                   download_papers.sh, translate_papers.sh, manual_translate.py, export_slides_pdf.py, build_docs.sh
-src/                       fetch_arxiv_meta.py, build_papers_csv.py, generator.py
-```
-
-## How the list is organised
-
-Each topic line below lists the works in chronological order. The first line of an entry is `**Title.** Venue, Year. [paper] [code]`, the second line is the author list, and core entries carry a one-sentence Chinese note on what the work contributes to the line. A paper that belongs to several lines appears under each of them.
-
-
-## [Content](#content)
+共 25 条主线、208 篇论文，按主线分组、组内按时间排序。每条主线先给检索关键词与代表工作，再列条目；⭐ 为源材料点名的核心工作。点击主线标题可回到本目录。
 
 <table>
 <tr>
-	<td>&emsp;<a href=#foundations-llm-agents--harness-engineering>0. Foundations: LLM Agents &amp; Harness Engineering (基础：LLM Agent 与 Harness 工程)</a></td>
-	<td>&emsp;<a href=#agent--robot-overview>1. Agent + Robot Overview (Agent + Robot 总览)</a></td>
+	<td>&emsp;<a href="#基础llm-agent-与-harness-工程--foundations-llm-agents--harness-engineering">0. 基础：LLM Agent 与 Harness 工程（Foundations: LLM Agents &amp; Harness Engineering）</a></td>
+	<td>&emsp;<a href="#agent--robot-总览--agent--robot-overview">1. Agent + Robot 总览（Agent + Robot Overview）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#coding-agents-control-robots>2. Coding Agents Control Robots (Coding Agent 控机器人)</a></td>
-	<td>&emsp;<a href=#openclaw--ros>3. OpenClaw / ROS</a></td>
+	<td>&emsp;<a href="#coding-agent-控机器人--coding-agents-control-robots">2. Coding Agent 控机器人（Coding Agents Control Robots）</a></td>
+	<td>&emsp;<a href="#openclaw--ros-生态--openclaw--ros">3. OpenClaw / ROS 生态（OpenClaw / ROS）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#long-horizon-tasks>4. Long-Horizon Tasks (长程任务)</a></td>
-	<td>&emsp;<a href=#robot-memory>5. Robot Memory</a></td>
+	<td>&emsp;<a href="#长程任务--long-horizon-tasks">4. 长程任务（Long-Horizon Tasks）</a></td>
+	<td>&emsp;<a href="#机器人记忆--robot-memory">5. 机器人记忆（Robot Memory）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#reflection--failure-correction>6. Reflection / Failure Correction (Reflection / 反思纠错)</a></td>
-	<td>&emsp;<a href=#self-evolution>7. Self-Evolution (Self-Evolution / 自进化)</a></td>
+	<td>&emsp;<a href="#反思与纠错--reflection--failure-correction">6. 反思与纠错（Reflection / Failure Correction）</a></td>
+	<td>&emsp;<a href="#自进化--self-evolution">7. 自进化（Self-Evolution）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#skill-library>8. Skill Library (Skill Library / 技能库)</a></td>
-	<td>&emsp;<a href=#vla--rl>9. VLA + RL</a></td>
+	<td>&emsp;<a href="#技能库--skill-library">8. 技能库（Skill Library）</a></td>
+	<td>&emsp;<a href="#vla--rl">9. VLA + RL</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#deployment-data-flywheel>10. Deployment Data Flywheel (部署数据回流)</a></td>
-	<td>&emsp;<a href=#digital-twin--sim2real>11. Digital Twin / Sim2Real (数字孪生 / Sim2Real)</a></td>
+	<td>&emsp;<a href="#部署数据回流--deployment-data-flywheel">10. 部署数据回流（Deployment Data Flywheel）</a></td>
+	<td>&emsp;<a href="#数字孪生--sim2real--digital-twin--sim2real">11. 数字孪生 / Sim2Real（Digital Twin / Sim2Real）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#world-model>12. World Model</a></td>
-	<td>&emsp;<a href=#fast-slow-dual-systems>13. Fast-Slow Dual Systems (快慢双系统)</a></td>
+	<td>&emsp;<a href="#世界模型--world-model">12. 世界模型（World Model）</a></td>
+	<td>&emsp;<a href="#快慢双系统--fast-slow-dual-systems">13. 快慢双系统（Fast-Slow Dual Systems）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#edge-agent--on-device-deployment>14. Edge Agent / On-Device Deployment (Edge Agent / 端侧部署)</a></td>
-	<td>&emsp;<a href=#harness>15. Harness</a></td>
+	<td>&emsp;<a href="#端侧部署--edge-agent--edge-agent--on-device-deployment">14. 端侧部署 / Edge Agent（Edge Agent / On-Device Deployment）</a></td>
+	<td>&emsp;<a href="#harness">15. Harness</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#runtime>16. Runtime</a></td>
-	<td>&emsp;<a href=#safety>17. Safety (安全)</a></td>
+	<td>&emsp;<a href="#runtime-运行时--runtime">16. Runtime 运行时（Runtime）</a></td>
+	<td>&emsp;<a href="#安全--safety">17. 安全（Safety）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#standard-interfaces--hardware-api>18. Standard Interfaces / Hardware API (标准接口 / Hardware API)</a></td>
-	<td>&emsp;<a href=#multi-robot-collaboration>19. Multi-Robot Collaboration (多机器人协作)</a></td>
+	<td>&emsp;<a href="#标准接口--hardware-api--standard-interfaces--hardware-api">18. 标准接口 / Hardware API（Standard Interfaces / Hardware API）</a></td>
+	<td>&emsp;<a href="#多机器人协作--multi-robot-collaboration">19. 多机器人协作（Multi-Robot Collaboration）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#cross-embodiment>20. Cross-Embodiment (跨本体)</a></td>
-	<td>&emsp;<a href=#fleet-learning>21. Fleet Learning (群体学习 / Fleet Learning)</a></td>
+	<td>&emsp;<a href="#跨本体--cross-embodiment">20. 跨本体（Cross-Embodiment）</a></td>
+	<td>&emsp;<a href="#群体学习--fleet-learning--fleet-learning">21. 群体学习 / Fleet Learning（Fleet Learning）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#active-perception>22. Active Perception (主动感知)</a></td>
-	<td>&emsp;<a href=#verifier--success-verification>23. Verifier / Success Verification (Verifier / 成功验证)</a></td>
+	<td>&emsp;<a href="#主动感知--active-perception">22. 主动感知（Active Perception）</a></td>
+	<td>&emsp;<a href="#验证器--成功验证--verifier--success-verification">23. 验证器 / 成功验证（Verifier / Success Verification）</a></td>
 </tr>
 <tr>
-	<td>&emsp;<a href=#robot-rsi-recursive-self-improvement>24. Robot RSI: Recursive Self-Improvement (Robot RSI：递归自我改进)</a></td>
+	<td>&emsp;<a href="#robot-rsi递归自我改进--robot-rsi-recursive-self-improvement">24. Robot RSI：递归自我改进（Robot RSI: Recursive Self-Improvement）</a></td>
 </tr>
 </table>
 
-### [Foundations: LLM Agents & Harness Engineering](#content)
+### [基础：LLM Agent 与 Harness 工程 | Foundations: LLM Agents & Harness Engineering](#论文清单)
 
-*基础：LLM Agent 与 Harness 工程* &nbsp;|&nbsp; keywords: `LLM agent / harness engineering / recursive self-improvement / context engineering / agentic workflow search` &nbsp;|&nbsp; representative: Lil'Log (LLM Powered Autonomous Agents; Harness Engineering for Self-Improvement) and the full reference lists of both posts: ReAct, Reflexion, Toolformer, Generative Agents, ACE, Meta-Harness, Self-Harness, DGM, AlphaEvolve, STOP, AI-R&D benchmarks
+检索关键词：`LLM agent / harness engineering / recursive self-improvement / context engineering / agentic workflow search`　代表工作：Lil'Log (LLM Powered Autonomous Agents; Harness Engineering for Self-Improvement) and the full reference lists of both posts: ReAct, Reflexion, Toolformer, Generative Agents, ACE, Meta-Harness, Self-Harness, DGM, AlphaEvolve, STOP, AI-R&D benchmarks　（71 篇）
 
 1. **Speculations Concerning the First Ultraintelligent Machine.** Advances in Computers 6:31-88, 1965. [paper](https://doi.org/10.1016/S0065-2458(08)60418-0)
 
@@ -552,9 +565,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 把复用单元定义为'过程族'，局部技能聚合为去实例化的全局先验，提交门保证不退化。
 
-### [Agent + Robot Overview](#content)
+### [Agent + Robot 总览 | Agent + Robot Overview](#论文清单)
 
-*Agent + Robot 总览* &nbsp;|&nbsp; keywords: `Agentic Robotics / Embodied Agent / LLM Robot Agent / Physical AI Agent` &nbsp;|&nbsp; representative: AgenticLab, Agentic Robot, ManiAgent
+检索关键词：`Agentic Robotics / Embodied Agent / LLM Robot Agent / Physical AI Agent`　代表工作：AgenticLab, Agentic Robot, ManiAgent　（10 篇）
 
 1. **LLM+P: Empowering Large Language Models with Optimal Planning Proficiency.** arXiv, 2023. [paper](https://arxiv.org/abs/2304.11477)
 
@@ -616,9 +629,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > Embodied AgentOS + 3D 空间记忆 + 具身技能三层真机框架。
 
-### [Coding Agents Control Robots](#content)
+### [Coding Agent 控机器人 | Coding Agents Control Robots](#论文清单)
 
-*Coding Agent 控机器人* &nbsp;|&nbsp; keywords: `Code-as-Policy robotics / robot coding agent / coding agents robot manipulation` &nbsp;|&nbsp; representative: Code as Policies, CaP-X, RHO, ASPIRE
+检索关键词：`Code-as-Policy robotics / robot coding agent / coding agents robot manipulation`　代表工作：Code as Policies, CaP-X, RHO, ASPIRE　（19 篇）
 
 1. **⭐Code as Policies: Language Model Programs for Embodied Control.** arXiv, 2022. [paper](https://arxiv.org/abs/2209.07753) [code](https://code-as-policies.github.io)
 
@@ -734,9 +747,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 物理信息驱动的主动探索层：从本体感知估计质量/刚度，Planner+Prioritizer 决定何时探索。
 
-### [OpenClaw / ROS](#content)
+### [OpenClaw / ROS 生态 | OpenClaw / ROS](#论文清单)
 
-*OpenClaw / ROS* &nbsp;|&nbsp; keywords: `OpenClaw robotics / ROS2 agentic robot / MCP robotics` &nbsp;|&nbsp; representative: ROSClaw, OpenClawPi, AgentRob
+检索关键词：`OpenClaw robotics / ROS2 agentic robot / MCP robotics`　代表工作：ROSClaw, OpenClawPi, AgentRob　（10 篇）
 
 1. **ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications.** arXiv, 2025. [paper](https://arxiv.org/abs/2511.03497) [code](https://github.com/binabik-ai/mcp-rosbags)
 
@@ -798,9 +811,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > Anthropic 2026-08-27 研究预览：让 agent 通过统一规范发现、操作、排障真实设备（显微镜、液体处理器、机械臂），被称为硬件版 MCP。
 
-### [Long-Horizon Tasks](#content)
+### [长程任务 | Long-Horizon Tasks](#论文清单)
 
-*长程任务* &nbsp;|&nbsp; keywords: `long-horizon robotic manipulation agent / hierarchical robot agent` &nbsp;|&nbsp; representative: RoboClaw, H-WM, Agentic Robot, REMAC
+检索关键词：`long-horizon robotic manipulation agent / hierarchical robot agent`　代表工作：RoboClaw, H-WM, Agentic Robot, REMAC　（11 篇）
 
 1. **⭐REMAC: Self-Reflective and Self-Evolving Multi-Agent Collaboration for Long-Horizon Robot Manipulation.** arXiv, 2025. [paper](https://arxiv.org/abs/2503.22122)
 
@@ -868,9 +881,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 以子任务为探索单元（成本 T·K 而非 T^K），转移感知记忆治理 VLA 的进入条件。
 
-### [Robot Memory](#content)
+### [机器人记忆 | Robot Memory](#论文清单)
 
-*Robot Memory* &nbsp;|&nbsp; keywords: `robot memory / memory-augmented VLA / episodic memory robotics / history-dependent manipulation` &nbsp;|&nbsp; representative: RoboMME, PonderPounce, ViReSkill
+检索关键词：`robot memory / memory-augmented VLA / episodic memory robotics / history-dependent manipulation`　代表工作：RoboMME, PonderPounce, ViReSkill　（21 篇）
 
 1. **Generative Agents: Interactive Simulacra of Human Behavior.** UIST 2023, 2023. [paper](https://arxiv.org/abs/2304.03442)
 
@@ -998,9 +1011,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 成就接地记忆：只有物理证据验证子目标后才推进进度指针；可靠记忆取决于状态更新纪律而非容量。
 
-### [Reflection / Failure Correction](#content)
+### [反思与纠错 | Reflection / Failure Correction](#论文清单)
 
-*Reflection / 反思纠错* &nbsp;|&nbsp; keywords: `robot self-reflection / closed-loop replanning robot / failure reflection robotics` &nbsp;|&nbsp; representative: REMAC, AgenticLab, ASPIRE
+检索关键词：`robot self-reflection / closed-loop replanning robot / failure reflection robotics`　代表工作：REMAC, AgenticLab, ASPIRE　（15 篇）
 
 1. **Reflexion: Language Agents with Verbal Reinforcement Learning.** NeurIPS 2023, 2023. [paper](https://arxiv.org/abs/2303.11366) [code](https://github.com/noahshinn/reflexion)
 
@@ -1092,9 +1105,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 三时间尺度闭环 harness：动作频率治理 / rollout 级 critic-recovery 提议 / 验证门控技能更新；LIBERO-Pro 90.8%，推理加速 11.1x。
 
-### [Self-Evolution](#content)
+### [自进化 | Self-Evolution](#论文清单)
 
-*Self-Evolution / 自进化* &nbsp;|&nbsp; keywords: `self-evolving robot agent / lifelong embodied learning / continual robot learning` &nbsp;|&nbsp; representative: Arcadia, ASPIRE, PhyAgentOS, Growing with Your Embodied Agent
+检索关键词：`self-evolving robot agent / lifelong embodied learning / continual robot learning`　代表工作：Arcadia, ASPIRE, PhyAgentOS, Growing with Your Embodied Agent　（21 篇）
 
 1. **⭐Growing with Your Embodied Agent: A Human-in-the-Loop Lifelong Code Generation Framework for Long-Horizon Manipulation Skills.** arXiv, 2025. [paper](https://arxiv.org/abs/2509.18597)
 
@@ -1222,9 +1235,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 把复用单元定义为'过程族'，局部技能聚合为去实例化的全局先验，提交门保证不退化。
 
-### [Skill Library](#content)
+### [技能库 | Skill Library](#论文清单)
 
-*Skill Library / 技能库* &nbsp;|&nbsp; keywords: `robot skill memory / atomic skill library / autonomous skill discovery` &nbsp;|&nbsp; representative: Agentic Skill Discovery, Atomic Skill Library, ViReSkill
+检索关键词：`robot skill memory / atomic skill library / autonomous skill discovery`　代表工作：Agentic Skill Discovery, Atomic Skill Library, ViReSkill　（16 篇）
 
 1. **⭐Agentic Skill Discovery.** arXiv, 2024. [paper](https://arxiv.org/abs/2405.15019) [code](https://agentic-skill-discovery.github.io/)
 
@@ -1322,9 +1335,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 把复用单元定义为'过程族'，局部技能聚合为去实例化的全局先验，提交门保证不退化。
 
-### [VLA + RL](#content)
+### [VLA + RL](#论文清单)
 
-*VLA + RL* &nbsp;|&nbsp; keywords: `VLA reinforcement learning / online RL VLA / offline-to-online robot policy` &nbsp;|&nbsp; representative: TwinRL, LWD, SAC Flow, CaP-RL, TT-VLA
+检索关键词：`VLA reinforcement learning / online RL VLA / offline-to-online robot policy`　代表工作：TwinRL, LWD, SAC Flow, CaP-RL, TT-VLA　（20 篇）
 
 1. **⭐Eureka: Human-Level Reward Design via Coding Large Language Models.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2310.12931) [code](https://eureka-research.github.io)
 
@@ -1446,9 +1459,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 推理延迟下的异步 RL：状态增广恢复近马尔可夫性。
 
-### [Deployment Data Flywheel](#content)
+### [部署数据回流 | Deployment Data Flywheel](#论文清单)
 
-*部署数据回流* &nbsp;|&nbsp; keywords: `learning while deploying robot / fleet robot learning / deployment feedback robot policy` &nbsp;|&nbsp; representative: Learning While Deploying, RoboClaw, Arcadia
+检索关键词：`learning while deploying robot / fleet robot learning / deployment feedback robot policy`　代表工作：Learning While Deploying, RoboClaw, Arcadia　（8 篇）
 
 1. **⭐Arcadia: Toward a Full-Lifecycle Framework for Embodied Lifelong Learning.** arXiv, 2025. [paper](https://arxiv.org/abs/2512.00076)
 
@@ -1498,9 +1511,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 大 BC 策略 + 小 off-policy Q 函数，只微调 Q 即可从部署失败中自我改进。
 
-### [Digital Twin / Sim2Real](#content)
+### [数字孪生 / Sim2Real | Digital Twin / Sim2Real](#论文清单)
 
-*数字孪生 / Sim2Real* &nbsp;|&nbsp; keywords: `digital twin robot RL / sim-from-real robotics / simulation guided robot learning` &nbsp;|&nbsp; representative: TwinRL, Arcadia
+检索关键词：`digital twin robot RL / sim-from-real robotics / simulation guided robot learning`　代表工作：TwinRL, Arcadia　（9 篇）
 
 1. **⭐DrEureka: Language Model Guided Sim-To-Real Transfer.** RSS 2024, 2024. [paper](https://arxiv.org/abs/2406.01967) [code](https://eureka-research.github.io/dr-eureka/)
 
@@ -1556,9 +1569,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > VLM agent 把真实交互录像转为可仿真的 episodic twin。
 
-### [World Model](#content)
+### [世界模型 | World Model](#论文清单)
 
-*World Model* &nbsp;|&nbsp; keywords: `robot world model planning / hierarchical world model robotics` &nbsp;|&nbsp; representative: H-WM
+检索关键词：`robot world model planning / hierarchical world model robotics`　代表工作：H-WM　（9 篇）
 
 1. **⭐H-WM: Robotic Task and Motion Planning Guided by Hierarchical World Model.** arXiv, 2026. [paper](https://arxiv.org/abs/2602.11291)
 
@@ -1614,9 +1627,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 单模型三接口（策略/模拟器/评估器）的自进化世界模型。
 
-### [Fast-Slow Dual Systems](#content)
+### [快慢双系统 | Fast-Slow Dual Systems](#论文清单)
 
-*快慢双系统* &nbsp;|&nbsp; keywords: `dual-system VLA / fast slow robot reasoning / System 1 System 2 robotics` &nbsp;|&nbsp; representative: Fast-in-Slow, OneTwoVLA, StreamVLA, LaST0, RationalVLA
+检索关键词：`dual-system VLA / fast slow robot reasoning / System 1 System 2 robotics`　代表工作：Fast-in-Slow, OneTwoVLA, StreamVLA, LaST0, RationalVLA　（14 篇）
 
 1. **Towards Synergistic, Generalized, and Efficient Dual-System for Robotic Manipulation.** arXiv, 2024. [paper](https://arxiv.org/abs/2410.08001) [code](https://opendrivelab.com/RoboDual/)
 
@@ -1702,9 +1715,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 复用 MLLM 原生因果上下文作为 episode 记忆：Ponder(System2) 异步向 Pounce(System1 VLA) 发送最新认知 token；RoboMME 60.83% vs π0.5 17.93%。
 
-### [Edge Agent / On-Device Deployment](#content)
+### [端侧部署 / Edge Agent | Edge Agent / On-Device Deployment](#论文清单)
 
-*Edge Agent / 端侧部署* &nbsp;|&nbsp; keywords: `edge embodied AI / on-device VLA / robot inference latency` &nbsp;|&nbsp; representative: Fast-in-Slow, Harness Engineering
+检索关键词：`edge embodied AI / on-device VLA / robot inference latency`　代表工作：Fast-in-Slow, Harness Engineering　（11 篇）
 
 1. **⭐Fast-in-Slow: A Dual-System Foundation Model Unifying Fast Manipulation within Slow Reasoning.** arXiv, 2025. [paper](https://arxiv.org/abs/2506.01953) [code](https://fast-in-slow.github.io)
 
@@ -1772,9 +1785,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 推理延迟下的异步 RL：状态增广恢复近马尔可夫性。
 
-### [Harness](#content)
+### [Harness](#论文清单)
 
-*Harness* &nbsp;|&nbsp; keywords: `robot harness / Physical AI harness / VLA harness` &nbsp;|&nbsp; representative: RHO, Harness VLA, Harness Engineering, PhyAgentOS
+检索关键词：`robot harness / Physical AI harness / VLA harness`　代表工作：RHO, Harness VLA, Harness Engineering, PhyAgentOS　（15 篇）
 
 1. **Nautilus: From One Prompt to Plug-and-Play Robot Learning.** arXiv, 2026. [paper](https://arxiv.org/abs/2605.11665)
 
@@ -1866,9 +1879,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 三时间尺度闭环 harness：动作频率治理 / rollout 级 critic-recovery 提议 / 验证门控技能更新；LIBERO-Pro 90.8%，推理加速 11.1x。
 
-### [Runtime](#content)
+### [Runtime 运行时 | Runtime](#论文清单)
 
-*Runtime* &nbsp;|&nbsp; keywords: `embodied agent runtime / robot runtime governance` &nbsp;|&nbsp; representative: PhyAgentOS, Runtime Governance
+检索关键词：`embodied agent runtime / robot runtime governance`　代表工作：PhyAgentOS, Runtime Governance　（9 篇）
 
 1. **⭐Harnessing Embodied Agents: Runtime Governance for Policy-Constrained Execution.** arXiv, 2026. [paper](https://arxiv.org/abs/2604.07833)
 
@@ -1924,9 +1937,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 统一 VLA/WAM 推理运行时，提出 control-time Roofline。
 
-### [Safety](#content)
+### [安全 | Safety](#论文清单)
 
-*安全* &nbsp;|&nbsp; keywords: `embodied agent safety / robot agent safety envelope / policy constrained execution` &nbsp;|&nbsp; representative: ROSClaw, Runtime Governance, RationalVLA
+检索关键词：`embodied agent safety / robot agent safety envelope / policy constrained execution`　代表工作：ROSClaw, Runtime Governance, RationalVLA　（15 篇）
 
 1. **⭐RationalVLA: A Rational Vision-Language-Action Model with Dual System.** arXiv, 2025. [paper](https://arxiv.org/abs/2506.10826) [code](https://irpn-eai.github.io/RationalVLA)
 
@@ -2018,9 +2031,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 潜空间世界模型的接触前执行监控。
 
-### [Standard Interfaces / Hardware API](#content)
+### [标准接口 / Hardware API | Standard Interfaces / Hardware API](#论文清单)
 
-*标准接口 / Hardware API* &nbsp;|&nbsp; keywords: `agent hardware interface / AI hardware standard / MCP physical devices` &nbsp;|&nbsp; representative: MHS, ROSClaw
+检索关键词：`agent hardware interface / AI hardware standard / MCP physical devices`　代表工作：MHS, ROSClaw　（5 篇）
 
 1. **ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications.** arXiv, 2025. [paper](https://arxiv.org/abs/2511.03497) [code](https://github.com/binabik-ai/mcp-rosbags)
 
@@ -2052,9 +2065,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > Anthropic 2026-08-27 研究预览：让 agent 通过统一规范发现、操作、排障真实设备（显微镜、液体处理器、机械臂），被称为硬件版 MCP。
 
-### [Multi-Robot Collaboration](#content)
+### [多机器人协作 | Multi-Robot Collaboration](#论文清单)
 
-*多机器人协作* &nbsp;|&nbsp; keywords: `multi-robot LLM / multi-agent robot collaboration` &nbsp;|&nbsp; representative: RoCo, REMAC, RoboOS
+检索关键词：`multi-robot LLM / multi-agent robot collaboration`　代表工作：RoCo, REMAC, RoboOS　（13 篇）
 
 1. **⭐RoCo: Dialectic Multi-Robot Collaboration with Large Language Models.** arXiv, 2023. [paper](https://arxiv.org/abs/2307.04738) [code](https://project-roco.github.io)
 
@@ -2134,9 +2147,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 多机器人通信攻击可达 97.8% 不安全动作成功率，CPV Gate 缓解。
 
-### [Cross-Embodiment](#content)
+### [跨本体 | Cross-Embodiment](#论文清单)
 
-*跨本体* &nbsp;|&nbsp; keywords: `cross-embodiment robot agent / heterogeneous robot collaboration` &nbsp;|&nbsp; representative: RoboOS, ASPIRE, Harness VLA
+检索关键词：`cross-embodiment robot agent / heterogeneous robot collaboration`　代表工作：RoboOS, ASPIRE, Harness VLA　（5 篇）
 
 1. **⭐RoboOS: A Hierarchical Embodied Framework for Cross-Embodiment and Multi-Agent Collaboration.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.03673) [code](https://github.com/FlagOpen/RoboOS)
 
@@ -2168,9 +2181,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 把冻结 VLA 暴露为可重试的接触原语，与少量解析原语组合；从执行轨迹学习原语的适用范围而非扩张技能库；LIBERO-Pro +38.6pp。
 
-### [Fleet Learning](#content)
+### [群体学习 / Fleet Learning | Fleet Learning](#论文清单)
 
-*群体学习 / Fleet Learning* &nbsp;|&nbsp; keywords: `fleet learning robotics / shared robot experience / collective robot learning` &nbsp;|&nbsp; representative: LWD, RoboOS
+检索关键词：`fleet learning robotics / shared robot experience / collective robot learning`　代表工作：LWD, RoboOS　（6 篇）
 
 1. **⭐RoboOS: A Hierarchical Embodied Framework for Cross-Embodiment and Multi-Agent Collaboration.** arXiv, 2025. [paper](https://arxiv.org/abs/2505.03673) [code](https://github.com/FlagOpen/RoboOS)
 
@@ -2208,9 +2221,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > coding agent 的真机 harness：EN（自动 reset+验证）/ PI / R（多机并行 rollout）/ E（读日志改算法与基础设施），自主训练策略至 99% 成功。
 
-### [Active Perception](#content)
+### [主动感知 | Active Perception](#论文清单)
 
-*主动感知* &nbsp;|&nbsp; keywords: `active perception robot agent / VLM active perception manipulation` &nbsp;|&nbsp; representative: AgenticLab, PhysCaP, ActiveVLA
+检索关键词：`active perception robot agent / VLM active perception manipulation`　代表工作：AgenticLab, PhysCaP, ActiveVLA　（6 篇）
 
 1. **Real2Sim via Active Perception with Behavior Trees Automatically Generated by VLMs.** arXiv, 2026. [paper](https://arxiv.org/abs/2601.08454)
 
@@ -2248,9 +2261,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 物理信息驱动的主动探索层：从本体感知估计质量/刚度，Planner+Prioritizer 决定何时探索。
 
-### [Verifier / Success Verification](#content)
+### [验证器 / 成功验证 | Verifier / Success Verification](#论文清单)
 
-*Verifier / 成功验证* &nbsp;|&nbsp; keywords: `robot verifier agent / semantic verification robotics / precondition postcondition VLM` &nbsp;|&nbsp; representative: Harness VLA, PhyAgentOS, REMAC
+检索关键词：`robot verifier agent / semantic verification robotics / precondition postcondition VLM`　代表工作：Harness VLA, PhyAgentOS, REMAC　（23 篇）
 
 1. **Let's Verify Step by Step.** ICLR 2024, 2023. [paper](https://arxiv.org/abs/2305.20050)
 
@@ -2390,9 +2403,9 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 成就接地记忆：只有物理证据验证子目标后才推进进度指针；可靠记忆取决于状态更新纪律而非容量。
 
-### [Robot RSI: Recursive Self-Improvement](#content)
+### [Robot RSI：递归自我改进 | Robot RSI: Recursive Self-Improvement](#论文清单)
 
-*Robot RSI：递归自我改进* &nbsp;|&nbsp; keywords: `recursive self-improvement robot / deployment-time self-evolution / training-time self-iteration / self-evaluation verifier / auto research robotics / human-on-the-loop` &nbsp;|&nbsp; representative: ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka, DrEureka, Reflexion, STaR, Let's Verify Step by Step, Meta-Rewarding LMs, The AI Scientist
+检索关键词：`recursive self-improvement robot / deployment-time self-evolution / training-time self-iteration / self-evaluation verifier / auto research robotics / human-on-the-loop`　代表工作：ENPIRE, ASPIRE, RoboHarness, RoboClaw, PRIMO R1, VERITAS, Eureka, DrEureka, Reflexion, STaR, Let's Verify Step by Step, Meta-Rewarding LMs, The AI Scientist　（46 篇）
 
 1. **Speculations Concerning the First Ultraintelligent Machine.** Advances in Computers 6:31-88, 1965. [paper](https://doi.org/10.1016/S0065-2458(08)60418-0)
 
@@ -2670,13 +2683,49 @@ Each topic line below lists the works in chronological order. The first line of 
 
     > 具身纪元 Robot RSI 文章的小红书精简版：把 Robot RSI 压成一段话——执行 → 判断错在哪 → 智能体改代码与策略 → 仿真与真机验证 → 有效经验进入下一轮；结论是 GPT-6 更可能先成为制造下一代机器人能力的引擎。
 
-## Statistics
+## 统计
 
-- 208 entries: 46 core (⭐), 94 extended, 68 foundation.
-- By year: 1965: 1, 2003: 1, 2008: 1, 2021: 1, 2022: 7, 2023: 18, 2024: 14, 2025: 29, 2026: 136.
-- Topic coverage: Foundations: LLM Agents & Harness Engineering (71), Agent + Robot Overview (10), Coding Agents Control Robots (19), OpenClaw / ROS (10), Long-Horizon Tasks (11), Robot Memory (21), Reflection / Failure Correction (15), Self-Evolution (21), Skill Library (16), VLA + RL (20), Deployment Data Flywheel (8), Digital Twin / Sim2Real (9), World Model (9), Fast-Slow Dual Systems (14), Edge Agent / On-Device Deployment (11), Harness (15), Runtime (9), Safety (15), Standard Interfaces / Hardware API (5), Multi-Robot Collaboration (13), Cross-Embodiment (5), Fleet Learning (6), Active Perception (6), Verifier / Success Verification (23), Robot RSI: Recursive Self-Improvement (46).
+- 共 208 条：核心 ⭐ 46、扩展 94、基础 68。
+- 按年份：1965 年 1 篇、2003 年 1 篇、2008 年 1 篇、2021 年 1 篇、2022 年 7 篇、2023 年 18 篇、2024 年 14 篇、2025 年 29 篇、2026 年 136 篇。
+- 按主线：基础：LLM Agent 与 Harness 工程 71、Agent + Robot 总览 10、Coding Agent 控机器人 19、OpenClaw / ROS 生态 10、长程任务 11、机器人记忆 21、反思与纠错 15、自进化 21、技能库 16、VLA + RL 20、部署数据回流 8、数字孪生 / Sim2Real 9、世界模型 9、快慢双系统 14、端侧部署 / Edge Agent 11、Harness 15、Runtime 运行时 9、安全 15、标准接口 / Hardware API 5、多机器人协作 13、跨本体 5、群体学习 / Fleet Learning 6、主动感知 6、验证器 / 成功验证 23、Robot RSI：递归自我改进 46。
 
-## Citation
+## 复现与贡献
+
+仓库结构：
+
+```
+README.md              由 data/*.csv + data/header.md + data/footer.md 生成（src/generator.py），请勿手改
+data/                  topics.csv（主线）· papers.csv（论文条目）· paper_meta.json（arXiv 元数据）· header.md / footer.md
+docs/reports/          中英文报告 Markdown 与 PDF，LaTeX 头文件、pandoc Lua 过滤器与构建脚本
+docs/slides/           HTML 幻灯片（index.html / index.pdf）与 Beamer 幻灯片（.tex / .pdf）
+papers/pdf/            五篇核心论文原文；papers/pdf_zh/ 为 SuperTranslate 中文版（*.inspect.json 为 QA 报告）
+papers/translations/   人工译文表，供 scripts/manual_translate.py 使用
+sources/               五份源材料的转写与存档
+scripts/               download_papers.sh · translate_papers.sh · manual_translate.py · export_slides_pdf.py · build_docs.sh
+src/                   fetch_arxiv_meta.py · build_papers_csv.py · generator.py
+```
+
+常用命令：
+
+```bash
+# 增补论文后重新生成 README（条目定义在 src/build_papers_csv.py，主线定义在 data/topics.csv）
+python3 src/fetch_arxiv_meta.py && python3 src/build_papers_csv.py && python3 src/generator.py
+
+# 下载核心论文原文（加 --all 下载 data/papers.csv 中全部 arXiv 论文）
+bash scripts/download_papers.sh
+
+# 用 SuperTranslate 翻译（需要 LLM API key，如 DEEPSEEK_API_KEY）；无 key 时用 scripts/manual_translate.py 的人工译文表通路
+bash scripts/translate_papers.sh
+
+# 重建全部报告与幻灯片 PDF（pandoc + XeLaTeX + Playwright/Chromium）
+bash scripts/build_docs.sh
+```
+
+欢迎通过 Pull Request 增补论文或修正说明，流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## 许可与引用
+
+代码（`src/`、`scripts/`、幻灯片源码）采用 MIT 许可；报告、清单、译文表等内容采用 CC BY 4.0；论文 PDF 与源材料转写的版权归原作者，详见 [LICENSE](LICENSE)。
 
 ```bibtex
 @misc{awesome_agentic_robot_2026,

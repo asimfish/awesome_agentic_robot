@@ -1,6 +1,6 @@
 # Contributing
 
-The README is generated. Please do not edit it by hand; edit the data files and regenerate.
+The README (Chinese-first) is generated from `data/header.md`, `data/topics.csv`, `data/papers.csv` and `data/footer.md`. Please do not edit it by hand; edit the data files and regenerate. Topic headings are rendered as `中文名 | English name`, and the generator computes GitHub-compatible anchors for them (CJK kept, punctuation dropped, spaces to hyphens).
 
 ## Add or fix a paper
 
