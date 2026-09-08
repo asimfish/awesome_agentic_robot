@@ -1,0 +1,42 @@
+{
+ "phases": [
+  {
+   "index": 1,
+   "primitive": "contact_act",
+   "step_range": [
+    0,
+    108
+   ],
+   "status": "ok"
+  },
+  {
+   "index": 2,
+   "primitive": "move_to",
+   "step_range": [
+    108,
+    162
+   ],
+   "status": "ok"
+  },
+  {
+   "index": 3,
+   "primitive": "move_to",
+   "step_range": [
+    162,
+    177
+   ],
+   "status": "ok"
+  },
+  {
+   "index": 4,
+   "primitive": "release",
+   "step_range": [
+    177,
+    204
+   ],
+   "status": "ok"
+  }
+ ],
+ "rule_firings": [],
+ "outcome": "verified_success"
+}

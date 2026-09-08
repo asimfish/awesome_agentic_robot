@@ -8,6 +8,7 @@ data/                  topics.csv（主线）· papers.csv（论文条目）· p
 docs/reports/          中英文报告 Markdown 与 PDF，LaTeX 头文件、pandoc Lua 过滤器与构建脚本
 docs/slides/           HTML 幻灯片（index.html / index.pdf）与 Beamer 幻灯片（.tex / .pdf）
 docs/proposal/         PROPOSAL_agent_data_engine_zh.md：HARVEST 数据引擎方案（合订本 Part H）
+harvest/               方案第一步的最小可运行栈（原语层 / 规则 / 验证器 / 三层记录 / robosuite 后端）及样例 episode
 report/                survey_full_report.html / .pdf：全文合订本（scripts/build_full_report.py 生成）
 insights/              10 趋势与洞察 · 11 研究机会清单 · 12 数字口径账本
 notes/                 43 份深度解读（01-43），按 Part A-G 合订进全文报告

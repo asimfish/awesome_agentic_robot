@@ -1,0 +1,89 @@
+{
+ "task": "block_to_bowl",
+ "backend": "robosuite/BlockToBowl (Panda, OSC_POSE, 20 Hz)",
+ "seed": 1,
+ "agent": "scripted-v0",
+ "outcome": "verified_success",
+ "cost": {
+  "llm_tokens": 0,
+  "usd_estimate": 0.0,
+  "robot_seconds_sim": 10.2,
+  "human_seconds": 0
+ },
+ "localizations": [
+  {
+   "target": "block",
+   "cam": "top",
+   "n_px": 176,
+   "centroid_px": [
+    107.5,
+    102.7
+   ],
+   "bbox_px": [
+    101,
+    93,
+    114,
+    112
+   ],
+   "surface_xyz": [
+    -0.0442,
+    -0.1465,
+    0.8522
+   ],
+   "spread_m": 0.0164
+  },
+  {
+   "target": "bowl",
+   "cam": "top",
+   "n_px": 1553,
+   "centroid_px": [
+    121.0,
+    212.8
+   ],
+   "bbox_px": [
+    98,
+    185,
+    136,
+    247
+   ],
+   "surface_xyz": [
+    -0.0308,
+    0.1181,
+    0.8096
+   ],
+   "spread_m": 0.0434
+  }
+ ],
+ "primitive_vocabulary": [
+  "move_to",
+  "set_gripper",
+  "release",
+  "contact_act",
+  "rotate_wrist"
+ ],
+ "n_control_steps": 204,
+ "n_commands": 4,
+ "sim_time_s": 10.2,
+ "wall_time_s": 15.51,
+ "success": {
+  "verifier": true,
+  "oracle_audit": {
+   "verifier_success": true,
+   "oracle_success": true,
+   "agreement": true,
+   "type": "TP"
+  }
+ },
+ "files": [
+  "agent_log.jsonl",
+  "commands.jsonl",
+  "front.mp4",
+  "labels.json",
+  "rules_snapshot.json",
+  "top.mp4",
+  "trajectory.csv",
+  "trajectory.npz",
+  "verifier.json",
+  "wrist.mp4"
+ ]
+}

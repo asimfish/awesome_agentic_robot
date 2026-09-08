@@ -26,6 +26,7 @@
 | 想要 | 打开 | 说明 |
 |---|---|---|
 | **我们的方案** | [`docs/proposal/PROPOSAL_agent_data_engine_zh.md`](docs/proposal/PROPOSAL_agent_data_engine_zh.md) | HARVEST：以前沿多模态 Agent 为遥操作员、规则记忆为脚手架、独立验证器为准入、三级补齐接触段、训好的动作头交回 Agent 自举的机器人数据引擎——架构、数据格式、12 周计划、五条可证伪假设、基线与指标 |
+| **最小可运行栈** | [`harvest/`](harvest/) | HARVEST 方案第一步的实现：原语层 + 独立验证器 + 三层记录，在 robosuite/MuJoCo 的 Panda 臂上跑通 block → bowl（5 个种子 5 TP）；真机接入只换后端接口，LLM 规划器为 drop-in |
 | **15 分钟拿到全部结论** | [`docs/slides/index.html`](docs/slides/index.html) · [PDF](docs/slides/index.pdf) | 19 页 HTML 幻灯片，浏览器打开 ← → 翻页、F 全屏、P 打印；另有 [Beamer 版 PDF](docs/slides/agentic_robot_slides.pdf)（25 页，含参考文献与备份页） |
 | **系统研读** | [`report/survey_full_report.pdf`](report/survey_full_report.pdf) · [HTML](report/survey_full_report.html) | 148 页全文合订本：封面 + 两级目录 + 两张总览图 + Part 0 执行摘要 + Part 1 五份材料解读与 25 条主线综述 + Part A-G 共 45 份深度解读 |
 | **两份解读报告** | [中文 PDF](docs/reports/report_zh.pdf) · [英文 PDF](docs/reports/report_en.pdf) | 独立成篇的中英文报告（19 / 21 页）：五份材料逐一解读、主线综述、十条洞见、八个开放问题；Markdown 源在 [`docs/reports/`](docs/reports/) |
@@ -2776,6 +2777,7 @@ data/                  topics.csv（主线）· papers.csv（论文条目）· p
 docs/reports/          中英文报告 Markdown 与 PDF，LaTeX 头文件、pandoc Lua 过滤器与构建脚本
 docs/slides/           HTML 幻灯片（index.html / index.pdf）与 Beamer 幻灯片（.tex / .pdf）
 docs/proposal/         PROPOSAL_agent_data_engine_zh.md：HARVEST 数据引擎方案（合订本 Part H）
+harvest/               方案第一步的最小可运行栈（原语层 / 规则 / 验证器 / 三层记录 / robosuite 后端）及样例 episode
 report/                survey_full_report.html / .pdf：全文合订本（scripts/build_full_report.py 生成）
 insights/              10 趋势与洞察 · 11 研究机会清单 · 12 数字口径账本
 notes/                 43 份深度解读（01-43），按 Part A-G 合订进全文报告

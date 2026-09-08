@@ -1,0 +1,3 @@
+data/episodes/*
+!data/episodes/ep_0001/
+__pycache__/

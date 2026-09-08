@@ -5946,7 +5946,10 @@ Collection for Contact-Rich Skill Learning"。主张一句话：N
 <ol type="1">
 <li>用现有机械臂搭 L1 + L4 的最小版本（六个解析原语 + 一个接触原语 +
 多视角点跟踪验证器），一天内跑通 agent 驱动的 block → bowl
-三层记录。</li>
+三层记录。<strong>状态（2026-09-08）：已在仿真（robosuite/MuJoCo
+Panda）上完成，见
+<code>harvest/</code>——本机没有可连接的真机，后端做成了六方法接口，接真机时只换后端；5
+个种子全部由独立验证器判成功且与真值一致。</strong></li>
 <li>采 50 条并请一名操作员采 50 条，两周内出 MVE-1
 的第一版数字——它决定整个方案是否值得继续。</li>
 <li>同时在数字孪生里复现 Harness VLA

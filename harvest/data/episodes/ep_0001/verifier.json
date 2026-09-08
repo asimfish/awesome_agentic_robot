@@ -1,0 +1,81 @@
+{
+ "verdicts": [
+  {
+   "stage": "grasped",
+   "passed": true,
+   "confidence": 1.0,
+   "evidence": {
+    "holding_aperture": true,
+    "block_moved_in_image": true,
+    "block_rose": true,
+    "block_near_eef": true,
+    "moved_px": 34.4,
+    "block_dz_m": 0.106,
+    "eef_dz_over_primitive_m": -0.063,
+    "aperture": 0.657
+   }
+  },
+  {
+   "stage": "above_bowl",
+   "passed": true,
+   "confidence": 1.0,
+   "evidence": {
+    "eef_xy": [
+     -0.033,
+     0.114
+    ],
+    "bowl_xy": [
+     -0.023,
+     0.14
+    ],
+    "half": [
+     0.05,
+     0.05
+    ]
+   }
+  },
+  {
+   "stage": "placed_in_bowl",
+   "passed": true,
+   "confidence": 1.0,
+   "evidence": {
+    "gripper_open": true,
+    "block_visible_top": true,
+    "bowl_visible_top": true,
+    "block_inside_footprint": true,
+    "block_resting_on_floor": true,
+    "block_rise_over_bowl_floor_m": 0.04,
+    "front_view_agrees": true,
+    "block_est": [
+     -0.03,
+     0.123,
+     0.85
+    ],
+    "bowl_est": [
+     -0.022,
+     0.157,
+     0.81
+    ]
+   }
+  }
+ ],
+ "oracle_audit": {
+  "verifier_success": true,
+  "oracle_success": true,
+  "agreement": true,
+  "type": "TP"
+ },
+ "oracle_state": {
+  "block_pos": [
+   -0.030735927959239025,
+   0.11936135139670614,
+   0.8279732755039155
+  ],
+  "bowl_pos": [
+   -0.02115758313314676,
+   0.13638258594969338,
+   0.8224467435038256
+  ],
+  "success": true
+ }
+}

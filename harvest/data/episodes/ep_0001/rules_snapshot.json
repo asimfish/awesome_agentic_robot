@@ -1,0 +1,229 @@
+[
+ {
+  "id": "R01_division_of_labor",
+  "scope": {
+   "primitive": "*",
+   "phase": "*"
+  },
+  "condition": "phase is contact-rich (grasp/insert/place-in-container)",
+  "action": [
+   "use contact_act or hand off to human/RL",
+   "use analytic primitives for grounding/transport/release"
+  ],
+  "label": {
+   "phase_boundary": "contact"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "agent"
+ },
+ {
+  "id": "R02_prestage",
+  "scope": {
+   "primitive": "contact_act",
+   "phase": "pre-contact"
+  },
+  "condition": "before any contact primitive the EEF is above the target within the pre-contact pose distribution",
+  "action": [
+   "move_to(approach point) first"
+  ],
+  "label": {
+   "entry_condition": "pre_contact_pose"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "primitives"
+ },
+ {
+  "id": "R03_empty_grasp",
+  "scope": {
+   "primitive": "contact_act",
+   "phase": "grasp"
+  },
+  "condition": "contact_act returned empty_grasp (fingers closed, nothing between them / object did not move with EEF)",
+  "action": [
+   "mark_segment(negative, empty_grasp)",
+   "relocalize(target)",
+   "restage",
+   "retry within budget"
+  ],
+  "label": {
+   "outcome": "negative",
+   "failure_type": "empty_grasp"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "engine"
+ },
+ {
+  "id": "R04_no_visual_termination",
+  "scope": {
+   "primitive": "*",
+   "phase": "terminal"
+  },
+  "condition": "episode may only be declared successful by the independent verifier (never by the agent, never by the oracle)",
+  "action": [
+   "require verifier.placed_in_bowl.passed"
+  ],
+  "label": {
+   "terminal": "verifier_gated"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "engine"
+ },
+ {
+  "id": "R05_relocalize",
+  "scope": {
+   "primitive": "move_to|contact_act",
+   "phase": "*"
+  },
+  "condition": "target localisation is stale after any robot/object/gripper state change; use median of multiple surface pixels",
+  "action": [
+   "localize(target) immediately before the command"
+  ],
+  "label": {
+   "grounding": "fresh"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "agent"
+ },
+ {
+  "id": "R06_output_discipline",
+  "scope": {
+   "primitive": "*",
+   "phase": "*"
+  },
+  "condition": "always write episode.json + commands.jsonl + trajectory + labels + verifier, for successes and failures alike",
+  "action": [
+   "recorder.finalize() on every exit path"
+  ],
+  "label": {
+   "record": "complete"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "recorder"
+ },
+ {
+  "id": "R07_retry_budget",
+  "scope": {
+   "primitive": "contact_act",
+   "phase": "grasp"
+  },
+  "condition": "the same contact segment has been attempted k times (k=2)",
+  "action": [
+   "hand off to human takeover / residual RL",
+   "mark segment as needs_completion"
+  ],
+  "label": {
+   "handoff": "requested"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "engine"
+ },
+ {
+  "id": "R08_diversity",
+  "scope": {
+   "primitive": "*",
+   "phase": "bootstrapping"
+  },
+  "condition": "fewer than m distinct successful skeletons stored for this task (m=3)",
+  "action": [
+   "vary staging order / pre-contact pose on the next seed"
+  ],
+  "label": {
+   "skeleton": "novel"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "agent"
+ },
+ {
+  "id": "R09_retiming",
+  "scope": {
+   "primitive": "move_to",
+   "phase": "*"
+  },
+  "condition": "motion between waypoints executes with bounded per-step speed and the executed trajectory is what gets recorded",
+  "action": [
+   "bounded-speed servo; record executed trajectory"
+  ],
+  "label": {
+   "trajectory": "executed_not_planned"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "primitives"
+ },
+ {
+  "id": "R10_safety_projection",
+  "scope": {
+   "primitive": "move_to|contact_act",
+   "phase": "*"
+  },
+  "condition": "commanded target outside workspace or per-step motion above limit",
+  "action": [
+   "project target into workspace",
+   "clip step"
+  ],
+  "label": {
+   "safety": "projected"
+  },
+  "status": "candidate",
+  "provenance": "starter set (Harness VLA appendix E + HARVEST proposal), 2026-09-08",
+  "evidence": {
+   "applied": 0,
+   "fixed": 0,
+   "harmed": 0
+  },
+  "enforced_by": "primitives"
+ }
+]
